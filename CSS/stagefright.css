@@ -1,3 +1,66 @@
 * {
+	margin: 0;
+	color: white;
+	font-family: helvetica;
+}
+
+body {
 	background-color: red;
+}
+
+.placeholder {
+	background-color: black;
+	border: 5px solid white;
+}
+
+.spaceHolder {
+	height: 45px;
+	width: 80px;
+}
+
+.flex {
+	
+	height: 100%;
+	width: 100vw;
+}
+
+#mainlogo {
+	width: 15vw; 
+	height: 100%;
+}
+
+#testt {
+	background-image: url("../Images/test.webp");
+	background-size: cover;
+	width: 94vw;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+#left, #right {
+	height: 91vh;
+	width: 3vw;
+	background-color: purple;
+}
+
+nav {
+	height: 9vh;
+	margin: 0;
+	background-color: purple;
+	display: flex;
+	justify-content: space-between;
+}
+
+nav > p {
+	padding: 20px;
+	font-size: 15pt;
+}
+
+@media screen and (max-width: 800px) {
+  body {
+    background-color: lightgreen;
+  }
+  .spaceHolder {
+	  display: none;
+  }
 }

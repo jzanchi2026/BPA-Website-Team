@@ -18,12 +18,6 @@ body {
 	width: 80px;
 }
 
-.flex {
-	
-	height: 100%;
-	width: 100vw;
-}
-
 #mainlogo {
 	width: 15vw; 
 	height: 100%;
@@ -32,21 +26,14 @@ body {
 #testt {
 	background-image: url("../Images/test.webp");
 	background-size: cover;
-	width: 94vw;
-	display: flex;
-	justify-content: space-evenly;
-}
-
-#left, #right {
+	width: 100vw;
 	height: 91vh;
-	width: 3vw;
-	background-color: purple;
 }
 
 nav {
 	height: 9vh;
 	margin: 0;
-	background-color: purple;
+	background-color: #13124f;
 	display: flex;
 	justify-content: space-between;
 }

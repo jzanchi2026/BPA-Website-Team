@@ -1,89 +1,76 @@
 * {
 	margin: 0;
 	color: white;
-	font-family: helvetica;
+	font-family: arial narrow;
 }
 
 body {
-	background-color: #151521;
+	background-color: black;
 }
 
-.placeholder {
-	background-color: black;
-	border: 5px solid white;
-}
 
 .spaceHolder {
 	height: 45px;
 	width: 140px;
 }
 
-#mainlogo {
-	width: 15vw; 
-	height: 100%;
-}
-
-#testt {
-	background-image: url("../Images/test.webp");
-	background-size: cover;
-	width: 100vw;
-	height: 91vh;
-}
-
 nav {
 	height: 9vh;
-	margin: 0;
-	background-color: #151521;
 	display: flex;
 	justify-content: space-between;
+	position: fixed;
+	top: 0;
+	width: 100vw;
+	box-shadow: 0px 0px 40px 40px rgba(0, 0, 0, 0.6);
+    background: rgb(0, 0, 0); /*fallback*/
+    background: rgba(0, 0, 0, 0.6);
+	z-index: 2;
 }
 
 nav > p {
-	padding: 20px;
-	font-size: 15pt;
-}
-
-footer {
-	margin: 10px 4vw;
-	height: 2vh;
-	background-color: #151521;
-}
-
-#contentt {
-	background-color: blue;
-	background-size: cover;
-	background-image: url("../Images/test.jpg");
-	border-radius: 50px;
-	box-shadow: inset 0px 0px 30px 30px rgba(0,0,0,0.9);
-	width: 96vw;
-	height: 84vh;
-	margin: 0px 2vw;
-	display: flex;
-	justify-content: space-evenly;
+	margin: 10px;
+	padding: 10px;
+	font-size: 15pt;	
 }
 
 #bgg {
-	animation: float 1s linear infinite; 
-	margin: 0 140px;
-	height:84vh;
-	z-index: 10;
-} 
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
+	height: 100vh;
+	width: 100vw;
+	background-color: navy;
+	background-image: url("../Images/test.jpg");
+	background-size: cover;
+	background-position: center bottom;
+	position: fixed;
+	top: 0;
+	z-index: 1;
 }
 
-@media screen and (max-width: 975px) {
-  body {
-    background-color: lightgreen;
-  }
-  .spaceHolder {
-	  display: none;
-  }
-  
+#bgg > img {
+	margin: 5vh;
+	height: 90vh;
+	width: 600px;
+}
+
+.container {
+  position: relative;
+}
+
+.hover-image {
+  width: 300px;
+  height: auto;
+  display: block;
+}
+
+.cursor-ring {
+    position: fixed;
+    width: 100px;
+    height: 100px;
+	background-color: #2a8ff5;
+    border: 2px solid #2a8ff5;
+    border-radius: 50%;
+	box-shadow: 0 0 170px 200px #2a8ff5;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 1.5s ease;
+	z-index: 3;
 }

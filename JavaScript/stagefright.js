@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	
     if (gg) {
         gg.addEventListener('mouseenter', () => {
-            cursorRing.style.opacity = 0.2;
+            cursorRing.style.opacity = 0.5;
         });
 
         gg.addEventListener('mouseleave', () => {

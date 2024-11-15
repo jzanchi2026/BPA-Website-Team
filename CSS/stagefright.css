@@ -11,7 +11,7 @@ body {
 
 .spaceHolder {
 	height: 45px;
-	width: 140px;
+	width: 250px;
 }
 
 nav {
@@ -29,8 +29,21 @@ nav {
 
 nav > p {
 	margin: 10px;
-	padding: 10px;
-	font-size: 15pt;	
+	padding: 40px 20px;
+	font-size: 12pt;	
+	font-family: salmapro;
+	font-weight: bold;
+	letter-spacing: 2px;
+	cursor: pointer;
+	text-align: center;
+}
+
+nav > h4 {
+	margin: 10px 0;
+	padding: 40px 0;
+	font-size: 12pt;	
+	cursor: default;
+	font-family: salmapro;
 }
 
 #bgg {
@@ -39,7 +52,7 @@ nav > p {
 	background-color: navy;
 	background-image: url("../Images/test.jpg");
 	background-size: cover;
-	background-position: center bottom;
+	background-position: bottom center;
 	position: fixed;
 	top: 0;
 	z-index: 1;
@@ -65,12 +78,44 @@ nav > p {
     position: fixed;
     width: 100px;
     height: 100px;
-	background-color: #2a8ff5;
-    border: 2px solid #2a8ff5;
+	background-color: #ebe0ce;
+    border: 2px solid #ebe0ce;
     border-radius: 50%;
-	box-shadow: 0 0 170px 200px #2a8ff5;
+	box-shadow: 0 0 200px 250px #ebe0ce;
     pointer-events: none;
     opacity: 0;
     transition: opacity 1.5s ease;
 	z-index: 3;
+}
+
+/* custom fonts */
+@font-face {
+  font-family: superrugged;
+  src: url("Fonts/Super Rugged - All Super Font/super.ttf");
+}
+
+@font-face {
+  font-family: gerhaus;
+  src: url("Fonts/Gerhaus - GGBotNet/gerhausN.ttf");
+}
+
+@font-face {
+  font-family: salmapro;
+  src: url("Fonts/Salma Pro - Alifinart/salmapro.otf");
+}
+
+@media (max-width: 900px) {
+	nav > p {
+			font-size: 2vw;
+			
+	}
+	
+	nav > img {
+		width: 4vw;
+		height: auto;
+	}
+	
+	.spaceHolder {
+		display: none;
+	}
 }

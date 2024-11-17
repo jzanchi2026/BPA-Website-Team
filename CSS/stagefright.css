@@ -2,10 +2,22 @@
 	margin: 0;
 	color: white;
 	font-family: arial narrow;
+	scrollbar-width: thin;
+	scrollbar-color: #282942 #191a29;
+}
+
+::-webkit-scrollbar-track {
+  background: #191a29;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #282942;
+  border-radius: 4px;
 }
 
 body {
 	background-color: black;
+	scroll-behavior: smooth;
 }
 
 
@@ -21,7 +33,7 @@ nav {
 	position: fixed;
 	top: 0;
 	width: 100vw;
-	box-shadow: 0px 0px 40px 40px rgba(0, 0, 0, 0.6);
+	box-shadow: 0px 0px 50px 70px rgba(0, 0, 0, 0.6);
     background: rgb(0, 0, 0); /*fallback*/
     background: rgba(0, 0, 0, 0.6);
 	z-index: 2;
@@ -36,32 +48,64 @@ nav > p {
 	letter-spacing: 2px;
 	cursor: pointer;
 	text-align: center;
+	transition: height 0.3s ease, opacity 0.3s ease, color 0.5s ease, text-shadow 0.5s ease;
 }
 
-nav > h4 {
-	margin: 10px 0;
-	padding: 40px 0;
-	font-size: 12pt;	
-	cursor: default;
-	font-family: salmapro;
+nav > p:hover {
+    color: #4f75ff;
+    text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
+}
+
+#navlogo, nav > img {
+    height: 130px;
+    width: 130px;
+    /*background-image: url("../Images/mainLogoWhite.png");
+    background-size: cover;
+    background-position: center;*/
+    margin: 10px;
+    transition: background 0.8s ease-in-out; 
+}
+
+#navlogo:hover {
+    background-image: url("../Images/blueBlur.png");
+    cursor: url("../Images/cursor.png"), auto;
 }
 
 #bgg {
-	height: 100vh;
-	width: 100vw;
-	background-color: navy;
-	background-image: url("../Images/test.jpg");
-	background-size: cover;
-	background-position: bottom center;
-	position: fixed;
-	top: 0;
-	z-index: 1;
+    height: 100vh;
+    background-color: black;
+    background-image: url("../Images/test.jpg");
+    background-size: cover;
+    background-position: bottom center;
+	background-attachment: fixed;
+    z-index: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #bgg > img {
 	margin: 5vh;
 	height: 90vh;
 	width: 600px;
+}
+
+#bgg > h3 {
+    font-family: apemount;
+    color: white;
+    font-size: 80px;
+    margin: 0;
+	transform: translateY(-20vh);
+	z-index: 100;
+}
+
+#second {
+	box-shadow: 0px 0px 130px 130px rgba(0, 0, 0, 1);
+	background-color: black;
+	color: white;
+	height: 100vh;
 }
 
 .container {
@@ -78,10 +122,10 @@ nav > h4 {
     position: fixed;
     width: 100px;
     height: 100px;
-	background-color: #ebe0ce;
-    border: 2px solid #ebe0ce;
+	background-color: #4f75ff;
+    border: 2px solid #4f75ff;
     border-radius: 50%;
-	box-shadow: 0 0 200px 250px #ebe0ce;
+	box-shadow: 0 0 240px 240px #4f75ff;
     pointer-events: none;
     opacity: 0;
     transition: opacity 1.5s ease;
@@ -104,18 +148,33 @@ nav > h4 {
   src: url("Fonts/Salma Pro - Alifinart/salmapro.otf");
 }
 
-@media (max-width: 900px) {
+@font-face {
+  font-family: apemount;
+  src: url("Fonts/a Ape Mount - wepfont/apemount.otf");
+}
+
+@media (max-width: 850px) {
 	nav > p {
-			font-size: 2vw;
-			
-	}
-	
-	nav > img {
-		width: 4vw;
-		height: auto;
+		font-size: 2.3vw;	
 	}
 	
 	.spaceHolder {
-		display: none;
+		width: 5vw;
 	}
+}
+
+@media (max-width: 600px) {
+	nav > p {
+		font-size: 2.5vw;
+		padding: 30px 0;
+	}
+	
+	.spaceHolder {
+		width: 2vw;
+	}
+	
+	nav {
+		margin: 0 5px;
+	}
+	
 }

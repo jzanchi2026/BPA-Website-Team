@@ -21,7 +21,6 @@ body {
 	
 }
 
-
 .spaceHolder {
 	height: 45px;
 	width: 250px;
@@ -37,7 +36,7 @@ nav {
 	box-shadow: 0px 0px 50px 70px rgba(0, 0, 0, 0.6);
     background: rgb(0, 0, 0); /*fallback*/
     background: rgba(0, 0, 0, 0.6);
-	z-index: 2;
+	z-index: 5;
 }
 
 nav > p {
@@ -61,13 +60,83 @@ nav > p:hover {
     height: 130px;
     width: 130px;
     margin: 10px;
-    transition: background 0.5s ease-in-out; 
+    transition: 0.4s ease-in-out; 
+	border-radius: 50px;
 }
 
 #navlogo:hover {
-    background-image: url("../Images/blueBlur.png");
+	transform: scale(1.05);
 	cursor: pointer;
 }
+
+#hovered.visible {
+    transform: translateY(0);
+}
+
+#hovered.hidden {
+    transform: translateY(100%);
+}
+
+#shown > p {
+    cursor: pointer;
+    display: none;
+}
+
+#shown {
+	color: white;
+	font-size: 70pt;
+	font-family: gerhaus;
+	position: fixed;
+	transition: transform 0.5s ease-out;
+	bottom: 0;
+	width: 100vw;
+	text-align: center;
+}
+
+#hovered {
+	transform: translateY(100%);
+    transition: transform 0.5s ease-out;
+	color: white;
+	font-size: 25pt;
+	font-family: gerhaus;
+	position: fixed;
+	bottom: 0;
+	width: 100vw;
+	padding: 20px;
+	text-align: center;
+}
+
+#pullup {
+    position: fixed;
+    bottom: -200px;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    transition: bottom 0.5 s ease;
+    z-index: 3;
+}
+
+#pullup.visible {
+    bottom: 0;
+}
+
+#pullupbar {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    color: white;
+    text-align: center;
+    font-size: 80px;
+    cursor: pointer;
+    z-index: 4;
+}
+
+
 
 #bgg {
     height: 100vh;
@@ -97,8 +166,11 @@ nav > p:hover {
     color: white;
 	text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
 	z-index: 4;
-	font-family: Times, Times New Roman, serif;
-	opacity: 0.2;
+	cursor: default;
+	font-family: juliett;
+	letter-spacing: 20px;
+	font-weight: bold;
+	opacity: 0.6;
 	white-space: nowrap;
 }
 
@@ -109,16 +181,42 @@ nav > p:hover {
 }
 
 #otherscrolling {
-	bottom: 100px;
+	bottom: 175px;
     right: 5%;
     transform: translateX(60%);
 }
 
 #second {
-	box-shadow: 0px 0px 130px 130px rgba(0, 0, 0, 1);
+	box-shadow: 0px 0px 150px 200px rgba(0, 0, 0, 1);
 	background-color: black;
 	color: white;
 	height: 100vh;
+}
+
+.snaps {
+	background-color: none;
+	min-width: 100px;
+	margin: 10px;
+	padding: 20px;
+}
+
+.snaps > h1 {
+	font-size: 60pt;
+}
+
+#toursnap {
+	width: 50vw;
+	height: 92.5vh;
+	/*background: rgba(59, 59, 59, 0.3);
+	box-shadow: 0px 0px 100px 150px rgba(59, 59, 59, 0.3);*/
+	margin-left: 20px;
+}
+
+#stylesnap, #contactsnap {
+	width: 50vw;
+	height: calc(87vh/2);
+	margin: 10px 20px 10px 0px;
+	margin-right: 20px;
 }
 
 .container {
@@ -157,8 +255,8 @@ nav > p:hover {
 }
 
 @font-face {
-  font-family: apemount;
-  src: url("Fonts/a Ape Mount - wepfont/apemount.otf");
+  font-family: juliett;
+  src: url("Fonts/Juliett - GGBotNet/juliettbold.ttf");
 }
 
 @media (max-width: 850px) {

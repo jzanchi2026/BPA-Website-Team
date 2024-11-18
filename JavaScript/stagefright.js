@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+/*document.addEventListener('DOMContentLoaded', () => {
     let gg = document.getElementById("bgg");
     let cursorRing = document.querySelector('.cursor-ring');
 	
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			}
 		});
     }
-});
+});*/
 
 window.addEventListener('DOMContentLoaded', () => {
     const scrollY = window.scrollY; // Get current scroll position
@@ -51,3 +51,38 @@ window.addEventListener('scroll', () => {
     h3.style.transform = `translateX(${-scrollY}px)`;
     h32.style.transform = `translateX(${scrollY}px)`;
 });
+
+var open1 = false;
+function pullup() {
+    var section = document.getElementById("hovered");
+    var thebar = document.getElementById("shown");
+    if (open1 == false) {
+        section.classList.remove("hidden");
+        section.classList.add("visible");
+        open1 = true;
+    } else {
+        section.classList.remove("visible");
+        section.classList.add("hidden");
+        open1 = false;
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    var section = document.getElementById("pullup");
+    section.classList.add("hidden");
+});
+
+let isOpen = false;
+
+function pullup() {
+    const footer = document.getElementById("pullup");
+    const thebar = document.getElementById("pullupbar");
+
+    if (!isOpen) {
+        footer.classList.add("visible");
+        isOpen = true;
+    } else {
+        footer.classList.remove("visible");
+        isOpen = false;
+    }
+}

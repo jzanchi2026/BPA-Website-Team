@@ -17,7 +17,8 @@
 
 body {
 	background-color: black;
-	scroll-behavior: smooth;
+	overflow-x: hidden;
+	
 }
 
 
@@ -56,19 +57,16 @@ nav > p:hover {
     text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
 }
 
-#navlogo, nav > img {
+#navlogo {
     height: 130px;
     width: 130px;
-    /*background-image: url("../Images/mainLogoWhite.png");
-    background-size: cover;
-    background-position: center;*/
     margin: 10px;
-    transition: background 0.8s ease-in-out; 
+    transition: background 0.5s ease-in-out; 
 }
 
 #navlogo:hover {
     background-image: url("../Images/blueBlur.png");
-    cursor: url("../Images/cursor.png"), auto;
+	cursor: pointer;
 }
 
 #bgg {
@@ -93,12 +91,27 @@ nav > p:hover {
 }
 
 #bgg > h3 {
-    font-family: apemount;
+    position: absolute;
+    transition: transform 0.1s ease-out;
+    font-size: 8vw;
     color: white;
-    font-size: 80px;
-    margin: 0;
-	transform: translateY(-20vh);
-	z-index: 100;
+	text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
+	z-index: 4;
+	font-family: Times, Times New Roman, serif;
+	opacity: 0.2;
+	white-space: nowrap;
+}
+
+#scrollingText {
+	top: 150px;
+    left: 5%;
+    transform: translateX(-60%);
+}
+
+#otherscrolling {
+	bottom: 100px;
+    right: 5%;
+    transform: translateX(60%);
 }
 
 #second {
@@ -122,10 +135,10 @@ nav > p:hover {
     position: fixed;
     width: 100px;
     height: 100px;
-	background-color: #4f75ff;
-    border: 2px solid #4f75ff;
+	background-color: #0062ff;
+    border: 2px solid #0062ff;
     border-radius: 50%;
-	box-shadow: 0 0 240px 240px #4f75ff;
+	box-shadow: 0 0 140px 140px #0062ff;
     pointer-events: none;
     opacity: 0;
     transition: opacity 1.5s ease;
@@ -133,11 +146,6 @@ nav > p:hover {
 }
 
 /* custom fonts */
-@font-face {
-  font-family: superrugged;
-  src: url("Fonts/Super Rugged - All Super Font/super.ttf");
-}
-
 @font-face {
   font-family: gerhaus;
   src: url("Fonts/Gerhaus - GGBotNet/gerhausN.ttf");
@@ -156,6 +164,11 @@ nav > p:hover {
 @media (max-width: 850px) {
 	nav > p {
 		font-size: 2.3vw;	
+	}
+	
+	#bgg > h3 {
+		font-size: 15vw;
+		transform: translateY(30%);
 	}
 	
 	.spaceHolder {

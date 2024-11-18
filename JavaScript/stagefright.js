@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	
     if (gg) {
         gg.addEventListener('mouseenter', () => {
-            cursorRing.style.opacity = 0.3;
+            cursorRing.style.opacity = 0.8;
         });
 
         gg.addEventListener('mouseleave', () => {
@@ -30,4 +30,24 @@ document.addEventListener('DOMContentLoaded', () => {
 			}
 		});
     }
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+    const scrollY = window.scrollY; // Get current scroll position
+    const h3 = document.getElementById('scrollingText');
+    const h32 = document.getElementById('otherscrolling');
+
+    // Initialize position based on scroll position
+    h3.style.transform = `translateX(${-scrollY}px)`;
+    h32.style.transform = `translateX(${scrollY}px)`;
+});
+
+window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    const h3 = document.getElementById('scrollingText');
+    const h32 = document.getElementById('otherscrolling');
+
+    // Update position dynamically on scroll
+    h3.style.transform = `translateX(${-scrollY}px)`;
+    h32.style.transform = `translateX(${scrollY}px)`;
 });

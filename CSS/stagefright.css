@@ -16,9 +16,10 @@
 }
 
 body {
+	transition: opacity 1s ease;
+	opacity: 0;
 	background-color: black;
 	overflow-x: hidden;
-	
 }
 
 .spaceHolder {
@@ -27,34 +28,35 @@ body {
 }
 
 nav {
-	height: 9vh;
-	display: flex;
-	justify-content: space-between;
-	position: fixed;
-	top: 0;
-	width: 100vw;
-	box-shadow: 0px 0px 50px 70px rgba(0, 0, 0, 0.6);
-    background: rgb(0, 0, 0);
+    height: 9vh;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    box-shadow: 0px 0px 50px 70px rgba(0, 0, 0, 0.6);
     background: rgba(0, 0, 0, 0.6);
-	z-index: 5;
+    z-index: 5;
+    transition: 0.4s ease;
 }
 
-nav > p {
-	margin: 10px;
-	padding: 40px 20px;
-	font-size: 12pt;	
-	font-family: salmapro;
-	font-weight: bold;
-	letter-spacing: 2px;
-	cursor: pointer;
-	text-align: center;
-	transition: 0.5s ease;
+nav > p, nav > a {
+    margin: 10px;
+    padding: 40px 20px;
+    font-size: 12pt;
+    font-family: salmapro;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 2px;
+    cursor: pointer;
+    text-align: center;
+    transition: 0.5s ease;
 }
 
-nav > p:hover {
+nav > p:hover, nav > a:hover {
     color: #4f75ff;
     text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
-	transform: scale(1.05);
+    transform: scale(1.05);
 }
 
 #navlogo {
@@ -62,12 +64,12 @@ nav > p:hover {
     width: 130px;
     margin: 10px;
     transition: 0.4s ease-in-out; 
-	border-radius: 50px;
+    border-radius: 50px;
 }
 
 #navlogo:hover {
-	transform: scale(1.05);
-	cursor: pointer;
+    transform: scale(1.05);
+    cursor: pointer;
 }
 
 #pullup {
@@ -131,7 +133,7 @@ nav > p:hover {
 #bgg > h3 {
     position: absolute;
     transition: transform 0.1s ease-out;
-    font-size: 8vw;
+    font-size: 6vw;
     color: white;
 	text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
 	z-index: 4;
@@ -188,6 +190,45 @@ nav > p:hover {
 	margin-right: 20px;
 }
 
+#contentdates {
+	background-color: black;
+	text-align: center;
+	width: 100vw;
+	height: 100vh;
+}
+
+#contentdates > h1 {
+	width: 100vw;
+	transition: 0.5s ease-in-out;
+	padding: 160px 0 120px;
+	font-family: juliett;
+	font-size: 60pt;
+	letter-spacing: 10px;
+	background-image: url("../Images/test.jpg");
+	background-size: cover;
+	background-position: bottom;
+	box-shadow: inset 0px 0px 70px 60px rgb(0, 0, 0);
+	text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
+}
+
+#contentdates > h1:hover {
+	text-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
+}
+
+#bgg2 {
+	margin-top: 30px;
+	width: 100vw;
+	background-color: gray;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+#text {
+	width: 40vw;
+	height: 30vh;
+	background-color: red;
+}
+
 .container {
   position: relative;
 }
@@ -229,7 +270,7 @@ nav > p:hover {
 }
 
 @media (max-width: 850px) {
-	nav > p {
+	nav > a {
 		font-size: 2.3vw;	
 	}
 	
@@ -244,7 +285,7 @@ nav > p:hover {
 }
 
 @media (max-width: 600px) {
-	nav > p {
+	nav > a {
 		font-size: 2.5vw;
 		padding: 30px 0;
 	}

@@ -1,3 +1,33 @@
+// fades the page in and out on load
+window.addEventListener('load', function() {
+    const body = document.querySelector('body');
+    body.style.opacity = 1;
+});
+
+function fadeout(event) {
+    event.preventDefault();
+    const body = document.querySelector('body');
+    body.style.opacity = 0;
+    setTimeout(() => {
+        window.location.href = event.target.href;
+    }, 500);
+}
+
+let isHidden = false;
+
+function toggleNavbar() {
+    const navbar = document.getElementById('navbar');
+
+    isHidden = !isHidden;
+
+    if (isHidden) {
+        navbar.classList.add('hidden');
+    } else {
+        navbar.classList.remove('hidden');
+    }
+}
+
+// gives a ring of color to the cursor in bgg
 /*document.addEventListener('DOMContentLoaded', () => {
     let gg = document.getElementById("bgg");
     let cursorRing = document.querySelector('.cursor-ring');
@@ -32,46 +62,30 @@
     }
 });*/
 
+// dynamically positions the text on bgg, hides pullup
 window.addEventListener('DOMContentLoaded', () => {
-    const scrollY = window.scrollY; // Get current scroll position
+    const scrollY = window.scrollY; 
     const h3 = document.getElementById('scrollingText');
     const h32 = document.getElementById('otherscrolling');
+	
+	var section = document.getElementById("pullup");
+    section.classList.add("hidden");
 
-    // Initialize position based on scroll position
     h3.style.transform = `translateX(${-scrollY}px)`;
     h32.style.transform = `translateX(${scrollY}px)`;
 });
 
+// dynamically scrolls the text on bgg
 window.addEventListener('scroll', () => {
     const scrollY = window.scrollY;
     const h3 = document.getElementById('scrollingText');
     const h32 = document.getElementById('otherscrolling');
-
-    // Update position dynamically on scroll
+	
     h3.style.transform = `translateX(${-scrollY}px)`;
     h32.style.transform = `translateX(${scrollY}px)`;
 });
 
-var open1 = false;
-function pullup() {
-    var section = document.getElementById("hovered");
-    var thebar = document.getElementById("shown");
-    if (open1 == false) {
-        section.classList.remove("hidden");
-        section.classList.add("visible");
-        open1 = true;
-    } else {
-        section.classList.remove("visible");
-        section.classList.add("hidden");
-        open1 = false;
-    }
-}
-
-document.addEventListener("DOMContentLoaded", function() {
-    var section = document.getElementById("pullup");
-    section.classList.add("hidden");
-});
-
+// pulls up the navbar onhover
 let isOpen = false;
 
 function pullup() {

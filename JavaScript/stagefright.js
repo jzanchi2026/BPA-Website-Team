@@ -76,7 +76,6 @@ let isOpen = false;
 
 function pullup() {
     const footer = document.getElementById("pullup");
-    const thebar = document.getElementById("pullupbar");
 
     if (!isOpen) {
         footer.classList.add("visible");

@@ -13,13 +13,11 @@ function fadeout(event) {
     }, 500);
 }
 
+// allows the navbar to be hidden
 let isHidden = false;
-
 function toggleNavbar() {
     const navbar = document.getElementById('navbar');
-
     isHidden = !isHidden;
-
     if (isHidden) {
         navbar.classList.add('hidden');
     } else {
@@ -87,10 +85,8 @@ window.addEventListener('scroll', () => {
 
 // pulls up the navbar onhover
 let isOpen = false;
-
 function pullup() {
     const footer = document.getElementById("pullup");
-
     if (!isOpen) {
         footer.classList.add("visible");
         isOpen = true;

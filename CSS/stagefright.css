@@ -216,17 +216,51 @@ nav > p:hover, nav > a:hover {
 }
 
 #bgg2 {
-	margin-top: 30px;
-	width: 100vw;
-	background-color: gray;
+	margin: 30px 2vw;
+	background-color: red;
+	width: 96vw;
 	display: flex;
-	justify-content: space-evenly;
+	justify-content: space-between;
 }
 
 #text {
-	width: 40vw;
-	height: 30vh;
-	background-color: red;
+	width: 60vw;
+	background-color: pink;
+	padding: 40px;
+}
+
+.tourdate {
+	display: flex;
+	justify-content: space-between;
+	padding: 10px;
+	text-align: left;
+	background-color: black;
+	border-radius: 10px;
+	box-shadow: 0px 0px 40px 10px rgba(255, 255, 255, 0.1);
+	transition: 0.3s ease-in-out;
+}
+
+.tourdate:hover {
+	transform: scale(1.01);
+}
+
+.tourdate > h1 {
+	background-color: #111112;
+	padding: 10px 20px;
+	border-radius: 10px;
+}
+
+.tourdate > div {
+	flex-grow: 1;
+	padding: 5px 10px;
+}
+
+.tourdate > div > a {
+	text-decoration: none;
+	font-size: 20pt;
+	background-color: #111112;
+	padding: 10px 20px;
+	border-radius: 10px;
 }
 
 .container {
@@ -281,6 +315,10 @@ nav > p:hover, nav > a:hover {
 	
 	.spaceHolder {
 		width: 5vw;
+	}
+	
+	#bgg2 {
+		display: block;
 	}
 }
 

@@ -3,6 +3,7 @@
 	color: white;
 	font-family: arial narrow;
 	scrollbar-width: thin;
+	transition: 0.5s ease-in-out;
 	scrollbar-color: #282942 #191a29;
 }
 
@@ -50,7 +51,6 @@ nav > p, nav > a {
     letter-spacing: 2px;
     cursor: pointer;
     text-align: center;
-    transition: 0.5s ease;
 }
 
 nav > p:hover, nav > a:hover {
@@ -109,181 +109,6 @@ nav > p:hover, nav > a:hover {
 	margin: 0 5px;
 }
 
-#bgg {
-    height: 100vh;
-    background-color: black;
-    background-image: url("../Images/test.jpg");
-    background-size: cover;
-    background-position: bottom center;
-	background-attachment: fixed;
-    z-index: 1;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-#bgg > img {
-	margin: 5vh;
-	height: 90vh;
-	width: 600px;
-}
-
-#bgg > h3 {
-    position: absolute;
-    transition: transform 0.1s ease-out;
-    font-size: 6vw;
-    color: white;
-	text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
-	z-index: 4;
-	cursor: default;
-	font-family: juliett;
-	letter-spacing: 20px;
-	font-weight: bold;
-	opacity: 0.6;
-	white-space: nowrap;
-}
-
-#scrollingText {
-	top: 150px;
-    left: 5%;
-    transform: translateX(-60%);
-}
-
-#otherscrolling {
-	bottom: 175px;
-    right: 5%;
-    transform: translateX(60%);
-}
-
-#second {
-	box-shadow: 0px 0px 120px 150px rgba(0, 0, 0, 1);
-	background-color: black;
-	color: white;
-	height: 100vh;
-}
-
-.snaps {
-	background-color: #101010;
-	min-width: 100px;
-	margin: 10px;
-	padding: 20px;
-}
-
-.snaps > h1 {
-	font-size: 60pt;
-}
-
-#toursnap {
-	width: 50vw;
-	height: 92.5vh;
-	/*background: rgba(59, 59, 59, 0.3);
-	box-shadow: 0px 0px 100px 150px rgba(59, 59, 59, 0.3);*/
-	margin-left: 20px;
-}
-
-#stylesnap, #contactsnap {
-	width: 50vw;
-	height: calc(87vh/2);
-	margin: 10px 20px 10px 0px;
-	margin-right: 20px;
-}
-
-#contentdates {
-	background-color: black;
-	text-align: center;
-	width: 100vw;
-	height: 100vh;
-}
-
-#contentdates > h1 {
-	width: 100vw;
-	transition: 0.5s ease-in-out;
-	padding: 160px 0 120px;
-	font-family: juliett;
-	font-size: 60pt;
-	letter-spacing: 10px;
-	background-image: url("../Images/test.jpg");
-	background-size: cover;
-	background-position: bottom;
-	box-shadow: inset 0px 0px 70px 60px rgb(0, 0, 0);
-	text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
-}
-
-#contentdates > h1:hover {
-	text-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
-}
-
-#bgg2 {
-	margin: 30px 2vw;
-	width: 96vw;
-	display: flex;
-	justify-content: space-between;
-}
-
-#text {
-	width: 50vw;
-	padding: 10px;
-	margin: 15px;
-}
-
-.tourdate {
-	display: flex;
-	justify-content: space-between;
-	padding: 10px;
-	text-align: left;
-	background-color: black;
-	border-radius: 10px;
-	box-shadow: 0px 0px 40px 10px rgba(255, 255, 255, 0.1);
-	transition: 0.3s ease-in-out;
-	margin: 10px;
-}
-
-.tourdate:hover {
-	transform: scale(1.01);
-}
-
-.tourdate > h1 {
-	background-color: #111112;
-	padding: 10px 20px;
-	border-radius: 10px;
-}
-
-.location {
-	flex-grow: 2;
-	padding: 5px 30px;
-	width: 500px;
-}
-
-.tourdate > div > button {
-	text-decoration: none;
-	font-size: 15pt;
-	min-width: 5vw;
-	border: none;
-	font-weight: bold;
-	background-color: #0c1114;
-	padding: 5px 20px;
-	margin: 0 10px;
-	cursor: pointer;
-	border-radius: 10px;
-	transition: 0.3s ease-in-out;
-}
-
-.tourdate > div > button:hover {
-	background-color: #10181c;
-}
-
-.container {
-  position: relative;
-}
-
-.hover-image {
-  width: 300px;
-  height: auto;
-  display: block;
-}
-
 .cursor-ring {
     position: fixed;
     width: 100px;
@@ -312,6 +137,11 @@ nav > p:hover, nav > a:hover {
 @font-face {
   font-family: juliett;
   src: url("Fonts/Juliett - GGBotNet/juliettbold.ttf");
+}
+
+@font-face {
+  font-family: radlushmed;
+  src: url("Fonts/Radlush - Arterfak/radlushreg.otf");
 }
 
 @media (max-width: 850px) {

@@ -1,0 +1,74 @@
+#bgg {
+    height: 100vh;
+    background-color: black;
+    background-image: url("../Images/test.jpg");
+    background-size: cover;
+    background-position: center;
+	background-attachment: fixed;
+    z-index: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#bgg > h3 {
+    position: absolute;
+    transition: transform 0.1s ease-out;
+    font-size: 6vw;
+    color: white;
+	text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
+	z-index: 4;
+	cursor: default;
+	font-family: radlushmed;
+	letter-spacing: 20px;
+	font-weight: bold;
+	opacity: 0.3;
+	white-space: nowrap;
+}
+
+#scrollingText {
+	top: 150px;
+    left: 3%;
+    transform: translateX(-60%);
+}
+
+#otherscrolling {
+	bottom: 275px;
+    left: 3%;
+    transform: translateX(60%);
+}
+
+#second {
+	box-shadow: 0px 0px 120px 150px rgba(0, 0, 0, 1);
+	background-color: black;
+	color: white;
+	height: 100vh;
+}
+
+.snaps {
+	background-color: #101010;
+	min-width: 100px;
+	margin: 10px;
+	padding: 20px;
+}
+
+.snaps > h1 {
+	font-size: 60pt;
+}
+
+#toursnap {
+	width: 50vw;
+	height: 92.5vh;
+	/*background: rgba(59, 59, 59, 0.3);
+	box-shadow: 0px 0px 100px 150px rgba(59, 59, 59, 0.3);*/
+	margin-left: 20px;
+}
+
+#stylesnap, #contactsnap {
+	width: 50vw;
+	height: calc(87vh/2);
+	margin: 10px 20px 10px 0px;
+	margin-right: 20px;
+}

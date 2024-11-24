@@ -1,0 +1,111 @@
+#shopping {
+	background-color: black;
+	text-align: center;
+	width: 100vw;
+	padding: 0 0 40px;
+}
+
+#shopping > h1 {
+	width: 100vw;
+	padding: 160px 0 130px;
+	font-family: juliett;
+	font-size: 60pt;
+	letter-spacing: 10px;
+	background-image: url("../Images/smoke.jpg");
+	filter: hue-rotate(-30deg) saturate(40%);
+	background-size: cover;
+	background-position: center;
+	box-shadow: inset 0px 0px 70px 80px rgb(0, 0, 0);
+	text-shadow: 0px 0px 50px rgba(0, 0, 0, 1);
+}
+
+.boxes {
+    width: 91vw;
+    height: 30vh;
+    margin: 20px 4vw;
+}
+
+.boxes > div {
+    background-color: darkblue;
+    margin: 0 5px;
+    display: flex;
+    padding: 15px;
+    justify-content: left;
+    align-items: last baseline;
+    transition: 0.8s ease;
+    flex-grow: 1; 
+    flex-shrink: 1;
+	cursor: pointer;
+	background-size: cover;
+	background-position: center;
+	filter: saturate(20%);
+}
+
+.boxes > div > h2 {
+    font-size: 20pt;
+    color: white;
+	font-family: radlushmed;
+	letter-spacing: 2px;
+}
+
+.boxes > div > h2 {
+    font-size: 20pt;
+    color: white;
+	text-shadow: white 0 0 10px;
+	background: rgba(0, 0, 0, 0.3);
+	padding: 5px;
+}
+
+.short {
+	width: 45%;
+}
+
+.long {
+	width: 55%;
+}
+
+.short:hover {
+    width: 60%; 
+	filter: saturate(100%);
+}
+
+.short:hover ~ .long {
+    width: 40%; 
+}
+
+
+.long:hover {
+    width: 65%;
+	filter: saturate(100%);
+}
+
+.long:hover ~ .short {
+    width: 35%;
+}
+
+#shopcenter {
+	background-color: darkblue;
+	width: 91vw;
+    height: 700px;
+    margin: 40px 4vw;
+	display: flex;
+}
+
+#shopcenter > div {
+	width: 50%;
+	margin: 10px;
+	height: auto;
+	background-color: green;
+}
+
+@media (max-width: 600px) {
+	.boxes, #shopcenter {
+		width: 91vw;	
+		margin: 40px 3vw;
+	}
+	
+	#shopcenter {
+		background-color: green;
+	}
+	
+}

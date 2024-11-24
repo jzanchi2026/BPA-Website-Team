@@ -12,10 +12,17 @@
 	font-size: 60pt;
 	letter-spacing: 10px;
 	background-image: url("../Images/lightts.avif");
+	filter: hue-rotate(30deg) saturate(70%);
 	background-size: cover;
 	background-position: bottom center;
 	box-shadow: inset 0px 0px 70px 60px rgb(0, 0, 0);
 	text-shadow: 0px 0px 50px rgba(0, 0, 0, 1);
+}
+
+#contentdates > h3 {
+	line-height: 30px;
+	width: 96vw;
+	padding: 10px 2vw;
 }
 
 #bgg2 {
@@ -23,11 +30,14 @@
 	width: 100vw;
 	display: flex;
 	justify-content: space-between;
+	background-image: url("../Images/bgtest.jpg");
+	background-size: cover;
+	box-shadow: inset 0px 0px 120px 100px rgb(0, 0, 0);
 }
 
 #text {
 	width: 100vw;
-	padding: 0 8vw;
+	padding: 0 8vw 60px;
 }
 
 #text > h2 {
@@ -45,7 +55,7 @@
 	text-align: left;
 	background-color: black;
 	border-radius: 10px;
-	border: 2px solid gray;
+	box-shadow: 0px 0px 40px 10px rgba(255, 255, 255, 0.2);
 	transition: 0.3s ease-in-out;
 	margin: 20px 0;
 }
@@ -55,7 +65,6 @@
 }
 
 .tourdate > h1, .fixmedia {
-	background-color: #292929;
 	padding: 10px 20px;
 	border-radius: 10px;
 }
@@ -70,6 +79,11 @@
 	width: 500px;
 }
 
+.location > h2 {
+	color: #2f5d61;
+	margin-bottom: 2px;
+}
+
 .buttons {
     text-align: center;
     display: flex;
@@ -77,7 +91,7 @@
     justify-content: flex-end;
 }
 
-.tourdate > div > button {
+.buttons > button {
 	text-decoration: none;
 	font-size: 15pt;
 	min-width: 5vw;
@@ -97,7 +111,7 @@
 
 @media (max-width: 900px) {
 	#text > h2 {
-		font-size: 6rem;
+		font-size: 5rem;
 		padding: 0;
 	}
 	
@@ -128,6 +142,10 @@
 @media (max-width: 600px) {
 	#contentdates > h1 {
 		font-size: 50pt;
+	}
+	
+	#contentdates > h3 {
+		width: 94vw;
 	}
 	
 }

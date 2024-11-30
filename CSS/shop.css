@@ -84,18 +84,103 @@
 }
 
 #shopcenter {
-	background-color: darkblue;
 	width: 91vw;
-    height: 700px;
     margin: 40px 4vw;
 	display: flex;
+	gap: 20px;
 }
 
 #shopcenter > div {
-	width: 50%;
 	margin: 10px;
 	height: auto;
-	background-color: green;
+	
+}
+
+#categories {
+    width: 30%;
+	height: auto;
+    background-color: white;
+    text-align: left;
+    padding: 10px;
+    overflow-y: auto;
+	display: inline-block;
+}
+
+#categories > *, #categories > * > * {
+	font-family: radlushmed;
+	margin: 10px;
+}
+
+#categories hr {
+	border: 2px solid black;
+	margin: 30px 20px;
+}
+
+#categories > h4 {
+	color: black;
+	font-size: 15pt;
+}
+
+#categories li, #categories a {
+	color: black;
+	font-size: 13pt;
+	text-decoration: none;
+	transition: 0.3s ease;
+}
+
+#categories a:hover{
+	color: turquoise;
+}
+
+#categories > h2 {
+	background-color: black;
+	display: inline-block;
+	letter-spacing: 2px;
+	font-size: 17pt;
+	margin-bottom: 30px;
+	padding: 6px 20px;
+}
+
+#selection {
+	background-color: white;
+	padding: 0 15px;
+	position: relative;
+	color: black;
+	font-size: 15pt;
+	border: none;
+	font-family: juliett;
+	width: 350px;
+	height: 50px;
+}
+
+#selection:hover {
+    background-color: #f0f0f0;
+}
+
+
+#selection option {
+    background-color: white;
+    color: black;
+	font-family: juliett;
+}
+
+#selection option:hover {
+    background-color: #e0e0e0;
+}
+
+#combined {
+	width: 70%;
+}
+
+#mainshop {
+	height: auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: left;
+	gap: 40px 20px;
+	margin-top: 10px;
+	padding: 30px;
+	background: rgba(255, 255, 255, 0.1);
 }
 
 @media (max-width: 600px) {

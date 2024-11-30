@@ -10,14 +10,14 @@
 
 	</head>
 	
-	<body>
+	<body onload="loadShop()">
 		<nav id="navbar">
 			<div class="spaceHolder"></div>
 			<a href="index.html" onclick="fadeout(event)">HOME</a>
 			<a href="dates.html" onclick="fadeout(event)">TOUR DATES</a>
 			<img id="navlogo" src="../Images/blueLights.png" height="130">
 			<a href="shop.html" onclick="fadeout(event)">SHOP</a>
-			<a href="index.html" onclick="fadeout(event)">CONTACT US</a>
+			<a href="contact.html" onclick="fadeout(event)">CONTACT US</a>
 			<div class="spaceHolder"></div>
 		</nav>
 		
@@ -54,12 +54,15 @@
 			<div>
 				<p>interactive here</p>
 			</div>
+			
+			<hr style="border: 2px solid white; width: 85%; margin: 100px auto;">
+			
 			<div id="highlights">
 				<div class="boxes" style="display:flex;">
-					<div class="short" style="background-image: url(../Images/clothes.jpg);">
+					<div class="short" style="background-image: url(../Images/lightts.jpg);">
 						<h2>Apparel</h2>
 					</div>
-					<div class="long" style="background-image: url(../Images/vinyls.jpg);">
+					<div class="long" style="background-image: url(../Images/lightts.jpg);">
 						<h2>Media</h2>
 					</div>
 				</div>
@@ -67,21 +70,55 @@
 					<div class="long" style="background-image: url(../Images/lightts.jpg);">
 						<h2>Breaking The Silence</h2>
 					</div>
-					<div class="short" style="background-image: url(../Images/picks.jpg);">
+					<div class="short" style="background-image: url(../Images/lightts.jpg);">
 						<h2>Misc.</h2>
 					</div>
 				</div>
 			</div>
+			
+			<hr style="border: 2px solid white; width: 85%; margin: 100px auto;">
+			
+			
 			<div id="shopcenter">
 				<div id="categories">
-				categories
+					<h2>FILTERS</h2>
+					<h4>COLLECTIONS</h4>
+					<ul style="list-style-type:square;">
+						<li><a href="#">FEATURED</a></li>
+						<li><a href="#">MEDIA</a></li>
+						<li><a href="#">APPAREL</a></li>
+						<li><a href="#">ALBUM MERCH</a></li>	
+					</ul>
+					<hr>
+					<h4>PRICE RANGES</h4>
+					<ul style="list-style-type:square;">
+						<li><a href="#">UNDER $24.99</a></li>
+						<li><a href="#">FROM $25.00 - $49.99</a></li>
+						<li><a href="#">FROM $50.00 - $99.99</a></li>
+						<li><a href="#">ABOVE $100.00</a></li>
+					</ul>
+					<hr>
+					<h4>DEPARTMENT</h4>
+					<ul style="list-style-type:square;">
+						<li><a href="#">MEN</a></li>
+						<li><a href="#">WOMEN</a></li>
+						<li><a href="#">UNISEX</a></li>
+						<li><a href="#">YOUTH</a></li>
+					</ul>
 				</div>
-				<div>
-					<div id="sortby">
-					sorting
+				<div id="combined">
+					<div id="sortby" style="display: flex; margin-bottom: 20px; width: 100%; justify-content: space-between; align-items: last baseline;">
+						<div id="counted"></div>
+						<select name="sortit" id="selection">
+						  <option value="">Sort By</option>
+						  <option value="lowtohigh">Priced Low to High</option>
+						  <option value="hightolow">Priced High to Low</option>
+						  <option value="limiteded">Limited Edition</option>
+						  <option value="Top Sellers">Top Sellers</option>
+						</select>
 					</div>
 					<div id="mainshop">
-					main
+					
 					</div>
 				</div>
 			</div>

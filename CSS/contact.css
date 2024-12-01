@@ -18,3 +18,58 @@
 	box-shadow: inset 0px 0px 70px 60px rgb(0, 0, 0);
 	text-shadow: 0px 0px 50px rgba(0, 0, 0, 1);
 }
+
+#bgg3 {
+	display: flex;
+	gap: 20px;
+	justify-content: center;
+	padding-bottom: 150px;
+}
+
+form {
+  width: 30vw;
+  margin: auto;
+  text-align: left;
+  padding: 10px;
+  font-family: Arial, sans-serif;
+}
+
+form h2 {
+	font-family: radlushmed;
+	letter-spacing: 1px;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+  font-family: radlushmed;
+  font-weight: bold;
+}
+
+input, textarea {
+  padding: 8px;
+  font-family: radlushmed;
+  color: black;
+  width: calc(100% - 16px);
+  margin-top: 5px;
+}
+
+button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  font-family: radlushmed;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+#sms_opt_in {
+	text-align: left;
+	width: 80%;
+	color: red;
+}

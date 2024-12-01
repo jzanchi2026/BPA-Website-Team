@@ -10,7 +10,7 @@
 
 	</head>
 	
-	<body>
+	<body onload="dynamicTyping()">
 		<nav id="navbar">
 			<div class="spaceHolder"></div>
 			<a href="index.html" onclick="fadeout(event)">HOME</a>
@@ -50,6 +50,87 @@
 		</footer>
 		<div id="contactteam">
 			<h1>CONTACT US</h1>
+			<div id="bgg3">
+				<div id="booking">
+					<form action="" method="POST">
+						<h2>Book Stage Fright</h2>
+
+						<label for="event-name">Event Name/Type:</label>
+						<input type="text" id="event-name" name="event-name" placeholder="e.g. Summer Music Festival" required>
+
+						<label for="event-date">Event Date:</label>
+						<input type="date" id="event-date" name="event-date" required>
+
+						<label for="event-time">Event Time:</label>
+						<input type="time" id="event-time" name="event-time" required>
+
+						<label for="venue-location">Venue Location:</label>
+						<input type="text" id="venue-location" name="venue-location" placeholder="e.g. Doe Arena 281 First St. 00040" required>
+
+						<label for="contact-name">Your Name:</label>
+						<input type="text" id="contact-name" name="contact-name" placeholder="e.g. John Doe" required>
+						
+						<label for="contact-name">Your Position:</label>
+						<input type="text" id="user-position" name="user-position" placeholder="e.g. Executive Supervisor" required>
+
+						<label for="contact-email">Email:</label>
+						<input type="email" id="contact-email" name="contact-email" placeholder="e.g. youremail@gmail.com" required>
+
+						<label for="additional-notes">Additional Notes:</label>
+						<textarea id="additional-notes" name="additional-notes" placeholder="e.g. Special conditions, Rain dates, Occasion, etc." rows="4"></textarea>
+						<br>
+						<button type="submit">Send Booking Request</button>
+					</form>
+				</div>
+				<div id="customers">
+					<form action="" method="POST">
+						<h2>Customer Service</h2>
+
+						<label for="name">Your Name:</label>
+						<input type="text" id="name" name="name" placeholder="e.g. John Doe" required>
+
+						<label for="email">Email:</label>
+						<input type="email" id="email" name="email" placeholder="e.g. youremail@gmail.com" required>
+
+						<label for="order-number">Order Number (if applicable):</label>
+						<input type="text" id="order-number" placeholder="e.g. Order 12345678" name="order-number">
+
+						<label for="issue-description">Description of Issue:</label>
+						<textarea id="issue-description" name="issue-description" placeholder="e.g. Issue with product, Issue at event, etc." rows="4" required></textarea>
+						<br>
+						<button type="submit">Submit</button>
+					</form>
+				</div>
+				<div id="signups">
+					<form action="" method="POST">
+						<h2>Join Our Mailing List</h2>
+						
+						<label for="name">Full Name:</label>
+						<input type="text" id="name" name="name" placeholder="e.g. John Doe" required>
+
+						<label for="email">Your Email:</label>
+						<input type="email" id="email" name="email" placeholder="e.g. youremail@gmail.com" required>
+
+						<label for="pnumber">Phone Number:</label>
+						<input type="text" id="pnumber" name="pnumber" placeholder="e.g. (XXX) XXX-XXXX" maxlength="14" required>
+						
+						<div style="display: flex; align-items: center; gap: 0px;">
+							<input style="width: 100px; height: auto;" type="checkbox" id="sms_opt_in" name="sms_opt_in" value="yes">
+							<label style="width: 350%; margin: 20px;" for="sms_opt_in">
+								I would like to receive text messages about updates, promotions, and reminders.
+							</label>
+						</div>
+						
+						<p style="font-size: 0.9em; color: gray;">
+							By opting in, you agree to receive SMS communications. Standard carrier messaging rates may apply. 
+							You can opt-out anytime by replying "STOP" to any text message.
+						</p>
+
+						<br>
+						<button type="submit">Sign Up</button>
+					</form>
+				</div>
+			</div>
 		</div>	
 	</body>
 </html>

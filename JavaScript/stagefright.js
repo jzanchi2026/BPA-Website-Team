@@ -246,3 +246,18 @@ function loadShop() {
 	
 	getTotal();
 }
+
+function dynamicTyping() {
+
+	document.getElementById('pnumber').addEventListener('input', function (e) {
+		let input = e.target.value.replace(/\D/g, ''); // Remove all non-digit characters
+		let formatted = '';
+
+		if (input.length > 0) formatted = '(' + input.substring(0, 3); // Add opening parenthesis
+		if (input.length >= 4) formatted += ') ' + input.substring(3, 6); // Add closing parenthesis and space
+		if (input.length >= 7) formatted += '-' + input.substring(6, 10); // Add dash for the last 4 digits
+
+		e.target.value = formatted;
+	});
+
+}

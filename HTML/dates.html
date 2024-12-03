@@ -12,12 +12,20 @@
 	
 	<body>
 		<nav id="navbar">
-			<div class="spaceHolder"></div>
-			<a href="index.html" onclick="fadeout(event)">HOME</a>
-			<a href="dates.html" onclick="fadeout(event)">TOUR DATES</a>
-			<img id="navlogo" src="../Images/blueLights.png" height="130">
-			<a href="shop.html" onclick="fadeout(event)">SHOP</a>
-			<a href="contact.html" onclick="fadeout(event)">CONTACT US</a>
+			<div class="spaceHolder"></div> 
+			<div style="justify-content: right" class="inside">
+				<a href="index.html" onclick="fadeout(event)">HOME</a>
+				<a href="contact.html" onclick="fadeout(event)">ABOUT US</a>
+				<a href="dates.html" onclick="fadeout(event)">TOUR DATES</a>
+			</div>
+			<img id="navlogo" src="../Images/blueLights.png" alt="Main Stage Fright Logo">
+			<div style="justify-content: left" class="inside">
+				<a href="shop.html" onclick="fadeout(event)">SHOP</a>
+				<a href="contact.html" onclick="fadeout(event)">CONTACT US</a>
+				<a href="contact.html" onclick="fadeout(event)" class="settings-link">
+					<img style="filter: invert(100%);" src="../Images/Socials/setting.png" alt="Settings">
+				</a>
+			</div>
 			<div class="spaceHolder"></div>
 		</nav>
 		

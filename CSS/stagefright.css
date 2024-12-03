@@ -24,14 +24,15 @@ body {
 }
 
 .spaceHolder {
-	height: 45px;
-	width: 250px;
+	height: 9vh;
+	width: 10vw;
 }
 
 nav {
-    height: 9vh;
+    height: 17vh;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+	align-items: center;
     position: fixed;
     top: 0;
     width: 100vw;
@@ -41,19 +42,39 @@ nav {
     transition: 0.4s ease;
 }
 
-nav > p, nav > a {
-    margin: 10px;
-    padding: 40px 20px;
-    font-size: 12pt;
-    font-family: salmapro;
-    text-decoration: none;
-    font-weight: bold;
-    letter-spacing: 2px;
-    cursor: pointer;
-    text-align: center;
+.inside {
+    display: flex;
+    align-items: center;
+	width: 50vw;
+    padding: 0 30px;
 }
 
-nav > p:hover, nav > a:hover {
+.inside a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 20px;
+    height: 40px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 12pt;
+	text-align: center;
+    font-family: salmapro;
+    letter-spacing: 2px;
+}
+
+.settings-link {
+    width: 45px;
+    padding: 0;
+}
+
+.settings-link img {
+    max-height: 70%;
+    max-width: 70%;
+    object-fit: contain;
+}
+nav > div a:hover {
     color: #4286a8;
     text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
     transform: scale(1.05);
@@ -145,8 +166,10 @@ nav > p:hover, nav > a:hover {
 }
 
 @media (max-width: 850px) {
-	nav > a {
-		font-size: 2.3vw;	
+	.inside a {
+		font-size: 2vw;	
+		margin: 0 5px;
+		
 	}
 	
 	#bgg > h3 {
@@ -161,10 +184,14 @@ nav > p:hover, nav > a:hover {
 	#bgg2 {
 		display: block;
 	}
+	
+	.inside { 
+		padding: 0;
+	}
 }
 
 @media (max-width: 600px) {
-	nav > a {
+	.inside a {
 		font-size: 2.5vw;
 		padding: 30px 0;
 	}

@@ -1,0 +1,20 @@
+#aboutuss {
+	background-color: black;
+	text-align: center;
+	width: 100vw;
+	height: 100vh;
+}
+
+#aboutuss > h1 {
+	width: 100vw;
+	padding: 160px 0 130px;
+	font-family: juliett;
+	font-size: 60pt;
+	letter-spacing: 10px;
+	background-image: url("../Images/crowdd.jpg");
+	filter: hue-rotate(180deg) saturate(60%);
+	background-size: cover;
+	background-position: center;
+	box-shadow: inset 0px 0px 70px 60px rgb(0, 0, 0);
+	text-shadow: 0px 0px 50px rgba(0, 0, 0, 1);
+}

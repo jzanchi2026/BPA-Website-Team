@@ -22,9 +22,9 @@
 			<div style="justify-content: left; " class="inside">
 				<a href="shop.html" onclick="fadeout(event)">SHOP</a>
 				<a href="contact.html" onclick="fadeout(event)">CONTACT US</a>
-				<a href="contact.html" onclick="fadeout(event)" class="settings-link">
+				<div onclick="goSettings()" class="settings-link">
 					<img style="filter: invert(100%);" src="../Images/Socials/setting.png" alt="Settings">
-				</a>
+				</div>
 			</div>
 			<div class="spaceHolder"></div>
 		</nav>
@@ -57,28 +57,68 @@
 			</div>
 		</footer>
 		
-		<!-- make bg fade into different pics?-->
-		<div id="bgg">
-			<!--<h3 id="scrollingText">NATIONWIDE TOUR</h3>
-			<h3 id="otherscrolling">JUNE 2025</h3>-->
-		</div>
-		
-		<div id="second">
-			<div style="display:flex;">
-				<div class="snaps" id="toursnap">
-					<h1>FIND A TOUR</h1>
+		<div id="settingpanel" class="setting-panel">
+			<h2>Accessibility Settings</h2>
+
+			<div class="setting-option">
+				<label for="fontsizeSlider">Larger Fonts</label>
+				<label class="switch">
+					<input type="checkbox" id="fontsizeSlider" class="slider-toggle">
+					<span class="slider"></span>
+				</label>
+			</div>
+
+			<div class="setting-option">
+				<label for="themeSlider">Enable Contrast</label>
+				<label class="switch">
+					<input type="checkbox" id="themeSlider" class="slider-toggle">
+					<span class="slider"></span>
+				</label>
+			</div>
+
+			<div class="setting-option">
+				<label for="language">Select Language:</label>
+				<div>
+					<input type="radio" id="language-en" name="language" value="en" checked>
+					<label for="language-en">English</label>
 				</div>
 				<div>
-					<div class="snaps" id="stylesnap">
-						<h1>SUPPORT US</h1>
+					<input type="radio" id="language-es" name="language" value="es">
+					<label for="language-es">Spanish</label>
+				</div>
+				<div>
+					<input type="radio" id="language-fr" name="language" value="fr">
+					<label for="language-fr">French</label>
+				</div>
+			</div>
+
+			<button id="applySettings" onclick="goSettings()">Apply Settings</button>
+		</div>
+		
+		<div>
+		
+			<div id="bgg">
+				<!--<h3 id="scrollingText">NATIONWIDE TOUR</h3>
+				<h3 id="otherscrolling">JUNE 2025</h3>-->
+			</div>
+			
+			<div id="second">
+				<div style="display:flex;">
+					<div class="snaps" id="toursnap">
+						<h1>FIND A TOUR</h1>
 					</div>
-					<div class="snaps" id="contactsnap">
-						<h1>SIGN UP</h1>
+					<div>
+						<div class="snaps" id="stylesnap">
+							<h1>SUPPORT US</h1>
+						</div>
+						<div class="snaps" id="contactsnap">
+							<h1>SIGN UP</h1>
+						</div>
 					</div>
 				</div>
 			</div>
+			
 		</div>
-		
 		<div class="cursor-ring"></div>
 		
 	</body>

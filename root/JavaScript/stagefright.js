@@ -25,6 +25,23 @@ function toggleNavbar() {
     }
 }
 
+let boxHidden = true;
+function goSettings() {
+	let box = document.getElementById("settingpanel");
+	if (boxHidden) {
+        box.style.display = "flex";
+		setTimeout(() => {
+			box.style.transform = "translateX(0%)";
+		}, 100);
+    } else {
+		box.style.transform = "translateX(-110%)";
+        setTimeout(() => {
+			box.style.display = "none";
+		}, 500);
+    }
+	boxHidden = !boxHidden;
+}
+
 // gives a ring of color to the cursor in bgg
 /*document.addEventListener('DOMContentLoaded', () => {
     let gg = document.getElementById("bgg");
@@ -98,36 +115,35 @@ function pullup() {
     }
 }
 
+//defines products
+const products1 = [
+	{ name: "Product 1", price: "$10.00", sellingvalue: "1", limited: "false", image: "https://via.placeholder.com/150", link: "#" },
+	{ name: "Product 2", price: "$20.00", sellingvalue: "2", limited: "false", image: "https://via.placeholder.com/150", link: "#" },
+	{ name: "Product 3", price: "$30.00", sellingvalue: "20", limited: "true", image: "https://via.placeholder.com/150", link: "#" },
+	{ name: "Product 4", price: "$40.00", sellingvalue: "3", limited: "false", image: "https://via.placeholder.com/150", link: "#" },
+	{ name: "Product 5", price: "$40.00", sellingvalue: "3", limited: "false", image: "https://via.placeholder.com/150", link: "#" },
+	{ name: "Product 6", price: "$40.00", sellingvalue: "5", limited: "false", image: "https://via.placeholder.com/150", link: "#" },
+	{ name: "Product 7", price: "$40.00", sellingvalue: "20", limited: "true", image: "https://via.placeholder.com/150", link: "#" },
+	{ name: "Product 8", price: "$40.00", sellingvalue: "19", limited: "false", image: "https://via.placeholder.com/150", link: "#" },
+	{ name: "Product 9", price: "$40.00", sellingvalue: "2", limited: "false", image: "https://via.placeholder.com/150", link: "#" },
+	{ name: "Product 10", price: "$40.00", sellingvalue: "6", limited: "false", image: "https://via.placeholder.com/150", link: "#" },
+];
+
+//test products
+const products = Array.from({ length: 183 }, (_, index) => ({
+    name: `Product ${index + 1}`,
+    price: `$${(Math.random() * (200 - 10) + 10).toFixed(2)}`, // Random price between $10.00 and $200.00
+    sellingvalue: Math.floor(Math.random() * 100) + 1, // Random integer between 1 and 100
+    limited: Math.random() < 0.5, // Random true or false (50% chance each)
+    image: "https://via.placeholder.com/150",
+    link: "#",
+    specialty: false,
+}));
+
 //works with shop page
 function loadShop() {
     let content = document.getElementById("mainshop");
     content.innerHTML = "";
-
-	//defines products
-    const products1 = [
-        { name: "Product 1", price: "$10.00", image: "https://via.placeholder.com/150", link: "#" },
-        { name: "Product 2", price: "$20.00", image: "https://via.placeholder.com/150", link: "#" },
-        { name: "Product 3", price: "$30.00", image: "https://via.placeholder.com/150", link: "#" },
-        { name: "Product 4", price: "$40.00", image: "https://via.placeholder.com/150", link: "#" },
-		{ name: "Product 4", price: "$40.00", image: "https://via.placeholder.com/150", link: "#" },
-		{ name: "Product 4", price: "$40.00", image: "https://via.placeholder.com/150", link: "#" },
-		{ name: "Product 4", price: "$40.00", image: "https://via.placeholder.com/150", link: "#" },
-		{ name: "Product 4", price: "$40.00", image: "https://via.placeholder.com/150", link: "#" },
-		{ name: "Product 4", price: "$40.00", image: "https://via.placeholder.com/150", link: "#" },
-		{ name: "Product 4", price: "$40.00", image: "https://via.placeholder.com/150", link: "#" },
-		{ name: "Product 4", price: "$40.00", image: "https://via.placeholder.com/150", link: "#" },
-		{ name: "Product 4", price: "$40.00", image: "https://via.placeholder.com/150", link: "#" },
-		{ name: "Product 5", price: "$40.00", image: "https://via.placeholder.com/150", link: "#" }
-    ];
-	
-	//test products
-	const products = Array.from({ length: 183 }, (_, index) => ({
-		name: `Product ${index + 1}`,
-		price: `$${(10 + index).toFixed(2)}`,
-		image: "https://via.placeholder.com/150",
-		link: "#",
-		specialty: false,
-	}));
 
 
     const itemsPerPage = 24;
@@ -141,7 +157,6 @@ function loadShop() {
 
         for (let i = start; i < end; i++) {
             const product = products[i];
-
             let productCard = document.createElement("div");
             productCard.style.textAlign = "left";
             productCard.style.width = "200px";
@@ -174,7 +189,11 @@ function loadShop() {
             productNameLink.textContent = product.name.toUpperCase();
             productNameLink.style.display = "block";
             productNameLink.style.margin = "10px 0 5px";
-            productNameLink.style.color = "white";
+			if (product.limited) {
+				productNameLink.style.color = "#4286a8";
+			} else {
+				productNameLink.style.color = "white";
+			}
             productNameLink.style.fontFamily = "radlushmed";
             productNameLink.style.textDecoration = "none";
             productNameLink.style.fontWeight = "bold";
@@ -238,6 +257,7 @@ function loadShop() {
     }
 
     renderPage(currentPage);
+
 	
 	function getTotal() {
 		let output = document.getElementById("counted");
@@ -246,6 +266,112 @@ function loadShop() {
 	
 	getTotal();
 }
+
+function sortStuff() {
+    const select = document.getElementById("selection");
+    const selectedOption = select.value;
+
+    // Create a new array to avoid modifying the original `products`
+    const sortedProducts = [...products].map(product => ({
+        ...product,
+        price: parseFloat(product.price.replace("$", "")),  // Parse the price as a number
+        sellingvalue: parseInt(product.sellingvalue, 10),   // Ensure sellingvalue is an integer
+        limited: product.limited === "true"                 // Convert the limited value to a boolean
+    }));
+
+    switch (selectedOption) {
+        case "lowtohigh":
+            sortedProducts.sort((a, b) => a.price - b.price);
+            break;
+        case "hightolow":
+            sortedProducts.sort((a, b) => b.price - a.price);
+            break;
+        case "limited":
+            sortedProducts.sort((a, b) => b.limited - a.limited);  // Sort limited editions first
+            break;
+        case "Top Sellers":
+            sortedProducts.sort((a, b) => b.sellingvalue - a.sellingvalue);  // Sort by top sellers
+            break;
+        default:
+            return; // If no sort option is selected, return without sorting
+    }
+
+    renderSortedPage(sortedProducts);
+}
+
+function renderSortedPage(sortedProducts) {
+    const content = document.getElementById("mainshop");
+    content.innerHTML = ""; // Clear the content before re-rendering
+
+    const itemsPerPage = 24;
+    let currentPage = 1;
+
+    const start = (currentPage - 1) * itemsPerPage;
+    const end = Math.min(start + itemsPerPage, sortedProducts.length);
+
+    for (let i = start; i < end; i++) {
+        const product = sortedProducts[i];
+
+        let productCard = document.createElement("div");
+        productCard.style.textAlign = "left";
+        productCard.style.width = "200px";
+        productCard.style.display = "inline-block";
+        productCard.style.verticalAlign = "top";
+        productCard.style.transition = "transform 0.3s";
+        productCard.addEventListener("mouseover", () => {
+            productCard.style.transform = "scale(1.02)";
+        });
+        productCard.addEventListener("mouseout", () => {
+            productCard.style.transform = "scale(1.0)";
+        });
+
+        // Product image
+        let productImageLink = document.createElement("a");
+        productImageLink.href = product.link;
+        let productImage = document.createElement("img");
+        productImage.style.width = "200px";
+        productImage.style.height = "200px";
+        productImage.style.display = "block";
+        productImageLink.appendChild(productImage);
+        productCard.appendChild(productImageLink);
+
+        // Product name
+        let productNameLink = document.createElement("a");
+        productNameLink.href = product.link;
+        productNameLink.textContent = product.name.toUpperCase();
+        productNameLink.style.display = "block";
+        productNameLink.style.margin = "10px 0 5px";
+        if (product.limited) {
+			productNameLink.style.color = "#4286a8";
+		} else {
+			productNameLink.style.color = "white";
+		}
+        productNameLink.style.fontFamily = "radlushmed";
+        productNameLink.style.textDecoration = "none";
+        productNameLink.style.fontWeight = "bold";
+        productNameLink.style.fontSize = "15pt";
+        productNameLink.addEventListener("mouseover", () => {
+            productNameLink.style.textDecoration = "underline";
+        });
+        productNameLink.addEventListener("mouseout", () => {
+            productNameLink.style.textDecoration = "none";
+        });
+        productCard.appendChild(productNameLink);
+
+        // Product price
+        let productPrice = document.createElement("p");
+        productPrice.textContent = product.price ? `$${product.price.toFixed(2)}` : "$0.00";
+        productPrice.style.color = "white";
+        productPrice.style.fontWeight = "bold";
+        productPrice.style.margin = "0";
+        productCard.appendChild(productPrice);
+
+        content.appendChild(productCard);
+    }
+
+    numbers(); // Update the page number
+}
+
 
 function dynamicTyping() {
 

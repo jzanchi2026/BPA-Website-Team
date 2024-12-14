@@ -58,6 +58,36 @@
 		</footer>
 		<div id="contactteam">
 			<h1>CONTACT US</h1>
+			<div id="signups">
+				<img src="../Images/mail.png" alt="Mail icon decoration">
+				<h2>JOIN THE MAILING LIST</h2>
+				<form action="" method="POST">
+					
+					<label for="name">Full Name:</label>
+					<input type="text" id="name" name="name" placeholder="e.g. John Doe" required>
+
+					<label for="email">Your Email:</label>
+					<input type="email" id="email" name="email" placeholder="e.g. youremail@gmail.com" required>
+
+					<label for="pnumber">Phone Number:</label>
+					<input type="text" id="pnumber" name="pnumber" placeholder="e.g. (XXX) XXX-XXXX" maxlength="14" required>
+					
+					<div style="display: flex; align-items: center; gap: 0px;">
+						<input style="width: 100px; height: auto;" type="checkbox" id="sms_opt_in" name="sms_opt_in" value="yes">
+						<label style="width: 350%; margin: 20px;" for="sms_opt_in">
+							I would like to receive text messages about updates, promotions, and reminders.
+						</label>
+					</div>
+					
+					<p style="font-size: 0.9em; color: gray;">
+						By opting in, you agree to receive SMS communications. Standard carrier messaging rates may apply. 
+						You can opt-out anytime by replying "STOP" to any text message.
+					</p>
+
+					<br>
+					<button type="submit">Sign Up</button>
+				</form>
+				</div>
 			<div id="bgg3">
 				<div id="booking">
 					<form action="" method="POST">
@@ -107,35 +137,6 @@
 						<textarea id="issue-description" name="issue-description" placeholder="e.g. Issue with product, Issue at event, etc." rows="4" required></textarea>
 						<br>
 						<button type="submit">Submit</button>
-					</form>
-				</div>
-				<div id="signups">
-					<form action="" method="POST">
-						<h2>Join Our Mailing List</h2>
-						
-						<label for="name">Full Name:</label>
-						<input type="text" id="name" name="name" placeholder="e.g. John Doe" required>
-
-						<label for="email">Your Email:</label>
-						<input type="email" id="email" name="email" placeholder="e.g. youremail@gmail.com" required>
-
-						<label for="pnumber">Phone Number:</label>
-						<input type="text" id="pnumber" name="pnumber" placeholder="e.g. (XXX) XXX-XXXX" maxlength="14" required>
-						
-						<div style="display: flex; align-items: center; gap: 0px;">
-							<input style="width: 100px; height: auto;" type="checkbox" id="sms_opt_in" name="sms_opt_in" value="yes">
-							<label style="width: 350%; margin: 20px;" for="sms_opt_in">
-								I would like to receive text messages about updates, promotions, and reminders.
-							</label>
-						</div>
-						
-						<p style="font-size: 0.9em; color: gray;">
-							By opting in, you agree to receive SMS communications. Standard carrier messaging rates may apply. 
-							You can opt-out anytime by replying "STOP" to any text message.
-						</p>
-
-						<br>
-						<button type="submit">Sign Up</button>
 					</form>
 				</div>
 			</div>

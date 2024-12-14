@@ -44,7 +44,8 @@
 	box-shadow: 0px 0px 120px 150px rgba(0, 0, 0, 1);
 	background-color: black;
 	color: white;
-	height: 100vh;
+	margin-bottom: 150px;
+	height: 60vh;
 }
 
 .snaps {
@@ -60,7 +61,7 @@
 
 #toursnap {
 	width: 50vw;
-	height: 92.5vh;
+	height: 70vh;
 	/*background: rgba(59, 59, 59, 0.3);
 	box-shadow: 0px 0px 100px 150px rgba(59, 59, 59, 0.3);*/
 	margin-left: 20px;
@@ -68,7 +69,7 @@
 
 #stylesnap, #contactsnap {
 	width: 50vw;
-	height: calc(87vh/2);
+	height: calc(63vh/2);
 	margin: 10px 20px 10px 0px;
 	margin-right: 20px;
 }

@@ -117,11 +117,11 @@
 				<div id="combined">
 					<div id="sortby" style="display: flex; margin-bottom: 20px; width: 100%; justify-content: space-between; align-items: last baseline;">
 						<div id="counted"></div>
-						<select name="sortit" id="selection">
+						<select onchange="sortStuff()" name="sortit" id="selection">
 						  <option value="">Sort By</option>
 						  <option value="lowtohigh">Priced Low to High</option>
 						  <option value="hightolow">Priced High to Low</option>
-						  <option value="limiteded">Limited Edition</option>
+						  <option value="limited">Limited Edition</option>
 						  <option value="Top Sellers">Top Sellers</option>
 						</select>
 					</div>

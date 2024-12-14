@@ -1,7 +1,7 @@
 #aboutuss {
 	text-align: center;
 	width: 100vw;
-	height: 500vh;
+	margin: 130px 0 0 0;
 }
 
 #aboutuss > h1 {
@@ -22,16 +22,17 @@
 	display: flex;
 	gap: 20px;
 	width: 96.5vw;
+	height: 200vh;
 	justify-content: right;
 	padding: 1.5vw;
+	margin-bottom: 60px;
 }
 
 #profile {
 	width: 20%;
-	position: fixed;
+	position: sticky;
+	top: 0px;
 	background-color: transparent;
-	left: 0;
-	top: 0;
 	flex-direction: column;
 	justify-content: space-evenly;
 	align-items: center;
@@ -39,8 +40,23 @@
 	transition: 0.5s ease;
 }
 
+#profile > img {
+	height: 25vh;
+	width: auto;
+}
+
+#profile:hover {
+	z-index: 10;
+	transform: scale(1.01);
+}
+
+#profile > img:hover {
+	transform: scale(1.05);
+}
+
 #mainstuff {
 	width: 80%;
+	display: block;
 }
 
 .boxes {
@@ -54,9 +70,4 @@
 	width: 70%;
 	margin: 10px 0;
 	height: auto;
-}
-
-#profile:hover {
-	z-index: 100;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
 }

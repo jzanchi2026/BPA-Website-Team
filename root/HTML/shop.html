@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
 		<link rel="stylesheet" href="../CSS/stagefright.css">
 		<link rel="stylesheet" href="../CSS/shop.css">
 		<script src="../JavaScript/stagefright.js"></script>
+		<script src="../JavaScript/shop.js"></script>
 		<title>Stage Fright - Shop</title>
 		<link rel="icon" type="image/x-icon" href="../Images/cursor.png">
-</head>
-
 	</head>
 	
 	<body onload="loadShop()">
@@ -53,7 +52,7 @@
 				<a href="https://www.amazon.com/" target="_blank" title="Follow on Youtube">
 					<img class="socialss" src="../Images/Socials/youtube.png" height="20" alt="Link to follow on youtube">
 				</a>
-				<p>&copy Stage Fright 2024. All rights reserved.</p>
+				<p>&copy; Stage Fright 2024. All rights reserved.</p>
 			</div>
 		</footer>
 		
@@ -85,54 +84,54 @@
 			</div>
 			
 			<hr style="border: 2px solid white; width: 85%; margin: 100px auto;">
-			
-			
-			<div id="shopcenter">
-				<div id="categories">
-					<h2>FILTERS</h2>
-					<h4>COLLECTIONS</h4>
-					<ul style="list-style-type:square;">
-						<li><a href="#">FEATURED</a></li>
-						<li><a href="#">MEDIA</a></li>
-						<li><a href="#">APPAREL</a></li>
-						<li><a href="#">ALBUM MERCH</a></li>	
-					</ul>
-					<hr>
-					<h4>PRICE RANGES</h4>
-					<ul style="list-style-type:square;">
-						<li><a href="#">UNDER $24.99</a></li>
-						<li><a href="#">FROM $25.00 - $49.99</a></li>
-						<li><a href="#">FROM $50.00 - $99.99</a></li>
-						<li><a href="#">ABOVE $100.00</a></li>
-					</ul>
-					<hr>
-					<h4>DEPARTMENT</h4>
-					<ul style="list-style-type:square;">
-						<li><a href="#">MEN</a></li>
-						<li><a href="#">WOMEN</a></li>
-						<li><a href="#">UNISEX</a></li>
-						<li><a href="#">YOUTH</a></li>
-					</ul>
+				
+				  
+				<div id="shopcenter">  
+				   <div id="categories">  
+					  <h2>FILTERS</h2>  
+					  <form method="GET" action="<?php echo $_SERVER['PHP_SELF']; ?>">  
+						<h4>COLLECTIONS</h4>  
+						<ul style="list-style-type:square;">  
+						   <li><input type="checkbox" name="collection[]" value="FEATURED" /> FEATURED</li>  
+						   <li><input type="checkbox" name="collection[]" value="MEDIA" /> MEDIA</li>  
+						   <li><input type="checkbox" name="collection[]" value="APPAREL" /> APPAREL</li>  
+						   <li><input type="checkbox" name="collection[]" value="ALBUM MERCH" /> ALBUM MERCH</li>  
+						</ul>  
+						<hr>  
+						<h4>PRICE RANGES</h4>  
+						<ul style="list-style-type:square;">  
+						   <li><input type="checkbox" name="price_range[]" value="under25" /> UNDER $24.99</li>  
+						   <li><input type="checkbox" name="price_range[]" value="25to50" /> FROM $25.00 - $49.99</li>  
+						   <li><input type="checkbox" name="price_range[]" value="50to100" /> FROM $50.00 - $99.99</li>  
+						   <li><input type="checkbox" name="price_range[]" value="above100" /> ABOVE $100.00</li>  
+						</ul>  
+						<hr>  
+						<h4>DEPARTMENT</h4>  
+						<ul style="list-style-type:square;">  
+						   <li><input type="checkbox" name="department[]" value="MEN" /> MEN</li>  
+						   <li><input type="checkbox" name="department[]" value="WOMEN" /> WOMEN</li>  
+						   <li><input type="checkbox" name="department[]" value="UNISEX" /> UNISEX</li>  
+						   <li><input type="checkbox" name="department[]" value="YOUTH" /> YOUTH</li>  
+						</ul>  
+						<hr>  
+						<button type="submit">Apply Filters</button>  
+					  </form>  
+				   </div>  
+				   <div id="combined">  
+					  <div id="sortby" style="display: flex; margin-bottom: 20px; width: 100%; justify-content: space-between; align-items: last baseline;">  
+						<div id="counted"></div>  
+						<select onchange="sortStuff()" name="sortit" id="selection">  
+						  <option value="" disabled selected>Sort By</option>  
+						  <option value="lowtohigh">Priced Low to High</option>  
+						  <option value="hightolow">Priced High to Low</option>  
+						  <option value="limited">Limited Edition</option>  
+						  <option value="Top Sellers">Top Sellers</option>  
+						</select>  
+					  </div>  
+					  <div id="mainshop">  
+						 
+					  </div>  
+				   </div>  
 				</div>
-				<div id="combined">
-					<div id="sortby" style="display: flex; margin-bottom: 20px; width: 100%; justify-content: space-between; align-items: last baseline;">
-						<div id="counted"></div>
-						<select onchange="sortStuff()" name="sortit" id="selection">
-						  <option value="">Sort By</option>
-						  <option value="lowtohigh">Priced Low to High</option>
-						  <option value="hightolow">Priced High to Low</option>
-						  <option value="limited">Limited Edition</option>
-						  <option value="Top Sellers">Top Sellers</option>
-						</select>
-					</div>
-					<div id="mainshop">
-					
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		
-		
 	</body>
 </html>

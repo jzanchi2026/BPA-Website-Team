@@ -40,6 +40,11 @@ nav {
     background: rgba(0, 0, 0, 0.4);
     z-index: 5;
     transition: 0.5s ease-in-out;
+	pointer-events: none;
+}
+
+nav a {
+    pointer-events: auto;
 }
 
 nav:hover {
@@ -114,7 +119,11 @@ nav > div a:hover {
     text-align: center;
     transition: bottom 0.3s ease-in-out;
     z-index: 3;
-    color: white;
+    pointer-events: none;
+}
+
+#pullup > div *  {
+    pointer-events: auto;
 }
 
 #pullup > div > p {
@@ -124,6 +133,7 @@ nav > div a:hover {
 }
 
 #pullup > hr {
+	pointer-events: auto;
     border-top: 4px solid white;
     margin: 20px auto;
 	border-radius: 40px;

@@ -92,44 +92,86 @@
 
 #shopcenter > div {
 	margin: 10px;
-	height: auto;
 	
+}
+
+/* Style for checkboxes and labels to be aligned in one line */
+.checkbox-item {
+  display: flex;
+  gap: 0.5em; 
+}
+
+.checkbox-item label {
+	font-weight: bold;
+	font-family: radlushmed;
+	font-size: 1em;
+}
+
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: var(--form-background);
+  margin: 0;
+  font: inherit;
+  color: currentColor;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid currentColor;
+  border-radius: 0.15em;
+  display: grid;
+  place-content: center;
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+  transform: scale(0);
+  transform-origin: bottom left;
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--form-control-color);
+  background-color: white;
+}
+
+input[type="checkbox"]:checked::before {
+  transform: scale(1);
 }
 
 #categories {
     width: 30%;
-	height: auto;
-    background-color: white;
+	height: 100vh;
+	position: sticky;
+	top: 0px;
+    background-color: gray;
     text-align: left;
-    padding: 10px;
+    padding: 110px 10px 10px;
     overflow-y: auto;
-	display: inline-block;
 }
 
 #categories > *, #categories > * > * {
 	font-family: radlushmed;
-	margin: 10px;
+	margin: 4px;
+}
+
+#categories button {
+	width: 95%;
+	background-color: black;
+	margin-top: 20px;
+}
+
+#categories button:hover {
+	color: #4286a8;
 }
 
 #categories hr {
 	border: 2px solid black;
-	margin: 30px 20px;
+	margin: 20px 20px;
 }
 
 #categories > h4 {
 	color: black;
 	font-size: 15pt;
-}
-
-#categories li, #categories a {
-	color: black;
-	font-size: 13pt;
-	text-decoration: none;
-	transition: 0.3s ease;
-}
-
-#categories a:hover{
-	color: turquoise;
 }
 
 #categories > h2 {
@@ -164,15 +206,11 @@
 	font-family: juliett;
 }
 
-#selection option:hover {
-    background-color: #e0e0e0;
-}
-
 #combined {
 	width: 70%;
 }
 
-#mainshop {
+#mainshop, #pagination {
 	height: auto;
 	display: flex;
 	flex-wrap: wrap;
@@ -181,6 +219,10 @@
 	margin-top: 10px;
 	padding: 30px;
 	background: rgba(255, 255, 255, 0.1);
+}
+
+#pagination {
+	margin: 0;
 }
 
 @media (max-width: 600px) {

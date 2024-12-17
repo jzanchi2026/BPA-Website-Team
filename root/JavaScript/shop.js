@@ -1,30 +1,90 @@
+const departments = ["men", "women", "unisex", "youth"];
+const collections = ["featured", "media", "apparel", "albums"];
 // defines products
 const products = Array.from({ length: 183 }, (_, index) => ({
     name: `Product ${index + 1}`,
     price: `$${(Math.random() * (200 - 10) + 10).toFixed(2)}`,
     sellingvalue: Math.floor(Math.random() * 100) + 1,
-    limited: Math.random() < 0.05,
+    limited: Math.random() < 0.15,
     image: "https://via.placeholder.com/150",
     link: "#",
     specialty: false,
+	filters: {
+        departments: departments[Math.floor(Math.random() * departments.length)],
+        collections: collections[Math.floor(Math.random() * collections.length)],
+    },
 }));
 
-// works with shop page
+function getSelectedFilters() {
+    let selected = {
+        collections: [],
+        priceRanges: [],
+        department: []
+    };
+
+    let container = document.getElementById("categories");
+
+    let collections = container.querySelectorAll('input[name="collection[]"]:checked');
+    collections.forEach(checkbox => selected.collections.push(checkbox.value));
+
+    let priceRanges = container.querySelectorAll('input[name="price_range[]"]:checked');
+    priceRanges.forEach(checkbox => selected.priceRanges.push(checkbox.value));
+
+    let departments = container.querySelectorAll('input[name="department[]"]:checked');
+    departments.forEach(checkbox => selected.department.push(checkbox.value));
+
+    console.log(selected);
+	return selected;
+}
+
+let filteredProducts = []; 
+
 function loadShop() {
     let content = document.getElementById("mainshop");
+    let filters = getSelectedFilters();
+    let count = 0;
+	document.getElementById("selection").selectedIndex = 0;
     content.innerHTML = "";
 
     const itemsPerPage = 24;
     let currentPage = 1;
 
-    function renderPage(page) {
-        content.innerHTML = "";
+    function matchesPriceRange(price, priceRanges) {
+        const numericPrice = parseFloat(price.replace("$", ""));
+        return priceRanges.some(range => {
+            const [min, max] = range.split("-").map(Number);
+			console.log(min + " - " + max);
+            return numericPrice >= min && numericPrice <= max;
+        });
+    }
 
+    function filterProducts() {
+        return products.filter(product => {
+            if (filters == null) return true;
+            const { collections, department, priceRanges } = filters;
+
+            const matchesCollection =
+                collections.length === 0 ||
+                collections.map(c => c.toLowerCase()).includes(product.filters.collections.toLowerCase());
+
+            const matchesDepartment =
+                department.length === 0 ||
+                department.map(d => d.toLowerCase()).includes(product.filters.departments.toLowerCase());
+
+            const matchesPrice =
+                priceRanges.length === 0 || matchesPriceRange(product.price, priceRanges);
+
+            return matchesCollection && matchesDepartment && matchesPrice;
+        });
+    }
+
+    function renderPage(filteredProducts, page) {
+        content.innerHTML = "";
         const start = (page - 1) * itemsPerPage;
-        const end = Math.min(start + itemsPerPage, products.length);
+        const end = Math.min(start + itemsPerPage, filteredProducts.length);
 
         for (let i = start; i < end; i++) {
-            const product = products[i];
+            const product = filteredProducts[i];
             let productCard = document.createElement("div");
             productCard.style.textAlign = "left";
             productCard.style.width = "200px";
@@ -55,7 +115,7 @@ function loadShop() {
             productNameLink.textContent = product.name.toUpperCase();
             productNameLink.style.display = "block";
             productNameLink.style.margin = "10px 0 5px";
-            productNameLink.style.color = product.limited ? "#4286a8" : "white";
+            productNameLink.style.color = product.limited ? "#4f9e91" : "white";
             productNameLink.style.fontFamily = "radlushmed";
             productNameLink.style.textDecoration = "none";
             productNameLink.style.fontWeight = "bold";
@@ -79,96 +139,100 @@ function loadShop() {
             content.appendChild(productCard);
         }
 
-        numbers();
+        renderPagination(filteredProducts);
     }
 
-    function numbers() {
+    function renderPagination(filteredProducts) {
         let paginationDiv = document.getElementById("pagination");
         if (!paginationDiv) {
             paginationDiv = document.createElement("div");
             paginationDiv.id = "pagination";
             paginationDiv.style.textAlign = "center";
             paginationDiv.style.marginTop = "20px";
-			paginationDiv.style.display = "flex";
+            paginationDiv.style.display = "flex";
+            paginationDiv.style.justifyContent = "center";
+			paginationDiv.style.backgroundColor = "red";
             content.appendChild(paginationDiv);
         } else {
             paginationDiv.innerHTML = "";
         }
 
-        const totalPages = Math.ceil(products.length / itemsPerPage);
+        const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
+
         for (let i = 1; i <= totalPages; i++) {
             const pageButton = document.createElement("button");
             pageButton.textContent = i;
-            pageButton.style.margin = "0 5px";
+			if (i != 1)
+				pageButton.style.margin = "0 1px";
             pageButton.style.padding = "10px 20px";
+			pageButton.style.height = "100%";
+			pageButton.style.width = "auto";
             pageButton.style.cursor = "pointer";
-            pageButton.style.backgroundColor = i === currentPage ? "#a6a6a6" : "white";
-            pageButton.style.color = "black";
+            pageButton.style.backgroundColor = i === currentPage ? "#365953" : "black";
+            pageButton.style.color = "white";
             pageButton.style.fontSize = "10pt";
             pageButton.style.fontWeight = "bold";
-
-            // event listeners
+			pageButton.style.borderRadius = "0";
+			
             pageButton.addEventListener("click", () => {
                 currentPage = i;
-                renderPage(i);
-				window.scrollTo({
-					top: document.getElementById("shopcenter").offsetTop - 150,
-					
-				});
-            });
-            pageButton.addEventListener("mouseover", () => {
-                pageButton.style.backgroundColor = "#a6a6a6";
-            });
-            pageButton.addEventListener("mouseout", () => {
-                if (i !== currentPage) pageButton.style.backgroundColor = "white";
+                renderPage(filteredProducts, i);
+                window.scrollTo({
+                    top: document.getElementById("shopcenter").offsetTop - 150,
+                    behavior: "smooth",
+                });
             });
 
             paginationDiv.appendChild(pageButton);
         }
     }
 
-    renderPage(currentPage);
-
-    function getTotal() {
+    // Update item count
+    function updateItemCount(totalFilteredItems) {
         let output = document.getElementById("counted");
-        output.innerHTML = products.length + " items";
+        output.innerHTML = `${totalFilteredItems} items`;
     }
 
-    getTotal();
+    // Main logic
+    filteredProducts = filterProducts(); // Update global filteredProducts
+    count = filteredProducts.length;
+    updateItemCount(count);
+    renderPage(filteredProducts, currentPage);
 }
 
-function sortStuff() {  
-	const select = document.getElementById("selection");  
-	const selectedOption = select.value;  
+// Sort function now works with filteredProducts
+function sortStuff() {
+    const select = document.getElementById("selection");
+    const selectedOption = select.value;
 
-	const sortedProducts = [...products].map(product => ({  
-		...product,  
-		price: parseFloat(product.price.replace("$", "")),  
-		sellingvalue: parseInt(product.sellingvalue, 10),  
-	}));  
+    const sortedProducts = [...filteredProducts].map(product => ({
+        ...product,
+        price: parseFloat(product.price.replace("$", "")),
+        sellingvalue: parseInt(product.sellingvalue, 10),
+    }));
 
-	switch (selectedOption) {  
-		case "lowtohigh":  
-			sortedProducts.sort((a, b) => a.price - b.price);  
-			break;  
-		case "hightolow":  
-			sortedProducts.sort((a, b) => b.price - a.price);  
-			break;  
-		case "limited":  
-			sortedProducts.sort((a, b) => {  
-			   if (a.limited && !b.limited) return -1;  
-			   if (!a.limited && b.limited) return 1;  
-			   return 0;  
-			});  
-			break;  
-		case "Top Sellers":  
-			sortedProducts.sort((a, b) => b.sellingvalue - a.sellingvalue);  
-			break;  
-	  default:  
-		return;  
-	}  
+    switch (selectedOption) {
+        case "lowtohigh":
+            sortedProducts.sort((a, b) => a.price - b.price);
+            break;
+        case "hightolow":
+            sortedProducts.sort((a, b) => b.price - a.price);
+            break;
+        case "limited":
+            sortedProducts.sort((a, b) => {
+                if (a.limited && !b.limited) return -1;
+                if (!a.limited && b.limited) return 1;
+                return 0;
+            });
+            break;
+        case "topsellers":
+            sortedProducts.sort((a, b) => b.sellingvalue - a.sellingvalue);
+            break;
+        default:
+            return;
+    }
 
-	renderSortedPage(sortedProducts);  
+    renderSortedPage(sortedProducts);
 }
 
 function renderSortedPage(sortedProducts, currentPage = 1) {
@@ -212,7 +276,7 @@ function renderSortedPage(sortedProducts, currentPage = 1) {
         productNameLink.textContent = product.name.toUpperCase();
         productNameLink.style.display = "block";
         productNameLink.style.margin = "10px 0 5px";
-        productNameLink.style.color = product.limited ? "#4286a8" : "white";
+        productNameLink.style.color = product.limited ? "#4f9e91" : "white";
         productNameLink.style.fontFamily = "radlushmed";
         productNameLink.style.textDecoration = "none";
         productNameLink.style.fontWeight = "bold";
@@ -236,48 +300,11 @@ function renderSortedPage(sortedProducts, currentPage = 1) {
         content.appendChild(productCard);
     }
 
-    // Pagination numbers
-    function numbers() {
-        let paginationDiv = document.getElementById("pagination");
-        if (!paginationDiv) {
-            paginationDiv = document.createElement("div");
-            paginationDiv.id = "pagination";
-            paginationDiv.style.textAlign = "center";
-			paginationDiv.style.display = "flex";
-            paginationDiv.style.marginTop = "20px";
-        } else {
-            paginationDiv.innerHTML = "";
-        }
+}
 
-        const totalPages = Math.ceil(sortedProducts.length / itemsPerPage);
-        for (let i = 1; i <= totalPages; i++) {
-            const pageButton = document.createElement("button");
-            pageButton.textContent = i;
-            pageButton.style.margin = "0 5px";
-            pageButton.style.padding = "10px 20px";
-            pageButton.style.cursor = "pointer";
-            pageButton.style.backgroundColor = i === currentPage ? "#a6a6a6" : "white";
-            pageButton.style.color = "black";
-            pageButton.style.fontSize = "10pt";
-            pageButton.style.fontWeight = "bold";
-            pageButton.addEventListener("click", () => {
-                renderSortedPage(sortedProducts, i);
-				window.scrollTo({
-					top: document.getElementById("shopcenter").offsetTop - 150,
-					
-				});
-            });
-            pageButton.addEventListener("mouseover", () => {
-                pageButton.style.backgroundColor = "#a6a6a6";
-            });
-            pageButton.addEventListener("mouseout", () => {
-                if (i !== currentPage) pageButton.style.backgroundColor = "white";
-            });
-            paginationDiv.appendChild(pageButton);
-        }
-
-        content.appendChild(paginationDiv);
-    }
-
-    numbers();
+function startTop() {
+	window.scrollTo({
+		top: document.getElementById("shopcenter").offsetTop - 150,
+		behavior: 'smooth'
+	});
 }

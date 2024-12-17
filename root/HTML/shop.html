@@ -84,54 +84,58 @@
 			</div>
 			
 			<hr style="border: 2px solid white; width: 85%; margin: 100px auto;">
-				
 				  
-				<div id="shopcenter">  
-				   <div id="categories">  
-					  <h2>FILTERS</h2>  
-					  <form method="GET" action="<?php echo $_SERVER['PHP_SELF']; ?>">  
-						<h4>COLLECTIONS</h4>  
-						<ul style="list-style-type:square;">  
-						   <li><input type="checkbox" name="collection[]" value="FEATURED" /> FEATURED</li>  
-						   <li><input type="checkbox" name="collection[]" value="MEDIA" /> MEDIA</li>  
-						   <li><input type="checkbox" name="collection[]" value="APPAREL" /> APPAREL</li>  
-						   <li><input type="checkbox" name="collection[]" value="ALBUM MERCH" /> ALBUM MERCH</li>  
-						</ul>  
-						<hr>  
-						<h4>PRICE RANGES</h4>  
-						<ul style="list-style-type:square;">  
-						   <li><input type="checkbox" name="price_range[]" value="under25" /> UNDER $24.99</li>  
-						   <li><input type="checkbox" name="price_range[]" value="25to50" /> FROM $25.00 - $49.99</li>  
-						   <li><input type="checkbox" name="price_range[]" value="50to100" /> FROM $50.00 - $99.99</li>  
-						   <li><input type="checkbox" name="price_range[]" value="above100" /> ABOVE $100.00</li>  
-						</ul>  
-						<hr>  
-						<h4>DEPARTMENT</h4>  
-						<ul style="list-style-type:square;">  
-						   <li><input type="checkbox" name="department[]" value="MEN" /> MEN</li>  
-						   <li><input type="checkbox" name="department[]" value="WOMEN" /> WOMEN</li>  
-						   <li><input type="checkbox" name="department[]" value="UNISEX" /> UNISEX</li>  
-						   <li><input type="checkbox" name="department[]" value="YOUTH" /> YOUTH</li>  
-						</ul>  
-						<hr>  
-						<button type="submit">Apply Filters</button>  
-					  </form>  
-				   </div>  
-				   <div id="combined">  
-					  <div id="sortby" style="display: flex; margin-bottom: 20px; width: 100%; justify-content: space-between; align-items: last baseline;">  
-						<div id="counted"></div>  
-						<select onchange="sortStuff()" name="sortit" id="selection">  
-						  <option value="" disabled selected>Sort By</option>  
-						  <option value="lowtohigh">Priced Low to High</option>  
-						  <option value="hightolow">Priced High to Low</option>  
-						  <option value="limited">Limited Edition</option>  
-						  <option value="Top Sellers">Top Sellers</option>  
-						</select>  
-					  </div>  
-					  <div id="mainshop">  
-						 
-					  </div>  
-				   </div>  
+			<div id="shopcenter">  
+				<div id="categories">
+					<h2>FILTERS</h2>
+
+					<h4>COLLECTIONS</h4>
+					<div class="form-control">
+						<div class="checkbox-item"><input type="checkbox" name="collection[]" value="FEATURED" /> <label>FEATURED</label></div>
+						<div class="checkbox-item"><input type="checkbox" name="collection[]" value="MEDIA" /> <label>MEDIA</label></div>
+						<div class="checkbox-item"><input type="checkbox" name="collection[]" value="APPAREL" /> <label>APPAREL</label></div>
+						<div class="checkbox-item"><input type="checkbox" name="collection[]" value="ALBUMS" /> <label>ALBUM MERCH</label></div>
+					</div>
+
+					<hr>
+
+					<h4>PRICE RANGES</h4>
+					<div class="filter-group">
+						<div class="checkbox-item"><input type="checkbox" name="price_range[]" value="0-24.99" /> <label>UNDER $24.99</label></div>
+						<div class="checkbox-item"><input type="checkbox" name="price_range[]" value="25-49.99" /> <label>FROM $25.00 - $49.99</label></div>
+						<div class="checkbox-item"><input type="checkbox" name="price_range[]" value="50-99.99" /> <label>FROM $50.00 - $99.99</label></div>
+						<div class="checkbox-item"><input type="checkbox" name="price_range[]" value="100-10000000" /> <label>ABOVE $100.00</label></div>
+					</div>
+
+					<hr>
+
+					<h4>DEPARTMENT</h4>
+					<div class="filter-group">
+						<div class="checkbox-item"><input type="checkbox" name="department[]" value="MEN" /> <label>MEN</label></div>
+						<div class="checkbox-item"><input type="checkbox" name="department[]" value="WOMEN" /> <label>WOMEN</label></div>
+						<div class="checkbox-item"><input type="checkbox" name="department[]" value="UNISEX" /> <label>UNISEX</label></div>
+						<div class="checkbox-item"><input type="checkbox" name="department[]" value="YOUTH" /> <label>YOUTH</label></div>
+					</div>
+
+					<button onclick="loadShop(), startTop()">Apply Filters</button>
 				</div>
+			   
+				<div id="combined">  
+					<div id="sortby" style="display: flex; margin-bottom: 20px; width: 100%; justify-content: space-between; align-items: last baseline;">  
+							<div id="counted"></div>  
+							<select onchange="sortStuff()" name="sortit" id="selection">  
+								<option value="" disabled selected>Sort By</option>  
+								<option value="lowtohigh">Priced Low to High</option>  
+								<option value="hightolow">Priced High to Low</option>  
+								<option value="limited">Limited Edition</option>  
+								<option value="topsellers">Top Sellers</option>  
+							</select>  
+					</div>  
+					<div id="mainshop">
+					</div>  
+					<div id="pagination">
+					</div>
+			    </div>  
+			</div>
 	</body>
 </html>

@@ -211,7 +211,7 @@ input[type="checkbox"]:checked::before {
 }
 
 #mainshop, #pagination {
-	height: auto;
+	min-height: 10vh;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: left;

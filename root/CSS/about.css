@@ -1,26 +1,55 @@
 #aboutuss {
 	text-align: center;
 	width: 100vw;
-	margin: 130px 0 0 0;
 }
 
 #aboutuss > h1 {
 	width: 100vw;
 	padding: 160px 0 130px;
-	font-family: juliett;
+	font-family: pasti;
 	font-size: 60pt;
 	letter-spacing: 10px;
 	background-image: url("../Images/stagefour.webp");
 	filter: saturate(40%);
 	background-size: cover;
 	background-position: top;
-	box-shadow: inset 0px 0px 70px 80px rgb(0, 0, 0);
+	box-shadow: inset 0px 0px 50px 60px rgba(0, 0, 0, 1);
 	text-shadow: 0px 0px 50px rgba(0, 0, 0, 1);
+}
+
+.boxes {
+	display: flex;
+	width: 600px;
+	gap: 10px;
+	padding: 20px;
+	min-height: 800px;
+	margin: 0 50px;
+	background-color: green;
+}
+
+.time {
+	width: 400px;
+	height: 400px;
+	background-color: darkblue;
+}
+
+#mainstuff * {
+    background-color: darkblue;
+	padding: 10px 20%;
+	margin: 0 50px;
+    color: white;
+}
+
+#musictimeline {
+	margin: 20px 50px;
+	padding: 10px;
+	justify-content: center;
+	display: flex;
+	background-color: pink;
 }
 
 #bgg4 {
 	width: 100vw;
-	height: 500vh;
 	padding: 1.5vw 0;
 	margin-bottom: 60px;
 }
@@ -32,65 +61,56 @@
 }
 
 #profile {
-    padding: 10px;
-    position: relative;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    height: auto;
-    width: 100vw;
-    transition: 0.5s ease;
-    flex-wrap: wrap; /* Allows items to wrap and ensures the space is maintained */
+	padding: 10px;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	height: auto;
+	margin: 0 auto;
+	width: 70vw;
+	transition: 0.5s ease;
+}
+
+.boxes1 {
+	display: flex;
+	gap: 40px;
 }
 
 .profile-item {
-    position: relative;
-    display: inline-block;
-    text-align: center;
-    margin-bottom: 20px; /* Adds space between profile items */
+	width: 300px;
+	height: 300px;
+	border-radius: 8px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-#profile img {
-    width: 25vw;
-    padding: 0;
-    margin: 0;
-    height: auto;
-    position: relative;
-    cursor: pointer;
-    display: block;
-    z-index: 20;
+.picc {
+	width: 100%;
+	height: 100%;
+	z-index: 3;
+	border: 2px solid white;
+	position: relative;
 }
+
 
 .infoblrb {
-    width: 25vw;
-    height: 400px;  /* Adjust the height as needed */
-    background-color: red;
-    opacity: 0;
-    visibility: hidden;
-    position: absolute;
-    top: 100%;  /* Position below the image */
-    left: 0;
-    transform: translateY(-300px); /* Start slightly below the image */
-    transition: transform 0.6s ease, opacity 0.3s ease;
+	width: 101%;
+	height: 200px;
+    background-color: darkblue;
+	color: #fff;
+	border: 2px solid white;
+	z-index; 1;
+	text-align: center;
+	padding: 20px 10px;
+	box-sizing: border-box;
+	transition: transform 0.4s ease-in-out;
+	transform: translateY(-130%);
 }
 
-/* Move the blurb out when hovering over the image */
 .profile-item:hover .infoblrb {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0); /* Move into view below the image */
+	transform: translateY(-2%);
+	opacity: 1;
 }
 
-
-#bgg4 {
-    width: 100vw;
-    height: auto;  /* Adjusted to prevent the blurbs from breaking the layout */
-    padding: 1.5vw 0;
-    margin-bottom: 60px;
-}
-
-#bgg4 h2 {
-    font-family: juliett, sans-serif;
-    font-size: 35pt;
-    margin: 0 0 20px;
+.profile-item:not(:hover):not(:focus-within) .infoblrb {
+	transform: translateY(-130%);
 }

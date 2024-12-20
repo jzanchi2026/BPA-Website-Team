@@ -129,26 +129,3 @@ function dynamicTyping() {
 	});
 
 }
-
-document.querySelectorAll('.profile-item').forEach((item) => {
-    const img = item.querySelector('img');
-    const blurb = item.querySelector('.infoblrb');
-
-    img.addEventListener('mouseenter', () => {
-        item.classList.add('active');
-    });
-
-    img.addEventListener('mouseleave', (event) => {
-        // Check if mouse is still over the blurb
-        if (!blurb.matches(':hover')) {
-            item.classList.remove('active');
-        }
-    });
-
-    blurb.addEventListener('mouseleave', () => {
-        // Remove active class only when both image and blurb lose hover
-        if (!img.matches(':hover')) {
-            item.classList.remove('active');
-        }
-    });
-});

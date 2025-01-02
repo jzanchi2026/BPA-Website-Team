@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .checkout-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .cart-summary, .billing-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        .cart-summary h2, .billing-info h2 {
+            color: #333;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .cart-item img {
+            max-width: 50px;
+            max-height: 50px;
+        }
+        .address-input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+			display: flex;
+        }
+        .total-price {
+            font-size: 1.5em;
+            text-align: right;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-top: 1px solid #ddd;
+            margin-top: 20px;
+        }
+        .checkout-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: #28a745;
+            color: white;
+            font-size: 1.2em;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+        }
+        .checkout-btn:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+	
+    <div class="container">
+        <h1>Checkout</h1>
+        <div class="checkout-section">
+            <!-- Cart Summary Section -->
+            <div class="cart-summary">
+				<h2>Cart Summary</h2>
+				<div id="cartItemsContainer"></div> <!-- Cart items will be inserted here -->
+				<div class="total-price">
+					<strong>Total: $<span id="totalPrice">0.00</span></strong> <!-- Total will be updated here -->
+				</div>
+			</div>
+
+            <!-- Billing Information Section -->
+            <div class="billing-info">
+                <h2>Billing Information</h2>
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" class="address-input" placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" class="address-input" placeholder="Enter your email address">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" class="address-input" placeholder="Enter your phone number">
+                </div>
+
+                <!-- Shipping Address -->
+                <h3>Shipping Address</h3>
+                <div class="form-group">
+                    <label for="shippingFullName">Full Name</label>
+                    <input type="text" id="shippingFullName" class="address-input" placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label for="shippingAddress">Address Line 1</label>
+                    <input type="text" id="shippingAddress" class="address-input" placeholder="Enter your address">
+                </div>
+                <div class="form-group">
+                    <label for="shippingAddress2">Address Line 2 (Optional)</label>
+                    <input type="text" id="shippingAddress2" class="address-input" placeholder="Apartment, suite, etc.">
+                </div>
+                <div class="form-group">
+                    <label for="shippingCity">City</label>
+                    <input type="text" id="shippingCity" class="address-input" placeholder="Enter your city">
+                </div>
+                <div class="form-group">
+                    <label for="shippingState">State</label>
+                    <input type="text" id="shippingState" class="address-input" placeholder="Enter your state">
+                </div>
+                <div class="form-group">
+                    <label for="shippingZip">Zip Code</label>
+                    <input type="text" id="shippingZip" class="address-input" placeholder="Enter your zip code">
+                </div>
+                <div class="form-group">
+                    <label for="shippingCountry">Country</label>
+                    <input type="text" id="shippingCountry" class="address-input" placeholder="Enter your country">
+                </div>
+
+                <!-- Billing Address -->
+                <h3>Billing Address</h3>
+                <div class="form-group">
+                    <label for="billingFullName">Full Name</label>
+                    <input type="text" id="billingFullName" class="address-input" placeholder="Enter your billing name">
+                </div>
+                <div class="form-group">
+                    <label for="billingAddress">Address Line 1</label>
+                    <input type="text" id="billingAddress" class="address-input" placeholder="Enter your billing address">
+                </div>
+                <div class="form-group">
+                    <label for="billingAddress2">Address Line 2 (Optional)</label>
+                    <input type="text" id="billingAddress2" class="address-input" placeholder="Apartment, suite, etc.">
+                </div>
+                <div class="form-group">
+                    <label for="billingCity">City</label>
+                    <input type="text" id="billingCity" class="address-input" placeholder="Enter your city">
+                </div>
+                <div class="form-group">
+                    <label for="billingState">State</label>
+                    <input type="text" id="billingState" class="address-input" placeholder="Enter your state">
+                </div>
+                <div class="form-group">
+                    <label for="billingZip">Zip Code</label>
+                    <input type="text" id="billingZip" class="address-input" placeholder="Enter your zip code">
+                </div>
+                <div class="form-group">
+                    <label for="billingCountry">Country</label>
+                    <input type="text" id="billingCountry" class="address-input" placeholder="Enter your country">
+                </div>
+
+                <!-- Credit Card Info -->
+                <h3>Credit Card Information</h3>
+                <div class="form-group">
+                    <label for="cardNumber">Card Number</label>
+                    <input type="text" id="cardNumber" class="address-input" placeholder="Enter your card number">
+                </div>
+                <div class="form-group">
+                    <label for="expiryDate">Expiry Date</label>
+                    <input type="text" id="expiryDate" class="address-input" placeholder="MM/YY">
+                </div>
+                <div class="form-group">
+                    <label for="cvv">CVV</label>
+                    <input type="text" id="cvv" class="address-input" placeholder="Enter your CVV">
+                </div>
+                <div class="form-group">
+                    <label for="cardHolderName">Cardholder's Name</label>
+                    <input type="text" id="cardHolderName" class="address-input" placeholder="Enter cardholder's name">
+                </div>
+                
+                <!-- Gift Options -->
+                <div class="form-group">
+                    <label for="giftWrap">Gift Wrapping</label>
+                    <select id="giftWrap" class="address-input">
+                        <option value="no">No Gift Wrapping</option>
+                        <option value="yes">Yes, Wrap It</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Checkout Button -->
+        <button class="checkout-btn" onclick="proceedToCheckout()">Proceed to Checkout</button>
+    </div>
+
+    <script>
+		// Function to render the cart items and the total price
+		function renderCartSummary() {
+			// Retrieve the cart from localStorage
+			const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+			// Get the container where the items will be displayed
+			const cartItemsContainer = document.getElementById('cartItemsContainer');
+			const totalPriceElement = document.getElementById('totalPrice');
+
+			// If the cart is empty, show a message
+			if (cart.length === 0) {
+				cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
+				totalPriceElement.textContent = '0.00';
+				return;
+			}
+
+			// Clear any existing content in the cart items container
+			cartItemsContainer.innerHTML = '';
+
+			// Initialize a variable to hold the total price
+			let total = 0;
+
+			// Loop through each item in the cart and display it
+			cart.forEach((order) => {
+				// Create the cart item element
+				const cartItem = document.createElement('div');
+				cartItem.classList.add('cart-item');
+
+				// Add the item image
+				const itemImage = document.createElement('img');
+				itemImage.src = order.image;
+				itemImage.alt = order.name;
+				cartItem.appendChild(itemImage);
+
+				// Create the item details container
+				const itemDetails = document.createElement('div');
+				itemDetails.classList.add('item-details');
+
+				// Add the item name
+				const itemName = document.createElement('p');
+				itemName.textContent = order.name;
+				itemDetails.appendChild(itemName);
+
+				// Add the item size
+				const itemSize = document.createElement('p');
+				itemSize.textContent = `Size: ${order.size}`;
+				itemDetails.appendChild(itemSize);
+
+				// Add the item price
+				const itemPrice = document.createElement('p');
+				order.price = order.price.replace("$", "");
+				itemPrice.textContent = `Price: $${parseFloat(order.price).toFixed(2)}`;
+				itemDetails.appendChild(itemPrice);
+
+				// Add the item quantity
+				const itemQuantity = document.createElement('p');
+				itemQuantity.textContent = `Quantity: ${order.quantity}`;
+				itemDetails.appendChild(itemQuantity);
+
+				// Calculate and add the total for this item
+				const itemTotal = document.createElement('p');
+				const itemTotalPrice = parseFloat(order.price) * order.quantity;
+				itemTotal.textContent = `Total: $${itemTotalPrice.toFixed(2)}`;
+				itemDetails.appendChild(itemTotal);
+
+				// Append item details to the cart item
+				cartItem.appendChild(itemDetails);
+
+				// Append the cart item to the cart container
+				cartItemsContainer.appendChild(cartItem);
+
+				// Add the item's total to the overall total
+				total += itemTotalPrice;
+			});
+
+			// Update the total price in the summary
+			totalPriceElement.textContent = total.toFixed(2);
+		}
+
+		// Call the renderCartSummary function when the page loads
+		renderCartSummary();
+	</script>
+</body>
+</html>

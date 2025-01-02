@@ -43,7 +43,7 @@ nav {
 	pointer-events: none;
 }
 
-nav a {
+nav a, nav div {
     pointer-events: auto;
 }
 
@@ -159,7 +159,7 @@ nav > div a:hover {
 
 #settingpanel {
 	position: fixed;
-    z-index: 5;
+    z-index: 200;
     display: none;
 	flex-direction: column;
 	justify-content: space-between;
@@ -325,10 +325,11 @@ button:hover {
 
 @media (max-width: 600px) {
 	
-	.inside a {
+	.inside a, .inside div {
 		font-size: 2vw;
 		padding: 30px 0;
 		margin: 0 5px;
+		height: 45px;
 	}
 	
 	.settings-link img {
@@ -350,10 +351,6 @@ button:hover {
 		height: 100px;
 		width: auto;
 		margin: 10px 15px 0 0;
-	}
-	
-	.inside a {
-		height: 45px;
 	}
 	
 	.inside {

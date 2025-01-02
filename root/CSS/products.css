@@ -1,0 +1,238 @@
+/* MAIN SHOP CONTENT */
+
+.product-card {
+    text-align: left;
+    width: 250px;
+    padding: 15px;
+    display: inline-block;
+	cursor: pointer;
+	border: 3px solid black;
+	background: rgba(0, 0, 0, 0.3);
+	border-radius: 10px;
+    transition: transform 0.3s;
+	margin: 2px;
+}
+
+.product-card:hover {
+    transform: scale(1.02);
+	border: 3px solid rgba(255, 255, 255, 0.4);
+	border-radius: 10px;
+}
+
+/* Product Image Styles */
+.product-card img {
+    width: 250px;
+    height: 250px;
+	border: 2px solid black;
+	border-radius: 10px;
+    cursor: pointer;
+    display: block;
+}
+
+/* Product Name Styles */
+.product-name {
+    display: block;
+    margin: 15px 0 5px;
+    color: white;
+    font-family: radlushmed;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15pt;
+}
+
+.product-name:hover {
+    text-decoration: underline;
+}
+
+.product-name.limited {
+    color: #0a6873;
+}
+
+/* Product Price Styles */
+.product-price {
+    color: white;
+    font-weight: bold;
+    margin: 0;
+}
+
+.product-price s {
+    color: gray;
+}
+
+.product-price span {
+    color: #65a0ba;
+}
+
+#pagination button {
+    padding: 10px 20px;
+    height: 100%;
+    width: auto;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    font-size: 10pt;
+    font-weight: bold;
+    border-radius: 0;
+    margin: 0 1px;
+}
+
+#pagination button.active {
+    background-color: #365953;
+}
+
+
+/* CART CONTENT */
+
+.cart-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0);
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    z-index: 9999;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+}
+
+.cart-popup-content {
+    background-color: black;
+    max-width: 600px;
+    width: 100%;
+    height: 100%;
+    cursor: default;
+	border-radius: 10px;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 0.5s ease;
+}
+
+.cart-popup h1 {
+    font-family: pasti;
+    text-align: left;
+	letter-spacing: 1.5px;
+	padding: 5% 0 0;
+    color: white;
+	font-size: 40pt;
+}
+
+.cart-popup-items-area {
+    margin: 20px 20px;
+    height: 62%;
+    overflow: auto;
+}
+
+.top-area {
+	width: 100%;
+	height: 80%;
+}
+
+.cart-popup-item-container {
+    margin-bottom: 15px;
+	display: flex;
+	justify-content: space-between;
+	padding: 5px;
+    background: rgba(255, 255, 255, 0.05);
+	border-radius: 10px;
+	height: 150px;
+}
+
+.cart-popup-item-image {
+    width: 150px;
+    height: 150px;
+	border-radius: 10px;
+    margin-right: 15px;
+}
+
+.cart-popup-item-details {
+	width: 70%;
+	height: 100%;
+	margin: 25px 0;
+}
+
+.cart-popup-item-name {
+    color: white;
+	font-family: radlushmed;
+	font-size: 17pt;
+	margin-bottom: 10px;
+}
+
+.cart-popup-item-size,
+.cart-popup-item-price {
+    color: gray;
+	font-family: radlushmed;
+	font-size: 14pt;
+}
+
+.cart-popup-total {
+    margin: 20px;
+	
+}
+
+.cart-popup-total p {
+    font-weight: bold;
+    color: white;
+	font-size: 25pt;
+	font-style: italic;
+	font-family: radlushmed;
+}
+
+.button-area {
+	display: flex;
+	width: 100%;
+	height: 20%;
+	background-color: pink;
+}
+
+.cart-popup-clear-btn,
+.cart-popup-close-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 20px 0;
+}
+
+.cart-popup-clear-btn {
+    background-color: gold;
+    color: black;
+}
+
+.cart-popup-close-btn {
+    background-color: #4286a8;
+    color: white;
+}
+
+.cart-popup-item-quantity {
+	background-color: white;
+	display: flex;
+	border-radius: 10px;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	width: 80px;
+	margin: 10px 0 25px;
+}
+
+.cart-popup-item-quantity * {
+	width: calc(100%/3);
+	color: black;
+	margin: 0;
+	padding: 0;
+}
+
+.cart-popup-item-quantity button {
+	cursor: pointer;
+	height: 30px;
+	font-weight: bold;
+	border-radius: 10px 0px 0px 10px;
+	background-color: #ccc;
+}
+
+.cart-popup-item-quantity button:hover {
+	background-color: #999999;
+}
+

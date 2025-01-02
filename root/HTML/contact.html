@@ -57,7 +57,6 @@
 			</div>
 		</footer>
 		<div id="contactteam">
-			<h1>CONTACT US</h1>
 			<div id="signups">
 				<img src="../Images/mail.png" alt="Mail icon decoration">
 				<h2>JOIN THE MAILING LIST</h2>
@@ -87,59 +86,100 @@
 					<br>
 					<button type="submit">Sign Up</button>
 				</form>
-				</div>
-			<div id="bgg3">
-				<div id="booking">
-					<form action="" method="POST">
-						<h2>Book Stage Fright</h2>
-
-						<label for="event-name">Event Name/Type:</label>
-						<input type="text" id="event-name" name="event-name" placeholder="e.g. Summer Music Festival" required>
-
-						<label for="event-date">Event Date:</label>
-						<input type="date" id="event-date" name="event-date" required>
-
-						<label for="event-time">Event Time:</label>
-						<input type="time" id="event-time" name="event-time" required>
-
-						<label for="venue-location">Venue Location:</label>
-						<input type="text" id="venue-location" name="venue-location" placeholder="e.g. Doe Arena 281 First St. 00040" required>
-
-						<label for="contact-name">Your Name:</label>
-						<input type="text" id="contact-name" name="contact-name" placeholder="e.g. John Doe" required>
-						
-						<label for="contact-name">Your Position:</label>
-						<input type="text" id="user-position" name="user-position" placeholder="e.g. Executive Supervisor" required>
-
-						<label for="contact-email">Email:</label>
-						<input type="email" id="contact-email" name="contact-email" placeholder="e.g. youremail@gmail.com" required>
-
-						<label for="additional-notes">Additional Notes:</label>
-						<textarea id="additional-notes" name="additional-notes" placeholder="e.g. Special conditions, Rain dates, Occasion, etc." rows="4"></textarea>
-						<br>
-						<button type="submit">Send Booking Request</button>
-					</form>
-				</div>
-				<div id="customers">
-					<form action="" method="POST">
-						<h2>Customer Service</h2>
-
-						<label for="name">Your Name:</label>
-						<input type="text" id="name" name="name" placeholder="e.g. John Doe" required>
-
-						<label for="email">Email:</label>
-						<input type="email" id="email" name="email" placeholder="e.g. youremail@gmail.com" required>
-
-						<label for="order-number">Order Number (if applicable):</label>
-						<input type="text" id="order-number" placeholder="e.g. Order 12345678" name="order-number">
-
-						<label for="issue-description">Description of Issue:</label>
-						<textarea id="issue-description" name="issue-description" placeholder="e.g. Issue with product, Issue at event, etc." rows="4" required></textarea>
-						<br>
-						<button type="submit">Submit</button>
-					</form>
-				</div>
 			</div>
+			
+			<div id="mainthing" style="display: flex; width: 100vw; margin: 0 auto; gap: 5px; justify-content: center;">
+				<div id="bgg3">	
+					<div id="booking" style="align-items: normal">
+						<form action="" method="POST">
+							<h2>Book Stage Fright</h2>
+
+							<label for="event-name">Event Name/Type:</label>
+							<input type="text" id="event-name" name="event-name" placeholder="e.g. Summer Music Festival" required>
+
+							<label for="event-date">Event Date:</label>
+							<input type="date" id="event-date" name="event-date" required>
+
+							<label for="event-time">Event Time:</label>
+							<input type="time" id="event-time" name="event-time" required>
+
+							<label for="venue-location">Venue Location:</label>
+							<input type="text" id="venue-location" name="venue-location" placeholder="e.g. Doe Arena 281 First St. 00040" required>
+
+							<label for="contact-name">Your Name:</label>
+							<input type="text" id="contact-name" name="contact-name" placeholder="e.g. John Doe" required>
+							
+							<label for="contact-name">Your Position:</label>
+							<input type="text" id="user-position" name="user-position" placeholder="e.g. Executive Supervisor" required>
+
+							<label for="contact-email">Email:</label>
+							<input type="email" id="contact-email" name="contact-email" placeholder="e.g. youremail@gmail.com" required>
+
+							<label for="additional-notes">Additional Notes:</label>
+							<textarea id="additional-notes" name="additional-notes" placeholder="e.g. Special conditions, Rain dates, Occasion, etc." rows="4"></textarea>
+							<br>
+							<button type="submit">Send Booking Request</button>
+						</form>
+					</div>
+					<div id="customers">
+						<form action="" method="POST">
+							<h2>Customer Service</h2>
+
+							<label for="name">Your Name:</label>
+							<input type="text" id="name" name="name" placeholder="e.g. John Doe" required>
+
+							<label for="email">Email:</label>
+							<input type="email" id="email" name="email" placeholder="e.g. youremail@gmail.com" required>
+
+							<label for="order-number">Order Number (if applicable):</label>
+							<input type="text" id="order-number" placeholder="e.g. Order 12345678" name="order-number">
+
+							<label for="issue-description">Description of Issue:</label>
+							<textarea id="issue-description" name="issue-description" placeholder="e.g. Issue with product, Issue at event, etc." rows="4" required></textarea>
+							<br>
+							<button type="submit">Submit</button>
+						</form>
+					</div>
+					<div id="emailgen">
+						<form action="" method="POST">
+							<h2>General Inquiries</h2>
+
+							<label for="name">Your Name:</label>
+							<input type="text" id="name" name="name" placeholder="e.g. John Doe" required>
+
+							<label for="email">Email:</label>
+							<input type="email" id="email" name="email" placeholder="e.g. youremail@gmail.com" required>
+
+							<label for="order-number">Subject:</label>
+							<input type="text" id="order-number" placeholder="e.g. Questions about touring, recording, merchandising, etc." name="order-number">
+
+							<label for="issue-description">Message:</label>
+							<textarea id="issue-description" name="issue-description" placeholder="e.g. What media is my company legally allowed to use for commercial use?" rows="4" required></textarea>
+							<br>
+							<button type="submit">Submit</button>
+						</form>
+					</div>
+				</div>
+				
+				<div id="bringya">
+					<div id="bringbook" class="bringyouto" onclick="bringUp('booking', this)">
+						<h3>Book</h3>
+					</div>
+					<div id="bringcust" class="bringyouto" onclick="bringUp('customers', this)">
+						<h3>Customer Service</h3>
+					</div>
+					<div id="bringemail" class="bringyouto" onclick="bringUp('emailgen', this)">
+						<h3>General Inquiries</h3>
+					</div>
+				</div>
+				<div>
+					<img style="transform: rotate(-10deg);" src="../Images/sologhost.png" height="180" alt="ghost design"><br>
+					<img style="transform: rotate(10deg);" src="../Images/sologhost.png" height="180" alt="ghost design"><br>
+					<img style="transform: rotate(-10deg);" src="../Images/sologhost.png" height="180" alt="ghost design"><br>
+				</div>
+				
+			</div>
+			
 		</div>	
 	</body>
 </html>

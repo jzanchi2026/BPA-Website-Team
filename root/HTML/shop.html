@@ -3,14 +3,15 @@
 	<head>
 		<link rel="stylesheet" href="../CSS/stagefright.css">
 		<link rel="stylesheet" href="../CSS/shop.css">
+		<link rel="stylesheet" href="../CSS/products.css">
 		<script src="../JavaScript/stagefright.js"></script>
 		<script src="../JavaScript/shop.js"></script>
 		<title>Stage Fright - Shop</title>
 		<link rel="icon" type="image/x-icon" href="../Images/cursor.png">
 	</head>
 	
-	<body onload="loadShop()">
-		<nav id="navbar">
+	<body onload="loadShop(), showCartPopup()">
+		<!--<nav id="navbar">
 			<div class="spaceHolder"></div> 
 			<div style="justify-content: right" class="inside">
 				<a href="index.html" onclick="fadeout(event)">HOME</a>
@@ -26,7 +27,7 @@
 				</a>
 			</div>
 			<div class="spaceHolder"></div>
-		</nav>
+		</nav>-->
 		
 		<footer id="pullup">
 			<hr onmouseover="pullup()">
@@ -57,7 +58,6 @@
 		</footer>
 		
 		<div id="shopping">
-			<h1>SUPPORT OUR TEAM</h1>
 			<div>
 				<p>interactive here</p>
 			</div>
@@ -66,19 +66,19 @@
 			
 			<div id="highlights">
 				<div class="boxes" style="display:flex;">
-					<div class="short" style="background-image: url(../Images/lightts.jpg);">
+					<div onclick="passChoice('APPAREL')" class="short" style="background-image: url(../Images/lightts.jpg);">
 						<h2>Apparel</h2>
 					</div>
-					<div class="long" style="background-image: url(../Images/lightts.jpg);">
+					<div onclick="passChoice('MEDIA')" class="long" style="background-image: url(../Images/lightts.jpg);">
 						<h2>Media</h2>
 					</div>
 				</div>
 				<div class="boxes" style="display:flex;">
-					<div class="long" style="background-image: url(../Images/lightts.jpg);">
-						<h2>Breaking The Silence</h2>
+					<div onclick="passChoice('ALBUMS')" class="long" style="background-image: url(../Images/lightts.jpg);">
+						<h2>Unmuted Merchandise</h2>
 					</div>
-					<div class="short" style="background-image: url(../Images/lightts.jpg);">
-						<h2>Misc.</h2>
+					<div onclick="passChoice('CLEARANCE')" class="short" style="background-image: url(../Images/lightts.jpg);">
+						<h2>Sales</h2>
 					</div>
 				</div>
 			</div>
@@ -88,13 +88,14 @@
 			<div id="shopcenter">  
 				<div id="categories">
 					<h2>FILTERS</h2>
-
+					<button onclick="loadShop(), startTop()">APPLY FILTERS</button>
 					<h4>COLLECTIONS</h4>
 					<div class="form-control">
-						<div class="checkbox-item"><input type="checkbox" name="collection[]" value="FEATURED" /> <label>FEATURED</label></div>
-						<div class="checkbox-item"><input type="checkbox" name="collection[]" value="MEDIA" /> <label>MEDIA</label></div>
-						<div class="checkbox-item"><input type="checkbox" name="collection[]" value="APPAREL" /> <label>APPAREL</label></div>
-						<div class="checkbox-item"><input type="checkbox" name="collection[]" value="ALBUMS" /> <label>ALBUM MERCH</label></div>
+						<div class="checkbox-item"><input type="checkbox" name="collection[]" value="ACCESSORIES"><label>ACCESSORIES</label></div>
+						<div class="checkbox-item"><input type="checkbox" name="collection[]" value="MEDIA"><label>MEDIA</label></div>
+						<div class="checkbox-item"><input type="checkbox" name="collection[]" value="APPAREL"><label>APPAREL</label></div>
+						<div class="checkbox-item"><input type="checkbox" name="collection[]" value="ALBUMS"><label>ALBUM MERCH</label></div>
+						<div class="checkbox-item"><input type="checkbox" name="collection[]" value="CLEARANCE"><label>CLEARANCE</label></div>
 					</div>
 
 					<hr>
@@ -117,12 +118,15 @@
 						<div class="checkbox-item"><input type="checkbox" name="department[]" value="YOUTH" /> <label>YOUTH</label></div>
 					</div>
 
-					<button onclick="loadShop(), startTop()">Apply Filters</button>
+					<button onclick="loadShop(), startTop()">APPLY FILTERS</button>
 				</div>
 			   
 				<div id="combined">  
-					<div id="sortby" style="display: flex; margin-bottom: 20px; width: 100%; justify-content: space-between; align-items: last baseline;">  
+					<div id="sortby" style="display: flex; margin: 0px 40px; width: 92%; justify-content: space-between; align-items: center;">
+							<img onclick="showCartPopup()" id="cart" src="../Images/cart.png" alt="Shopping Cart">
+							<span id="cart-count">0</span>
 							<div id="counted"></div>  
+				
 							<select onchange="sortStuff()" name="sortit" id="selection">  
 								<option value="" disabled selected>Sort By</option>  
 								<option value="lowtohigh">Priced Low to High</option>  
@@ -130,6 +134,7 @@
 								<option value="limited">Limited Edition</option>  
 								<option value="topsellers">Top Sellers</option>  
 							</select>  
+							
 					</div>  
 					<div id="mainshop">
 					</div>  

@@ -129,3 +129,45 @@ function dynamicTyping() {
 	});
 
 }
+
+let shownDiv = null;
+
+document.addEventListener("DOMContentLoaded", () => {
+    let booking = document.getElementById("booking");
+	if (booking) {
+		booking.style.display = "flex";
+		booking.style.opacity = "1"; // Fully opaque
+    }
+	shownDiv = document.getElementById("booking"); // Default to the booking div
+});
+
+function bringUp(divv, passed) {
+    let selected = document.getElementById(divv);
+	document.getElementById("bringbook").style.backgroundColor = "black";
+	document.getElementById("bringemail").style.backgroundColor = "black";
+	document.getElementById("bringcust").style.backgroundColor = "black";
+	passed.style.backgroundColor = "#101010";
+
+    if (shownDiv && shownDiv != selected) {
+        // Fade out the currently shown div
+        shownDiv.style.opacity = "0";
+        setTimeout(() => {
+            // Hide the old div after fade-out is complete
+            shownDiv.style.display = "none";
+            showNewDiv(selected); // Show the new div
+        }, 500); // Match the CSS transition time for fade-out
+    }
+
+    console.log("Current shownDiv:", shownDiv);
+    console.log("Selected div:", selected);
+}
+
+function showNewDiv(selected) {
+    selected.style.display = "flex"; // Make the selected div visible
+    selected.style.opacity = "0"; // Start the new div with opacity 0 for fade-in
+    setTimeout(() => {
+        selected.style.opacity = "1"; // Fade in the new div
+    }, 50); // Small delay for smoother transition
+    shownDiv = selected; // Update the currently shown div
+}
+

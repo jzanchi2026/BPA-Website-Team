@@ -1,4 +1,6 @@
-
+body {
+	overflow-x: hidden;
+}
 
 #shopping {
 	background-color: black;

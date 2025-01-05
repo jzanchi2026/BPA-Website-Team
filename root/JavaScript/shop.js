@@ -6,6 +6,7 @@ const collections = ["accessories", "media", "apparel", "albums"];
 // made up products
 const products = Array.from({ length: 183 }, (_, index) => ({
     name: `Product ${index + 1}`,
+	id: index,
 	creator: "lol",
     price: `$${(Math.random() * (200 - 10) + 10).toFixed(2)}`,
 	saleprice: Math.random() < 0.7 ? null : `$${(Math.random() * (50 - 10) + 10).toFixed(2)}`,
@@ -21,6 +22,7 @@ const products = Array.from({ length: 183 }, (_, index) => ({
 
 products[0] = {
     name: "Classic Black Tee",
+	id: 0,
 	creator: "John Doe from Fresh Styles",
     price: "$25.00",
 	saleprice: "$10.00",
@@ -145,7 +147,6 @@ function loadShop() {
 			productCard.addEventListener("click", () => {
 				popUp(product);
 			});
-
             // Product Image
             let productImage = document.createElement("img");
             productImage.src = product.image;
@@ -797,6 +798,7 @@ function buyNow(item, size, quantity) {
     } else {
         const order = {
             name: item.name,
+			id: item.id,
             creator: item.creator,
             price: item.saleprice || item.price,
             size: size,
@@ -813,9 +815,11 @@ function buyNow(item, size, quantity) {
     showCartPopup();
 }
 
+totalItems = null;
+
 function updateCartCount() {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
     const cartCount = document.getElementById('cart-count');
     if (totalItems > 0) {
@@ -826,10 +830,12 @@ function updateCartCount() {
     }
 }
 
+
 let isCartVisible = false;
+let closeCart = true;
 
 function showCartPopup() {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
     let popup = document.querySelector('.cart-popup');
 
     if (popup && isCartVisible) {
@@ -844,7 +850,7 @@ function showCartPopup() {
 
         const popupContent = document.createElement('div');
         popupContent.className = 'cart-popup-content';
-        popupContent.removeEventListener('click', () => closePopup(popup));
+
         popupContent.addEventListener('click', (e) => {
             e.stopPropagation();
         });
@@ -860,7 +866,7 @@ function showCartPopup() {
         shopLogo.src = "../Images/cart.png";
         shopLogo.style.height = '40pt';
         shopLogo.style.width = 'auto';
-        shopLogo.style.padding = '4.5% 20px 20px';
+        shopLogo.style.padding = '4.5% 35px 20px 20px';
         shopLogo.style.transform = 'scaleX(-1)';
         shopLogo.alt = "Shopping cart icon";
         shopLogo.style.cursor = 'pointer';
@@ -876,10 +882,18 @@ function showCartPopup() {
         itemsArea.className = 'cart-popup-items-area';
         topArea.appendChild(itemsArea);
 
+        const totalContainer = document.createElement('div');
+        totalContainer.className = 'cart-popup-total';
+        const totalText = document.createElement('p');
+        totalContainer.appendChild(totalText);
+        topArea.appendChild(totalContainer);
+
+        const itemNum = document.createElement('p');
+        itemNum.className = 'cart-popup-counts';
+        topArea.appendChild(itemNum);
+
         if (cart.length === 0) {
-            const emptyMessage = document.createElement('p');
-            emptyMessage.textContent = 'Your cart is empty.';
-            itemsArea.appendChild(emptyMessage);
+            itemsArea.innerHTML = '<p style="padding: 10px; font-weight: bold;" class="cart-popup-empty">YOUR CART IS EMPTY</p>';
         } else {
             cart.forEach((order, index) => {
                 const orderContainer = document.createElement('div');
@@ -918,51 +932,44 @@ function showCartPopup() {
 
                 const plusBtn = document.createElement('button');
                 plusBtn.textContent = '+';
-				plusBtn.style.borderRadius= '0px 10px 10px 0px';
+                plusBtn.style.borderRadius = '0px 10px 10px 0px';
                 plusBtn.addEventListener('click', () => updateQuantity(index, 1));
                 itemQuantity.appendChild(plusBtn);
 
                 itemDetails.appendChild(itemQuantity);
+
+                const priceRemove = document.createElement('div');
+                priceRemove.className = 'cart-popup-item-prices';
 
                 const itemPrice = document.createElement('p');
                 order.price = order.price.replace("$", "");
                 const price = parseFloat(order.price);
                 itemPrice.textContent = `$${(price * order.quantity).toFixed(2)}`;
                 itemPrice.className = 'cart-popup-item-price';
-                itemDetails.appendChild(itemPrice);
+                priceRemove.appendChild(itemPrice);
 
                 const removeBtn = document.createElement('button');
                 removeBtn.textContent = 'Remove';
-                removeBtn.className = 'cart-popup-item-remove-btn';
                 removeBtn.addEventListener('click', () => removeItem(index));
-                itemDetails.appendChild(removeBtn);
+                priceRemove.appendChild(removeBtn);
+
+                const trashIcon = document.createElement('img');
+                trashIcon.src = '../Images/trash.png';
+                trashIcon.alt = 'Remove item';
+                trashIcon.style.transition = '0.2s ease';
+                trashIcon.style.height = '20px';
+                trashIcon.style.width = 'auto';
+                removeBtn.appendChild(trashIcon);
 
                 orderContainer.appendChild(itemDetails);
+                orderContainer.appendChild(priceRemove);
                 itemsArea.appendChild(orderContainer);
             });
-
-            const total = cart.reduce((acc, order) => acc + (parseFloat(order.price) * order.quantity), 0);
-            const totalContainer = document.createElement('div');
-            totalContainer.className = 'cart-popup-total';
-            const totalText = document.createElement('p');
-            totalText.textContent = `SUBTOTAL: $${total.toFixed(2)}`;
-            totalContainer.appendChild(totalText);
-            topArea.appendChild(totalContainer);
         }
 
         const buttonArea = document.createElement('div');
         buttonArea.className = 'button-area';
         popupContent.appendChild(buttonArea);
-
-        const clearButton = document.createElement('button');
-        clearButton.textContent = 'Clear Cart';
-        clearButton.className = 'cart-popup-clear-btn';
-        clearButton.addEventListener('click', () => {
-            localStorage.removeItem('cart');
-            updateCartCount();
-            itemsArea.innerHTML = '<p class="cart-popup-empty">Your cart is empty.</p>';
-        });
-        buttonArea.appendChild(clearButton);
 
         const closeButton = document.createElement('button');
         closeButton.textContent = 'Close';
@@ -970,13 +977,40 @@ function showCartPopup() {
         closeButton.addEventListener('click', () => closePopup(popup));
         buttonArea.appendChild(closeButton);
 
+        const clearButton = document.createElement('button');
+        clearButton.textContent = 'Clear Cart';
+        clearButton.className = 'cart-popup-clear-btn';
+        clearButton.addEventListener('click', () => {
+            localStorage.removeItem('cart');
+            cart = [];
+            updateCartCount();
+            itemsArea.innerHTML = '<p style="padding: 10px; font-weight: bold;" class="cart-popup-empty">YOUR CART IS EMPTY</p>';
+            updateTotal();
+        });
+        buttonArea.appendChild(clearButton);
+
+        const checkButton = document.createElement('button');
+        checkButton.textContent = 'Checkout';
+        checkButton.className = 'cart-popup-check-btn';
+        checkButton.addEventListener('click', () => closePopup(popup));
+        buttonArea.appendChild(checkButton);
+
         popup.appendChild(popupContent);
         document.body.appendChild(popup);
 
+        // Disable transitions temporarily to show content changes without delay
+        popup.style.transition = 'none';
+        popupContent.style.transition = 'none';
+
         setTimeout(() => {
             popup.style.backgroundColor = 'rgba(117, 144, 186, 0.2)';
-            popupContent.style.transform = 'translateX(0)';
+            popupContent.style.transform = 'translateX(-5px)';
+            // Re-enable transitions
+            popup.style.transition = '';
+            popupContent.style.transition = '';
         }, 0);
+
+        updateTotal();
     }
 
     isCartVisible = true;
@@ -989,20 +1023,47 @@ function showCartPopup() {
             isCartVisible = false;
         }, 500);
     }
-
+	
     function updateQuantity(index, change) {
+        closeCart = true;
+        isCartVisible = false;
         cart[index].quantity = Math.max(1, cart[index].quantity + change);
         localStorage.setItem('cart', JSON.stringify(cart));
-
+        updateCartCount();
+        updateTotal();
         showCartPopup();
+        closeCart = false;
     }
 
     function removeItem(index) {
+        closeCart = true;
+        isCartVisible = false;
+        // Remove item from cart and update localStorage
         cart.splice(index, 1);
         localStorage.setItem('cart', JSON.stringify(cart));
-        showCartPopup();
+
+        // Immediately update the cart content with no transition
+        updateCartCount();
+        updateTotal();
+        const itemsArea = document.querySelector('.cart-popup-items-area');
+        itemsArea.innerHTML = '<p style="padding: 10px; font-weight: bold;" class="cart-popup-empty">YOUR CART IS EMPTY</p>';
+        showCartPopup(); // Recreate the updated cart popup
+
+        closeCart = false;
+    }
+
+    function updateTotal() {
+        const total = cart.reduce((acc, order) => acc + (parseFloat(order.price) * order.quantity), 0);
+        const totalItems = cart.reduce((acc, order) => acc + order.quantity, 0);
+        document.querySelector('.cart-popup-total p').textContent = `SUBTOTAL: $${total.toFixed(2)}`;
+        document.querySelector('.cart-popup-counts').textContent = `${totalItems} ${totalItems === 1 ? 'item' : 'items'}`;
     }
 }
+
+
+
+
+
 
 
 

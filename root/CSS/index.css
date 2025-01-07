@@ -76,11 +76,7 @@
 
 @media (max-width: 768px) {
     #bgg {
-		background-image: url("../Images/testNarrow.jpg");
-        background-attachment: scroll;
-        background-position: center bottom; /* Ensures the background aligns properly */
-        background-position-x: 50%; /* Horizontally centered */
-        background-position-y: 100%; /* Bottom alignment */
+		background-image: url("../Images/testNarrower.jpg");
     }
 
     #bgg > h3 {
@@ -121,12 +117,6 @@
 
 /* Tablet-specific adjustments (iPads, etc.) */
 @media (min-width: 768px) and (max-width: 1024px) {
-    #bgg {
-		background-image: url("../Images/testNarrow.jpg");
-        background-attachment: scroll; /* Remove fixed attachment for tablets */
-        background-position: center bottom;
-    }
-
     #bgg > h3 {
         font-size: 7vw; /* Adjust font size for medium screens like iPads */
         top: 130px; /* Adjust vertical positioning */

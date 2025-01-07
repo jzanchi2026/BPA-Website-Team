@@ -76,6 +76,7 @@
 
 @media (max-width: 768px) {
     #bgg {
+		background-image: url("../Images/testNarrow.jpg");
         background-attachment: scroll;
         background-position: center bottom; /* Ensures the background aligns properly */
         background-position-x: 50%; /* Horizontally centered */
@@ -121,6 +122,7 @@
 /* Tablet-specific adjustments (iPads, etc.) */
 @media (min-width: 768px) and (max-width: 1024px) {
     #bgg {
+		background-image: url("../Images/testNarrow.jpg");
         background-attachment: scroll; /* Remove fixed attachment for tablets */
         background-position: center bottom;
     }

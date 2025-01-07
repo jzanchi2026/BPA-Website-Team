@@ -77,9 +77,126 @@
 @media (max-width: 768px) {
     #bgg {
         background-attachment: scroll;
-        background-position: bottom center;
-		background-position-x: 50%;
-		background-position-y: 100%;
+        background-position: center bottom; /* Ensures the background aligns properly */
+        background-position-x: 50%; /* Horizontally centered */
+        background-position-y: 100%; /* Bottom alignment */
+    }
+
+    #bgg > h3 {
+        font-size: 8vw; /* Adjust font size for smaller screens */
+        top: 100px; /* Adjust vertical positioning for better display */
+    }
+
+    #scrollingText {
+        top: 10px; /* Adjust for mobile */
+        transform: translateX(0%);
+    }
+
+    #otherscrolling {
+        bottom: 50px; /* Adjust for mobile */
+        transform: translateX(0%);
+    }
+
+    #second {
+        height: 50vh; /* Adjust height for smaller screens */
+    }
+
+    .snaps > h1 {
+        font-size: 36pt; /* Smaller heading on mobile */
+    }
+
+    #toursnap {
+        width: 90vw; /* Make it more responsive */
+        height: 40vh;
+        margin-left: 0;
+    }
+
+    #stylesnap, #contactsnap {
+        width: 90vw; /* Make them more responsive */
+        height: 40vh;
+        margin-right: 0;
+    }
+}
+
+/* Tablet-specific adjustments (iPads, etc.) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    #bgg {
+        background-attachment: scroll; /* Remove fixed attachment for tablets */
+        background-position: center bottom;
+    }
+
+    #bgg > h3 {
+        font-size: 7vw; /* Adjust font size for medium screens like iPads */
+        top: 130px; /* Adjust vertical positioning */
+    }
+
+    #scrollingText {
+        top: 20px;
+        transform: translateX(-50%); /* Center the text */
+    }
+
+    #otherscrolling {
+        bottom: 200px;
+        transform: translateX(-50%); /* Center the text */
+    }
+
+    #second {
+        height: 55vh; /* Adjust height for tablets */
+    }
+
+    .snaps > h1 {
+        font-size: 48pt; /* Adjust font size for iPads */
+    }
+
+    #toursnap {
+        width: 80vw; /* Adjust snap size */
+        height: 50vh;
+    }
+
+    #stylesnap, #contactsnap {
+        width: 80vw; /* Adjust snap size */
+        height: 45vh;
+    }
+}
+
+/* Large screen adjustments */
+@media (min-width: 1025px) {
+    #bgg {
+        background-attachment: fixed;
+        background-position: center;
+    }
+
+    #bgg > h3 {
+        font-size: 4vw; /* Adjust for large screens */
+        top: 150px;
+    }
+
+    #scrollingText {
+        top: 150px;
+        transform: translateX(-60%);
+    }
+
+    #otherscrolling {
+        bottom: 275px;
+        transform: translateX(60%);
+    }
+
+    #second {
+        height: 60vh; /* Larger height for large screens */
+    }
+
+    .snaps > h1 {
+        font-size: 60pt;
+    }
+
+    #toursnap {
+        width: 50vw;
+        height: 70vh;
+    }
+
+    #stylesnap, #contactsnap {
+        width: 50vw;
+        height: calc(63vh / 2);
     }
 }
 

@@ -6,12 +6,22 @@ window.addEventListener('load', function() {
 
 function fadeout(event) {
     event.preventDefault();
+
+    const href = event.target.href || event.target.getAttribute('data-href');
+
+    if (!href) {
+        return;
+    }
+
     const body = document.querySelector('body');
+    body.style.transition = 'opacity 0.5s ease';
     body.style.opacity = 0;
+
     setTimeout(() => {
-        window.location.href = event.target.href;
+        window.location.href = href;
     }, 500);
 }
+
 
 // allows the navbar to be hidden
 let isHidden = false;
@@ -41,41 +51,6 @@ function goSettings() {
     }
 	boxHidden = !boxHidden;
 }
-
-// gives a ring of color to the cursor in bgg
-/*document.addEventListener('DOMContentLoaded', () => {
-    let gg = document.getElementById("bgg");
-    let cursorRing = document.querySelector('.cursor-ring');
-	
-    if (gg) {
-        gg.addEventListener('mouseenter', () => {
-            cursorRing.style.opacity = 0.8;
-        });
-
-        gg.addEventListener('mouseleave', () => {
-            cursorRing.style.opacity = 0;
-        });
-
-        gg.addEventListener('mousemove', (event) => {
-			const rect = gg.getBoundingClientRect();
-			const x = event.clientX - rect.left;
-			const y = event.clientY - rect.top;
-
-			const centerX = rect.width / 2;
-			const centerY = rect.height / 2;
-			const radius = rect.width / 4;
-
-			const distance = Math.sqrt((x - centerX) ** 2 + (y - centerY) ** 2);
-			if (distance < radius) {
-				cursorRing.style.opacity = 0.3;
-				cursorRing.style.left = `${event.clientX - 50}px`;
-				cursorRing.style.top = `${event.clientY - 50}px`;
-			} else {
-				cursorRing.style.opacity = 0;
-			}
-		});
-    }
-});*/
 
 // dynamically positions the text on bgg, hides pullup
 window.addEventListener('DOMContentLoaded', () => {

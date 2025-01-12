@@ -17,8 +17,7 @@
     position: absolute;
     transition: transform 0.1s ease-out;
     font-size: 6vw;
-    color: white;
-	text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
+	text-shadow: 0px 0px 10px black;
 	z-index: 4;
 	cursor: default;
 	font-family: radlushmed;
@@ -35,17 +34,15 @@
 }
 
 #otherscrolling {
-	bottom: 275px;
-    left: 3%;
+	top: 250px;
+    left: 15%;
     transform: translateX(60%);
 }
 
 #second {
 	box-shadow: 0px 0px 120px 150px rgba(0, 0, 0, 1);
-	background-color: black;
-	color: white;
-	margin-bottom: 150px;
-	height: 60vh;
+	background-color: green;
+	height: 100vh;
 }
 
 .snaps {
@@ -61,7 +58,7 @@
 
 #toursnap {
 	width: 50vw;
-	height: 70vh;
+	height: calc(100vh - 60px);
 	/*background: rgba(59, 59, 59, 0.3);
 	box-shadow: 0px 0px 100px 150px rgba(59, 59, 59, 0.3);*/
 	margin-left: 20px;
@@ -69,9 +66,87 @@
 
 #stylesnap, #contactsnap {
 	width: 50vw;
-	height: calc(63vh/2);
+	height:calc((100vh - 110px) / 2);
 	margin: 10px 20px 10px 0px;
 	margin-right: 20px;
+}
+
+#stylesnap {
+	display: flex;
+	gap: 20px;
+	align-items: center;
+}
+
+.image-wrapper {
+    position: relative;
+    height: calc(100% - 40px);
+    width: calc((100% - 40px) / 3);
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.image-wrapper img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(100% - 40px);
+    height: calc(100% - 40px);
+	padding: 20px;
+    background-color: rgba(0, 0, 0, 0.4);
+	cursor: pointer;
+    color: white;
+    display: flex;
+    justify-content: left;
+    align-items: end;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    font-size: 12pt;
+    text-align: left;
+    border-radius: 10px;
+}
+
+.overlay > div * {
+	font-family: "radlushmed", sans-serif;
+}
+
+.image-wrapper:hover .overlay {
+    opacity: 1;
+}
+
+#contactsnap form {
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+	gap: 11px;
+}
+
+#contactsnap form > * {
+	font-family: radlushmed;
+}
+
+.inp {
+    height: 30px !important;
+    color: red !important;
+}
+
+#signupbut {
+	width: 70%;
+	background-color: gray;
+	font-family: juliett;
+	font-size: 14pt;
+}
+
+#signupbut:hover {
+	background-color: #555;
+	transform: scale(1.03);
 }
 
 @media (max-width: 768px) {
@@ -80,17 +155,16 @@
     }
 
     #bgg > h3 {
-        font-size: 8vw; /* Adjust font size for smaller screens */
-        top: 100px; /* Adjust vertical positioning for better display */
+        font-size: 12vw; /* Adjust font size for smaller screens */
+		letter-spacing: 7px;
     }
 
     #scrollingText {
-        top: 10px; /* Adjust for mobile */
         transform: translateX(0%);
     }
 
     #otherscrolling {
-        bottom: 50px; /* Adjust for mobile */
+		top: 230px;
         transform: translateX(0%);
     }
 
@@ -115,80 +189,4 @@
     }
 }
 
-/* Tablet-specific adjustments (iPads, etc.) */
-@media (min-width: 768px) and (max-width: 1024px) {
-    #bgg > h3 {
-        font-size: 7vw; /* Adjust font size for medium screens like iPads */
-        top: 130px; /* Adjust vertical positioning */
-    }
-
-    #scrollingText {
-        top: 20px;
-        transform: translateX(-50%); /* Center the text */
-    }
-
-    #otherscrolling {
-        bottom: 200px;
-        transform: translateX(-50%); /* Center the text */
-    }
-
-    #second {
-        height: 55vh; /* Adjust height for tablets */
-    }
-
-    .snaps > h1 {
-        font-size: 48pt; /* Adjust font size for iPads */
-    }
-
-    #toursnap {
-        width: 80vw; /* Adjust snap size */
-        height: 50vh;
-    }
-
-    #stylesnap, #contactsnap {
-        width: 80vw; /* Adjust snap size */
-        height: 45vh;
-    }
-}
-
-/* Large screen adjustments */
-@media (min-width: 1025px) {
-    #bgg {
-        background-attachment: fixed;
-        background-position: center;
-    }
-
-    #bgg > h3 {
-        font-size: 4vw; /* Adjust for large screens */
-        top: 150px;
-    }
-
-    #scrollingText {
-        top: 150px;
-        transform: translateX(-60%);
-    }
-
-    #otherscrolling {
-        bottom: 275px;
-        transform: translateX(60%);
-    }
-
-    #second {
-        height: 60vh; /* Larger height for large screens */
-    }
-
-    .snaps > h1 {
-        font-size: 60pt;
-    }
-
-    #toursnap {
-        width: 50vw;
-        height: 70vh;
-    }
-
-    #stylesnap, #contactsnap {
-        width: 50vw;
-        height: calc(63vh / 2);
-    }
-}
 

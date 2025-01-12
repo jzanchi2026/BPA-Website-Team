@@ -28,6 +28,10 @@ body {
 	width: 10vw;
 }
 
+nav, footer {
+	z-index: 200;
+}
+
 nav {
     height: 15vh;
     display: flex;
@@ -37,7 +41,6 @@ nav {
     width: 100vw;
     box-shadow: 0px 0px 30px 40px rgba(0, 0, 0, 0.4);
     background: rgba(0, 0, 0, 0.4);
-    z-index: 100;
     transition: 0.5s ease-in-out;
 	pointer-events: none;
 }
@@ -117,7 +120,6 @@ nav > div a:hover {
     width: 100%;
     text-align: center;
     transition: bottom 0.3s ease-in-out;
-    z-index: 3;
     pointer-events: none;
 }
 
@@ -158,7 +160,7 @@ nav > div a:hover {
 
 #settingpanel {
 	position: fixed;
-    z-index: 200;
+    z-index: 1000;
     display: none;
 	flex-direction: column;
 	justify-content: space-between;
@@ -257,10 +259,6 @@ button:hover {
 }
 
 /* custom fonts */
-@font-face {
-  font-family: gerhaus;
-  src: url("Fonts/Gerhaus - GGBotNet/gerhausN.ttf");
-}
 
 @font-face {
   font-family: salmapro;

@@ -22,19 +22,183 @@ const products = Array.from({ length: 183 }, (_, index) => ({
 
 products[0] = {
     name: "Classic Black Tee",
-	id: 0,
-	creator: "John Doe from Fresh Styles",
+    id: 0,
+    creator: "Aether & Velvet",
     price: "$25.00",
-	saleprice: "$10.00",
-	details: "Fabric & Materials:<br>- 100% Cotton<br>- Soft, breathable fabric<br>- Pre-shrunk to maintain shape and fit<br>- Screen printed design for a high-quality finish<br><br>Design Features:<br>- Classic black color<br>- Crew neck design<br>- Short sleeves for a relaxed fit<br>- High-quality band graphic print<br>- Reinforced stitching for durability<br><br>Wash Instructions:<br>- Machine wash cold<br>- Wash with like colors<br>- Do not tumble dry<br>- Inside out for best print care<br>- Do not bleach<br>- Do not dry clean<br>- Do not iron over the graphic<br><br>NOTE: Size charts are for general reference. The fit may vary depending on construction, materials, and manufacturer. Sizing may also vary between and within brands.",
-	sellingvalue: 100,
+    saleprice: "$10.00",
+    details: "Fabric & Materials:<br>- 100% Cotton<br>- Soft, breathable fabric<br>- Pre-shrunk to maintain shape and fit<br>- Screen printed design for a high-quality finish<br><br>Design Features:<br>- Classic black color<br>- Crew neck design<br>- Short sleeves for a relaxed fit<br>- High-quality band graphic print<br>- Reinforced stitching for durability<br><br>Wash Instructions:<br>- Machine wash cold<br>- Wash with like colors<br>- Do not tumble dry<br>- Inside out for best print care<br>- Do not bleach<br>- Do not dry clean<br>- Do not iron over the graphic<br><br>NOTE: Size charts are for general reference. The fit may vary depending on construction, materials, and manufacturer. Sizing may also vary between and within brands.",
+    sellingvalue: 100,
     limited: false,
     image: "../Images/testshirt.jpeg",
     filters: {
         departments: "unisex",
-        collections: "apparel",
-    },
+        collections: "apparel"
+    }
 };
+
+products[1] = {
+    name: "Black Sweatpants",
+    id: 1,
+    creator: "Reverie Threadworks",
+    price: "$54.00",
+    saleprice: null,
+    details: "Fabric & Materials:<br>- 100% Cotton for comfort and breathability<br>- Soft and smooth to keep you cozy all day long<br><br>Design Features:<br>- Versatile black color for easy pairing<br>- Elastic waistband with adjustable drawstring for the perfect fit<br>- Ribbed cuffs for a snug, tailored look<br><br>Wash Instructions:<br>- Machine wash cold<br>- Wash with like colors<br>- Tumble dry low or air dry<br>- Do not bleach<br>- Do not dry clean<br>- Do not iron<br><br>NOTE: Size charts are for general reference. The fit may vary depending on construction, materials, and manufacturer.",
+    sellingvalue: 70,
+    limited: false,
+    image: "../Images/testshirt.jpeg",
+    filters: {
+        departments: "unisex",
+        collections: "apparel"
+    }
+};
+
+products[2] = {
+    name: "White Fullback Crewneck",
+    id: 2,
+    creator: "Crimson Loom",
+    price: "$48.00",
+    saleprice: null,
+    details: "Fabric & Materials:<br>- Durable cotton/polyester blend for lasting comfort<br>- Soft and cozy brushed interior for an extra-warm feel<br><br>Design Features:<br>- Crisp white color perfect for layering<br>- Classic crewneck cut for a relaxed style<br>- Reinforced seams to ensure long-lasting wear<br><br>Wash Instructions:<br>- Machine wash cold<br>- Wash with like colors<br>- Tumble dry low or air dry<br>- Do not bleach<br>- Do not dry clean<br>- Do not iron<br><br>NOTE: Size charts are for general reference. The fit may vary depending on construction, materials, and manufacturer.",
+    sellingvalue: 60,
+    limited: false,
+    image: "../Images/testshirt.jpeg",
+    filters: {
+        departments: "unisex",
+        collections: "apparel"
+    }
+};
+
+products[3] = {
+    name: "Black Fullback Crewneck",
+    id: 3,
+    creator: "Reverie Threadworks",
+    price: "$48.00",
+    saleprice: null,
+    details: "Fabric & Materials:<br>- Long-lasting cotton/polyester blend for softness and durability<br>- Brushed on the inside for an extra-cozy feel<br><br>Design Features:<br>- Bold black color that's easy to pair with anything<br>- Classic crewneck fit for a relaxed, comfortable style<br>- Reinforced stitching ensures the longevity of the garment<br><br>Wash Instructions:<br>- Machine wash cold<br>- Wash with like colors<br>- Tumble dry low or air dry<br>- Do not bleach<br>- Do not dry clean<br>- Do not iron<br><br>NOTE: Size charts are for general reference. The fit may vary depending on construction, materials, and manufacturer.",
+    sellingvalue: 90,
+    limited: false,
+    image: "../Images/testshirt.jpeg",
+    filters: {
+        departments: "unisex",
+        collections: "apparel"
+    }
+};
+
+products[4] = {
+    name: "Classic White Crewneck",
+    id: 4,
+    creator: "Crimson Loom",
+    price: "$37.00",
+    saleprice: null,
+    details: "Fabric & Materials:<br>- 100% Cotton for breathable, everyday comfort<br>- Soft, brushed fabric on the inside for added warmth<br><br>Design Features:<br>- Classic white color that goes with any outfit<br>- Relaxed crewneck design<br>- Reinforced stitching at the seams for durability<br><br>Wash Instructions:<br>- Machine wash cold<br>- Wash with like colors<br>- Tumble dry low or air dry<br>- Do not bleach<br>- Do not dry clean<br>- Do not iron<br><br>NOTE: Size charts are for general reference. The fit may vary depending on construction, materials, and manufacturer.",
+    sellingvalue: 60,
+    limited: false,
+    image: "../Images/testshirt.jpeg",
+    filters: {
+        departments: "unisex",
+        collections: "apparel"
+    }
+};
+
+products[5] = {
+    name: "Black Beanie",
+    id: 5,
+    creator: "Aether & Velvet",
+    price: "$24.00",
+    saleprice: null,
+    details: "Fabric & Materials:<br>- Premium blend of acrylic, wool, nylon, and spandex for a stretchy, comfortable fit<br>- Thick, cozy material to keep your head warm through the cold months<br><br>Design Features:<br>- Timeless black color that complements any winter outfit<br>- Soft texture for a plush feel<br><br>Wash Instructions:<br>- Hand wash cold<br>- Lay flat to dry<br>- Do not bleach<br>- Do not iron<br><br>NOTE: Size charts are for general reference. The fit may vary depending on construction, materials, and manufacturer.",
+    sellingvalue: 30,
+    limited: false,
+    image: "../Images/testshirt.jpeg",
+    filters: {
+        departments: "unisex",
+        collections: "apparel"
+    }
+};
+
+products[6] = {
+    name: "Guitar Pick",
+    id: 6,
+    creator: "Reverie Threadworks",
+    price: "$11.00",
+    saleprice: null,
+    details: "Fabric & Materials:<br>- Crafted from high-quality celluloid<br>- Thin, lightweight design for a comfortable strumming experience<br><br>Design Features:<br>- Sleek, polished finish for easy grip<br>- Durable enough for daily use and performance<br><br>Care Instructions:<br>- Wipe clean with a soft cloth after use<br>- Avoid exposure to excessive heat or direct sunlight<br><br>NOTE: Size charts are for general reference. The fit may vary depending on construction, materials, and manufacturer.",
+    sellingvalue: 20,
+    limited: false,
+    image: "../Images/testshirt.jpeg",
+    filters: {
+        departments: "unisex",
+        collections: "accessories"
+    }
+};
+
+products[7] = {
+    name: "Classic Black Crewneck",
+    id: 7,
+    creator: "Aether & Velvet",
+    price: "$45.00",
+    saleprice: null,
+    details: "Fabric & Materials:<br>- 100% Cotton for a soft, breathable feel<br>- Heavyweight fabric brushed for extra warmth<br><br>Design Features:<br>- Stylish black color that's perfect for any occasion<br>- Classic crewneck design for all-day comfort<br>- Durable seams to ensure a long-lasting garment<br><br>Wash Instructions:<br>- Machine wash cold<br>- Wash with like colors<br>- Tumble dry low or air dry<br>- Do not bleach<br>- Do not dry clean<br>- Do not iron<br><br>NOTE: Size charts are for general reference. The fit may vary depending on construction, materials, and manufacturer.",
+    sellingvalue: 60,
+    limited: false,
+    image: "../Images/testshirt.jpeg",
+    filters: {
+        departments: "unisex",
+        collections: "apparel"
+    }
+};
+
+products[8] = {
+    name: "Black Fullback T-Shirt",
+    id: 8,
+    creator: "Reverie Threadworks",
+    price: "$27.00",
+    saleprice: null,
+    details: "Fabric & Materials:<br>- 100% Cotton for a soft, breathable experience<br>- Lightweight cotton that moves with you<br><br>Design Features:<br>- Classic black color for effortless style<br>- Crewneck fit with short sleeves for maximum comfort<br>- Ideal for layering or wearing solo<br><br>Wash Instructions:<br>- Machine wash cold<br>- Wash with like colors<br>- Tumble dry low or air dry<br>- Do not bleach<br>- Do not dry clean<br>- Do not iron<br><br>NOTE: Size charts are for general reference. The fit may vary depending on construction, materials, and manufacturer.",
+    sellingvalue: 100,
+    limited: false,
+    image: "../Images/testshirt.jpeg",
+    filters: {
+        departments: "unisex",
+        collections: "apparel"
+    }
+};
+
+products[9] = {
+    name: "White Fullback T-Shirt",
+    id: 9,
+    creator: "Aether & Velvet",
+    price: "$27.00",
+    saleprice: null,
+    details: "Fabric & Materials:<br>- 100% Cotton for a soft, breathable experience<br>- Comfortable fabric that keeps you cool all day long<br><br>Design Features:<br>- Clean white color for a timeless look<br>- Classic crewneck cut and short sleeves for a relaxed fit<br>- Easy to style and layer with other pieces<br><br>Wash Instructions:<br>- Machine wash cold<br>- Wash with like colors<br>- Tumble dry low or air dry<br>- Do not bleach<br>- Do not dry clean<br>- Do not iron<br><br>NOTE: Size charts are for general reference. The fit may vary depending on construction, materials, and manufacturer.",
+    sellingvalue: 80,
+    limited: false,
+    image: "../Images/testshirt.jpeg",
+    filters: {
+        departments: "unisex",
+        collections: "apparel"
+    }
+};
+
+products[10] = {
+    name: "White Tour T-Shirt",
+    id: 10,
+    creator: "Crimson Loom",
+    price: "$27.00",
+    saleprice: null,
+    details: "Fabric & Materials:<br>- 100% Cotton for a lightweight and breathable feel<br>- Soft fabric that ensures comfort all day long<br><br>Design Features:<br>- Classic white design with a fun tour graphic<br>- Crewneck and short sleeves for an easy fit<br>- Great for casual outings or music events<br><br>Wash Instructions:<br>- Machine wash cold<br>- Wash with like colors<br>- Tumble dry low or air dry<br>- Do not bleach<br>- Do not dry clean<br>- Do not iron<br><br>NOTE: Size charts are for general reference. The fit may vary depending on construction, materials, and manufacturer.",
+    sellingvalue: 50,
+    limited: false,
+    image: "../Images/testshirt.jpeg",
+    filters: {
+        departments: "unisex",
+        collections: "apparel"
+    }
+};
+
+
+
+
 
 function getSelectedFilters() {
     let selected = {
@@ -56,6 +220,22 @@ function getSelectedFilters() {
 
 	return selected;
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    const shopChoice = localStorage.getItem("shopChoice");
+	const itemPassed = localStorage.getItem("item");
+
+    if (shopChoice) {
+        passChoice(shopChoice);
+        localStorage.removeItem("shopChoice");
+    }
+	
+	/*if (itemPassed) {
+        popUp(itemPassed);
+		console.log("ran");
+        localStorage.removeItem("item");
+    }*/
+});
 
 function passChoice(choice) {
     const collectionCheckboxes = document.querySelectorAll('input[name="collection[]"]');
@@ -343,9 +523,9 @@ function popUp(item) {
 	const flexed = document.createElement('div');
 	flexed.style.display = 'flex';
 	const sideone = document.createElement('div');
-	sideone.style.width = '45%';
+	sideone.style.width = '50%';
 	const sidetwo = document.createElement('div');
-	sidetwo.style.width = '55%';
+	sidetwo.style.width = '50%';
 	sidetwo.style.textAlign = 'left';
 	flexed.appendChild(sideone);
 	flexed.appendChild(sidetwo);
@@ -373,7 +553,7 @@ function popUp(item) {
 	}
 	
 	// Best seller 
-	if (item.sellingvalue >= 50) {
+	if (item.sellingvalue >= 80) {
 		const limited = createTag('BEST SELLER', sidetwo);
 		sidetwo.appendChild(limited);
 	}
@@ -395,7 +575,7 @@ function popUp(item) {
     title.textContent = item.name;
 	title.style.fontFamily = 'pasti';
 	title.style.letterSpacing = '1.5px';
-    title.style.fontSize = '60pt';
+    title.style.fontSize = '55pt';
 	sidetwo.appendChild(title);
 	
 	// Creator
@@ -649,7 +829,7 @@ function popUp(item) {
 	const addToCartButton = document.createElement('button');
 	addToCartButton.textContent = 'ADD TO CART';
 	addToCartButton.style.fontFamily = 'salmapro';
-	addToCartButton.style.fontSize = '20px';
+	addToCartButton.style.fontSize = '15px';
 	addToCartButton.style.fontWeight = 'bold';
 	addToCartButton.style.padding = '10px 20px';
 	addToCartButton.style.border = 'none';
@@ -678,7 +858,7 @@ function popUp(item) {
 	const buyNowButton = document.createElement('button');
 	buyNowButton.textContent = 'BUY NOW';
 	buyNowButton.style.fontFamily = 'salmapro';
-	buyNowButton.style.fontSize = '20px';
+	buyNowButton.style.fontSize = '15px';
 	buyNowButton.style.fontWeight = 'bold';
 	buyNowButton.style.padding = '10px 20px';
 	buyNowButton.style.border = 'none';
@@ -749,26 +929,29 @@ function popUp(item) {
     const image = document.createElement('img');
     image.src = item.image;
     image.alt = item.name;
-    image.style.width = "35vw";
-	image.style.height = "auto";
+    image.style.width = "auto";
+	image.style.height = "calc(100vh - 40px)";
 	image.style.display = "block";
 	image.style.border = "3px solid white";
 	image.style.borderRadius = '3px';
-    image.style.height = 'auto';
 	sideone.appendChild(image);
     
     // Close Button
     const closeButton = document.createElement('button');
-    closeButton.textContent = "CLOSE";
+    closeButton.textContent = "X";
     closeButton.style.padding = '10px 20px';
 	closeButton.style.marginBottom = '40px';
     closeButton.style.fontSize = '16px';
+	closeButton.style.width = '50px';
     closeButton.style.backgroundColor = '#4286a8';
     closeButton.style.color = 'white';
 	closeButton.style.fontWeight = "bold";
     closeButton.style.border = 'none';
     closeButton.style.borderRadius = '3px';
     closeButton.style.cursor = 'pointer';
+	closeButton.style.position = 'absolute';
+	closeButton.style.top = '20px';
+	closeButton.style.right = '40px'; 
     closeButton.addEventListener('click', () => {
         popup.remove();
 		document.getElementsByTagName("body")[0].style.overflow = "auto";
@@ -817,248 +1000,8 @@ function buyNow(item, size, quantity) {
 
 totalItems = null;
 
-function updateCartCount() {
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-
-    const cartCount = document.getElementById('cart-count');
-    if (totalItems > 0) {
-        cartCount.style.display = 'block';
-        cartCount.textContent = totalItems;
-    } else {
-        cartCount.style.display = 'none';
-    }
-}
 
 
-let isCartVisible = false;
-let closeCart = true;
-
-function showCartPopup() {
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    let popup = document.querySelector('.cart-popup');
-
-    if (popup && isCartVisible) {
-        closePopup(popup);
-        return;
-    }
-
-    if (!popup) {
-        popup = document.createElement('div');
-        popup.className = 'cart-popup';
-        popup.addEventListener('click', () => closePopup(popup));
-
-        const popupContent = document.createElement('div');
-        popupContent.className = 'cart-popup-content';
-
-        popupContent.addEventListener('click', (e) => {
-            e.stopPropagation();
-        });
-
-        const flexed = document.createElement('div');
-        flexed.style.display = 'flex';
-
-        const topArea = document.createElement('div');
-        topArea.className = 'top-area';
-        popupContent.appendChild(topArea);
-
-        const shopLogo = document.createElement('img');
-        shopLogo.src = "../Images/cart.png";
-        shopLogo.style.height = '40pt';
-        shopLogo.style.width = 'auto';
-        shopLogo.style.padding = '4.5% 35px 20px 20px';
-        shopLogo.style.transform = 'scaleX(-1)';
-        shopLogo.alt = "Shopping cart icon";
-        shopLogo.style.cursor = 'pointer';
-        shopLogo.addEventListener('click', () => closePopup(popup));
-        flexed.appendChild(shopLogo);
-
-        const title = document.createElement('h1');
-        title.textContent = 'Your Cart';
-        flexed.appendChild(title);
-        topArea.appendChild(flexed);
-
-        const itemsArea = document.createElement('div');
-        itemsArea.className = 'cart-popup-items-area';
-        topArea.appendChild(itemsArea);
-
-        const totalContainer = document.createElement('div');
-        totalContainer.className = 'cart-popup-total';
-        const totalText = document.createElement('p');
-        totalContainer.appendChild(totalText);
-        topArea.appendChild(totalContainer);
-
-        const itemNum = document.createElement('p');
-        itemNum.className = 'cart-popup-counts';
-        topArea.appendChild(itemNum);
-
-        if (cart.length === 0) {
-            itemsArea.innerHTML = '<p style="padding: 10px; font-weight: bold;" class="cart-popup-empty">YOUR CART IS EMPTY</p>';
-        } else {
-            cart.forEach((order, index) => {
-                const orderContainer = document.createElement('div');
-                orderContainer.className = 'cart-popup-item-container';
-
-                const itemImage = document.createElement('img');
-                itemImage.src = order.image;
-                itemImage.alt = order.name;
-                itemImage.className = 'cart-popup-item-image';
-                orderContainer.appendChild(itemImage);
-
-                const itemDetails = document.createElement('div');
-                itemDetails.className = 'cart-popup-item-details';
-
-                const itemName = document.createElement('h3');
-                itemName.textContent = order.name;
-                itemName.className = 'cart-popup-item-name';
-                itemDetails.appendChild(itemName);
-
-                const itemSize = document.createElement('p');
-                itemSize.textContent = `Size: ${order.size}`;
-                itemSize.className = 'cart-popup-item-size';
-                itemDetails.appendChild(itemSize);
-
-                const itemQuantity = document.createElement('div');
-                itemQuantity.className = 'cart-popup-item-quantity';
-
-                const minusBtn = document.createElement('button');
-                minusBtn.textContent = '-';
-                minusBtn.addEventListener('click', () => updateQuantity(index, -1));
-                itemQuantity.appendChild(minusBtn);
-
-                const quantityText = document.createElement('p');
-                quantityText.textContent = `${order.quantity}`;
-                itemQuantity.appendChild(quantityText);
-
-                const plusBtn = document.createElement('button');
-                plusBtn.textContent = '+';
-                plusBtn.style.borderRadius = '0px 10px 10px 0px';
-                plusBtn.addEventListener('click', () => updateQuantity(index, 1));
-                itemQuantity.appendChild(plusBtn);
-
-                itemDetails.appendChild(itemQuantity);
-
-                const priceRemove = document.createElement('div');
-                priceRemove.className = 'cart-popup-item-prices';
-
-                const itemPrice = document.createElement('p');
-                order.price = order.price.replace("$", "");
-                const price = parseFloat(order.price);
-                itemPrice.textContent = `$${(price * order.quantity).toFixed(2)}`;
-                itemPrice.className = 'cart-popup-item-price';
-                priceRemove.appendChild(itemPrice);
-
-                const removeBtn = document.createElement('button');
-                removeBtn.textContent = 'Remove';
-                removeBtn.addEventListener('click', () => removeItem(index));
-                priceRemove.appendChild(removeBtn);
-
-                const trashIcon = document.createElement('img');
-                trashIcon.src = '../Images/trash.png';
-                trashIcon.alt = 'Remove item';
-                trashIcon.style.transition = '0.2s ease';
-                trashIcon.style.height = '20px';
-                trashIcon.style.width = 'auto';
-                removeBtn.appendChild(trashIcon);
-
-                orderContainer.appendChild(itemDetails);
-                orderContainer.appendChild(priceRemove);
-                itemsArea.appendChild(orderContainer);
-            });
-        }
-
-        const buttonArea = document.createElement('div');
-        buttonArea.className = 'button-area';
-        popupContent.appendChild(buttonArea);
-
-        const closeButton = document.createElement('button');
-        closeButton.textContent = 'Close';
-        closeButton.className = 'cart-popup-close-btn';
-        closeButton.addEventListener('click', () => closePopup(popup));
-        buttonArea.appendChild(closeButton);
-
-        const clearButton = document.createElement('button');
-        clearButton.textContent = 'Clear Cart';
-        clearButton.className = 'cart-popup-clear-btn';
-        clearButton.addEventListener('click', () => {
-            localStorage.removeItem('cart');
-            cart = [];
-            updateCartCount();
-            itemsArea.innerHTML = '<p style="padding: 10px; font-weight: bold;" class="cart-popup-empty">YOUR CART IS EMPTY</p>';
-            updateTotal();
-        });
-        buttonArea.appendChild(clearButton);
-
-        const checkButton = document.createElement('button');
-        checkButton.textContent = 'Checkout';
-        checkButton.className = 'cart-popup-check-btn';
-        checkButton.addEventListener('click', () => closePopup(popup));
-        buttonArea.appendChild(checkButton);
-
-        popup.appendChild(popupContent);
-        document.body.appendChild(popup);
-
-        // Disable transitions temporarily to show content changes without delay
-        popup.style.transition = 'none';
-        popupContent.style.transition = 'none';
-
-        setTimeout(() => {
-            popup.style.backgroundColor = 'rgba(117, 144, 186, 0.2)';
-            popupContent.style.transform = 'translateX(-5px)';
-            // Re-enable transitions
-            popup.style.transition = '';
-            popupContent.style.transition = '';
-        }, 0);
-
-        updateTotal();
-    }
-
-    isCartVisible = true;
-
-    function closePopup(popup) {
-        popup.style.backgroundColor = 'rgba(0, 0, 0, 0)';
-        popup.querySelector('.cart-popup-content').style.transform = 'translateX(100%)';
-        setTimeout(() => {
-            popup.remove();
-            isCartVisible = false;
-        }, 500);
-    }
-	
-    function updateQuantity(index, change) {
-        closeCart = true;
-        isCartVisible = false;
-        cart[index].quantity = Math.max(1, cart[index].quantity + change);
-        localStorage.setItem('cart', JSON.stringify(cart));
-        updateCartCount();
-        updateTotal();
-        showCartPopup();
-        closeCart = false;
-    }
-
-    function removeItem(index) {
-        closeCart = true;
-        isCartVisible = false;
-        // Remove item from cart and update localStorage
-        cart.splice(index, 1);
-        localStorage.setItem('cart', JSON.stringify(cart));
-
-        // Immediately update the cart content with no transition
-        updateCartCount();
-        updateTotal();
-        const itemsArea = document.querySelector('.cart-popup-items-area');
-        itemsArea.innerHTML = '<p style="padding: 10px; font-weight: bold;" class="cart-popup-empty">YOUR CART IS EMPTY</p>';
-        showCartPopup(); // Recreate the updated cart popup
-
-        closeCart = false;
-    }
-
-    function updateTotal() {
-        const total = cart.reduce((acc, order) => acc + (parseFloat(order.price) * order.quantity), 0);
-        const totalItems = cart.reduce((acc, order) => acc + order.quantity, 0);
-        document.querySelector('.cart-popup-total p').textContent = `SUBTOTAL: $${total.toFixed(2)}`;
-        document.querySelector('.cart-popup-counts').textContent = `${totalItems} ${totalItems === 1 ? 'item' : 'items'}`;
-    }
-}
 
 
 

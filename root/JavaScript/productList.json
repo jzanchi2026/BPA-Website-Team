@@ -1,0 +1,15 @@
+{
+    "name": "Classic Black Tee",
+    "id": 0,
+    "creator": "John Doe from Fresh Styles",
+    "price": "$25.00",
+    "saleprice": "$10.00",
+    "details": "Fabric & Materials:<br>- 100% Cotton<br>- Soft, breathable fabric<br>- Pre-shrunk to maintain shape and fit<br>- Screen printed design for a high-quality finish<br><br>Design Features:<br>- Classic black color<br>- Crew neck design<br>- Short sleeves for a relaxed fit<br>- High-quality band graphic print<br>- Reinforced stitching for durability<br><br>Wash Instructions:<br>- Machine wash cold<br>- Wash with like colors<br>- Do not tumble dry<br>- Inside out for best print care<br>- Do not bleach<br>- Do not dry clean<br>- Do not iron over the graphic<br><br>NOTE: Size charts are for general reference. The fit may vary depending on construction, materials, and manufacturer. Sizing may also vary between and within brands.",
+    "sellingvalue": 100,
+    "limited": false,
+    "image": "../Images/testshirt.jpeg",
+    "filters": {
+        "departments": "unisex",
+        "collections": "apparel"
+    }
+}

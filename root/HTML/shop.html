@@ -10,7 +10,7 @@
 		<link rel="icon" type="image/x-icon" href="../Images/cursor.png">
 	</head>
 	
-	<body onload="loadShop(), showCartPopup()">
+	<body onload="loadShop()">
 		<nav id="navbar">
 			<div class="spaceHolder"></div> 
 			<div style="justify-content: right" class="inside">
@@ -123,7 +123,7 @@
 			   
 				<div id="combined">  
 					<div id="sortby" style="display: flex; margin: 0px 40px; width: 92%; justify-content: space-between; align-items: center;">
-							<img onclick="showCartPopup()" id="cart" src="../Images/cart.png" alt="Shopping Cart">
+							<img class="cart-trigger" onclick="showCartPopup()" id="cart" src="../Images/cart.png" alt="Shopping Cart">
 							<span id="cart-count">0</span>
 							<div id="counted"></div>  
 				

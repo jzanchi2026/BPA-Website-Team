@@ -146,84 +146,244 @@ function showNewDiv(selected) {
     shownDiv = selected; // Update the currently shown div
 }
 
+let isCartVisible = false;
+let closeCart = true;
 
-/*
-const departments = ["men", "women", "unisex", "youth"];
-const collections = ["accessories", "media", "apparel", "albums"];
-const products1 = Array.from({ length: 183 }, (_, index) => ({
-    name: `Product ${index + 1}`,
-	id: index,
-	creator: "lol",
-    price: `$${(Math.random() * (200 - 10) + 10).toFixed(2)}`,
-	saleprice: Math.random() < 0.7 ? null : `$${(Math.random() * (50 - 10) + 10).toFixed(2)}`,
-	details: "Fabric & Materials:<br>- 100% Cotton<br>- Soft, breathable fabric<br>- Pre-shrunk to maintain shape and fit<br>- Screen printed design for a high-quality finish<br><br>Design Features:<br>- Classic black color<br>- Crew neck design<br>- Short sleeves for a relaxed fit<br>- High-quality band graphic print<br>- Reinforced stitching for durability<br><br>Wash Instructions:<br>- Machine wash cold<br>- Wash with like colors<br>- Do not tumble dry<br>- Inside out for best print care<br>- Do not bleach<br>- Do not dry clean<br>- Do not iron over the graphic<br><br>NOTE: Size charts are for general reference. The fit may vary depending on construction, materials, and manufacturer. Sizing may also vary between and within brands.",
-	sellingvalue: Math.floor(Math.random() * 100) + 1,
-    limited: Math.random() < 0.15,
-    image: "../Images/lightts.avif",
-	filters: {
-        departments: departments[Math.floor(Math.random() * departments.length)],
-        collections: collections[Math.floor(Math.random() * collections.length)],
-    },
-}));
+function updateCartCount() {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
-function buildFeatured(filteredProducts) {
-    let content = document.getElementById("shopsnap");
-
-    for (let i = 0; i < 4; i++) {
-        const product = filteredProducts[i];
-        let productCard = document.createElement("div");
-        productCard.classList.add("home-product-card");
-        productCard.style.backgroundImage = `url(${product.image})`;
-        productCard.addEventListener("click", () => {
-            popUp(product);
-        });
-
-        // Product Name
-        let productNameLink = document.createElement("a");
-        productNameLink.textContent = product.name.toUpperCase();
-        productNameLink.classList.add("home-product-name");
-        if (product.limited) productNameLink.classList.add("limited");
-        productNameLink.addEventListener("mouseover", () => {
-            productNameLink.classList.add("hover");
-        });
-        productNameLink.addEventListener("mouseout", () => {
-            productNameLink.classList.remove("hover");
-        });
-        productCard.appendChild(productNameLink);
-
-        // Product Price
-        let productPrice = document.createElement("p");
-        productPrice.classList.add("home-product-price");
-        if (product.saleprice != null) {
-            productPrice.innerHTML = `<s>${product.price}</s> <span>${product.saleprice}</span>`;
-        } else {
-            productPrice.textContent = product.price;
-        }
-        productCard.appendChild(productPrice);
-
-        // Icon Bar
-        let iconBar = document.createElement("div");
-        iconBar.classList.add("icon-bar");
-
-        // Placeholder icons
-        let icon1 = document.createElement("img");
-        icon1.src = "../Images/cart.png";
-        icon1.alt = "Add to cart";
-
-        let icon2 = document.createElement("img");
-        icon2.src = "../Images/info.png";
-		icon2.style.height = "25px";
-        icon2.alt = "See more info";
-
-        iconBar.appendChild(icon1);
-        iconBar.appendChild(icon2);
-        productCard.appendChild(iconBar);
-
-        content.appendChild(productCard);
+    const cartCount = document.getElementById('cart-count');
+    if (totalItems > 0) {
+        cartCount.style.display = 'block';
+        cartCount.textContent = totalItems;
+    } else {
+        cartCount.style.display = 'none';
     }
 }
 
-window.addEventListener("load", (event) => {
-	console.log("did");
-	buildFeatured(products1);
-});*/
+function showCartPopup() {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let popup = document.querySelector('.cart-popup');
+
+    if (popup && isCartVisible) {
+        closePopup(popup);
+        return;
+    }
+
+    if (!popup) {
+        popup = document.createElement('div');
+        popup.className = 'cart-popup';
+        popup.addEventListener('click', () => closePopup(popup));
+
+        const popupContent = document.createElement('div');
+        popupContent.className = 'cart-popup-content';
+
+        popupContent.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+
+        const flexed = document.createElement('div');
+        flexed.style.display = 'flex';
+
+        const topArea = document.createElement('div');
+        topArea.className = 'top-area';
+        popupContent.appendChild(topArea);
+
+        const shopLogo = document.createElement('img');
+        shopLogo.src = "../Images/cart.png";
+        shopLogo.style.height = '40pt';
+        shopLogo.style.width = 'auto';
+        shopLogo.style.padding = '4.5% 35px 20px 20px';
+        shopLogo.style.transform = 'scaleX(-1)';
+        shopLogo.alt = "Shopping cart icon";
+        shopLogo.style.cursor = 'pointer';
+        shopLogo.addEventListener('click', () => closePopup(popup));
+        flexed.appendChild(shopLogo);
+
+        const title = document.createElement('h1');
+        title.textContent = 'Your Cart';
+        flexed.appendChild(title);
+        topArea.appendChild(flexed);
+
+        const itemsArea = document.createElement('div');
+        itemsArea.className = 'cart-popup-items-area';
+        topArea.appendChild(itemsArea);
+
+        const totalContainer = document.createElement('div');
+        totalContainer.className = 'cart-popup-total';
+        const totalText = document.createElement('p');
+        totalContainer.appendChild(totalText);
+        topArea.appendChild(totalContainer);
+
+        const itemNum = document.createElement('p');
+        itemNum.className = 'cart-popup-counts';
+        topArea.appendChild(itemNum);
+
+        if (cart.length === 0) {
+            itemsArea.innerHTML = '<p style="padding: 10px; font-weight: bold;" class="cart-popup-empty">YOUR CART IS EMPTY</p>';
+        } else {
+            cart.forEach((order, index) => {
+                const orderContainer = document.createElement('div');
+                orderContainer.className = 'cart-popup-item-container';
+
+                const itemImage = document.createElement('img');
+                itemImage.src = order.image;
+                itemImage.alt = order.name;
+                itemImage.className = 'cart-popup-item-image';
+                orderContainer.appendChild(itemImage);
+
+                const itemDetails = document.createElement('div');
+                itemDetails.className = 'cart-popup-item-details';
+
+                const itemName = document.createElement('h3');
+                itemName.textContent = order.name;
+                itemName.className = 'cart-popup-item-name';
+                itemDetails.appendChild(itemName);
+
+                const itemSize = document.createElement('p');
+                itemSize.textContent = `Size: ${order.size}`;
+                itemSize.className = 'cart-popup-item-size';
+                itemDetails.appendChild(itemSize);
+
+                const itemQuantity = document.createElement('div');
+                itemQuantity.className = 'cart-popup-item-quantity';
+
+                const minusBtn = document.createElement('button');
+                minusBtn.textContent = '-';
+                minusBtn.addEventListener('click', () => updateQuantity(index, -1));
+                itemQuantity.appendChild(minusBtn);
+
+                const quantityText = document.createElement('p');
+                quantityText.textContent = `${order.quantity}`;
+                itemQuantity.appendChild(quantityText);
+
+                const plusBtn = document.createElement('button');
+                plusBtn.textContent = '+';
+                plusBtn.style.borderRadius = '0px 10px 10px 0px';
+                plusBtn.addEventListener('click', () => updateQuantity(index, 1));
+                itemQuantity.appendChild(plusBtn);
+
+                itemDetails.appendChild(itemQuantity);
+
+                const priceRemove = document.createElement('div');
+                priceRemove.className = 'cart-popup-item-prices';
+
+                const itemPrice = document.createElement('p');
+                order.price = order.price.replace("$", "");
+                const price = parseFloat(order.price);
+                itemPrice.textContent = `$${(price * order.quantity).toFixed(2)}`;
+                itemPrice.className = 'cart-popup-item-price';
+                priceRemove.appendChild(itemPrice);
+
+                const removeBtn = document.createElement('button');
+                removeBtn.textContent = 'Remove';
+                removeBtn.addEventListener('click', () => removeItem(index));
+                priceRemove.appendChild(removeBtn);
+
+                const trashIcon = document.createElement('img');
+                trashIcon.src = '../Images/trash.png';
+                trashIcon.alt = 'Remove item';
+                trashIcon.style.transition = '0.2s ease';
+                trashIcon.style.height = '20px';
+                trashIcon.style.width = 'auto';
+                removeBtn.appendChild(trashIcon);
+
+                orderContainer.appendChild(itemDetails);
+                orderContainer.appendChild(priceRemove);
+                itemsArea.appendChild(orderContainer);
+            });
+        }
+
+        const buttonArea = document.createElement('div');
+        buttonArea.className = 'button-area';
+        popupContent.appendChild(buttonArea);
+
+        const closeButton = document.createElement('button');
+        closeButton.textContent = 'Close';
+        closeButton.className = 'cart-popup-close-btn';
+        closeButton.addEventListener('click', () => closePopup(popup));
+        buttonArea.appendChild(closeButton);
+
+        const clearButton = document.createElement('button');
+        clearButton.textContent = 'Clear Cart';
+        clearButton.className = 'cart-popup-clear-btn';
+        clearButton.addEventListener('click', () => {
+            localStorage.removeItem('cart');
+            cart = [];
+            updateCartCount();
+            itemsArea.innerHTML = '<p style="padding: 10px; font-weight: bold;" class="cart-popup-empty">YOUR CART IS EMPTY</p>';
+            updateTotal();
+        });
+        buttonArea.appendChild(clearButton);
+
+        const checkButton = document.createElement('button');
+        checkButton.textContent = 'Checkout';
+        checkButton.className = 'cart-popup-check-btn';
+        checkButton.addEventListener('click', () => closePopup(popup));
+        buttonArea.appendChild(checkButton);
+
+        popup.appendChild(popupContent);
+        document.body.appendChild(popup);
+
+        // Disable transitions temporarily to show content changes without delay
+        popup.style.transition = 'none';
+        popupContent.style.transition = 'none';
+
+        setTimeout(() => {
+            popup.style.backgroundColor = 'rgba(117, 144, 186, 0.2)';
+            popupContent.style.transform = 'translateX(-5px)';
+            // Re-enable transitions
+            popup.style.transition = '';
+            popupContent.style.transition = '';
+        }, 0);
+
+        updateTotal();
+    }
+
+    isCartVisible = true;
+
+    function closePopup(popup) {
+        popup.style.backgroundColor = 'rgba(0, 0, 0, 0)';
+        popup.querySelector('.cart-popup-content').style.transform = 'translateX(100%)';
+        setTimeout(() => {
+            popup.remove();
+            isCartVisible = false;
+        }, 500);
+    }
+	
+    function updateQuantity(index, change) {
+        closeCart = true;
+        isCartVisible = false;
+        cart[index].quantity = Math.max(1, cart[index].quantity + change);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartCount();
+        updateTotal();
+        showCartPopup();
+        closeCart = false;
+    }
+
+    function removeItem(index) {
+        closeCart = true;
+        isCartVisible = false;
+        // Remove item from cart and update localStorage
+        cart.splice(index, 1);
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        // Immediately update the cart content with no transition
+        updateCartCount();
+        updateTotal();
+        const itemsArea = document.querySelector('.cart-popup-items-area');
+        itemsArea.innerHTML = '<p style="padding: 10px; font-weight: bold;" class="cart-popup-empty">YOUR CART IS EMPTY</p>';
+        showCartPopup(); // Recreate the updated cart popup
+
+        closeCart = false;
+    }
+
+    function updateTotal() {
+        const total = cart.reduce((acc, order) => acc + (parseFloat(order.price) * order.quantity), 0);
+        const totalItems = cart.reduce((acc, order) => acc + order.quantity, 0);
+        document.querySelector('.cart-popup-total p').textContent = `SUBTOTAL: $${total.toFixed(2)}`;
+        document.querySelector('.cart-popup-counts').textContent = `${totalItems} ${totalItems === 1 ? 'item' : 'items'}`;
+    }
+}

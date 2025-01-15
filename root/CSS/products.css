@@ -19,7 +19,6 @@
 	border-radius: 10px;
 }
 
-/* Product Image Styles */
 .product-card img {
     width: 250px;
     height: 250px;
@@ -29,7 +28,6 @@
     display: block;
 }
 
-/* Product Name Styles */
 .product-name {
     display: block;
     margin: 15px 0 5px;
@@ -48,7 +46,6 @@
     color: #0a6873;
 }
 
-/* Product Price Styles */
 .product-price {
     color: white;
     font-weight: bold;
@@ -160,6 +157,10 @@
     width: auto;
     height: 30px;
     cursor: pointer;
+}
+
+.home-product-card .icon-bar img:hover {
+	transform: scale(1.1);
 }
 
 

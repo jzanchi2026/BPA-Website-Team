@@ -2,7 +2,6 @@
 	margin: 0;
 	color: white;
 	font-family: 'arial narrow';
-	scrollbar-width: thin;
 	transition: 0.3s ease-in-out;
 	scrollbar-color: #282942 #191a29;
 }

@@ -64,10 +64,10 @@
 }
 
 #shopsnap h2 {
-	font-size: 60pt;
-	font-family: pasti;
-	letter-spacing: 2px;
-	margin: 0 0 15px 15px;
+    font-family: pasti;
+	font-size: 25pt;
+    letter-spacing: 2px;
+    margin: 0 0 15px 15px;
 }
 
 #stylesnap, #contactsnap {
@@ -152,13 +152,12 @@
 
 #contactsnap > div img {
 	filter: invert(100%);
-	padding: 20px;
 	height: 50%;
 	width: auto;
 }
 
 #contactsnap > div h2 {
-	font-size: 85pt;
+	font-size: 50pt;
 	font-family: pasti;
 	letter-spacing: 2px;
 	text-align: center;
@@ -174,6 +173,7 @@
 	background-color: gray;
 	font-family: juliett;
 	font-size: 14pt;
+	margin-bottom: 20px;
 }
 
 #signupbut:hover {

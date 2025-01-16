@@ -82,12 +82,12 @@
 
 #timeline .boxes:nth-child(odd) {
 	background-color: #111;
-    transform: translateX(-30px);
+    transform: translateX(0px);
 	border: 3px solid #222;
 }
 
 #timeline .boxes:nth-child(even) {
-    transform: translateX(70px);
+    transform: translateX(50px);
 	background-color: #222;
 	border: 3px solid #333;
 }
@@ -115,7 +115,7 @@
 	padding: 15px 0;
     color: white;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
-    background: radial-gradient(ellipse at center, #444 0%, black 100%);
+    background-color: black;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -155,15 +155,11 @@
 .musicpanel.left {
     left: 0;
 	border-radius: 0 10px 10px 0;
-	border-top: 3px solid #222;
-	border-right: 3px solid #222;
 }
 
 .musicpanel.right {
     right: 0;
 	border-radius: 10px 0 0 10px;
-	border-top: 3px solid #222;
-	border-left: 3px solid #222;
 }
 
 .musicpanel button {

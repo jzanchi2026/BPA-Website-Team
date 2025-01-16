@@ -23,8 +23,31 @@
 	font-family: radlushmed;
 	letter-spacing: 20px;
 	font-weight: bold;
-	opacity: 0.3;
+	opacity: 0.5;
 	white-space: nowrap;
+}
+
+#seeDown {
+    position: absolute;
+	transition: transform 0.1s ease-out;
+    bottom: 50px;
+    right: 50px;
+    opacity: 0.3;
+    height: 100px;
+    width: 200px;
+	animation: moveUpDown 2s infinite ease-in-out;
+}
+
+@keyframes moveUpDown {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-4px);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
 
 #scrollingText {

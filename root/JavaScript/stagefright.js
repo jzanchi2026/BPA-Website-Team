@@ -74,7 +74,7 @@ window.addEventListener('scroll', () => {
 	if (h3 != null)
 		h3.style.transform = `translateX(${-scrollY}px)`;
 	if (h32 != null)
-    h32.style.transform = `translateX(${scrollY}px)`;
+		h32.style.transform = `translateX(${scrollY}px)`;
 });
 
 // pulls up the navbar onhover
@@ -138,13 +138,15 @@ function bringUp(divv, passed) {
 }
 
 function showNewDiv(selected) {
-    selected.style.display = "flex"; // Make the selected div visible
-    selected.style.opacity = "0"; // Start the new div with opacity 0 for fade-in
+    selected.style.display = "flex";
+    selected.style.opacity = "0";
     setTimeout(() => {
-        selected.style.opacity = "1"; // Fade in the new div
-    }, 50); // Small delay for smoother transition
-    shownDiv = selected; // Update the currently shown div
+        selected.style.opacity = "1";
+    }, 50);
+    shownDiv = selected; 
 }
+
+// CART CODING
 
 let isCartVisible = false;
 let closeCart = true;
@@ -175,13 +177,11 @@ function showCartPopup() {
         popup = document.createElement('div');
         popup.className = 'cart-popup';
         popup.addEventListener('click', () => closePopup(popup));
+		popup.style.transition = 'opacity 0.3s ease-in-out';
 
         const popupContent = document.createElement('div');
         popupContent.className = 'cart-popup-content';
-
-        popupContent.addEventListener('click', (e) => {
-            e.stopPropagation();
-        });
+        popupContent.addEventListener('click', (e) => e.stopPropagation());
 
         const flexed = document.createElement('div');
         flexed.style.display = 'flex';
@@ -260,7 +260,7 @@ function showCartPopup() {
 
                 const plusBtn = document.createElement('button');
                 plusBtn.textContent = '+';
-                plusBtn.style.borderRadius = '0px 10px 10px 0px';
+				plusBtn.style.borderRadius = "0 10px 10px 0";
                 plusBtn.addEventListener('click', () => updateQuantity(index, 1));
                 itemQuantity.appendChild(plusBtn);
 
@@ -270,8 +270,7 @@ function showCartPopup() {
                 priceRemove.className = 'cart-popup-item-prices';
 
                 const itemPrice = document.createElement('p');
-                order.price = order.price.replace("$", "");
-                const price = parseFloat(order.price);
+                const price = parseFloat(order.price.replace("$", ""));
                 itemPrice.textContent = `$${(price * order.quantity).toFixed(2)}`;
                 itemPrice.className = 'cart-popup-item-price';
                 priceRemove.appendChild(itemPrice);
@@ -284,7 +283,6 @@ function showCartPopup() {
                 const trashIcon = document.createElement('img');
                 trashIcon.src = '../Images/trash.png';
                 trashIcon.alt = 'Remove item';
-                trashIcon.style.transition = '0.2s ease';
                 trashIcon.style.height = '20px';
                 trashIcon.style.width = 'auto';
                 removeBtn.appendChild(trashIcon);
@@ -311,9 +309,7 @@ function showCartPopup() {
         clearButton.addEventListener('click', () => {
             localStorage.removeItem('cart');
             cart = [];
-            updateCartCount();
-            itemsArea.innerHTML = '<p style="padding: 10px; font-weight: bold;" class="cart-popup-empty">YOUR CART IS EMPTY</p>';
-            updateTotal();
+            updateCartContent(itemsArea);
         });
         buttonArea.appendChild(clearButton);
 
@@ -325,65 +321,131 @@ function showCartPopup() {
 
         popup.appendChild(popupContent);
         document.body.appendChild(popup);
+		updateTotal();
+        slideInPopup(popupContent);
+		setTimeout(() => {
+			popup.style.opacity = '1';
+		}, 0);
+    }
 
-        // Disable transitions temporarily to show content changes without delay
-        popup.style.transition = 'none';
-        popupContent.style.transition = 'none';
+    function slideInPopup(popupContent) {
+        popupContent.style.transform = 'translateX(100%)';
+        popupContent.style.transition = 'transform 0.3s ease-out';
 
         setTimeout(() => {
-            popup.style.backgroundColor = 'rgba(117, 144, 186, 0.2)';
-            popupContent.style.transform = 'translateX(-5px)';
-            // Re-enable transitions
-            popup.style.transition = '';
-            popupContent.style.transition = '';
+            popupContent.style.transform = 'translateX(0)';
         }, 0);
-
-        updateTotal();
     }
 
     isCartVisible = true;
 
     function closePopup(popup) {
-        popup.style.backgroundColor = 'rgba(0, 0, 0, 0)';
-        popup.querySelector('.cart-popup-content').style.transform = 'translateX(100%)';
-        setTimeout(() => {
-            popup.remove();
-            isCartVisible = false;
-        }, 500);
-    }
-	
+		const popupContent = popup.querySelector('.cart-popup-content');
+		popupContent.style.transform = 'translateX(100%)';
+
+		popup.style.opacity = '0';
+
+		setTimeout(() => {
+			popup.remove();
+			isCartVisible = false;
+		}, 300);
+	}
+
     function updateQuantity(index, change) {
-        closeCart = true;
-        isCartVisible = false;
         cart[index].quantity = Math.max(1, cart[index].quantity + change);
         localStorage.setItem('cart', JSON.stringify(cart));
-        updateCartCount();
-        updateTotal();
-        showCartPopup();
-        closeCart = false;
+        updateCartContent(document.querySelector('.cart-popup-items-area'));
     }
 
     function removeItem(index) {
-        closeCart = true;
-        isCartVisible = false;
-        // Remove item from cart and update localStorage
         cart.splice(index, 1);
         localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartContent(document.querySelector('.cart-popup-items-area'));
+    }
 
-        // Immediately update the cart content with no transition
-        updateCartCount();
+    function updateCartContent(itemsArea) {
+        if (cart.length === 0) {
+            itemsArea.innerHTML = '<p style="padding: 10px; font-weight: bold;" class="cart-popup-empty">YOUR CART IS EMPTY</p>';
+        } else {
+            itemsArea.innerHTML = '';
+            cart.forEach((order, index) => {
+                const orderContainer = document.createElement('div');
+                orderContainer.className = 'cart-popup-item-container';
+
+                const itemImage = document.createElement('img');
+                itemImage.src = order.image;
+                itemImage.alt = order.name;
+                itemImage.className = 'cart-popup-item-image';
+                orderContainer.appendChild(itemImage);
+
+                const itemDetails = document.createElement('div');
+                itemDetails.className = 'cart-popup-item-details';
+
+                const itemName = document.createElement('h3');
+                itemName.textContent = order.name;
+                itemName.className = 'cart-popup-item-name';
+                itemDetails.appendChild(itemName);
+
+                const itemSize = document.createElement('p');
+                itemSize.textContent = `Size: ${order.size}`;
+                itemSize.className = 'cart-popup-item-size';
+                itemDetails.appendChild(itemSize);
+
+                const itemQuantity = document.createElement('div');
+                itemQuantity.className = 'cart-popup-item-quantity';
+
+                const minusBtn = document.createElement('button');
+                minusBtn.textContent = '-';
+                minusBtn.addEventListener('click', () => updateQuantity(index, -1));
+                itemQuantity.appendChild(minusBtn);
+
+                const quantityText = document.createElement('p');
+                quantityText.textContent = `${order.quantity}`;
+                itemQuantity.appendChild(quantityText);
+
+                const plusBtn = document.createElement('button');
+                plusBtn.textContent = '+';
+				plusBtn.style.borderRadius = "0 10px 10px 0";
+                plusBtn.addEventListener('click', () => updateQuantity(index, 1));
+                itemQuantity.appendChild(plusBtn);
+
+                itemDetails.appendChild(itemQuantity);
+
+                const priceRemove = document.createElement('div');
+                priceRemove.className = 'cart-popup-item-prices';
+
+                const itemPrice = document.createElement('p');
+                const price = parseFloat(order.price.replace("$", ""));
+                itemPrice.textContent = `$${(price * order.quantity).toFixed(2)}`;
+                itemPrice.className = 'cart-popup-item-price';
+                priceRemove.appendChild(itemPrice);
+
+                const removeBtn = document.createElement('button');
+                removeBtn.textContent = 'Remove';
+                removeBtn.addEventListener('click', () => removeItem(index));
+                priceRemove.appendChild(removeBtn);
+
+                const trashIcon = document.createElement('img');
+                trashIcon.src = '../Images/trash.png';
+                trashIcon.alt = 'Remove item';
+                trashIcon.style.height = '20px';
+                trashIcon.style.width = 'auto';
+                removeBtn.appendChild(trashIcon);
+
+                orderContainer.appendChild(itemDetails);
+                orderContainer.appendChild(priceRemove);
+                itemsArea.appendChild(orderContainer);
+            });
+        }
+
         updateTotal();
-        const itemsArea = document.querySelector('.cart-popup-items-area');
-        itemsArea.innerHTML = '<p style="padding: 10px; font-weight: bold;" class="cart-popup-empty">YOUR CART IS EMPTY</p>';
-        showCartPopup(); // Recreate the updated cart popup
-
-        closeCart = false;
     }
 
     function updateTotal() {
-        const total = cart.reduce((acc, order) => acc + (parseFloat(order.price) * order.quantity), 0);
+        const total = cart.reduce((acc, order) => acc + parseFloat(order.price.replace(/[^0-9.-]+/g, '')) * order.quantity, 0);
         const totalItems = cart.reduce((acc, order) => acc + order.quantity, 0);
         document.querySelector('.cart-popup-total p').textContent = `SUBTOTAL: $${total.toFixed(2)}`;
         document.querySelector('.cart-popup-counts').textContent = `${totalItems} ${totalItems === 1 ? 'item' : 'items'}`;
     }
 }
+

@@ -164,6 +164,300 @@
 }
 
 
+/* ITEM POPUP CONTENT */
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.popup-content {
+    background-image: url('../Images/ghostbg.png');
+    background-size: 24.5%;
+    padding: 20px 100px;
+    border-radius: 5px;
+    width: 100vw;
+    height: 95vh;
+    text-align: center;
+    overflow-y: auto;
+}
+
+.flexed {
+    display: flex;
+	gap: 40px;
+}
+
+.flexed .side-one,
+.flexed .side-two {
+    width: 50%;
+}
+
+.flexed .side-two {
+    text-align: left;
+}
+
+.tag {
+    background-color: #7a7a7a;
+    padding: 7px;
+    font-family: 'salmapro';
+    display: inline-block;
+    border-radius: 3px;
+    font-size: 13px;
+    color: white;
+    margin: 0 5px 25px 0;
+}
+
+.tag:first-child {
+    margin-left: 0;
+}
+
+.title {
+    font-family: 'pasti';
+    letter-spacing: 1.5px;
+    font-size: 55pt;
+}
+
+.creator {
+    font-family: 'salmapro';
+    font-size: 18px;
+    opacity: 0.5;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.price {
+    font-size: 25px;
+    font-family: 'salmapro';
+    margin-bottom: 20px;
+}
+
+.price span {
+    font-family: 'salmapro';
+}
+
+.price .original-price {
+    text-decoration: line-through;
+    margin-right: 10px;
+}
+
+.price .sale-price {
+    font-weight: bold;
+    color: #4286a8;
+    margin-left: 5px;
+}
+
+.size-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.size-button {
+    font-family: 'salmapro';
+    font-size: 16px;
+    padding: 8px 12px;
+    border: 1px solid #9e9e9e;
+    border-radius: 3px;
+    background-color: white;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.size-button.selected {
+    background-color: #333;
+    border: 1px solid black;
+    color: #b8ced9;
+}
+
+.size-chart-toggle {
+    font-family: 'pasti';
+    font-size: 16px;
+    padding: 8px 12px 6px;
+    border-radius: 5px;
+    background-color: #4286a8;
+    color: white;
+    text-align: left;
+    width: 20%;
+    cursor: pointer;
+    margin-bottom: 0px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.size-chart-wrapper {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease-in-out;
+}
+
+.size-chart {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.size-chart th,
+.size-chart td {
+    border: 3.5px solid #2b2b2b;
+    padding: 8px;
+    text-align: center;
+    font-family: 'salmapro';
+}
+
+.size-chart th {
+    background-color: #7dbcdb;
+    border-color: #4286a8;
+}
+
+.size-chart td {
+    background-color: black;
+}
+
+.quantity-label {
+    font-family: 'salmapro';
+    font-size: 16px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.quantity-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.quantity-button {
+    font-family: 'salmapro';
+    font-size: 16px;
+    width: 5%;
+    padding: 8px 12px;
+    border-radius: 0px;
+    background-color: #c7c7c7;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.quantity-button:hover {
+    background-color: #9e9e9e;
+    color: white;
+}
+
+.quantity-display {
+    font-family: 'salmapro';
+    font-size: 16px;
+    padding: 8px 0px;
+    background-color: #e0e0e0;
+    color: #333;
+    text-align: center;
+    min-width: 50px;
+}
+
+.purchase-options-container {
+    display: flex;
+    gap: 15px;
+    width: 55%;
+    height: 75px;
+    margin: 10px 0;
+}
+
+.button {
+    font-family: 'salmapro';
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    height: 85%;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.add-to-cart-button {
+    background-color: #b8ced9;
+    color: #333;
+}
+
+.add-to-cart-button:hover {
+    background-color: #879aa3;
+}
+
+.add-to-cart-button:active {
+    transform: scale(0.95);
+}
+
+.buy-now-button {
+    background-color: #4286a8;
+    color: white;
+}
+
+.buy-now-button:hover {
+    background-color: #23536b;
+}
+
+.buy-now-button:active {
+    transform: scale(0.95);
+}
+
+.description-container {
+    margin-bottom: 25px;
+}
+
+.description-preview {
+    font-family: 'salmapro';
+    font-size: 18px;
+    opacity: 0.8;
+    letter-spacing: 1px;
+    cursor: pointer;
+    color: white;
+    text-decoration: underline;
+}
+
+.description-full {
+    font-family: 'salmapro';
+    font-size: 15px;
+    opacity: 0.5;
+    letter-spacing: 1px;
+    margin-top: 10px;
+    display: none;
+}
+
+.popup-image {
+    width: auto;
+    height: calc(100vh - 40px);
+    display: block;
+    border: 3px solid white;
+    border-radius: 3px;
+}
+
+.close-button {
+    padding: 10px 20px;
+    margin-bottom: 40px;
+    font-size: 16px;
+    width: 50px;
+    background-color: #4286a8;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 40px;
+}
+
+.close-button:hover {
+    background-color: #23536b;
+}
+
+
 /* CART CONTENT */
 
 .cart-popup {
@@ -225,13 +519,13 @@
     background: rgba(255, 255, 255, 0.05);
 	border: 3px solid #353535;
 	border-radius: 10px;
-	height: 150px;
+	height: 145px;
 	width: 95%;
 }
 
 .cart-popup-item-image {
-    width: 150px;
-    height: 150px;
+    width: 145px;
+    height: 145px;
 	border-radius: 10px;
     margin-right: 15px;
 }
@@ -239,7 +533,11 @@
 .cart-popup-item-details {
 	width: 70%;
 	height: 100%;
-	margin: 25px 0;
+	display: flex;
+	margin-top: 5px;
+	flex-direction: column;
+	align-items: left;
+	justify-content: center;
 }
 
 .cart-popup-item-prices {
@@ -290,15 +588,15 @@
 .cart-popup-item-name {
     color: white;
 	font-family: radlushmed;
-	font-size: 17pt;
-	margin-bottom: 10px;
+	font-size: 16pt;
+	margin-bottom: 12px;
 }
 
 .cart-popup-item-size,
 .cart-popup-item-price {
     color: gray;
 	font-family: radlushmed;
-	font-size: 14pt;
+	font-size: 10pt;
 }
 
 .cart-popup-total, .cart-popup-counts {

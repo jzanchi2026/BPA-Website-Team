@@ -79,16 +79,38 @@ window.addEventListener('scroll', () => {
 
 // pulls up the navbar onhover
 let isOpen = false;
-function pullup() {
+let isScrollTriggered = false; // Track if the scroll event triggered the footer
+
+function pullup(open) {
     const footer = document.getElementById("pullup");
-    if (!isOpen) {
+    if (open && !isOpen) {
         footer.classList.add("visible");
         isOpen = true;
-    } else {
+    } else if (!open && isOpen) {
         footer.classList.remove("visible");
         isOpen = false;
     }
 }
+
+// Detect when the user scrolls
+window.addEventListener("scroll", () => {
+    const scrollPosition = window.scrollY + window.innerHeight;
+    const pageHeight = document.documentElement.scrollHeight;
+
+    if (scrollPosition >= pageHeight) {
+        if (!isScrollTriggered) {
+            isScrollTriggered = true; // Mark as scroll-triggered
+            pullup(true); // Show the footer when at the bottom
+        }
+    } else {
+        if (isScrollTriggered) {
+            isScrollTriggered = false; // Reset scroll trigger
+            pullup(false); // Hide the footer when scrolling away
+        }
+    }
+});
+
+
 
 function dynamicTyping() {
 
@@ -251,7 +273,12 @@ function showCartPopup() {
 
                 const minusBtn = document.createElement('button');
                 minusBtn.textContent = '-';
-                minusBtn.addEventListener('click', () => updateQuantity(index, -1));
+                minusBtn.addEventListener('click', () => {
+				
+				updateQuantity(index, -1);
+				updateCartCount();
+				
+				});
                 itemQuantity.appendChild(minusBtn);
 
                 const quantityText = document.createElement('p');
@@ -261,7 +288,12 @@ function showCartPopup() {
                 const plusBtn = document.createElement('button');
                 plusBtn.textContent = '+';
 				plusBtn.style.borderRadius = "0 10px 10px 0";
-                plusBtn.addEventListener('click', () => updateQuantity(index, 1));
+                plusBtn.addEventListener('click', () => {
+				
+					updateQuantity(index, 1);
+					updateCartCount();
+				
+				});
                 itemQuantity.appendChild(plusBtn);
 
                 itemDetails.appendChild(itemQuantity);
@@ -277,7 +309,10 @@ function showCartPopup() {
 
                 const removeBtn = document.createElement('button');
                 removeBtn.textContent = 'Remove';
-                removeBtn.addEventListener('click', () => removeItem(index));
+                removeBtn.addEventListener('click', () => {
+					removeItem(index);
+					updateCartCount();
+				});
                 priceRemove.appendChild(removeBtn);
 
                 const trashIcon = document.createElement('img');
@@ -307,9 +342,10 @@ function showCartPopup() {
         clearButton.textContent = 'Clear Cart';
         clearButton.className = 'cart-popup-clear-btn';
         clearButton.addEventListener('click', () => {
-            localStorage.removeItem('cart');
-            cart = [];
-            updateCartContent(itemsArea);
+				localStorage.removeItem('cart');
+				cart = [];
+				updateCartContent(itemsArea);
+				updateCartCount();
         });
         buttonArea.appendChild(clearButton);
 
@@ -396,7 +432,10 @@ function showCartPopup() {
 
                 const minusBtn = document.createElement('button');
                 minusBtn.textContent = '-';
-                minusBtn.addEventListener('click', () => updateQuantity(index, -1));
+                minusBtn.addEventListener('click', () => {
+					updateQuantity(index, -1);
+					updateCartCount();
+				});
                 itemQuantity.appendChild(minusBtn);
 
                 const quantityText = document.createElement('p');
@@ -406,7 +445,10 @@ function showCartPopup() {
                 const plusBtn = document.createElement('button');
                 plusBtn.textContent = '+';
 				plusBtn.style.borderRadius = "0 10px 10px 0";
-                plusBtn.addEventListener('click', () => updateQuantity(index, 1));
+				plusBtn.addEventListener('click', () => {
+					updateQuantity(index, 1);
+					updateCartCount();
+				});
                 itemQuantity.appendChild(plusBtn);
 
                 itemDetails.appendChild(itemQuantity);
@@ -422,7 +464,10 @@ function showCartPopup() {
 
                 const removeBtn = document.createElement('button');
                 removeBtn.textContent = 'Remove';
-                removeBtn.addEventListener('click', () => removeItem(index));
+                removeBtn.addEventListener('click', () => {
+					removeItem(index);
+					updateCartCount();
+				});
                 priceRemove.appendChild(removeBtn);
 
                 const trashIcon = document.createElement('img');
@@ -443,7 +488,7 @@ function showCartPopup() {
 
     function updateTotal() {
         const total = cart.reduce((acc, order) => acc + parseFloat(order.price.replace(/[^0-9.-]+/g, '')) * order.quantity, 0);
-        const totalItems = cart.reduce((acc, order) => acc + order.quantity, 0);
+        let totalItems = cart.reduce((acc, order) => acc + order.quantity, 0);
         document.querySelector('.cart-popup-total p').textContent = `SUBTOTAL: $${total.toFixed(2)}`;
         document.querySelector('.cart-popup-counts').textContent = `${totalItems} ${totalItems === 1 ? 'item' : 'items'}`;
     }

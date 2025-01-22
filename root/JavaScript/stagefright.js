@@ -351,8 +351,10 @@ function showCartPopup() {
 
         const checkButton = document.createElement('button');
         checkButton.textContent = 'Checkout';
+		checkButton.href = "checkout.html";
         checkButton.className = 'cart-popup-check-btn';
-        checkButton.addEventListener('click', () => closePopup(popup));
+        checkButton.setAttribute('data-href', 'checkout.html');
+		checkButton.addEventListener('click', fadeout);
         buttonArea.appendChild(checkButton);
 
         popup.appendChild(popupContent);

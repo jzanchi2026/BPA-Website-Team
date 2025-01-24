@@ -15,6 +15,36 @@
   border-radius: 4px;
 }
 
+/* Style for the custom checkbox */
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+  font: inherit;
+  width: 1.15em;
+  height: 1.15em;
+  border: 2.5px solid white;
+  border-radius: 0.15em;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  transform: scale(0);
+  transform-origin: center;
+  transition: 0.1s transform ease-in-out;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
+
 body {
 	transition: opacity 1s ease;
 	opacity: 0;

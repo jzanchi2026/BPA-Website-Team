@@ -5,6 +5,7 @@
 		<link rel="stylesheet" href="../CSS/checkout.css">
 		<script src="../JavaScript/stagefright.js"></script>
 		<script src="../JavaScript/checkout.js"></script>
+		<script src="https://smtpjs.com/v3/smtp.js"></script>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Stage Fright - Checkout</title>
@@ -60,71 +61,144 @@
 
 			<div class="checkout-section">
 				<!-- Cart Summary Section -->
-				<div class="cart-summary">
-					<h2>Cart Summary</h2>
-					<div id="cartItemsContainer"></div> <!-- Cart items will be inserted here -->
-					<div class="total-price">
-						<strong>Total: $<span id="totalPrice">0.00</span></strong> <!-- Total will be updated here -->
+				<div class="cart-summary">	
+					<div style="flex: 1" id="endDetails">
+						<h2>SUMMARY</h2>
+						<div class="total-price">
+							<strong>Total: $<span id="totalPrice">0.00</span></strong>
+						</div>
+					</div>
+					<div style="flex: 3" id="cartDetails">
+						<h2>ITEM DETAILS</h2>
+						<div style="overflow: auto" id="cartItemsContainer"></div>
 					</div>
 				</div>
-
-				<div class="checkout-section">
+	
+				<div class="user-input">
 					<!-- Shipping Info Section -->
-					<div id="shippingSection" class="info-section">
-						<h3>Shipping Address</h3>
-						<div class="form-group">
-							<label for="shippingFullName">Full Name</label>
-							<input type="text" id="shippingFullName" class="address-input" placeholder="Enter your name">
+					<div style="height: 100%" id="shippingSection" class="info-section">
+						<h3>SHIPPING</h3>
+						<div style="display:flex; gap: 20px" class="form-group">
+							<div>
+								<label>First Name</label>
+								<input type="text" class="address-input" placeholder="Enter your first name">
+							</div>
+							<div>
+								<label>Last Name</label>
+								<input type="text" class="address-input" placeholder="Enter your last name">
+							</div>
 						</div>
 						<div class="form-group">
-							<label for="shippingAddress">Address Line 1</label>
-							<input type="text" id="shippingAddress" class="address-input" placeholder="Enter your address">
+							<label>Address Line 1</label>
+							<input type="text" class="address-input" placeholder="Enter your address">
 						</div>
 						<div class="form-group">
-							<label for="shippingCity">City</label>
-							<input type="text" id="shippingCity" class="address-input" placeholder="Enter your city">
+							<label>Address Line 2</label>
+							<input type="text" class="address-input" placeholder="Enter your apartment, suite, etc.">
+						</div>
+						<div style="display:flex; gap: 20px" class="form-group">
+							<div>
+								<label>Country</label>
+								<input type="text" class="address-input" placeholder="Enter your country">
+							</div>
+							<div>
+								<label>City</label>
+								<input type="text" class="address-input" placeholder="Enter your city">
+							</div>
+						</div>
+						<div style="display:flex; gap: 20px" class="form-group">
+							<div>
+								<label>State</label>
+								<input type="text" class="address-input" placeholder="Enter your state">
+							</div>
+							<div>
+								<label>Zip Code</label>
+								<input type="text" class="address-input" placeholder="Enter your zip code">
+							</div>
 						</div>
 						<div class="form-group">
-							<label for="shippingState">State</label>
-							<input type="text" id="shippingState" class="address-input" placeholder="Enter your state">
+							<label>Email</label>
+							<input type="text" class="address-input" placeholder="Enter your email">
 						</div>
-						<div class="form-group">
-							<label for="shippingZip">Zip Code</label>
-							<input type="text" id="shippingZip" class="address-input" placeholder="Enter your zip code">
-						</div>
-						<button class="checkout-btn" id="toggleToBilling">Next: Billing Info</button>
+						<button id="toggleToBilling">Next: Billing Info</button>
 					</div>
 
 					<!-- Billing Info Section -->
 					<div id="billingSection" class="info-section" style="display: none;">
-						<h3>Billing Address</h3>
+						<h3>BILLING</h3>
+						
+						<!-- Checkbox to use shipping address -->
+						<div class="form-group checkbox-label-container">
+							<input type="checkbox" id="sameAsShipping">
+							<label for="sameAsShipping">Use shipping address for billing address</label>
+						</div>
+						
 						<div class="form-group">
 							<label for="billingFullName">Full Name</label>
-							<input type="text" id="billingFullName" class="address-input" placeholder="Enter your billing name">
+							<input type="text" id="billingFullName" class="address-input" placeholder="Enter the name on your billing account">
 						</div>
+						
 						<div class="form-group">
 							<label for="billingAddress">Address Line 1</label>
 							<input type="text" id="billingAddress" class="address-input" placeholder="Enter your billing address">
 						</div>
+						
 						<div class="form-group">
-							<label for="billingCity">City</label>
-							<input type="text" id="billingCity" class="address-input" placeholder="Enter your city">
+							<label for="billingAddress2">Address Line 2</label>
+							<input type="text" id="billingAddress2" class="address-input" placeholder="Apartment, suite, unit, etc. (optional)">
 						</div>
+						
+						<div style="display:flex; gap: 20px" class="form-group">
+							<div>
+								<label>Country</label>
+								<input type="text" id="billingCountry" class="address-input" placeholder="Enter your country">
+							</div>
+							<div>
+								<label>City</label>
+								<input type="text" id="billingCity" class="address-input" placeholder="Enter your city">
+							</div>
+						</div>
+						
+						<div style="display: flex; gap: 20px;" class="form-group">
+							<div>
+								<label for="billingState">State/Province</label>
+								<input type="text" id="billingState" class="address-input" placeholder="Enter your state/province">
+							</div>
+							<div>
+								<label for="billingZip">Zip/Postal Code</label>
+								<input type="text" id="billingZip" class="address-input" placeholder="Enter your zip/postal code">
+							</div>
+						</div>
+						
 						<div class="form-group">
-							<label for="billingState">State</label>
-							<input type="text" id="billingState" class="address-input" placeholder="Enter your state">
+							<label for="billingPhone">Phone Number</label>
+							<input type="tel" id="billingPhone" class="address-input" placeholder="Enter your phone number">
 						</div>
+						
+						<!-- Payment Details -->
 						<div class="form-group">
-							<label for="billingZip">Zip Code</label>
-							<input type="text" id="billingZip" class="address-input" placeholder="Enter your zip code">
+							<label for="billingCardNumber">Card Number</label>
+							<input type="text" id="billingCardNumber" class="address-input" placeholder="Enter your card number">
 						</div>
-						<button class="checkout-btn" id="toggleToShipping">Back: Shipping Info</button>
+						
+						<div style="display: flex; gap: 20px;" class="form-group">
+							<div>
+								<label for="billingExpiration">Expiration Date (MM/YY)</label>
+								<input type="text" id="billingExpiration" class="address-input" placeholder="MM/YY">
+							</div>
+							<div>
+								<label for="billingCVV">CVV</label>
+								<input type="text" id="billingCVV" class="address-input" placeholder="3 or 4 digit code">
+							</div>
+						</div>
+
+						<button id="toggleToShipping">Back: Shipping Info</button>
 					</div>
 				</div>
 			</div>
 
 			<!-- Checkout Button -->
-			<button class="checkout-btn" onclick="">Proceed to Checkout</button>
+			<button id="checkout-btn" onclick="">Proceed to Checkout</button>
 		</div>
 	</body>
 </html>

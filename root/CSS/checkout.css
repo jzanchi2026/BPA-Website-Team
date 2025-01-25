@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 
-.container {
+#container {
     width: 90%;
     margin: 160px auto 80px;
     background-color: #151515;
@@ -224,11 +224,12 @@ label {
 #checkout-btn {
     background-color: black;
     color: white;
-    font-size: 18pt;
+    font-size: 15pt;
+	width: 60%;
     font-family: juliett;
     padding: 15px;
     border-radius: 10px;
-    width: 30%;
+	margin: 15px;
 	border: 3px solid black;
     cursor: pointer;
     transition: transform 0.3s ease, background-color 0.3s ease;

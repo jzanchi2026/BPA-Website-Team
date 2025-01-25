@@ -73,11 +73,10 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.removeItem("shopChoice");
     }
 	
-	/*if (itemPassed) {
-        popUp(itemPassed);
-		console.log("ran");
+	if (itemPassed) {
+        popUp(JSON.parse(itemPassed));
         localStorage.removeItem("item");
-    }*/
+    }
 });
 
 function passChoice(choice) {
@@ -657,38 +656,6 @@ function popUp(item) {
 }
 
 document.addEventListener("DOMContentLoaded", updateCartCount);
-
-function addToCart(item, size, quantity) {
-    if (!size) {
-        alert("Please pick a size.");
-        return;
-    }
-
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-    const existingOrderIndex = cart.findIndex(order => order.name === item.name && order.size === size);
-
-    if (existingOrderIndex !== -1) {
-        cart[existingOrderIndex].quantity += quantity;
-    } else {
-        const order = {
-            name: item.name,
-			id: item.id,
-            creator: item.creator,
-            price: item.saleprice || item.price,
-            size: size,
-            quantity: quantity,
-            image: item.image
-        };
-        cart.push(order);
-    }
-
-    localStorage.setItem('cart', JSON.stringify(cart));
-
-    updateCartCount();
-
-    showCartPopup();
-}
 
 function buyNow(item, size, quantity) {
     

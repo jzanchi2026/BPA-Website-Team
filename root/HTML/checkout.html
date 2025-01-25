@@ -6,6 +6,14 @@
 		<script src="../JavaScript/stagefright.js"></script>
 		<script src="../JavaScript/checkout.js"></script>
 		<script src="https://smtpjs.com/v3/smtp.js"></script>
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+		<script type="text/javascript">
+		   (function(){
+			  emailjs.init({
+				publicKey: "rtaMtG1Iv0sH-fsoP",
+			  });
+		   })();
+		</script>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Stage Fright - Checkout</title>
@@ -57,7 +65,7 @@
 				<p>&copy; Stage Fright 2024. All rights reserved.</p>
 			</div>
 		</footer>
-		<div class="container">
+		<div id="container">
 
 			<div class="checkout-section">
 				<!-- Cart Summary Section -->
@@ -67,6 +75,8 @@
 						<div class="total-price">
 							<strong>Total: $<span id="totalPrice">0.00</span></strong>
 						</div>
+						<!-- Checkout Button -->
+						<button id="checkout-btn" onclick="passData()">Proceed to Checkout</button>
 					</div>
 					<div style="flex: 3" id="cartDetails">
 						<h2>ITEM DETAILS</h2>
@@ -120,6 +130,7 @@
 							<label>Email</label>
 							<input type="text" class="address-input" placeholder="Enter your email">
 						</div>
+						<div class="error-message"></div>
 						<button id="toggleToBilling">Next: Billing Info</button>
 					</div>
 
@@ -197,8 +208,6 @@
 				</div>
 			</div>
 
-			<!-- Checkout Button -->
-			<button id="checkout-btn" onclick="">Proceed to Checkout</button>
 		</div>
 	</body>
 </html>

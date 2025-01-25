@@ -25,9 +25,9 @@
 			<div style="justify-content: left; " class="inside">
 				<a href="shop.html" onclick="fadeout(event)">SHOP</a>
 				<a href="contact.html" onclick="fadeout(event)">CONTACT US</a>
-				<a href="contact.html" onclick="fadeout(event)" class="settings-link">
-					<img style="filter: invert(100%);" src="../Images/Socials/setting.PNG" alt="Settings">
-				</a>
+				<div  class="settings-link">
+					<img onclick="showCartPopup()" src="../Images/cart.png" alt="cart">
+				</div>
 			</div>
 			<div class="spaceHolder"></div>
 		</nav>
@@ -162,18 +162,17 @@
 								<input class="inp" type="text" id="pnumber" name="pnumber" placeholder="e.g. (XXX) XXX-XXXX" maxlength="14" required>
 								
 								<div style="display: flex; align-items: center; gap: 0px;">
-									<input style="width: 100px; height: auto;" type="checkbox" id="sms_opt_in" name="sms_opt_in" value="yes">
+									<input style="width: auto; height: auto;" type="checkbox" id="sms_opt_in" name="sms_opt_in" value="yes">
 									<div style="display: flex">
-										<label style="margin: 10px" for="sms_opt_in">
+										<label style="margin: 10px; font-size: 12pt;" for="sms_opt_in">
 											I would like to receive text messages about updates, promotions, and reminders.
 										</label>
 										<button id="signupbut" type="submit">Sign Up</button>
 									</div>
 								</div>
 							</form>
-							<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+							<div style="padding: 0 50px; background-color: #222; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
 								<h2>SIGN UP</h2>
-								<p style="font-family: radlushmed; font-size: 12pt; width: 70%; text-align: center;">Be a part of our community, receive notifications for new content and information as soon as it becomes available.</p>
 								<img src="../Images/mailHori.png" alt="Mailing symbol">
 							</div>
 							

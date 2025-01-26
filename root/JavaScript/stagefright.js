@@ -35,7 +35,7 @@ function toggleNavbar() {
     }
 }
 
-let boxHidden = true;
+/*let boxHidden = true;
 function goSettings() {
 	let box = document.getElementById("settingpanel");
 	if (boxHidden) {
@@ -50,36 +50,12 @@ function goSettings() {
 		}, 500);
     }
 	boxHidden = !boxHidden;
-}
+}*/
 
-// dynamically positions the text on bgg, hides pullup
-window.addEventListener('DOMContentLoaded', () => {
-    const scrollY = window.scrollY; 
-    const h3 = document.getElementById('scrollingText');
-    const h32 = document.getElementById('otherscrolling');
-	
-	var section = document.getElementById("pullup");
-    section.classList.add("hidden");
-	if (h3 != null)
-		h3.style.transform = `translateX(${-scrollY}px)`;
-	if (h32 != null)
-    h32.style.transform = `translateX(${scrollY}px)`;
-});
 
-// dynamically scrolls the text on bgg
-window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
-    const h3 = document.getElementById('scrollingText');
-    const h32 = document.getElementById('otherscrolling');
-	if (h3 != null)
-		h3.style.transform = `translateX(${-scrollY}px)`;
-	if (h32 != null)
-		h32.style.transform = `translateX(${scrollY}px)`;
-});
-
-// pulls up the navbar onhover
 let isOpen = false;
-let isScrollTriggered = false; // Track if the scroll event triggered the footer
+let isScrollTriggered = false;
+let isHovering = false; // Flag to track if the user is hovering
 
 function pullup(open) {
     const footer = document.getElementById("pullup");
@@ -99,13 +75,29 @@ window.addEventListener("scroll", () => {
 
     if (scrollPosition >= pageHeight) {
         if (!isScrollTriggered) {
-            isScrollTriggered = true; // Mark as scroll-triggered
-            pullup(true); // Show the footer when at the bottom
+            isScrollTriggered = true;
+            pullup(true);
         }
     } else {
         if (isScrollTriggered) {
-            isScrollTriggered = false; // Reset scroll trigger
-            pullup(false); // Hide the footer when scrolling away
+            isScrollTriggered = false;
+            pullup(false);
+        }
+    }
+});
+
+document.getElementById("pullup").querySelector("hr").addEventListener("mouseenter", () => {
+    if (!isHovering) {  // Only show if not already being hovered
+        isHovering = true;
+        pullup(true);  // Show the footer when hovering
+    }
+});
+
+document.getElementById("pullup").querySelector("hr").addEventListener("mouseleave", () => {
+    if (isHovering) {  // Only hide if it was being hovered
+        isHovering = false;
+        if (!isScrollTriggered) {
+            pullup(false);  // Hide the footer when leaving if not at the bottom
         }
     }
 });
@@ -403,7 +395,7 @@ function showCartPopup() {
         popupContent.style.transition = 'transform 0.3s ease-out';
 
         setTimeout(() => {
-            popupContent.style.transform = 'translateX(0)';
+            popupContent.style.transform = 'translateX(calc(-2.5%)';
         }, 0);
     }
 

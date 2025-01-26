@@ -144,43 +144,45 @@ nav > div a:hover {
 
 #pullup {
     position: fixed;
-    bottom: -25px;
+    bottom: -35px;
     left: 0;
+    padding-bottom: 10px;
     width: 100%;
     text-align: center;
     transition: bottom 0.3s ease-in-out;
+    background: linear-gradient(to bottom, transparent, black);
     pointer-events: none;
 }
 
-#pullup > div *  {
+#pullup > div * {
     pointer-events: auto;
 }
 
 #pullup > div > p {
     font-family: salmapro, sans-serif;
     font-size: 10pt;
-	padding-left: 20px;
+    padding-left: 20px;
 }
 
 #pullup > hr {
-	pointer-events: auto;
+    pointer-events: auto;
     border-top: 4px solid white;
     margin: 20px auto;
-	border-radius: 40px;
+    border-radius: 40px;
     width: 15vw;
 }
 
 #pullup.visible {
-    bottom: 15px;
+    bottom: 0px;
 }
 
 #pullup > a {
-	text-decoration: none;
+    text-decoration: none;
 }
 
 .socialss {
-	filter: invert(1);
-	margin: 0 5px;
+    filter: invert(1);
+    margin: 0 5px;
 }
 
 #slideover {

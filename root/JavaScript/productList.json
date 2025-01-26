@@ -3,8 +3,8 @@
     "name": "Classic Black Tee",
     "id": 0,
     "creator": "Aether & Velvet",
-    "price": "$25.00",
-    "saleprice": "$10.00",
+    "price": "$27.00",
+    "saleprice": null,
     "details": "Fabric & Materials:<br>- 100% Cotton<br>- Soft, breathable fabric<br>- Pre-shrunk to maintain shape and fit<br>- Screen printed design for a high-quality finish<br><br>Design Features:<br>- Classic black color<br>- Crew neck design<br>- Short sleeves for a relaxed fit<br>- High-quality band graphic print<br>- Reinforced stitching for durability<br><br>Wash Instructions:<br>- Machine wash cold<br>- Wash with like colors<br>- Do not tumble dry<br>- Inside out for best print care<br>- Do not bleach<br>- Do not dry clean<br>- Do not iron over the graphic<br><br>NOTE: Size charts are for general reference. The fit may vary depending on construction, materials, and manufacturer. Sizing may also vary between and within brands.",
     "sellingvalue": 100,
     "limited": false,
@@ -79,7 +79,7 @@
     "id": 5,
     "creator": "Aether & Velvet",
     "price": "$24.00",
-    "saleprice": null,
+    "saleprice": "$16.00",
     "details": "Fabric & Materials:<br>- Premium blend of acrylic, wool, nylon, and spandex for a stretchy, comfortable fit<br>- Thick, cozy material to keep your head warm through the cold months<br><br>Design Features:<br>- Timeless black color that complements any winter outfit<br>- Soft texture for a plush feel<br><br>Wash Instructions:<br>- Hand wash cold<br>- Lay flat to dry<br>- Do not bleach<br>- Do not iron<br><br>NOTE: Size charts are for general reference. The fit may vary depending on construction, materials, and manufacturer.",
     "sellingvalue": 30,
     "limited": false,
@@ -116,7 +116,7 @@
     "image": "../Images/SHOP/products/pick-silentovation.png",
     "filters": {
       "departments": "unisex",
-      "collections": "accessories"
+      "collections": "albums"
     }
   },
   {

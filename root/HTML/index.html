@@ -33,7 +33,7 @@
 		</nav>
 		
 		<footer id="pullup">
-			<hr onmouseenter="pullup(true)" onmouseleave="pullup(false)">
+			<hr>
 
 			<div style="display: flex; width: 100vw; justify-content: center; align-items: center; text-align: center;">
 				<a href="https://www.amazon.com/" target="_blank" title="Follow on Facebook">
@@ -105,6 +105,7 @@
 			<div id="bgg">
 				<h3 id="scrollingText">UNMUTED</h3>
 				<h3 id="otherscrolling">JUNE 2025</h3>
+				<img id="decorb" src="../Images/borderdecor.png">
 				<img id="seeDown" src="../Images/down.png" alt="Scroll down to see more">
 			</div>
 			
@@ -126,7 +127,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="image-wrapper">
+							<div style="transform:translateY(-20px);" class="image-wrapper">
 								<img src="../Images/ABOUTUS/heartbreakb.png" alt="Album 2">
 								<div data-href="about.html" onclick="fadeout(event)" class="overlay">
 									<div>
@@ -137,7 +138,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="image-wrapper">
+							<div style="transform:translateY(-40px);" class="image-wrapper">
 								<img src="../Images/ABOUTUS/fadetoblack.png" alt="Album 3">
 								<div data-href="about.html" onclick="fadeout(event)" class="overlay">
 									<div>
@@ -150,7 +151,7 @@
 							</div>
 						</div>
 						<div class="snaps" id="contactsnap">
-							<form action="" method="POST">
+							<form action="https://formspree.io/f/xovjjkny" method="POST">
 								
 								<label for="name">Full Name:</label>
 								<input class="inp" type="text" id="name" name="name" placeholder="e.g. John Doe" required>
@@ -159,7 +160,7 @@
 								<input class="inp" type="email" id="email" name="email" placeholder="e.g. youremail@gmail.com" required>
 
 								<label for="pnumber">Phone Number:</label>
-								<input class="inp" type="text" id="pnumber" name="pnumber" placeholder="e.g. (XXX) XXX-XXXX" maxlength="14" required>
+								<input class="inp" type="tel" id="pnumber" name="pnumber" placeholder="e.g. (XXX)-XXX-XXXX" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
 								
 								<div style="display: flex; align-items: center; gap: 0px;">
 									<input style="width: auto; height: auto;" type="checkbox" id="sms_opt_in" name="sms_opt_in" value="yes">
@@ -171,7 +172,7 @@
 									</div>
 								</div>
 							</form>
-							<div style="padding: 0 50px; background-color: #222; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+							<div>
 								<h2>SIGN UP</h2>
 								<img src="../Images/mailHori.png" alt="Mailing symbol">
 							</div>
@@ -179,10 +180,10 @@
 						</div>
 					</div>
 				</div>
+				<img id="decorb2" src="../Images/borderdecor.png">
 			</div>
 			
 		</div>
-		<div class="cursor-ring"></div>
 		
 	</body>
 </html>

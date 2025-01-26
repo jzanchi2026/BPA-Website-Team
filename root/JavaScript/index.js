@@ -1,3 +1,4 @@
+// Builds product data for the featured shop section
 document.addEventListener("DOMContentLoaded", () => {
     fetch('../JavaScript/productList.json')
         .then(response => {
@@ -15,11 +16,39 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+// Utility function to handle transformations and fade-out effects for load-in section
+function applyScrollEffects(element, translateX, scrollY) {
+    if (element) {
+        element.style.transform = `translateX(${translateX}px)`;
+        element.style.opacity = Math.max(1 - scrollY / (window.innerHeight * 0.5) - 0.5, 0);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const section = document.getElementById('pullup');
+    if (section) section.classList.add('hidden');
+
+    const scrollY = window.scrollY;
+    applyScrollEffects(document.getElementById('scrollingText'), -scrollY, scrollY);
+    applyScrollEffects(document.getElementById('otherscrolling'), scrollY, scrollY);
+    applyScrollEffects(document.getElementById('seeDown'), -scrollY, scrollY);
+});
+
+document.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+
+    applyScrollEffects(document.getElementById('scrollingText'), -scrollY, scrollY);
+    applyScrollEffects(document.getElementById('otherscrolling'), scrollY, scrollY);
+    applyScrollEffects(document.getElementById('seeDown'), -scrollY, scrollY);
+});
+
+
+// Builds the html and css for the featured shop as well as the interactable aspect of it
 function buildFeatured(jsonProducts) {
     let content = document.getElementById("shopsnap");
     const choices = ["APPAREL", "MEDIA", "ALBUMS", "CLEARANCE"];
     
-    const featuredProducts = [jsonProducts[0], jsonProducts[1], jsonProducts[6], jsonProducts[5]];
+    const featuredProducts = [jsonProducts[0], jsonProducts[10], jsonProducts[2], jsonProducts[5]];
 
     featuredProducts.forEach((product, index) => {
         let cc = choices[index];

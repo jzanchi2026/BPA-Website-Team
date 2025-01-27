@@ -6,6 +6,7 @@
 	scrollbar-color: #282942 #191a29;
 }
 
+
 ::-webkit-scrollbar-track {
   background: #191a29;
 }
@@ -144,27 +145,35 @@ nav > div a:hover {
 
 #pullup {
     position: fixed;
-    bottom: -35px;
+    bottom: -10%;
     left: 0;
-    padding-bottom: 10px;
     width: 100%;
     text-align: center;
-    transition: bottom 0.3s ease-in-out;
-    background: linear-gradient(to bottom, transparent, black);
-    pointer-events: none;
+    transition: bottom 0.25s ease-in-out;
+    background: linear-gradient(to top, black 10%, transparent 90%);
 }
 
-#pullup > div * {
-    pointer-events: auto;
+#pullup > div {
+	display: flex; 
+	width: 100vw; 
+	margin-bottom: 15px;
+	justify-content: center; 
+	align-items: center; 
+	text-align: center;
 }
 
 #pullup > div > p {
     font-family: salmapro, sans-serif;
-    font-size: 10pt;
+    font-size: 12pt;
     padding-left: 20px;
 }
 
-#pullup > hr {
+#pullup > div > div > p {
+	font-family: salmapro, sans-serif;
+    font-size: 9pt;
+}
+
+#pullup > div > hr {
     pointer-events: auto;
     border-top: 4px solid white;
     margin: 20px auto;
@@ -176,6 +185,10 @@ nav > div a:hover {
     bottom: 0px;
 }
 
+#pullup.visible hr {
+    width: 25vw;
+}
+
 #pullup > a {
     text-decoration: none;
 }
@@ -185,8 +198,16 @@ nav > div a:hover {
     margin: 0 5px;
 }
 
-#slideover {
-	display: flex;
+#BPA-required-info {
+	gap: 30px;
+}
+
+#BPA-required-info > div:nth-child(odd) {
+    text-align: left;
+}
+
+#BPA-required-info > div:nth-child(even) {
+    text-align: right;
 }
 
 #settingpanel {

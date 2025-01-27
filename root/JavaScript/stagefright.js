@@ -52,55 +52,75 @@ function goSettings() {
 	boxHidden = !boxHidden;
 }*/
 
+// Handles the view of the footer, shows if user hovers on the pullup
+document.addEventListener("DOMContentLoaded", () => {
+    let isOpen = false;
+    let isScrollTriggered = false;
+    let isAtBottom = false; // Track if user is at the bottom
+    let inputs = document.querySelectorAll('input, textarea, button');
 
-let isOpen = false;
-let isScrollTriggered = false;
-let isHovering = false; // Flag to track if the user is hovering
+    const toggleInputs = (disable) => {
+        inputs.forEach(input => input.disabled = disable);
+    };
 
-function pullup(open) {
-    const footer = document.getElementById("pullup");
-    if (open && !isOpen) {
-        footer.classList.add("visible");
-        isOpen = true;
-    } else if (!open && isOpen) {
-        footer.classList.remove("visible");
-        isOpen = false;
-    }
-}
+    const pullup = (open) => {
+        const footer = document.getElementById("pullup");
 
-// Detect when the user scrolls
-window.addEventListener("scroll", () => {
-    const scrollPosition = window.scrollY + window.innerHeight;
-    const pageHeight = document.documentElement.scrollHeight;
-
-    if (scrollPosition >= pageHeight) {
-        if (!isScrollTriggered) {
-            isScrollTriggered = true;
-            pullup(true);
+        if (open && !isOpen) {
+            footer.classList.add("visible");
+            toggleInputs(true);
+            setTimeout(() => {
+                isOpen = true;
+                toggleInputs(false);
+            }, 300);
+        } else if (!open && isOpen && !isAtBottom) { // Don't hide if at bottom
+            footer.classList.remove("visible");
+            toggleInputs(true);
+            setTimeout(() => {
+                isOpen = false;
+                toggleInputs(false);
+            }, 300);
         }
-    } else {
-        if (isScrollTriggered) {
-            isScrollTriggered = false;
-            pullup(false);
+    };
+
+    window.addEventListener("scroll", () => {
+        const scrollPosition = window.scrollY + window.innerHeight;
+        const pageHeight = document.documentElement.scrollHeight;
+
+        // Check if the user is at the bottom of the page
+        isAtBottom = scrollPosition >= pageHeight;
+
+        if (isAtBottom) {
+            if (!isOpen) { // Make sure the footer is visible when at the bottom
+                pullup(true);
+            }
+            isScrollTriggered = true; // Prevent other triggers while at the bottom
+        } else {
+            if (isScrollTriggered) {
+                isScrollTriggered = false; // Reset trigger state
+                pullup(false); // Allow the footer to hide when not at bottom
+            }
         }
+    });
+
+    const hrContainer = document.querySelector(".hr-container");
+
+    if (hrContainer) {
+        hrContainer.addEventListener("mouseenter", () => {
+            if (!isOpen && !isAtBottom) { // Don't open when at bottom
+                pullup(true);
+            }
+        });
+
+        hrContainer.addEventListener("mouseleave", () => {
+            if (isOpen && !isAtBottom) { // Don't close when at bottom
+                pullup(false);
+            }
+        });
     }
 });
 
-document.getElementById("pullup").querySelector("hr").addEventListener("mouseenter", () => {
-    if (!isHovering) {  // Only show if not already being hovered
-        isHovering = true;
-        pullup(true);  // Show the footer when hovering
-    }
-});
 
-document.getElementById("pullup").querySelector("hr").addEventListener("mouseleave", () => {
-    if (isHovering) {  // Only hide if it was being hovered
-        isHovering = false;
-        if (!isScrollTriggered) {
-            pullup(false);  // Hide the footer when leaving if not at the bottom
-        }
-    }
-});
 
 
 

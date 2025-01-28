@@ -56,7 +56,7 @@ function goSettings() {
 document.addEventListener("DOMContentLoaded", () => {
     let isOpen = false;
     let isScrollTriggered = false;
-    let isAtBottom = false; // Track if user is at the bottom
+    let isAtBottom = false;
     let inputs = document.querySelectorAll('input, textarea, button');
 
     const toggleInputs = (disable) => {
@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 isOpen = true;
                 toggleInputs(false);
             }, 300);
-        } else if (!open && isOpen && !isAtBottom) { // Don't hide if at bottom
+        } else if (!open && isOpen && !isAtBottom) {
             footer.classList.remove("visible");
             toggleInputs(true);
             setTimeout(() => {
@@ -87,18 +87,17 @@ document.addEventListener("DOMContentLoaded", () => {
         const scrollPosition = window.scrollY + window.innerHeight;
         const pageHeight = document.documentElement.scrollHeight;
 
-        // Check if the user is at the bottom of the page
         isAtBottom = scrollPosition >= pageHeight;
 
         if (isAtBottom) {
-            if (!isOpen) { // Make sure the footer is visible when at the bottom
+            if (!isOpen) {
                 pullup(true);
             }
-            isScrollTriggered = true; // Prevent other triggers while at the bottom
+            isScrollTriggered = true;
         } else {
             if (isScrollTriggered) {
-                isScrollTriggered = false; // Reset trigger state
-                pullup(false); // Allow the footer to hide when not at bottom
+                isScrollTriggered = false;
+                pullup(false);
             }
         }
     });
@@ -107,19 +106,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (hrContainer) {
         hrContainer.addEventListener("mouseenter", () => {
-            if (!isOpen && !isAtBottom) { // Don't open when at bottom
+            if (!isOpen && !isAtBottom) {
                 pullup(true);
             }
         });
 
         hrContainer.addEventListener("mouseleave", () => {
-            if (isOpen && !isAtBottom) { // Don't close when at bottom
+            if (isOpen && !isAtBottom) {
                 pullup(false);
             }
         });
     }
 });
 
+let toggled = false;
+
+function toggleLinks() {
+    let links = document.getElementById("displayedLinks");
+
+    if (!toggled) {
+        links.style.display = "flex";
+        setTimeout(() => {
+            links.style.transform = "translateX(0)";
+        }, 5);
+    } else {
+        links.style.transform = "translateX(-120%)";
+        setTimeout(() => {
+            links.style.display = "none";
+        }, 500);
+    }
+    toggled = !toggled;
+}
 
 
 
@@ -179,6 +196,8 @@ function showNewDiv(selected) {
     }, 50);
     shownDiv = selected; 
 }
+
+
 
 // CART CODING
 

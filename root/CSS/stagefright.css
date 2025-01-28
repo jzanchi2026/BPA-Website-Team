@@ -62,26 +62,26 @@ nav, footer {
 	z-index: 200;
 }
 
-nav {
+#navbar {
     height: 15vh;
-    display: flex;
     justify-content: center;
     position: fixed;
     top: 0;
     width: 100vw;
-    box-shadow: 0px 0px 30px 40px rgba(0, 0, 0, 0.4);
-    background: rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 0px 30px 40px rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.6);
     transition: 0.5s ease-in-out;
 	pointer-events: none;
+	display: flex;
 }
 
-nav a, nav div {
+nav a, nav div{
     pointer-events: auto;
 }
 
-nav:hover {
-	box-shadow: 0px 0px 30px 40px rgba(0, 0, 0, 0.5);
-    background: rgba(0, 0, 0, 0.5);
+#navbar:hover {
+	box-shadow: 0px 0px 30px 40px rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.8);
 }
 
 .inside {
@@ -93,7 +93,7 @@ nav:hover {
     padding: 0 30px;
 }
 
-.inside a, .settings-link {
+.inside a, .cart-link{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -108,41 +108,95 @@ nav:hover {
     letter-spacing: 2px;
 }
 
-.settings-link {
+.cart-link {
     width: 45px;
     padding: 0;
 }
 
-.settings-link img {
-    max-height: 50%;
-    max-width: 50%;
+.cart-link img {
+    max-height: 60%;
+    max-width: 60%;
     object-fit: contain;
 }
 
-.settings-link:hover {
+.cart-link:hover {
 	transform: scale(1.1);
 	cursor: pointer;
 }
 
-nav > div a:hover {
+nav > div a:hover, #displayedLinks a:hover {
     color: #4286a8;
     text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
-    transform: scale(1.05);
+    transform: scale(1.05) translateX(2%);
 }
 
-#navlogo {
+.navlogo {
     height: 130px;
     width: 130px;
     margin: 10px 15px 10px 10px;
     transition: 0.4s ease-in-out; 
-    border-radius: 50px;
+    border-radius: 50%;
 }
 
-#navlogo:hover {
+.navlogo:hover {
     transform: scale(1.05);
     cursor: pointer;
+	background: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 50px 40px rgba(0, 0, 0, 0.7);
 }
 
+/* NAVBAR MOBILE STYLING */
+#navbar-mobile {
+	height: 15vh;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    box-shadow: 0px 0px 30px 40px rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.6);
+    transition: 0.5s ease-in-out;
+	pointer-events: none;
+	display: none;
+}
+
+#displayedLinks {
+	transform: translateX(-100%);
+	display: none;
+	z-index: 199;
+	flex-direction: column;
+	justify-content: left;
+	align-items: left;
+	text-align: left;
+	height: 100vh;
+	background: rgba(0, 0, 0, 0.8);
+	box-shadow: 0px 0px 30px 40px rgba(0, 0, 0, 0.8);
+    
+}
+
+#displayedLinks a {
+	margin: 10px 20px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 14pt;
+	padding-left: 20px;
+    font-family: salmapro;
+    letter-spacing: 2px;
+}
+
+#displayedLinks h2 {
+	margin: 10px 20px;
+    color: white;
+    font-weight: bold;
+    font-size: 20pt;
+	padding-left: 20px;
+    font-family: salmapro;
+    letter-spacing: 2px;
+	color: #70afcf;
+}
+
+
+/* FOOTER STYLING */
 #pullup {
     position: fixed;
     bottom: -10%;
@@ -153,27 +207,28 @@ nav > div a:hover {
     background: linear-gradient(to top, black 10%, transparent 90%);
 }
 
-#pullup > div {
+.footer-info {
 	display: flex; 
 	width: 100vw; 
 	margin-bottom: 15px;
 	justify-content: center; 
 	align-items: center; 
 	text-align: center;
+	opacity: 0;
 }
 
-#pullup > div > p {
+.footer-info > p {
     font-family: salmapro, sans-serif;
     font-size: 12pt;
     padding-left: 20px;
 }
 
-#pullup > div > div > p {
+.footer-info > div > p {
 	font-family: salmapro, sans-serif;
     font-size: 9pt;
 }
 
-#pullup > div > hr {
+.hr-container > hr {
     pointer-events: auto;
     border-top: 4px solid white;
     margin: 20px auto;
@@ -187,6 +242,10 @@ nav > div a:hover {
 
 #pullup.visible hr {
     width: 25vw;
+}
+
+#pullup.visible .footer-info {
+    opacity: 1;
 }
 
 #pullup > a {
@@ -363,8 +422,8 @@ button:hover {
 		display: block;
 	}
 	
-	#pullup > hr {
-		width: 55vw;
+	.hr-container > hr {
+		width: 65vw;
 	}
 	
 	.inside { 
@@ -372,7 +431,7 @@ button:hover {
 	}
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
 	
 	.inside a, .inside div {
 		font-size: 2vw;
@@ -381,7 +440,7 @@ button:hover {
 		height: 45px;
 	}
 	
-	.settings-link img {
+	.cart-link img {
 		max-height: 60%;
 		max-width: 60%;
 	}
@@ -396,14 +455,21 @@ button:hover {
 		width: 96vw;
 	}
 	
-	#navlogo {
+	.navlogo {
 		height: 100px;
 		width: auto;
-		margin: 10px 15px 0 0;
 	}
 	
 	.inside {
 		margin: 0;
+	}
+	
+	#navbar {
+		display: none;
+	}
+	
+	#navbar-mobile {
+		display: block;
 	}
 	
 }

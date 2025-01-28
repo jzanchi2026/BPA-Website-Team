@@ -6,30 +6,59 @@
 		<link rel="stylesheet" href="../CSS/products.css">
 		<script src="../JavaScript/stagefright.js"></script>
 		<script src="../JavaScript/index.js"></script>
-		
 		<title>Stage Fright - Home</title>
 		<link rel="icon" type="image/x-icon" href="../Images/cursor.png">
-</head>
-
 	</head>
 	
 	<body>
 		<nav id="navbar">
 			<div class="spaceHolder"></div> 
+			
 			<div style="justify-content: right" class="inside">
 				<a href="index.html" onclick="fadeout(event)">HOME</a>
 				<a href="about.html" onclick="fadeout(event)">ABOUT US</a>
 				<a href="dates.html" onclick="fadeout(event)">TOUR DATES</a>
 			</div>
-			<img id="navlogo" src="../Images/blueLights.PNG" alt="Main Stage Fright Logo">
+			
+			<img class="navlogo" src="../Images/blueLights.PNG" alt="Main Stage Fright Logo">
+			
 			<div style="justify-content: left; " class="inside">
 				<a href="shop.html" onclick="fadeout(event)">SHOP</a>
 				<a href="contact.html" onclick="fadeout(event)">CONTACT US</a>
-				<div  class="settings-link">
+				<div class="cart-link">
 					<img onclick="showCartPopup()" src="../Images/cart.png" alt="cart">
 				</div>
 			</div>
+			
 			<div class="spaceHolder"></div>
+		</nav>
+		
+		<nav id="navbar-mobile">
+			<div style="display:flex; justify-content: center; padding-right: 20px; z-index: 200;">
+				
+				<div style="justify-content: right" class="inside">
+					<div class="cart-link">
+						<img onclick="toggleLinks()" src="../Images/menu.png" alt="see links menu">
+					</div>
+				</div>
+				
+				<img class="navlogo" src="../Images/blueLights.PNG" alt="Main Stage Fright Logo">
+				
+				<div style="justify-content: left;" class="inside">
+					<div class="cart-link">
+						<img onclick="showCartPopup()" src="../Images/cart.png" alt="cart">
+					</div>
+				</div>
+			</div>
+			
+			<div id="displayedLinks">
+				<h2>NAVIGATE TO</h2>
+				<a href="index.html" onclick="fadeout(event)">HOME</a>
+				<a href="about.html" onclick="fadeout(event)">ABOUT US</a>
+				<a href="dates.html" onclick="fadeout(event)">TOUR DATES</a>
+				<a href="shop.html" onclick="fadeout(event)">SHOP</a>
+				<a href="contact.html" onclick="fadeout(event)">CONTACT US</a>
+			</div>
 		</nav>
 		
 		<footer id="pullup">
@@ -37,7 +66,7 @@
 				<hr>
 			</div>
 
-			<div>
+			<div class="footer-info" >
 				<a href="https://www.facebook.com" target="_blank" title="Follow on Facebook">
 					<img class="socialss" src="../Images/Socials/facebook.png" height="20" alt="Link to follow on facebook">
 				</a>
@@ -62,7 +91,7 @@
 				<p>&copy Stage Fright 2025. All rights reserved.</p>
 			</div>
 			
-			<div id="BPA-required-info">
+			<div class="footer-info" id="BPA-required-info">
 				<div>
 					<p>Jessica Zanchi & Julissa Torres</p>
 					<p>Chapter: Joseph P. Keefe Technical HS</p>

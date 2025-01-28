@@ -58,6 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let isScrollTriggered = false;
     let isAtBottom = false;
     let inputs = document.querySelectorAll('input, textarea, button');
+    let toggled = false;
 
     const toggleInputs = (disable) => {
         inputs.forEach(input => input.disabled = disable);
@@ -66,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const pullup = (open) => {
         const footer = document.getElementById("pullup");
 
-        if (open && !isOpen) {
+        if (open && (!isOpen || toggled)) {
             footer.classList.add("visible");
             toggleInputs(true);
             setTimeout(() => {
@@ -89,13 +90,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
         isAtBottom = scrollPosition >= pageHeight;
 
-        if (isAtBottom) {
+        if (isAtBottom || toggled) {
             if (!isOpen) {
                 pullup(true);
             }
             isScrollTriggered = true;
         } else {
-            if (isScrollTriggered) {
+            if (isScrollTriggered || !toggled) {
                 isScrollTriggered = false;
                 pullup(false);
             }
@@ -112,31 +113,41 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         hrContainer.addEventListener("mouseleave", () => {
-            if (isOpen && !isAtBottom) {
+            if (isOpen && !isAtBottom && !toggled) {
                 pullup(false);
             }
         });
     }
+
+    window.toggleLinks = function () {
+        let links = document.getElementById("displayedLinks");
+		let header = document.getElementById("navbar-mobile");
+        const footer = document.getElementById("pullup");
+
+        if (!toggled) {
+            links.style.display = "flex";
+            setTimeout(() => {
+                links.style.transform = "translateX(0)";
+                links.style.opacity = "1";
+				header.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
+				header.style.boxShadow = "0px 0px 30px 40px rgba(0, 0, 0, 0.8)";
+                pullup(true);
+            }, 5);
+        } else {
+            links.style.transform = "translateX(-120%)";
+			header.style.backgroundColor = "rgba(0, 0, 0, 0.6)";
+			header.style.boxShadow = "0px 0px 30px 40px rgba(0, 0, 0, 0.6)";
+			if (!isScrollTriggered) {
+                    pullup(false);
+			}
+            setTimeout(() => {
+                links.style.display = "none";  
+				
+            }, 500);
+        }
+        toggled = !toggled;
+    };
 });
-
-let toggled = false;
-
-function toggleLinks() {
-    let links = document.getElementById("displayedLinks");
-
-    if (!toggled) {
-        links.style.display = "flex";
-        setTimeout(() => {
-            links.style.transform = "translateX(0)";
-        }, 5);
-    } else {
-        links.style.transform = "translateX(-120%)";
-        setTimeout(() => {
-            links.style.display = "none";
-        }, 500);
-    }
-    toggled = !toggled;
-}
 
 
 

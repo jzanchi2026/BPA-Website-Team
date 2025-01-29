@@ -126,24 +126,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (!toggled) {
             links.style.display = "flex";
+			links.style.opacity = "1";
+				header.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
+                pullup(true);
             setTimeout(() => {
                 links.style.transform = "translateX(0)";
-                links.style.opacity = "1";
-				header.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
-				header.style.boxShadow = "0px 0px 30px 40px rgba(0, 0, 0, 0.8)";
-                pullup(true);
-            }, 5);
+                
+            }, 1);
         } else {
             links.style.transform = "translateX(-120%)";
 			header.style.backgroundColor = "rgba(0, 0, 0, 0.6)";
-			header.style.boxShadow = "0px 0px 30px 40px rgba(0, 0, 0, 0.6)";
-			if (!isScrollTriggered) {
-                    pullup(false);
-			}
+			pullup(false);
             setTimeout(() => {
                 links.style.display = "none";  
-				
-            }, 500);
+            }, 300);
         }
         toggled = !toggled;
     };

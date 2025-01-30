@@ -11,6 +11,7 @@
 	</head>
 	
 	<body onload="loadShop()">
+		<!-- START navigation section -->
 		<nav id="navbar">
 			<div class="spaceHolder"></div> 
 			
@@ -20,7 +21,7 @@
 				<a href="dates.html" onclick="fadeout(event)">TOUR DATES</a>
 			</div>
 			
-			<img class="navlogo" src="../Images/blueLights.PNG" alt="Main Stage Fright Logo">
+			<img class="navlogo" data-href="index.html" onclick="fadeout(event)" src="../Images/blueBlur.PNG" alt="Main Stage Fright Logo">
 			
 			<div style="justify-content: left; " class="inside">
 				<a href="shop.html" onclick="fadeout(event)">SHOP</a>
@@ -42,7 +43,7 @@
 					</div>
 				</div>
 				
-				<img class="navlogo" src="../Images/blueLights.PNG" alt="Main Stage Fright Logo">
+				<img class="navlogo" data-href="index.html" onclick="fadeout(event)" src="../Images/blueBlur.PNG" alt="Main Stage Fright Logo">
 				
 				<div style="justify-content: left;" class="inside">
 					<div class="cart-link">
@@ -103,14 +104,13 @@
 			</div>
 			
 		</footer>
+		<!-- END navigation section -->
+		
+		<div id="pageTitle">
+			<h1>OFFICIAL MERCHANDISE</h1>
+		</div>
 		
 		<div id="shopping">
-			<div>
-				<p>interactive here</p>
-			</div>
-			
-			<hr style="border: 2px solid white; width: 85%; margin: 100px auto;">
-			
 			<div id="highlights">
 				<div class="boxes" style="display:flex;">
 					<div onclick="passChoice('APPAREL')" class="short" style="background-image: url(../Images/lightts.jpg);">

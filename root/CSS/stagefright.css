@@ -6,7 +6,6 @@
 	scrollbar-color: #282942 #191a29;
 }
 
-
 ::-webkit-scrollbar-track {
   background: #191a29;
 }
@@ -16,7 +15,9 @@
   border-radius: 4px;
 }
 
+
 /* CUSTOM CHECKBOXES */
+
 input[type="checkbox"] {
   -webkit-appearance: none;
   appearance: none;
@@ -52,6 +53,7 @@ body {
 	background-color: black;
 	overflow-x: hidden;
 }
+
 
 /* BASIC NAVBAR STYLING */
 
@@ -125,7 +127,7 @@ body {
 
 nav > div a:hover, #displayedLinks a:hover {
     color: #4286a8;
-    text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
+    text-shadow: 0px 0px 20px black;
     transform: scale(1.05) translateX(2%);
 }
 
@@ -133,17 +135,18 @@ nav > div a:hover, #displayedLinks a:hover {
     height: 130px;
     width: 130px;
     margin: 10px 15px 10px 10px;
-    transition: 0.4s ease-in-out; 
+    transition: 0.3s ease-in-out; 
     border-radius: 50%;
 }
 
 .navlogo:hover {
     transform: scale(1.05);
     cursor: pointer;
-	background: rgba(0, 0, 0, 0.7);
 }
 
+
 /* NAVBAR MOBILE STYLING */
+
 #navbar-mobile {
 	z-index: 200;
 	height: 15vh;
@@ -152,8 +155,8 @@ nav > div a:hover, #displayedLinks a:hover {
     top: 0;
     width: 100vw;
     background: rgba(0, 0, 0, 0.6);
+	padding-bottom: 20px;
     transition: 0.5s ease-in-out;
-	pointer-events: none;
 	display: none;
 }
 
@@ -167,7 +170,7 @@ nav > div a:hover, #displayedLinks a:hover {
 	opacity: 0;
 	position: fixed;
 	left: 0;
-	top: 15vh;
+	top: calc(15vh + 20px);
 	transform: translateX(-120%);
 	transition: 0.4s ease-in-out;
 	display: none;
@@ -175,7 +178,7 @@ nav > div a:hover, #displayedLinks a:hover {
 	justify-content: left;
 	align-items: left;
 	text-align: left;
-	height: 85vh;
+	height: calc(85vh - 20px);
 	width: 100vw;
 	background: rgba(0, 0, 0, 0.5);
     
@@ -214,10 +217,11 @@ footer {
 
 #pullup {
     position: fixed;
-    bottom: -10%;
+    bottom: -100px;
     left: 0;
     width: 100%;
     text-align: center;
+	height: 175px;
     transition: bottom 0.25s ease-in-out;
     background: linear-gradient(to top, black 10%, transparent 90%);
 }
@@ -229,13 +233,14 @@ footer {
 	justify-content: center; 
 	align-items: center; 
 	text-align: center;
-	opacity: 0;
+	opacity: 1;
 }
 
 .footer-info > p {
     font-family: salmapro, sans-serif;
     font-size: 12pt;
     padding-left: 20px;
+	text-align: right;
 }
 
 .footer-info > div > p {
@@ -246,7 +251,7 @@ footer {
 .hr-container > hr {
     pointer-events: auto;
     border-top: 4px solid white;
-    margin: 20px auto;
+    margin: 10px auto;
     border-radius: 40px;
     width: 15vw;
 }
@@ -288,7 +293,7 @@ footer {
     text-align: right;
 }
 
-/* SETTING STYLING */
+/* SETTINGS STYLING */
 
 #settingpanel {
 	position: fixed;
@@ -376,7 +381,38 @@ button:hover {
     background-color: #0b7dda;
 }
 
-/* custom fonts */
+
+/* HEADING STYLING */
+
+#pageTitle {
+	width: 100vw;
+	height: 45vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 20px;
+	padding-top: 90px;
+	position: relative;
+	text-decoration: underline;
+	text-decoration-thickness: 4px;
+	text-underline-offset: 12px;
+}
+
+#pageTitle h1 {
+	padding: 50px 0 60px;
+	text-align: center;
+	background-image: url("../Images/ghostbglt.png");
+	background-size: 200px; 
+	font-family: radlushmed;
+	letter-spacing: 2px;
+	font-size: 65pt;
+	background-color: #222;
+	width: 100vw;
+	text-shadow: 0px 0px 20px black;
+}
+
+
+/* CUSTOM FONTS */
 
 @font-face {
   font-family: salmapro;
@@ -397,6 +433,9 @@ button:hover {
   font-family: pasti;
   src: url("Fonts/Pasti - HolyJollie/pastireg.otf");
 }
+
+
+/* MEDIA QUERIES FOR GENERAL STYLING */
 
 @media (max-width: 950px) {
 	
@@ -429,9 +468,6 @@ button:hover {
 		display: block;
 	}
 	
-	.hr-container > hr {
-		width: 65vw;
-	}
 	
 	.hr-container > hr:hover {
 		width: 85vw;
@@ -451,13 +487,6 @@ button:hover {
 		height: 45px;
 	}
 	
-	.hr-container > hr {
-		margin: 10px auto;
-	}
-
-	.hr-container {
-		padding: 20px;
-	}
 	
 	.cart-link img {
 		max-height: 60%;
@@ -483,18 +512,45 @@ button:hover {
 		margin: 0;
 	}
 	
-	.footer-info {
-		width: 85vw; 
-		margin: 0 auto;
-		margin-bottom: 20px;
-	}
-	
 	#navbar {
 		display: none;
 	}
 	
 	#navbar-mobile {
 		display: block;
+	}
+	
+	.hr-container > hr {
+		margin: 20px auto;
+	}
+	
+	.hr-container {
+		padding: 20px;
+	}
+	
+	#pullup {
+		background: rgba(0, 0, 0, 0.6);
+		box-shadow: none;
+		bottom: -95px;
+	}
+}
+
+@media (max-width: 550px) {
+	.footer-info {
+		transform: scale(0.90);
+		width: 85vw;
+		margin: auto;
+		margin-bottom: 0;
+	}
+	
+	#pullup {
+		background: rgba(0, 0, 0, 0.6);
+		box-shadow: none;
+		bottom: -110px;
+	}
+
+	.hr-container {
+		padding: 10px 10px 5px;
 	}
 	
 }

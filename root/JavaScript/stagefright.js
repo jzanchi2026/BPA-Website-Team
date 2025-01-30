@@ -1,7 +1,16 @@
 // fades the page in and out on load
 window.addEventListener('load', function() {
     const body = document.querySelector('body');
-    body.style.opacity = 1;
+	body.style.opacity = 1;
+});
+
+window.addEventListener("DOMContentLoaded", () => {
+	const navLinks = document.querySelectorAll("#navbar a");
+	navLinks.forEach(link => {
+		if (link.href === window.location.href) {
+		  link.style.textDecoration = "line-through";
+		}
+	});
 });
 
 function fadeout(event) {

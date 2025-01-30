@@ -20,7 +20,7 @@
 	text-shadow: 0px 0px 10px black;
 	z-index: 4;
 	cursor: default;
-	font-family: radlushmed;
+	font-family: areakilo;
 	letter-spacing: 20px;
 	font-weight: bold;
 	opacity: 0.5;
@@ -65,7 +65,7 @@
 }
 
 #otherscrolling {
-	top: 250px;
+	top: 270px;
     left: 15%;
     transform: translateX(60%);
 }

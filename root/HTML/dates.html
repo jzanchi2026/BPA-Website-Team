@@ -5,11 +5,12 @@
 		<link rel="stylesheet" href="../CSS/dates.css">
 		<link rel="stylesheet" href="../CSS/products.css">
 		<script src="../JavaScript/stagefright.js"></script>
+		<script src="../JavaScript/dates.js"></script>
 		<title>Stage Fright - Tour Dates</title>
 		<link rel="icon" type="image/x-icon" href="../Images/cursor.png">
 	</head>
 	
-	<body>
+	<body onload="buildStadium()">
 		<!-- START navigation section -->
 		<nav id="navbar">
 			<div class="spaceHolder"></div> 
@@ -110,161 +111,161 @@
 		</div>
 		
 		<div id="contentdates">
-			<h3>
-				Stage Fright is hitting the road this June, bringing their 
-				electrifying rock sound to cities across the country. <br>Don’t miss your 
-				chance to experience the raw energy and unforgettable performances that have made 
-				them a force in modern rock.<br><br>Secure your tickets now and be part of the action— this 
-				is a tour you won’t want to miss!
-			</h3>
+			
 			<div id="bgg2">
-				
+				<div id="side">
+					<div id="pickSeating">
+						<div class="sideSection"></div>
+						<div id="stadium"></div>
+						<div class="sideSection"></div>
+					</div>
+				</div>
 				<div id="text">
-					<h2>FIND A DATE</h2>
 					<div class="tourdate" id="seattlewa">
-						<h1>06/14/25</h1>
+						<h1>06/14</h1>
 						<div class="location">
 							<h2>Seattle, Washington</h2>
-							<h3>Lumen Field - 800 Occidental Ave S, Seattle, WA 98134</h3>
+							<h3>Lumen Field</h3>
+							<h3>800 Occidental Ave S, Seattle, WA 98134</h3>
 						</div>
 						<div class="buttons">
 							<button type="button" role="link" onclick="window.open('https://www.ticketmaster.com/')">Buy Tickets</button>
-							<button type="button" role="link" onclick="">More Info</button>
 						</div>
 					</div>
 					<div class="tourdate" id="portlandor">
-						<h1>06/15/25</h1>
+						<h1>06/15</h1>
 						<div class="location">
 							<h2>Portland, Oreland</h2>
-							<h3>Revolution Hall - 1300 SE Stark St #203, Portland, OR 97214</h3>
+							<h3>Revolution Hall</h3>
+							<h3>1300 SE Stark St #203, Portland, OR 97214</h3>
 						</div>
 						<div class="buttons">
 							<button type="button" role="link" onclick="window.open('https://www.ticketmaster.com/')">Buy Tickets</button>
-							<button type="button" role="link" onclick="">More Info</button>
 						</div>
 					</div>
 					<div class="tourdate" id="losangelesca">
-						<h1>06/18/25</h1>
+						<h1>06/18</h1>
 						<div class="location">
 							<h2>Los Angeles, California</h2>
-							<h3>Greek Theatre - 2700 N Vermont Ave, Los Angeles, CA 90027</h3>
+							<h3>Greek Theatre</h3>
+							<h3>2700 N Vermont Ave, Los Angeles, CA 90027</h3>
 						</div>
 						<div class="buttons">
 							<button type="button" role="link" onclick="window.open('https://www.ticketmaster.com/')">Buy Tickets</button>
-							<button type="button" role="link" onclick="">More Info</button>
 						</div>
 					</div>
 					<div class="tourdate" id="phoenixaz">
-						<h1>06/19/25</h1>
+						<h1>06/19</h1>
 						<div class="location">
 							<h2>Phoenix, Arizona</h2>
-							<h3>Talking Stick Resort - 9800 Talking Stick Way, Scottsdale, AZ 85256</h3>
+							<h3>Talking Stick Resort</h3>
+							<h3>9800 Talking Stick Way, Scottsdale, AZ 85256</h3>
 						</div>
 						<div class="buttons">
 							<button type="button" role="link" onclick="window.open('https://www.ticketmaster.com/')">Buy Tickets</button>
-							<button type="button" role="link" onclick="">More Info</button>
 						</div>
 					</div>
 					<div class="tourdate" id="austintx">
-						<h1>06/21/25</h1>
+						<h1>06/21</h1>
 						<div class="location">
 							<h2>Austin, Texas</h2>
-							<h3>Moody Center - 206 Main St, Northfield, MA 01360</h3>
+							<h3>Moody Center</h3>
+							<h3>206 Main St, Northfield, MA 01360</h3>
 						</div>
 						<div class="buttons">
 							<button type="button" role="link" onclick="window.open('https://www.ticketmaster.com/')">Buy Tickets</button>
-							<button type="button" role="link" onclick="">More Info</button>
 						</div>
 					</div>
 					<div class="tourdate" id="neworleansla">
-						<h1>06/22/25</h1>
+						<h1>06/22</h1>
 						<div class="location">
 							<h2>New Orleans, Louisiana</h2>
-							<h3>Preservation Hall - 726 St Peter, New Orleans, LA 70116</h3>
+							<h3>Preservation Hall</h3>
+							<h3>726 St Peter, New Orleans, LA 70116</h3>
 						</div>
 						<div class="buttons">
 							<button type="button" role="link" onclick="window.open('https://www.ticketmaster.com/')">Buy Tickets</button>
-							<button type="button" role="link" onclick="">More Info</button>
 						</div>
 					</div>
 					<div class="tourdate" id="atlantaga">
-						<h1>06/23/25</h1>
+						<h1>06/23</h1>
 						<div class="location">
 							<h2>Atlanta, Georgia</h2>
-							<h3>Terminal West - 887 West Marietta St NW STE C, Atlanta, GA 30318</h3>
+							<h3>Terminal West</h3>
+							<h3>887 West Marietta St NW STE C, Atlanta, GA 30318</h3>
 						</div>
 						<div class="buttons">
 							<button type="button" role="link" onclick="window.open('https://www.ticketmaster.com/')">Buy Tickets</button>
-							<button type="button" role="link" onclick="">More Info</button>
 						</div>
 					</div>
 					<div class="tourdate" id="raleighnc">
-						<h1>06/24/25</h1>
+						<h1>06/24</h1>
 						<div class="location">
 							<h2>Raleigh, North Carolina</h2>
-							<h3>The Ritz - 2820 Industrial Dr, Raleigh, NC 27609</h3>
+							<h3>The Ritz</h3>
+							<h3>2820 Industrial Dr, Raleigh, NC 27609</h3>
 						</div>
 						<div class="buttons">
 							<button type="button" role="link" onclick="window.open('https://www.ticketmaster.com/')">Buy Tickets</button>
-							<button type="button" role="link" onclick="">More Info</button>
 						</div>
 					</div>
 					<div class="tourdate" id="nycnc">
-						<h1>06/26/25</h1>
+						<h1>06/26</h1>
 						<div class="location">
 							<h2>New York City, New York</h2>
-							<h3>Madison Square Garden - New York, NY 10001</h3>
+							<h3>Madison Square Garden</h3>
+							<h3>New York, NY 10001</h3>
 						</div>
 						<div class="buttons">
 							<button type="button" role="link" onclick="window.open('https://www.ticketmaster.com/')">Buy Tickets</button>
-							<button type="button" role="link" onclick="">More Info</button>
 						</div>
 					</div>
 					<div class="tourdate" id="bostonma">
-						<h1>06/27/25</h1>
+						<h1>06/27</h1>
 						<div class="location">
 							<h2>Boston, Massachusetts</h2>
-							<h3>TD Garden - 100 Legends Way, Boston, MA 02114</h3>
+							<h3>TD Garden</h3>
+							<h3>100 Legends Way, Boston, MA 02114</h3>
 						</div>
 						<div class="buttons">
 							<button type="button" role="link" onclick="window.open('https://www.ticketmaster.com/')">Buy Tickets</button>
-							<button type="button" role="link" onclick="">More Info</button>
 						</div>
 					</div>
 					<div class="tourdate" id="chicagoil">
-						<h1>06/30/25</h1>
+						<h1>06/30</h1>
 						<div class="location">
 							<h2>Chicago, Illinois</h2>
-							<h3>Wintrust Arena - 200 E Cermak Rd, Chicago, IL 60616</h3>
+							<h3>Wintrust Arena</h3>
+							<h3>200 E Cermak Rd, Chicago, IL 60616</h3>
 						</div>
 						<div class="buttons">
 							<button type="button" role="link" onclick="window.open('https://www.ticketmaster.com/')">Buy Tickets</button>
-							<button type="button" role="link" onclick="">More Info</button>
 						</div>
 					</div>
 					<div class="tourdate" id="minneapolismn">
-						<h1>07/01/25</h1>
+						<h1>07/01</h1>
 						<div class="location">
 							<h2>Minneapolis, Minnesota</h2>
-							<h3>The Filmore - 525 N 5th St, Minneapolis, MN 55401</h3>
+							<h3>The Filmore</h3>
+							<h3>525 N 5th St, Minneapolis, MN 55401</h3>
 						</div>
 						<div class="buttons">
 							<button type="button" role="link" onclick="window.open('https://www.ticketmaster.com/')">Buy Tickets</button>
-							<button type="button" role="link" onclick="">More Info</button>
 						</div>
 					</div>
 					<div class="tourdate" id="denverco">
-						<h1>07/03/25</h1>
+						<h1>07/03</h1>
 						<div class="location">
 							<h2>Denver, Colorado</h2>
-							<h3>Red Rocks Amphitheatre - 18300 W Alameda Pkwy, Morrison, CO 80465</h3>
+							<h3>Red Rocks Amphitheatre</h3>
+							<h3>18300 W Alameda Pkwy, Morrison, CO 80465</h3>
 						</div>
 						<div class="buttons">
 							<button type="button" role="link" onclick="window.open('https://www.ticketmaster.com/')">Buy Tickets</button>
-							<button type="button" role="link" onclick="">More Info</button>
 						</div>
 					</div>
 				</div>
+
 				
 				
 			</div>

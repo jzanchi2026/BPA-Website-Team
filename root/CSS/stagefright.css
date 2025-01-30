@@ -390,25 +390,25 @@ button:hover {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin-bottom: 20px;
-	padding-top: 90px;
+	margin-bottom: 50px;
+	padding-top: 50px;
 	position: relative;
-	text-decoration: underline;
-	text-decoration-thickness: 4px;
-	text-underline-offset: 12px;
+	background-image: url("../Images/ABOUTUS/guitar.jpg");
+	background-position: bottom;
+	background-attachment: fixed;
+	background-size: cover;
+	box-shadow: inset 0px -40px 60px 50px black;
 }
 
 #pageTitle h1 {
-	padding: 50px 0 60px;
+	padding: 20px 50px;
 	text-align: center;
-	background-image: url("../Images/ghostbglt.png");
-	background-size: 200px; 
-	font-family: radlushmed;
+	font-family: areakilo;
 	letter-spacing: 2px;
-	font-size: 65pt;
-	background-color: #222;
-	width: 100vw;
-	text-shadow: 0px 0px 20px black;
+	font-size: 30pt;
+	background-color: black;
+	line-height: 140%;
+	color: white;
 }
 
 
@@ -433,6 +433,17 @@ button:hover {
   font-family: pasti;
   src: url("Fonts/Pasti - HolyJollie/pastireg.otf");
 }
+
+@font-face {
+  font-family: appletea;
+  src: url("Fonts/Apple Tea - wepfont/appletea.ttf");
+}
+
+@font-face {
+  font-family: areakilo;
+  src: url("Fonts/a Area Kilometer 50 - wepfont/areakilo.ttf");
+}
+
 
 
 /* MEDIA QUERIES FOR GENERAL STYLING */

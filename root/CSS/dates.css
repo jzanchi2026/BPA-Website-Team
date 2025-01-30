@@ -26,62 +26,87 @@
 }
 
 #bgg2 {
-	margin: 30px 0;
-	width: 100vw;
+	margin: 30px auto;
+	width: calc(100vw - 80px);
 	display: flex;
+	gap: 10px;
+	position: relative;
 	justify-content: space-between;
 	background-image: url("../Images/bgtest.jpg");
 	background-size: cover;
-	box-shadow: inset 0px 0px 120px 100px rgb(0, 0, 0);
+}
+
+#bgg2 > div {
+	background-color: #111;
+	border-radius: 10px;
+	padding: 40px 0;
+	margin-bottom: 160px;
+}
+
+#side {
+	width: 50%;
+	position: relative;
+	padding: 20px;
+}
+
+#side img {
+	position: sticky;
+	top: calc(50% - 270px);
+	width: 100%;
+	height: auto;
 }
 
 #text {
-	width: 100vw;
-	padding: 0 8vw 60px;
-}
-
-#text > h2 {
-	font-family: juliett;
-	font-size: 7rem;
-	display: inline-block;
-	padding: 10px auto;
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 15px;
 }
 
 .tourdate {
 	display: flex;
 	justify-content: space-between;
-	width: 80vw;
-	padding: 15px;
+	align-items: center;
+	width: 90%;
+	padding: 10px;
 	text-align: left;
-	background-color: black;
 	border-radius: 10px;
-	box-shadow: 0px 0px 40px 10px rgba(255, 255, 255, 0.2);
+	border: 3px solid black;
+	background-color: rgba(0, 0, 0, 0.4);
 	transition: 0.3s ease-in-out;
-	margin: 20px 0;
+	margin: 0 auto;
 }
 
 .tourdate:hover {
-	transform: scale(1.01);
+	transform: scale(1.02);
 }
 
-.tourdate > h1, .fixmedia {
-	padding: 10px 20px;
+.tourdate > h1 {
+	padding: 20px 10px;
 	border-radius: 10px;
-}
-
-.fixmedia {
-	display: none;
+	background-color: black;
+	width: 10%;
+	text-align: center;
 }
 
 .location {
 	flex-grow: 2;
 	padding: 5px 30px;
 	width: 500px;
+	
 }
 
 .location > h2 {
-	color: #2f5d61;
+	color: #4286a8;
+	font-family: radlushmed;
 	margin-bottom: 2px;
+	text-transform: uppercase;
+}
+
+.location > h3:nth-of-type(even) {
+	color: #666;
 }
 
 .buttons {
@@ -93,11 +118,13 @@
 
 .buttons > button {
 	text-decoration: none;
+	font-family: radlushmed;
 	font-size: 15pt;
 	min-width: 5vw;
-	border: none;
+	height: 75px;
+	border: 3px solid black;
 	font-weight: bold;
-	background-color: #152024;
+	background-color: #325e75;
 	padding: 5px 20px;
 	margin: 0 10px;
 	cursor: pointer;
@@ -106,8 +133,139 @@
 }
 
 .tourdate > div > button:hover {
-	background-color: #10181c;
+	transform: scale(1.03);
+	background-color: #27495c;
 }
+
+#pickSeating {
+    position: fixed;
+    top: 20vh;
+    left: 25vw;
+    z-index: 5;
+    width: 50vw;
+    height: 60vh;
+    display: flex;
+    border: 5px solid black;
+}
+
+.sideSection {
+	width: 10%;
+	height: 100%;
+	background-color: black;
+}
+
+#stadium {
+	width: 80%;
+	height: 100%;
+	background-color: gray;
+	margin: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.bottomFloor, .topFloor, .vipFloor {
+	width: 90%;
+	height: 40%;
+	padding: 20px;
+	display: flex; 
+	gap: 20px;
+	justify-content: center;
+	align-items: center;
+	background-color: #222;
+}
+
+.vipFloor {
+	height: 15%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: areakilo;
+}
+
+.topPiece > * {
+	border: 3px solid white;
+	border-radius: 5px;
+}
+
+.stage {
+	width: 70%;
+	height: 20%;
+	color: #4286a8;
+	font-family: areakilo;
+	background-color: black;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+}
+
+.stageSides {
+	width: 15%;
+	height: calc(100% - 40px);
+	background-color: #222;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	padding: 20px 0;
+	flex-wrap: wrap;
+}
+
+.stageCenter {
+	background-color: #333;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	width: 70%;
+	height: calc(100% - 40px);
+	padding: 20px 10px;
+	gap: 10px;
+}
+
+.sectionseating {
+	width: 70%;
+	height: calc(100% / 5 - 20px);
+	background-color: #666;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: areakilo;
+	border: 3px solid black;
+}
+
+.longseating {
+	width: calc(100% / 3 - 20px);
+	height: 100%;
+	background-color: #444;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: areakilo;
+	border: 3px solid black;
+}
+
+.vipsection {
+	width: 100%;
+	height: 100%;
+	background-color: #888;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: areakilo;
+	border: 3px solid black;
+}
+
+.sectionseating:hover, .longseating:hover {
+	background-color: #333;
+	cursor: pointer;
+}
+
+.vipsection:hover {
+	background-color: #666;
+	cursor: pointer;
+}
+
 
 @media (max-width: 900px) {
 	#text > h2 {

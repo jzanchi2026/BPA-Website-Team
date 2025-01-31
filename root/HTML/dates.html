@@ -10,7 +10,7 @@
 		<link rel="icon" type="image/x-icon" href="../Images/cursor.png">
 	</head>
 	
-	<body onload="buildStadium()">
+	<body>
 		<!-- START navigation section -->
 		<nav id="navbar">
 			<div class="spaceHolder"></div> 
@@ -114,14 +114,33 @@
 			
 			<div id="bgg2">
 				<div id="side">
-					<div id="pickSeating">
-						<div class="sideSection"></div>
-						<div id="stadium"></div>
-						<div class="sideSection"></div>
+					<div id="ticketingInfo">
+						<div id="closeout"><button type="button" onclick="closeTicketing()">X</button></div>
+						
+						<div id="pickSeating">
+						
+							<div id="extraInfo" class="sideSection"></div>
+							<div id="stadium"></div>
+							
+							<div id="checkOut" class="sideSection">
+								<p class="selectedSection">Section: <span id="sectionName"></span></p>
+								<div id="sectionDisplay"></div>
+								<p class="selectedSection">Seat Quantity:</p>
+								<div class="quantity-container">
+									<button class="quantity-button-dates" id="decrementButton">-</button>
+									<div class="quantity-display-dates" id="quantityDisplay">1</div>
+									<button class="quantity-button-dates" id="incrementButton">+</button>
+								</div>
+								<button id="addToCart" onclick="addToCart()">Add to Cart</button>
+								<p class="disclaimer">Availability of sections and seats is subject to change. All sales are final, and refunds are not available unless the event is canceled.</p>
+
+							</div>
+							
+						</div>
 					</div>
 				</div>
 				<div id="text">
-					<div class="tourdate" id="seattlewa">
+					<!--<div class="tourdate" id="seattlewa">
 						<h1>06/14</h1>
 						<div class="location">
 							<h2>Seattle, Washington</h2>
@@ -129,7 +148,7 @@
 							<h3>800 Occidental Ave S, Seattle, WA 98134</h3>
 						</div>
 						<div class="buttons">
-							<button type="button" role="link" onclick="window.open('https://www.ticketmaster.com/')">Buy Tickets</button>
+							<button type="button" role="link" onclick="showInfo('WA')">Buy Tickets</button>
 						</div>
 					</div>
 					<div class="tourdate" id="portlandor">
@@ -263,7 +282,7 @@
 						<div class="buttons">
 							<button type="button" role="link" onclick="window.open('https://www.ticketmaster.com/')">Buy Tickets</button>
 						</div>
-					</div>
+					</div>-->
 				</div>
 
 				

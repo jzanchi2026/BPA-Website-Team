@@ -5,20 +5,6 @@
 	height: 100vh;
 }
 
-#contentdates > h1 {
-	width: 100vw;
-	padding: 160px 0 130px;
-	font-family: pasti;
-	font-size: 60pt;
-	letter-spacing: 10px;
-	background-image: url("../Images/lightts.avif");
-	filter: hue-rotate(30deg) saturate(70%);
-	background-size: cover;
-	background-position: bottom center;
-	box-shadow: inset 0px 0px 70px 60px rgb(0, 0, 0);
-	text-shadow: 0px 0px 50px rgba(0, 0, 0, 1);
-}
-
 #contentdates > h3 {
 	line-height: 30px;
 	width: 96vw;
@@ -32,8 +18,6 @@
 	gap: 10px;
 	position: relative;
 	justify-content: space-between;
-	background-image: url("../Images/bgtest.jpg");
-	background-size: cover;
 }
 
 #bgg2 > div {
@@ -137,23 +121,138 @@
 	background-color: #27495c;
 }
 
+/* TICKET SELECTION STYLING */
+
+#closeout {
+	height: 10%;
+	background-color: #2f6682;
+	border-top: 5px solid black;
+	border-left: 5px solid black;
+	border-right: 5px solid black;
+	display: flex;
+	justify-content: right;
+	align-items: center;
+	padding-right: 15px;
+	
+}
+
+#closeout button {
+	font-family: salmapro;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 12pt;
+	background-color: #21485c;
+	border: none;
+	width: 5%;
+	height: 80%;
+	border-radius: 0;
+}
+
+#closeout button:hover {
+	background-color: #4286a8; 
+}
+
+#ticketingInfo {
+	position: fixed;
+    top: 15vh;
+    left: 20vw;
+    z-index: 205;
+    width: 60vw;
+    height: 70vh;
+	display: none;
+	box-shadow: 0 0 30px 20px rgba(0, 0, 0, 0.4);
+}
+
 #pickSeating {
-    position: fixed;
-    top: 20vh;
-    left: 25vw;
-    z-index: 5;
-    width: 50vw;
-    height: 60vh;
+    position: relative;
     display: flex;
     border: 5px solid black;
+	height: 90%;
 }
 
 .sideSection {
-	width: 10%;
-	height: 100%;
+	height: calc(100% - 20px);
 	background-color: black;
+	padding: 10px;
+	text-align: left;
 }
 
+#extraInfo {
+	width: 25%;
+}
+
+#checkOut {
+	width: 15%;
+}
+
+#extraInfo h2 {
+	margin-bottom: 10px;
+	color: #4286a8;
+	font-family: radlushmed;
+	text-transform: uppercase;
+}
+
+#extraInfo > p {
+	margin-bottom: 10px;
+	font-family: radlushmed;
+}
+
+.selectedSection {
+	font-family: radlushmed;
+	margin-bottom: 10px;
+}
+
+#sectionDisplay {
+	background-color: #333;
+	height: 30%;
+	width: 95%;
+	margin: 10px auto 15px;
+}
+
+.tourblurbs {
+	color:gray; 
+	font-size: 10pt;
+	height: 35%;
+	overflow-x: auto;
+	padding-right: 2px;
+}
+
+.quantity-container {
+	width: 95%;
+	height: 40px;
+	margin: 0 auto;
+	padding: 10px 0;
+}
+
+.quantity-button-dates {
+	background-color: #333;
+	height: 100%;
+	width: 25%;
+	border-radius: 0;
+}
+
+.quantity-button-dates:hover {
+	background-color: #555;
+}
+
+.quantity-display-dates {
+	width: 50%;
+	height: 100%;
+	background-color: #222;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: radlushmed;
+}
+
+.disclaimer {
+	font-family: 6pt;
+	color: gray;
+	font-family: radlushmed;
+}
+
+/* STADIUM BUILDING */
 #stadium {
 	width: 80%;
 	height: 100%;
@@ -176,7 +275,7 @@
 }
 
 .vipFloor {
-	height: 15%;
+	height: 20%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -190,7 +289,7 @@
 
 .stage {
 	width: 70%;
-	height: 20%;
+	height: 40%;
 	color: #4286a8;
 	font-family: areakilo;
 	background-color: black;

@@ -3,16 +3,23 @@
 	color: white;
 	font-family: 'arial narrow';
 	transition: 0.3s ease-in-out;
-	scrollbar-color: #282942 #191a29;
+}
+
+::-webkit-scrollbar {
+    width: 13px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #191a29;
+    background: #333;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #282942;
-  border-radius: 4px;
+    background: #555;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #888;
 }
 
 

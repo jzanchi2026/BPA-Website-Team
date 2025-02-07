@@ -2,7 +2,7 @@
 	background-color: black;
 	text-align: center;
 	width: 100vw;
-	height: 100vh;
+	min-height: 100vh;
 }
 
 #contentdates > h3 {
@@ -12,41 +12,32 @@
 }
 
 #bgg2 {
-	margin: 30px auto;
+	margin: 0 auto;
 	width: calc(100vw - 80px);
 	display: flex;
-	gap: 10px;
+	flex-direction: column;
+	gap: 40px;
 	position: relative;
 	justify-content: space-between;
+	align-items: center;
+	padding-bottom: 160px;
 }
 
 #bgg2 > div {
 	background-color: #111;
-	border-radius: 10px;
 	padding: 40px 0;
-	margin-bottom: 160px;
+	min-height: 300px;
+	width: 90%;
 }
 
-#side {
-	width: 50%;
-	position: relative;
-	padding: 20px;
-}
+// TOUR HIGHLIGHT STYLING
 
-#side img {
-	position: sticky;
-	top: calc(50% - 270px);
-	width: 100%;
-	height: auto;
-}
 
-#text {
-	width: 50%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	gap: 15px;
+
+// MAIN SCHEDULE STYLING
+
+#mainText {
+	color: blue;
 }
 
 .tourdate {
@@ -59,12 +50,13 @@
 	border-radius: 10px;
 	border: 3px solid black;
 	background-color: rgba(0, 0, 0, 0.4);
-	transition: 0.3s ease-in-out;
-	margin: 0 auto;
+	transition: 0.25s ease-in-out;
+	margin: 15px auto;
 }
 
 .tourdate:hover {
 	transform: scale(1.02);
+	border: 3px solid #555;
 }
 
 .tourdate > h1 {
@@ -104,7 +96,7 @@
 	text-decoration: none;
 	font-family: radlushmed;
 	font-size: 15pt;
-	min-width: 5vw;
+	width: auto;
 	height: 75px;
 	border: 3px solid black;
 	font-weight: bold;
@@ -124,8 +116,8 @@
 /* TICKET SELECTION STYLING */
 
 #closeout {
-	height: 10%;
-	background-color: #2f6682;
+	height: 6%;
+	background-color: black;
 	border-top: 5px solid black;
 	border-left: 5px solid black;
 	border-right: 5px solid black;
@@ -144,7 +136,7 @@
 	font-size: 12pt;
 	background-color: #21485c;
 	border: none;
-	width: 5%;
+	width: 4%;
 	height: 80%;
 	border-radius: 0;
 }
@@ -155,73 +147,123 @@
 
 #ticketingInfo {
 	position: fixed;
-    top: 15vh;
-    left: 20vw;
+    top: 2vh;
+    left: 15vw;
     z-index: 205;
-    width: 60vw;
-    height: 70vh;
+    width: 70vw;
+    height: 94vh;
 	display: none;
-	box-shadow: 0 0 30px 20px rgba(0, 0, 0, 0.4);
+	box-shadow: 0 0 0 30vw rgba(53, 72, 87, 0.4);
 }
 
 #pickSeating {
     position: relative;
     display: flex;
     border: 5px solid black;
-	height: 90%;
+	height: 94%;
 }
 
 .sideSection {
-	height: calc(100% - 20px);
-	background-color: black;
-	padding: 10px;
+	height: 100%;
+	background-color: #111;
 	text-align: left;
+	width: 22.5%;
+	overflow-y: auto;
+	overflow-x: hidden;
 }
 
-#extraInfo {
-	width: 25%;
-}
-
-#checkOut {
-	width: 15%;
+#extraInfo h1, #checkOut h1 {
+	margin-bottom: 20px;
+	background-color: #444;
+	width: calc(100% - 20px);
+	color: white;
+	padding: 10px;
+	font-family: areakilo;
+	font-size: 24pt;
+	letter-spacing: 1.5px;
+	line-height: 1.3;
+	text-decoration: underline;
+	text-underline-offset: 5px;
 }
 
 #extraInfo h2 {
-	margin-bottom: 10px;
+	margin: 10px;
 	color: #4286a8;
 	font-family: radlushmed;
 	text-transform: uppercase;
+	
 }
 
-#extraInfo > p {
-	margin-bottom: 10px;
+.extrainfotxt {
+	margin: 5px 10px;
+	font-family: radlushmed;
+	color: #3a5163;
+	font-size: 13pt;
+}
+
+.extrainfotxt strong {
+	color: inherit;
+}
+
+.tourblurbs {
+	color: white; 
+	font-size: 12pt;
+	height: 35%;
+	margin: 20px 10px 10px;
 	font-family: radlushmed;
 }
 
-.selectedSection {
+.selectedSectiontxt {
 	font-family: radlushmed;
-	margin-bottom: 10px;
+	font-size: 14pt;
+	margin: 10px 10px 5px;
 }
 
 #sectionDisplay {
 	background-color: #333;
-	height: 30%;
-	width: 95%;
-	margin: 10px auto 15px;
+	min-height: 30%;
+	width: 90%;
+	margin: 10px 10px 15px;
+	display: grid;
+	justify-content: center;
+	align-content: center;
+	grid-auto-rows: min-content;
+	grid-template-columns: repeat(auto-fit, 6px);
+	gap: 3px; 
 }
 
-.tourblurbs {
-	color:gray; 
-	font-size: 10pt;
-	height: 35%;
-	overflow-x: auto;
-	padding-right: 2px;
+.displaySeat {
+	height: 5px;
+	width: 5px;
+	border-radius: 50%;
+	margin: 1px;
+	display: inline-block;
+	background-color: white;
+}
+
+.takenSeat {
+	background-color: #787e87;
+}
+
+.availableSeat {
+	background-color: white;
+}
+
+.selectedSeat {
+	background-color: #2da5eb;
+}
+
+#seatPricing p {
+	font-family: areakilo;
+	font-size: 17pt;
+	margin: 10px 10px 0;
+	color: #4286a8;
 }
 
 .quantity-container {
-	width: 95%;
+	width: calc(100% - 20px);
 	height: 40px;
-	margin: 0 auto;
+	margin: 0 10px;
 	padding: 10px 0;
 }
 
@@ -230,6 +272,7 @@
 	height: 100%;
 	width: 25%;
 	border-radius: 0;
+	font-weight: bold;
 }
 
 .quantity-button-dates:hover {
@@ -248,19 +291,58 @@
 
 .disclaimer {
 	font-family: 6pt;
-	color: gray;
+	color: #444;
 	font-family: radlushmed;
+	margin: 10px;
+}
+
+#addToCart {
+	font-family: areakilo;
+	background-color: white;
+	color: black;
+	width: calc(100% - 20px);
+	margin: 10px;
+}
+
+#addToCart:hover {
+	transform: scale(1.04);
+	color: #4286a8;
 }
 
 /* STADIUM BUILDING */
+
+#stadiumContainer {
+	display: flex;
+	flex-direction: column;
+	width: 55%;
+	height: 100%;
+	border-right: 4px solid black;
+	border-left: 4px solid black;
+}
+
 #stadium {
-	width: 80%;
+	width: 100%;
 	height: 100%;
 	background-color: gray;
-	margin: auto;
+	margin: 0;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	
+}
+
+.topPiece h1 {
+	background-color: #4286a8;
+	width: calc(100% - 20px);
+	color: white;
+	text-align: left;
+	padding: 10px;
+	font-family: areakilo;
+	font-size: 24pt;
+	letter-spacing: 1.5px;
+	line-height: 1.3;
+	text-decoration: underline;
+	text-underline-offset: 5px; 
 }
 
 .bottomFloor, .topFloor, .vipFloor {
@@ -280,11 +362,6 @@
 	justify-content: center;
 	align-items: center;
 	font-family: areakilo;
-}
-
-.topPiece > * {
-	border: 3px solid white;
-	border-radius: 5px;
 }
 
 .stage {
@@ -330,7 +407,6 @@
 	align-items: center;
 	justify-content: center;
 	font-family: areakilo;
-	border: 3px solid black;
 }
 
 .longseating {
@@ -341,7 +417,6 @@
 	align-items: center;
 	justify-content: center;
 	font-family: areakilo;
-	border: 3px solid black;
 }
 
 .vipsection {
@@ -352,19 +427,25 @@
 	align-items: center;
 	justify-content: center;
 	font-family: areakilo;
-	border: 3px solid black;
 }
 
 .sectionseating:hover, .longseating:hover {
-	background-color: #333;
+	transform: scale(1.03);
 	cursor: pointer;
 }
 
 .vipsection:hover {
-	background-color: #666;
+	transform: scale(1.05);
 	cursor: pointer;
 }
 
+.selectedSection {
+	background-color: #3a5163;
+	color: #88c8fc;
+}
+
+
+// MEDIA QUERIES
 
 @media (max-width: 900px) {
 	#text > h2 {

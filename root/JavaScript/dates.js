@@ -1,4 +1,5 @@
 let events = [];
+const sectionTakenSeatsMap = {};
 
 // Fetches tour date info from JSON file
 fetch('../JavaScript/tourInfo.json')
@@ -17,9 +18,9 @@ fetch('../JavaScript/tourInfo.json')
 		}
 	})
 
-// Renders tour data on the page
+// Renders tour data on the page using JSON file
 function loadTourData(tourData) {
-	const tourContainer = document.getElementById('text');
+	const tourContainer = document.getElementById('mainText');
 	tourContainer.innerHTML = '';
 
 	tourData.forEach(tour => {
@@ -35,9 +36,9 @@ function loadTourData(tourData) {
 		const locationDiv = document.createElement('div');
 		locationDiv.className = 'location';
 		locationDiv.innerHTML = `
-		<h2>${tour.city}</h2>
-		<h3>${tour.venue}</h3>
-		<h3>${tour.address}</h3>
+			<h2>${tour.city}</h2>
+			<h3>${tour.venue}</h3>
+			<h3>${tour.address}</h3>
 		`;
 
 		const buttonDiv = document.createElement('div');
@@ -59,35 +60,53 @@ function loadTourData(tourData) {
 	});
 }
 
-// Builds the extra info for each tour date
-function showInfo(spot) {
-	const info = document.getElementById("extraInfo");
+let selectedEvent = null;
 
-	const event = events.find(e => e.spot === spot);
-	if (event) {
-		info.innerHTML = `
-		<h2>${event.city}</h2>
-		<h2>${event.date}</h2>
-		<p><strong>Venue:</strong> ${event.venue}</p>
-		<p><strong>Address:</strong> ${event.address}</p>
-		<p><strong>Time:</strong> ${event.time || "TBA"}</p>
-		<p><strong>Lineup:</strong> ${event.lineup?.join(', ') || "N/A"}</p>
-		<p class="tourblurbs">${event.blurb || ""}</p>
-		`;
-		buildStadium();
-	} else {
-		info.innerHTML = '<p>Information not available for this location.</p>';
-	}
+function showInfo(spot) {
+    const info = document.getElementById("extraInfo");
+
+    const event = events.find(e => e.spot === spot);
+    if (event) {
+        selectedEvent = event;
+        info.innerHTML = `
+			<h1>EVENT INFORMATION</h1>
+            <h2>${event.city}</h2>
+            <h2>${event.date}</h2>
+            <p class="extrainfotxt"><strong>Venue:</strong> ${event.venue}</p>
+            <p class="extrainfotxt"><strong>Address:</strong> ${event.address}</p>
+            <p class="extrainfotxt"><strong>Time:</strong> ${event.time || "TBA"}</p>
+            <p class="extrainfotxt"><strong>Lineup:</strong> ${event.lineup?.join(', ') || "N/A"}</p>
+            <p class="tourblurbs">${event.blurb || ""}</p>
+        `;
+        buildStadium();
+
+        const sectionA = document.querySelector(".sectionseating");
+        if (sectionA) {
+            sectionA.classList.add("selectedSection");
+            sectionInfo(sectionA);
+        }
+    } else {
+        info.innerHTML = '<p>Information not available for this location.</p>';
+    }
 }
+
 
 // Builds the potential stadium
 function buildStadium() {
-	const stadium = document.getElementById("stadium");
+	const container = document.getElementById("stadiumContainer");
+	container.innerHTML = '';
 
-	stadium.innerHTML = '';
-
+	// Top piece header
 	const topPiece = document.createElement('div');
 	topPiece.classList.add('topPiece');
+	topPiece.innerHTML = '<h1>VENUE SEAT SELECTION</h1>';
+	container.appendChild(topPiece);
+
+	// Main stadium structure
+	const stadium = document.createElement('div');
+	stadium.id = 'stadium';
+	stadium.classList.add('stadium'); // Assuming this controls the flex layout
+	container.appendChild(stadium);
 
 	const stageLeft = document.createElement('div');
 	stageLeft.classList.add('stageSides');
@@ -110,6 +129,7 @@ function buildStadium() {
 	const vipsection = document.createElement('div');
 	vipsection.classList.add('vipsection');
 	vipsection.innerHTML = "VIP";
+	vipsection.onclick = () => sectionInfo(vipsection);
 	vipFloor.appendChild(vipsection);
 
 	const bottomFloor = document.createElement('div');
@@ -124,6 +144,11 @@ function buildStadium() {
 		const section = document.createElement('div');
 		section.classList.add('sectionseating');
 		section.innerHTML = String.fromCharCode(i + 65);
+		section.onclick = () => {
+			selectedEvent.section = section.innerHTML;
+			sectionInfo(section);
+		}
+
 		if (i < 5) {
 			stageLeft.appendChild(section);
 		} else {
@@ -135,6 +160,8 @@ function buildStadium() {
 		const section = document.createElement('div');
 		section.classList.add('longseating');
 		section.innerHTML = String.fromCharCode(i + 65);
+		section.onclick = () => sectionInfo(section);
+
 		if (i < 13) {
 			bottomFloor.appendChild(section);
 		} else {
@@ -145,31 +172,220 @@ function buildStadium() {
 	stadium.appendChild(stageLeft);
 	stadium.appendChild(stageCenter);
 	stadium.appendChild(stageRight);
+
 	document.getElementById("ticketingInfo").style.display = "block";
 }
+
 
 // Closes the div when activated
 function closeTicketing() {
 	document.getElementById("ticketingInfo").style.display = "none";
 }
 
-document.addEventListener("DOMContentLoaded", (event) => {
-	
-	let quantity = 1;
-	const decrementButton = document.getElementById('decrementButton');
-	const incrementButton = document.getElementById('incrementButton');
-	const quantityDisplay = document.getElementById('quantityDisplay');
+function setPrice(sectionLetter, quantity) {
+    const priceContainer = document.getElementById('seatPricing');
+    let pricePerSeat = 0;
 
-	decrementButton.addEventListener('click', () => {
-		if (quantity > 1) {
-			quantity -= 1;
-			quantityDisplay.textContent = quantity;
+    // Assign price per seat based on section
+    if (['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'].includes(sectionLetter)) {
+        pricePerSeat = "$100.00"; // Sections A-J
+    } else if (['K', 'L', 'M', 'N', 'O', 'P'].includes(sectionLetter)) {
+        pricePerSeat = "$150.00"; // Sections K-P
+    } else if (sectionLetter === 'VIP') {
+        pricePerSeat = "$300.00"; // VIP section
+    }
+
+    // Calculate total price
+    const totalPrice = parseFloat(pricePerSeat.replace("$", "")) * quantity;
+
+    // Display total price
+    priceContainer.innerHTML = `<p>PRICE: $${totalPrice}</p>`;
+	selectedEvent.price = pricePerSeat;
+}
+
+function sectionInfo(passed) {
+	
+    const sectionDisplay = document.getElementById("sectionDisplay");
+    sectionDisplay.innerHTML = ''; // Clear previous seats
+
+    // Deselect any previously selected section and highlight the clicked one
+    const selectedSections = document.querySelectorAll(".selectedSection");
+    selectedSections.forEach(section => section.classList.remove("selectedSection"));
+    passed.classList.add("selectedSection");
+
+    const sectionLetter = passed.innerHTML;
+    let seatCount = 0;
+	
+	if (sectionLetter === 'VIP') {
+		document.getElementById("sectionName").innerHTML = "VIP Section:";
+	}
+	else {
+		document.getElementById("sectionName").innerHTML = "Section " + sectionLetter + ":";
+	}
+    // Determine seat count based on section
+    if (['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'].includes(sectionLetter)) {
+        seatCount = 99;
+    } else if (['K', 'L', 'M', 'N', 'O', 'P'].includes(sectionLetter)) {
+        seatCount = 209;
+    } else if (sectionLetter === 'VIP') {
+        seatCount = 44;
+    }
+
+    // Update price for the selected section and quantity
+    setPrice(sectionLetter, quantity);
+
+    if (!sectionTakenSeatsMap[sectionLetter]) {
+        const takenSeats = new Set();
+        while (takenSeats.size < Math.floor(seatCount * 0.2)) {
+            takenSeats.add(Math.floor(Math.random() * seatCount));
+        }
+        sectionTakenSeatsMap[sectionLetter] = takenSeats;
+    }
+
+    const takenSeats = sectionTakenSeatsMap[sectionLetter];
+
+    // Create seats and assign availability
+    for (let j = 0; j < seatCount; j++) {
+        const seat = document.createElement("div");
+        seat.classList.add("displaySeat");
+        seat.dataset.index = j;
+
+        if (takenSeats.has(j)) {
+            seat.classList.add("takenSeat");
+        } else {
+            seat.classList.add("availableSeat");
+        }
+
+        sectionDisplay.appendChild(seat);
+    }
+
+    // Highlight seats based on quantity
+    highlightSeats(quantity);
+}
+
+
+
+function highlightSeats(quantity) {
+    const availableSeats = Array.from(document.querySelectorAll(".availableSeat"));
+    availableSeats.forEach(seat => seat.classList.remove("selectedSeat"));
+
+    let start = findContiguousSeats(availableSeats, quantity);
+    if (start !== -1) {
+        for (let i = start; i < start + quantity; i++) {
+            availableSeats[i].classList.add("selectedSeat");
+        }
+    }
+}
+
+
+function findContiguousSeats(seatList, quantity, seatsPerRow) {
+    const middleIndex = Math.floor(seatList.length / 2);
+    const seatPriority = seatList.map((seat, i) => ({
+        index: i,
+        distance: Math.abs(i - middleIndex),
+    }));
+
+    seatPriority.sort((a, b) => a.distance - b.distance);
+
+    // Try finding contiguous seats from sorted seat indices
+    for (let { index: i } of seatPriority) {
+        // Skip if there aren't enough remaining seats in the same row
+        const row = Math.floor(i / seatsPerRow); // Determine the row of the seat
+        const lastIndexInRow = (row + 1) * seatsPerRow - 1; // Last index of the row
+
+        // Ensure the seats are within the same row and have enough seats in a block
+        if (i + quantity - 1 > lastIndexInRow || i + quantity - 1 >= seatList.length) {
+            continue;
+        }
+
+        let contiguous = true;
+        for (let j = 0; j < quantity; j++) {
+            // Check if seats are consecutive in the list and available
+            if (parseInt(seatList[i + j].dataset.index) !== parseInt(seatList[i].dataset.index) + j) {
+                contiguous = false;
+                break;
+            }
+            if (seatList[i + j].classList.contains("takenSeat")) {
+                contiguous = false; // Skip if any seat in the block is already taken
+                break;
+            }
+        }
+
+        if (contiguous) {
+            return i; // Return the starting index of contiguous seats
+        }
+    }
+
+    return -1; // No valid block found
+}
+
+
+
+let quantity = 1;
+
+document.addEventListener("DOMContentLoaded", () => {
+    // Automatically select Section A on page load
+    const sectionA = document.querySelector(".sectionseating"); // Assuming section A is the first .sectionseating
+    const sectionAElement = document.querySelector(".sectionseating");  // Or use a more specific class if needed
+
+    if (sectionAElement) {
+        // Add the blue highlight class
+        sectionAElement.classList.add("selectedSection");
+        // Call sectionInfo to display Section A's seating chart
+        sectionInfo(sectionAElement);
+    }
+
+    // Highlight seats functionality
+    const decrementButton = document.getElementById('decrementButton');
+    const incrementButton = document.getElementById('incrementButton');
+    const quantityDisplay = document.getElementById('quantityDisplay');
+
+    decrementButton.addEventListener('click', () => {
+        if (quantity > 1) {
+            quantity -= 1;
+            quantityDisplay.textContent = quantity;
+            // Update the highlighted seats based on new quantity
+            highlightSeats(quantity);
+            // Update the price as well
+            const selectedSection = document.querySelector(".selectedSection");
+            setPrice(selectedSection.innerHTML, quantity);
+        }
+    });
+
+    incrementButton.addEventListener('click', () => {
+        if (quantity < 8) {
+            quantity += 1;
+            quantityDisplay.textContent = quantity;
+            // Update the highlighted seats based on new quantity
+            highlightSeats(quantity);
+            // Update the price as well
+            const selectedSection = document.querySelector(".selectedSection");
+            setPrice(selectedSection.innerHTML, quantity);
+        }
+    });
+
+    // Initial seat highlight when the first section is selected
+    if (document.querySelector(".sectionseating")) {
+        highlightSeats(quantity);
+    }
+	
+	document.getElementById("addToCart").addEventListener("click", () => {
+		const selectedSection = document.querySelector(".selectedSection");
+		let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+		let totalQuantity = 0;
+		cart.forEach(item => {
+			if (item.section || item.date)
+			totalQuantity += item.quantity;
+		});
+
+		if (totalQuantity + quantity > 8) {
+			alert("You cannot purchase more than 8 tickets in total. You currently have " + totalQuantity + " tickets.");
+		} else {
+			addTicketToCart(selectedEvent, selectedEvent.price, quantity, selectedSection.innerHTML);
 		}
 	});
 
-	incrementButton.addEventListener('click', () => {
-		quantity += 1;
-		quantityDisplay.textContent = quantity;
-	});
 });
+
 

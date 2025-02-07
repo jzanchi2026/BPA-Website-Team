@@ -295,7 +295,14 @@
     font-size: 18px;
     opacity: 0.5;
     letter-spacing: 1px;
-    margin-bottom: 20px;
+    margin-bottom: 3px;
+}
+
+.idnum {
+	font-size: 11pt;
+    font-family: 'salmapro';
+	margin-bottom: 20px;
+	color: gray;
 }
 
 .price {
@@ -335,6 +342,12 @@
     color: #333;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
+}
+
+.size-button:hover {
+	background-color: #555;
+    border: 1px solid black;
+    color: #b8ced9;
 }
 
 .size-button.selected {
@@ -580,105 +593,109 @@
 
 .cart-popup-item-container {
     margin: 10px auto; 
-	display: flex;
-	justify-content: space-between;
-	padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
     background: rgba(255, 255, 255, 0.05);
-	border: 3px solid #353535;
-	border-radius: 10px;
-	height: 145px;
-	width: 95%;
+    border: 3px solid #353535;
+    border-radius: 10px;
+    width: 96%;
+    position: relative;
+    align-items: stretch;
+    box-sizing: border-box;
 }
 
 .cart-popup-item-image {
-    width: 145px;
-    height: 145px;
-	border-radius: 10px;
+    width: 30%;
+    aspect-ratio: 1 / 1;
+    border-radius: 10px;
     margin-right: 15px;
+    object-fit: cover;
 }
 
 .cart-popup-item-details {
-	width: 70%;
-	height: 100%;
-	display: flex;
-	margin-top: 5px;
-	flex-direction: column;
-	align-items: left;
-	justify-content: center;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .cart-popup-item-prices {
-	height: calc(100%-40px);
-	text-align: center;
-	padding: 25px 15px;
-	width: 140px;
-	background: rgba(0, 0, 0, 0.3);
-	border-radius: 10px;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
+    width: 30%;
+    text-align: center;
+    padding: 25px 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
 }
 
 .cart-popup-item-prices p {
-	color: white;
-	border-radius: 10px;
-	font-family: radlushmed;
-	font-size: 20pt;
-	font-weight: bold;
-	margin-bottom: 20px;
+    color: white;
+    border-radius: 10px;
+    font-family: radlushmed;
+    font-size: 15pt;
+    background-color: black;
+    padding: 10px;
+    font-weight: bold;
+    margin-bottom: 20px;
 }
 
 .cart-popup-item-prices button {
-	background-color: transparent;
-	display: flex;
-	justify-content: center;
-	border: none;
-	font-size: 16px;
-	text-decoration: underline;
-	text-underline-offset: 2px; 
-	color: gray;
-	padding: 0;
-	font-family: radlushmed;
-	transition: 0.2s ease;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    border: none;
+    font-size: 16px;
+    text-decoration: underline;
+    text-underline-offset: 2px; 
+    color: gray;
+    padding: 0;
+    font-family: radlushmed;
+    transition: 0.2s ease;
 }
 
 .cart-popup-item-prices button:hover {
-	color: white;
-	transform: scale(1.02);
+    color: white;
+    transform: scale(1.02);
 }
 
 .cart-popup-item-prices button:hover img {
-	filter: brightness(200%);
-	transform: scale(1.02);
+    filter: brightness(200%);
+    transform: scale(1.02);
 }
 
 .cart-popup-item-name {
     color: white;
-	font-family: radlushmed;
-	font-size: 16pt;
-	margin-bottom: 12px;
+    font-family: radlushmed;
+    font-size: 14pt;
+    margin-right: 15px;
+    margin-bottom: 12px;
 }
 
 .cart-popup-item-size,
 .cart-popup-item-price {
     color: gray;
-	font-family: radlushmed;
-	font-size: 10pt;
+    font-family: radlushmed;
+    font-size: 10pt;
 }
 
 .cart-popup-total, .cart-popup-counts {
     margin: 10px 30px;
-	font-style: italic;
-	font-family: radlushmed;
+    font-style: italic;
+    font-family: radlushmed;
 }
 
 .cart-popup-total p {
     font-weight: bold;
     color: white;
-	font-size: 25pt;
-	font-style: italic;
-	font-family: radlushmed;
+    font-size: 25pt;
+    font-style: italic;
+    font-family: radlushmed;
 }
+
 
 .button-area {
 	display: flex;

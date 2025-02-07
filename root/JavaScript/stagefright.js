@@ -1,16 +1,20 @@
-// fades the page in and out on load
-window.addEventListener('load', function() {
+// Fades the page in and out on load
+window.addEventListener('load', function () {
     const body = document.querySelector('body');
-	body.style.opacity = 1;
+    body.style.transition = 'opacity 0.5s ease';
+    body.style.opacity = 1;
 });
 
-window.addEventListener("DOMContentLoaded", () => {
-	const navLinks = document.querySelectorAll("#navbar a");
-	navLinks.forEach(link => {
-		if (link.href === window.location.href) {
-		  link.style.textDecoration = "line-through";
-		}
-	});
+window.addEventListener('pageshow', function (event) {
+    const body = document.querySelector('body');
+    body.style.opacity = 1;
+
+    if (event.persisted) {
+        body.style.transition = 'none';
+        requestAnimationFrame(() => {
+            body.style.transition = 'opacity 0.5s ease';
+        });
+    }
 });
 
 function fadeout(event) {
@@ -32,7 +36,18 @@ function fadeout(event) {
 }
 
 
-// allows the navbar to be hidden
+// Highlights the current page
+window.addEventListener("DOMContentLoaded", () => {
+	const navLinks = document.querySelectorAll("#navbar a");
+	navLinks.forEach(link => {
+		if (link.href === window.location.href) {
+		  link.style.textDecoration = "line-through";
+		}
+	});
+});
+
+
+// Allows the navbar to be hidden
 let isHidden = false;
 function toggleNavbar() {
     const navbar = document.getElementById('navbar');
@@ -61,21 +76,21 @@ function goSettings() {
 	boxHidden = !boxHidden;
 }*/
 
-// Handles the view of the footer, shows if user hovers on the pullup
+
+// Handles footer visibility logic
 document.addEventListener("DOMContentLoaded", () => {
     let isOpen = false;
     let isScrollTriggered = false;
     let isAtBottom = false;
-    let inputs = document.querySelectorAll('input, textarea, button');
     let toggled = false;
 
+    const footer = document.getElementById("pullup");
+
     const toggleInputs = (disable) => {
-        inputs.forEach(input => input.disabled = disable);
+        footer.style.pointerEvents = disable ? 'none' : 'auto';
     };
 
     const pullup = (open) => {
-        const footer = document.getElementById("pullup");
-
         if (open && (!isOpen || toggled)) {
             footer.classList.add("visible");
             toggleInputs(true);
@@ -83,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 isOpen = true;
                 toggleInputs(false);
             }, 300);
-        } else if (!open && isOpen && !isAtBottom) {
+        } else if (!open && isOpen) {
             footer.classList.remove("visible");
             toggleInputs(true);
             setTimeout(() => {
@@ -97,18 +112,17 @@ document.addEventListener("DOMContentLoaded", () => {
         const scrollPosition = window.scrollY + window.innerHeight;
         const pageHeight = document.documentElement.scrollHeight;
 
-        isAtBottom = scrollPosition >= pageHeight;
+        isAtBottom = (scrollPosition >= pageHeight - 1) || (document.body.clientHeight <= window.innerHeight);
 
-        if (isAtBottom || toggled) {
+        if (isAtBottom) {
             if (!isOpen) {
                 pullup(true);
             }
             isScrollTriggered = true;
-        } else {
-            if (isScrollTriggered || !toggled) {
-                isScrollTriggered = false;
-                pullup(false);
-            }
+        } else if (isScrollTriggered) {
+            // Only close if previously triggered by bottom scroll
+            pullup(false);
+            isScrollTriggered = false;
         }
     });
 
@@ -130,22 +144,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.toggleLinks = function () {
         let links = document.getElementById("displayedLinks");
-		let header = document.getElementById("navbar-mobile");
-        const footer = document.getElementById("pullup");
+        let header = document.getElementById("navbar-mobile");
 
         if (!toggled) {
             links.style.display = "flex";
-			links.style.opacity = "1";
-				header.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
-                pullup(true);
+            links.style.opacity = "1";
+            header.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
+            pullup(true);
             setTimeout(() => {
                 links.style.transform = "translateX(0)";
-                
             }, 1);
         } else {
             links.style.transform = "translateX(-120%)";
-			header.style.backgroundColor = "rgba(0, 0, 0, 0.6)";
-			pullup(false);
+            header.style.backgroundColor = "rgba(0, 0, 0, 0.6)";
+            pullup(false);
             setTimeout(() => {
                 links.style.display = "none";  
             }, 300);
@@ -157,15 +169,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+// On form inputs that act as phone numbers, formats them automatically for the user
 function dynamicTyping() {
 
 	document.getElementById('pnumber').addEventListener('input', function (e) {
-		let input = e.target.value.replace(/\D/g, ''); // Remove all non-digit characters
+		let input = e.target.value.replace(/\D/g, '');
 		let formatted = '';
 
-		if (input.length > 0) formatted = '(' + input.substring(0, 3); // Add opening parenthesis
-		if (input.length >= 4) formatted += ') ' + input.substring(3, 6); // Add closing parenthesis and space
-		if (input.length >= 7) formatted += '-' + input.substring(6, 10); // Add dash for the last 4 digits
+		if (input.length > 0) formatted = '(' + input.substring(0, 3);
+		if (input.length >= 4) formatted += ') ' + input.substring(3, 6);
+		if (input.length >= 7) formatted += '-' + input.substring(6, 10);
 
 		e.target.value = formatted;
 	});
@@ -175,6 +188,8 @@ function dynamicTyping() {
 let shownDiv = null;
 
 document.addEventListener("DOMContentLoaded", () => {
+	dynamicTyping();
+
     let booking = document.getElementById("booking");
 	if (booking) {
 		booking.style.display = "flex";
@@ -200,8 +215,6 @@ function bringUp(divv, passed) {
         }, 500); // Match the CSS transition time for fade-out
     }
 
-    console.log("Current shownDiv:", shownDiv);
-    console.log("Selected div:", selected);
 }
 
 function showNewDiv(selected) {
@@ -235,34 +248,73 @@ function updateCartCount() {
 	}
 }
 
+function addTicketToCart(eventDetails, pricePerTicket, quantity, section) {
+	
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    const existingTicketIndex = cart.findIndex(ticket => 
+        ticket.venue === eventDetails.venue && 
+        ticket.section === section
+    );
+
+    if (existingTicketIndex !== -1) {
+        cart[existingTicketIndex].quantity += quantity;
+    } else {
+        const ticket = {
+            name: eventDetails.venue,
+            date: eventDetails.date,
+            city: eventDetails.city,
+            address: eventDetails.address,
+            section: section,
+            price: pricePerTicket,
+            quantity: quantity,
+            id: eventDetails.id
+        };
+
+        cart.push(ticket);
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartCount();
+    showCartPopup();
+}
+
+
 function addToCart(item, size, quantity) {
-	if (!size) {
-		alert("Please pick a size.");
-		return;
-	}
+    if (item.requiresSizes && !size) {
+        alert("Please pick a size.");
+        return;
+    }
 
-	let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-	const existingOrderIndex = cart.findIndex(order => order.name === item.name && order.size === size);
+    const existingOrderIndex = cart.findIndex(order => 
+        order.name === item.name && 
+        (!item.requiresSizes || order.size === size)
+    );
 
-	if (existingOrderIndex !== -1) {
-		cart[existingOrderIndex].quantity += quantity;
-	} else {
-		const order = {
-			name: item.name,
-			id: item.id,
-			creator: item.creator,
-			price: item.saleprice || item.price,
-			size: size,
-			quantity: quantity,
-			image: item.image
-		};
-		cart.push(order);
-	}
+    if (existingOrderIndex !== -1) {
+        cart[existingOrderIndex].quantity += quantity;
+    } else {
+        const order = {
+            name: item.name,
+            id: item.id,
+            creator: item.creator,
+            price: item.saleprice || item.price,
+            quantity: quantity,
+            image: item.image
+        };
 
-	localStorage.setItem('cart', JSON.stringify(cart));
+        if (item.requiresSizes) {
+            order.size = size;
+        }
 
-	showCartPopup();
+        cart.push(order);
+    }
+	
+    localStorage.setItem('cart', JSON.stringify(cart));
+	updateCartCount();
+    showCartPopup();
 }
 
 function showCartPopup() {
@@ -278,7 +330,7 @@ function showCartPopup() {
         popup = document.createElement('div');
         popup.className = 'cart-popup';
         popup.addEventListener('click', () => closePopup(popup));
-		popup.style.transition = 'opacity 0.3s ease-in-out';
+        popup.style.transition = 'opacity 0.3s ease-in-out';
 
         const popupContent = document.createElement('div');
         popupContent.className = 'cart-popup-content';
@@ -321,92 +373,6 @@ function showCartPopup() {
         itemNum.className = 'cart-popup-counts';
         topArea.appendChild(itemNum);
 
-        if (cart.length === 0) {
-            itemsArea.innerHTML = '<p style="padding: 10px; font-weight: bold;" class="cart-popup-empty">YOUR CART IS EMPTY</p>';
-        } else {
-            cart.forEach((order, index) => {
-                const orderContainer = document.createElement('div');
-                orderContainer.className = 'cart-popup-item-container';
-
-                const itemImage = document.createElement('img');
-                itemImage.src = order.image;
-                itemImage.alt = order.name;
-                itemImage.className = 'cart-popup-item-image';
-                orderContainer.appendChild(itemImage);
-
-                const itemDetails = document.createElement('div');
-                itemDetails.className = 'cart-popup-item-details';
-
-                const itemName = document.createElement('h3');
-                itemName.textContent = order.name;
-                itemName.className = 'cart-popup-item-name';
-                itemDetails.appendChild(itemName);
-
-                const itemSize = document.createElement('p');
-                itemSize.textContent = `Size: ${order.size}`;
-                itemSize.className = 'cart-popup-item-size';
-                itemDetails.appendChild(itemSize);
-
-                const itemQuantity = document.createElement('div');
-                itemQuantity.className = 'cart-popup-item-quantity';
-
-                const minusBtn = document.createElement('button');
-                minusBtn.textContent = '-';
-                minusBtn.addEventListener('click', () => {
-				
-				updateQuantity(index, -1);
-				updateCartCount();
-				
-				});
-                itemQuantity.appendChild(minusBtn);
-
-                const quantityText = document.createElement('p');
-                quantityText.textContent = `${order.quantity}`;
-                itemQuantity.appendChild(quantityText);
-
-                const plusBtn = document.createElement('button');
-                plusBtn.textContent = '+';
-				plusBtn.style.borderRadius = "0 10px 10px 0";
-                plusBtn.addEventListener('click', () => {
-				
-					updateQuantity(index, 1);
-					updateCartCount();
-				
-				});
-                itemQuantity.appendChild(plusBtn);
-
-                itemDetails.appendChild(itemQuantity);
-
-                const priceRemove = document.createElement('div');
-                priceRemove.className = 'cart-popup-item-prices';
-
-                const itemPrice = document.createElement('p');
-                const price = parseFloat(order.price.replace("$", ""));
-                itemPrice.textContent = `$${(price * order.quantity).toFixed(2)}`;
-                itemPrice.className = 'cart-popup-item-price';
-                priceRemove.appendChild(itemPrice);
-
-                const removeBtn = document.createElement('button');
-                removeBtn.textContent = 'Remove';
-                removeBtn.addEventListener('click', () => {
-					removeItem(index);
-					updateCartCount();
-				});
-                priceRemove.appendChild(removeBtn);
-
-                const trashIcon = document.createElement('img');
-                trashIcon.src = '../Images/trash.png';
-                trashIcon.alt = 'Remove item';
-                trashIcon.style.height = '20px';
-                trashIcon.style.width = 'auto';
-                removeBtn.appendChild(trashIcon);
-
-                orderContainer.appendChild(itemDetails);
-                orderContainer.appendChild(priceRemove);
-                itemsArea.appendChild(orderContainer);
-            });
-        }
-
         const buttonArea = document.createElement('div');
         buttonArea.className = 'button-area';
         popupContent.appendChild(buttonArea);
@@ -421,28 +387,30 @@ function showCartPopup() {
         clearButton.textContent = 'Clear Cart';
         clearButton.className = 'cart-popup-clear-btn';
         clearButton.addEventListener('click', () => {
-				localStorage.removeItem('cart');
-				cart = [];
-				updateCartContent(itemsArea);
-				updateCartCount();
+            localStorage.removeItem('cart');
+            cart = [];
+            updateCartContent(itemsArea);
+            updateCartCount();
         });
         buttonArea.appendChild(clearButton);
 
         const checkButton = document.createElement('button');
         checkButton.textContent = 'Checkout';
-		checkButton.href = "checkout.html";
+        checkButton.href = "checkout.html";
         checkButton.className = 'cart-popup-check-btn';
         checkButton.setAttribute('data-href', 'checkout.html');
-		checkButton.addEventListener('click', fadeout);
+        checkButton.addEventListener('click', fadeout);
         buttonArea.appendChild(checkButton);
 
         popup.appendChild(popupContent);
         document.body.appendChild(popup);
-		updateTotal();
+        updateTotal();
         slideInPopup(popupContent);
-		setTimeout(() => {
-			popup.style.opacity = '1';
-		}, 0);
+        setTimeout(() => {
+            popup.style.opacity = '1';
+        }, 0);
+		
+		updateCartContent(itemsArea);
     }
 
     function slideInPopup(popupContent) {
@@ -457,16 +425,16 @@ function showCartPopup() {
     isCartVisible = true;
 
     function closePopup(popup) {
-		const popupContent = popup.querySelector('.cart-popup-content');
-		popupContent.style.transform = 'translateX(100%)';
+        const popupContent = popup.querySelector('.cart-popup-content');
+        popupContent.style.transform = 'translateX(100%)';
 
-		popup.style.opacity = '0';
+        popup.style.opacity = '0';
 
-		setTimeout(() => {
-			popup.remove();
-			isCartVisible = false;
-		}, 300);
-	}
+        setTimeout(() => {
+            popup.remove();
+            isCartVisible = false;
+        }, 300);
+    }
 
     function updateQuantity(index, change) {
         cart[index].quantity = Math.max(1, cart[index].quantity + change);
@@ -479,7 +447,6 @@ function showCartPopup() {
         localStorage.setItem('cart', JSON.stringify(cart));
         updateCartContent(document.querySelector('.cart-popup-items-area'));
     }
-	
 
     function updateCartContent(itemsArea) {
         if (cart.length === 0) {
@@ -491,7 +458,7 @@ function showCartPopup() {
                 orderContainer.className = 'cart-popup-item-container';
 
                 const itemImage = document.createElement('img');
-                itemImage.src = order.image;
+                itemImage.src = order.image || "../Images/tourticketing.png";
                 itemImage.alt = order.name;
                 itemImage.className = 'cart-popup-item-image';
                 orderContainer.appendChild(itemImage);
@@ -503,11 +470,36 @@ function showCartPopup() {
                 itemName.textContent = order.name;
                 itemName.className = 'cart-popup-item-name';
                 itemDetails.appendChild(itemName);
+				
+				// Add special handling for ticket items
+                if (order.section) {
+                    const itemSection = document.createElement('p');
+                    itemSection.textContent = `Section ${order.section}`;
+                    itemSection.className = 'cart-popup-item-size';
+                    itemDetails.appendChild(itemSection);
+                }
 
-                const itemSize = document.createElement('p');
-                itemSize.textContent = `Size: ${order.size}`;
-                itemSize.className = 'cart-popup-item-size';
-                itemDetails.appendChild(itemSize);
+                if (order.date) {
+                    const itemDate = document.createElement('p');
+                    itemDate.textContent = `Date: ${order.date}`;
+                    itemDate.className = 'cart-popup-item-size';
+                    itemDetails.appendChild(itemDate);
+                }
+
+                // Standard shop item properties (if available)
+				if (order.id) {
+                    const idnum = document.createElement('p');
+                    idnum.textContent = `ID: ${order.id}`;
+                    idnum.className = 'cart-popup-item-size';
+                    itemDetails.appendChild(idnum);
+                }
+				
+                if (order.size) {
+                    const itemSize = document.createElement('p');
+                    itemSize.textContent = `Size: ${order.size}`;
+                    itemSize.className = 'cart-popup-item-size';
+                    itemDetails.appendChild(itemSize);
+                }
 
                 const itemQuantity = document.createElement('div');
                 itemQuantity.className = 'cart-popup-item-quantity';
@@ -515,9 +507,10 @@ function showCartPopup() {
                 const minusBtn = document.createElement('button');
                 minusBtn.textContent = '-';
                 minusBtn.addEventListener('click', () => {
-					updateQuantity(index, -1);
-					updateCartCount();
-				});
+                    updateQuantity(index, -1);
+                    updateCartCount();
+                });
+				
                 itemQuantity.appendChild(minusBtn);
 
                 const quantityText = document.createElement('p');
@@ -526,11 +519,34 @@ function showCartPopup() {
 
                 const plusBtn = document.createElement('button');
                 plusBtn.textContent = '+';
-				plusBtn.style.borderRadius = "0 10px 10px 0";
-				plusBtn.addEventListener('click', () => {
-					updateQuantity(index, 1);
-					updateCartCount();
-				});
+                plusBtn.style.borderRadius = "0 10px 10px 0";
+				if (order.section || order.date) {
+					
+					plusBtn.addEventListener('click', () => {
+						const selectedSection = document.querySelector(".selectedSection");
+						let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+						let totalQuantity = 0;
+						cart.forEach(item => {
+							if (item.section || item.date)
+							totalQuantity += item.quantity;
+						});
+
+						if (totalQuantity + quantity > 8) {
+							alert("You cannot purchase more than 8 tickets in total. You currently have " + totalQuantity + " tickets.");
+						} else {
+							updateQuantity(index, 1);
+							updateCartCount();
+						}
+					});
+				}
+				else {
+					plusBtn.addEventListener('click', () => {
+						updateQuantity(index, 1);
+						updateCartCount();
+					});
+				}
+				
                 itemQuantity.appendChild(plusBtn);
 
                 itemDetails.appendChild(itemQuantity);
@@ -547,12 +563,12 @@ function showCartPopup() {
                 const removeBtn = document.createElement('button');
                 removeBtn.textContent = 'Remove';
                 removeBtn.addEventListener('click', () => {
-					removeItem(index);
-					updateCartCount();
-				});
+                    removeItem(index);
+                    updateCartCount();
+                });
                 priceRemove.appendChild(removeBtn);
-
-                const trashIcon = document.createElement('img');
+				
+				const trashIcon = document.createElement('img');
                 trashIcon.src = '../Images/trash.png';
                 trashIcon.alt = 'Remove item';
                 trashIcon.style.height = '20px';
@@ -569,10 +585,20 @@ function showCartPopup() {
     }
 
     function updateTotal() {
-        const total = cart.reduce((acc, order) => acc + parseFloat(order.price.replace(/[^0-9.-]+/g, '')) * order.quantity, 0);
+        const total = cart.reduce((acc, order) => {
+            if (order.price && typeof order.price === 'string') {
+                const price = parseFloat(order.price.replace(/[^0-9.-]+/g, ''));
+                return acc + price * order.quantity;
+            }
+            return acc;
+        }, 0);
+
         let totalItems = cart.reduce((acc, order) => acc + order.quantity, 0);
         document.querySelector('.cart-popup-total p').textContent = `SUBTOTAL: $${total.toFixed(2)}`;
         document.querySelector('.cart-popup-counts').textContent = `${totalItems} ${totalItems === 1 ? 'item' : 'items'}`;
     }
 }
+
+
+
 

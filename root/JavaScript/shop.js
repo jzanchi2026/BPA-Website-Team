@@ -413,6 +413,12 @@ function popUp(item) {
 	creator.textContent = item.creator;
 	creator.classList.add('creator');
 	sidetwo.appendChild(creator);
+	
+	// ID
+	const idnum = document.createElement('p');
+	idnum.textContent = item.id;
+	idnum.classList.add('idnum');
+	sidetwo.appendChild(idnum);
 
 	// Price
 	if (item.saleprice !== undefined && item.saleprice !== null) {
@@ -437,107 +443,110 @@ function popUp(item) {
 		sidetwo.appendChild(price);
 	}
 
-	// Size selection
 	let selectedSize = "";
-	const sizeContainer = document.createElement('div');
-	sizeContainer.classList.add('size-container');
+	// Size selection
+	if (item.requiresSizes == true) {
+		
+		const sizeContainer = document.createElement('div');
+		sizeContainer.classList.add('size-container');
 
+		
+		const sizes = ['XS', 'S', 'M', 'L', 'XL'];
 
-	const sizes = ['XS', 'S', 'M', 'L', 'XL'];
+		// Add size buttons
+		sizes.forEach(size => {
+			const sizeButton = document.createElement('button');
+			sizeButton.textContent = size;
+			sizeButton.classList.add('size-button');
 
-	// Add size buttons
-	sizes.forEach(size => {
-		const sizeButton = document.createElement('button');
-		sizeButton.textContent = size;
-		sizeButton.classList.add('size-button');
+			sizeButton.addEventListener('click', () => {
+				Array.from(sizeContainer.children).forEach(btn => {
+					btn.classList.remove('selected');
+				});
 
-		sizeButton.addEventListener('click', () => {
-			Array.from(sizeContainer.children).forEach(btn => {
-				btn.classList.remove('selected');
+				sizeButton.classList.add('selected');
+				selectedSize = sizeButton.textContent;
+				console.log(selectedSize);
 			});
 
-			sizeButton.classList.add('selected');
-			selectedSize = sizeButton.textContent;
-			console.log(selectedSize);
+			sizeContainer.appendChild(sizeButton);
 		});
 
-		sizeContainer.appendChild(sizeButton);
-	});
+		sidetwo.appendChild(sizeContainer);
 
-	sidetwo.appendChild(sizeContainer);
+		// Size chart
+		const sizeChartContainer = document.createElement('div');
+		sizeChartContainer.style.marginBottom = '35px';
 
-	// Size chart
-	const sizeChartContainer = document.createElement('div');
-	sizeChartContainer.style.marginBottom = '35px';
+		const toggleButton = document.createElement('button');
+		toggleButton.innerHTML = "Size Chart <span style='float: right; font-weight: bold;'>+</span>";
+		toggleButton.classList.add('size-chart-toggle');
 
-	const toggleButton = document.createElement('button');
-	toggleButton.innerHTML = "Size Chart <span style='float: right; font-weight: bold;'>+</span>";
-	toggleButton.classList.add('size-chart-toggle');
+		const sizeChartWrapper = document.createElement('div');
+		sizeChartWrapper.classList.add('size-chart-wrapper');
 
-	const sizeChartWrapper = document.createElement('div');
-	sizeChartWrapper.classList.add('size-chart-wrapper');
+		const sizeChart = document.createElement('table');
+		sizeChart.classList.add('size-chart');
 
-	const sizeChart = document.createElement('table');
-	sizeChart.classList.add('size-chart');
-
-	// Append elements
-	sizeChartWrapper.appendChild(sizeChart);
-	sizeChartContainer.appendChild(toggleButton);
-	sizeChartContainer.appendChild(sizeChartWrapper);
-	sidetwo.appendChild(sizeChartContainer);
+		// Append elements
+		sizeChartWrapper.appendChild(sizeChart);
+		sizeChartContainer.appendChild(toggleButton);
+		sizeChartContainer.appendChild(sizeChartWrapper);
+		sidetwo.appendChild(sizeChartContainer);
 
 
-	const chartData = [
-		['Size', 'Chest (in)', 'Waist (in)', 'Hips (in)'],
-		['XS', '32-34', '24-26', '34-36'],
-		['S', '35-37', '27-29', '37-39'],
-		['M', '38-40', '30-32', '40-42'],
-		['L', '41-43', '33-35', '43-45'],
-		['XL', '44-46', '36-38', '46-48']
-	];
+		const chartData = [
+			['Size', 'Chest (in)', 'Waist (in)', 'Hips (in)'],
+			['XS', '32-34', '24-26', '34-36'],
+			['S', '35-37', '27-29', '37-39'],
+			['M', '38-40', '30-32', '40-42'],
+			['L', '41-43', '33-35', '43-45'],
+			['XL', '44-46', '36-38', '46-48']
+		];
 
-	chartData.forEach((row, rowIndex) => {
-		const tr = document.createElement('tr');
+		chartData.forEach((row, rowIndex) => {
+			const tr = document.createElement('tr');
 
-		row.forEach(cell => {
-			const cellTag = rowIndex === 0 ? 'th' : 'td';
-			const td = document.createElement(cellTag);
-			td.textContent = cell;
+			row.forEach(cell => {
+				const cellTag = rowIndex === 0 ? 'th' : 'td';
+				const td = document.createElement(cellTag);
+				td.textContent = cell;
 
-			td.classList.add(rowIndex === 0 ? 'header-cell' : 'data-cell');
+				td.classList.add(rowIndex === 0 ? 'header-cell' : 'data-cell');
 
-			tr.appendChild(td);
+				tr.appendChild(td);
+			});
+
+			sizeChart.appendChild(tr);
 		});
 
-		sizeChart.appendChild(tr);
-	});
+		sizeChartWrapper.appendChild(sizeChart);
 
-	sizeChartWrapper.appendChild(sizeChart);
-
-	const updateToggleButtonBorderRadius = () => {
-		toggleButton.style.borderRadius = '5px';
-	};
+		const updateToggleButtonBorderRadius = () => {
+			toggleButton.style.borderRadius = '5px';
+		};
 
 
-	toggleButton.addEventListener('click', () => {
-		const isVisible = sizeChartWrapper.style.maxHeight !== '0px';
-		sizeChartWrapper.style.maxHeight = isVisible ? '0px' : '300px';
+		toggleButton.addEventListener('click', () => {
+			const isVisible = sizeChartWrapper.style.maxHeight !== '0px';
+			sizeChartWrapper.style.maxHeight = isVisible ? '0px' : '300px';
 
-		toggleButton.innerHTML = isVisible
-			? "Size Chart <span style='float: right; font-weight: bold;'>+</span>"
-			: "Size Chart <span style='float: right; font-weight: bold;'>-</span>";
+			toggleButton.innerHTML = isVisible
+				? "Size Chart <span style='float: right; font-weight: bold;'>+</span>"
+				: "Size Chart <span style='float: right; font-weight: bold;'>-</span>";
 
-		if (!isVisible) {
-			toggleButton.style.borderRadius = '5px 5px 0px 0px';
-		}
+			if (!isVisible) {
+				toggleButton.style.borderRadius = '5px 5px 0px 0px';
+			}
 
-		if (isVisible) {
-			sizeChartWrapper.addEventListener('transitionend', updateToggleButtonBorderRadius, { once: true });
-		}
-	});
-	sizeChartContainer.appendChild(toggleButton);
-	sizeChartContainer.appendChild(sizeChartWrapper);
-	sidetwo.appendChild(sizeChartContainer);
+			if (isVisible) {
+				sizeChartWrapper.addEventListener('transitionend', updateToggleButtonBorderRadius, { once: true });
+			}
+		});
+		sizeChartContainer.appendChild(toggleButton);
+		sizeChartContainer.appendChild(sizeChartWrapper);
+		sidetwo.appendChild(sizeChartContainer);
+	}
 	
 	// Quantity
 	const quantlbl = document.createElement('p');

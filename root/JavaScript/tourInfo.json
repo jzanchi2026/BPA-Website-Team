@@ -7,7 +7,8 @@
     "address": "800 Occidental Ave S, Seattle, WA 98134",
     "time": "7:00 PM",
     "lineup": ["LSDREAM", "Clozee"],
-    "blurb": "Join us for a vibrant night at Lumen Field, Seattle's premier venue for large-scale events. On June 14, 2025, LSDREAM and Clozee will perform starting at 7:00 PM. The venue offers various parking options, but it's recommended to arrive early, especially on event nights, for the best spots."
+    "blurb": "Join us for a vibrant night at Lumen Field, Seattle's premier venue for large-scale events. On June 14, 2025, LSDREAM and Clozee will perform starting at 7:00 PM. The venue offers various parking options, but it's recommended to arrive early, especially on event nights, for the best spots.<br><br>VIP guests enjoy early entry, access to exclusive lounge areas, complimentary snacks, and priority parking near the venue.",
+    "requiresSizes": false
   },
   {
     "spot": "OR",
@@ -17,7 +18,8 @@
     "address": "1300 SE Stark St #203, Portland, OR 97214",
     "time": "8:00 PM",
     "lineup": ["The Damned", "The Avengers"],
-    "blurb": "Revolution Hall in Portland hosts an exciting night of punk rock with The Damned and The Avengers on June 15, 2025, at 8:00 PM. The venue is known for its intimate atmosphere, and there are plenty of nearby parking garages and public transport options."
+    "blurb": "Revolution Hall in Portland hosts an exciting night of punk rock with The Damned and The Avengers on June 15, 2025, at 8:00 PM. The venue is known for its intimate atmosphere, and there are plenty of nearby parking garages and public transport options.<br><br>VIP guests will have access to exclusive balcony seating, expedited entry, and a meet-and-greet with the artists.",
+    "requiresSizes": false
   },
   {
     "spot": "CA",
@@ -27,7 +29,8 @@
     "address": "2700 N Vermont Ave, Los Angeles, CA 90027",
     "time": "7:30 PM",
     "lineup": ["Band A", "Band B", "Band C"],
-    "blurb": "The Greek Theatre in Los Angeles offers a scenic outdoor setting perfect for an evening of live music. On June 18, 2025, Band A, Band B, and Band C will perform starting at 7:30 PM. There are several parking lots nearby, but public transport is a convenient option given the venue's location."
+    "blurb": "The Greek Theatre in Los Angeles offers a scenic outdoor setting perfect for an evening of live music. On June 18, 2025, Band A, Band B, and Band C will perform starting at 7:30 PM. There are several parking lots nearby, but public transport is a convenient option given the venue's location.<br><br>VIP guests receive premium seating, exclusive lounge access, and a curated selection of drinks and hors d'oeuvres.",
+    "requiresSizes": false
   },
   {
     "spot": "AZ",
@@ -37,7 +40,8 @@
     "address": "9800 Talking Stick Way, Scottsdale, AZ 85256",
     "time": "8:00 PM",
     "lineup": ["Artist X", "Artist Y"],
-    "blurb": "Talking Stick Resort in Scottsdale, Arizona, will feature performances by Artist X and Artist Y on June 19, 2025, at 8:00 PM. The resort offers convenient parking and is located near multiple dining options, making it a great spot for a night out."
+    "blurb": "Talking Stick Resort in Scottsdale, Arizona, will feature performances by Artist X and Artist Y on June 19, 2025, at 8:00 PM. The resort offers convenient parking and is located near multiple dining options, making it a great spot for a night out.<br><br>VIP guests enjoy front-row seating, complimentary drinks, and access to an after-show party.",
+    "requiresSizes": false
   },
   {
     "spot": "TX",
@@ -47,7 +51,8 @@
     "address": "206 Main St, Northfield, MA 01360",
     "time": "8:00 PM",
     "lineup": ["Band Alpha"],
-    "blurb": "The Moody Center in Austin, Texas, will host Band Alpha on June 21, 2025, at 8:00 PM. This venue is known for its modern design and excellent acoustics. There are a variety of nearby parking options, and using public transportation is recommended if you're staying in the downtown area."
+    "blurb": "The Moody Center in Austin, Texas, will host Band Alpha on June 21, 2025, at 8:00 PM. This venue is known for its modern design and excellent acoustics. There are a variety of nearby parking options, and using public transportation is recommended if you're staying in the downtown area.<br><br>VIP guests receive early entry, backstage tours, and exclusive merchandise.",
+    "requiresSizes": false
   },
   {
     "spot": "LA",
@@ -57,7 +62,8 @@
     "address": "726 St Peter, New Orleans, LA 70116",
     "time": "7:30 PM",
     "lineup": ["Jazz Collective"],
-    "blurb": "Experience authentic New Orleans jazz at Preservation Hall on June 22, 2025. The Jazz Collective will perform at 7:30 PM. Known for its intimate atmosphere, the venue has limited parking, so it's advised to use public transit or consider nearby street parking."
+    "blurb": "Experience authentic New Orleans jazz at Preservation Hall on June 22, 2025. The Jazz Collective will perform at 7:30 PM. Known for its intimate atmosphere, the venue has limited parking, so it's advised to use public transit or consider nearby street parking.<br><br>VIP guests enjoy reserved seating, complimentary drinks, and a personalized tour of the venue's rich history.",
+    "requiresSizes": false
   },
   {
     "spot": "GA",
@@ -67,7 +73,8 @@
     "address": "887 West Marietta St NW STE C, Atlanta, GA 30318",
     "time": "8:00 PM",
     "lineup": ["Indie Stars"],
-    "blurb": "Terminal West in Atlanta is the place to catch some of the best indie talent on June 23, 2025, with performances from Indie Stars at 8:00 PM. The venue offers street parking and paid lots nearby, but it's encouraged to arrive early for convenient spaces."
+    "blurb": "Terminal West in Atlanta is the place to catch some of the best indie talent on June 23, 2025, with performances from Indie Stars at 8:00 PM. The venue offers street parking and paid lots nearby, but it's encouraged to arrive early for convenient spaces.<br><br>VIP guests receive priority entry, private viewing sections, and exclusive drink menus.",
+    "requiresSizes": false
   },
   {
     "spot": "NC",
@@ -77,7 +84,8 @@
     "address": "2820 Industrial Dr, Raleigh, NC 27609",
     "time": "8:00 PM",
     "lineup": ["Rock Legends"],
-    "blurb": "The Ritz in Raleigh welcomes Rock Legends for a night of classic rock on June 24, 2025. Show starts at 8:00 PM. There are parking lots available near the venue, but arriving early is recommended as it can get crowded on event nights."
+    "blurb": "The Ritz in Raleigh welcomes Rock Legends for a night of classic rock on June 24, 2025. Show starts at 8:00 PM. There are parking lots available near the venue, but arriving early is recommended as it can get crowded on event nights.<br><br>VIP guests enjoy front-row access, complimentary merchandise, and VIP lounge access.",
+    "requiresSizes": false
   },
   {
     "spot": "NY",
@@ -87,7 +95,8 @@
     "address": "New York, NY 10001",
     "time": "8:00 PM",
     "lineup": ["Superstars Live"],
-    "blurb": "Madison Square Garden will host Superstars Live on June 26, 2025, at 8:00 PM. This iconic venue is easily accessible via public transportation, and parking can be found in nearby garages. Expect an evening of top-tier performances in one of the world's most famous arenas."
+    "blurb": "Madison Square Garden will host Superstars Live on June 26, 2025, at 8:00 PM. This iconic venue is easily accessible via public transportation, and parking can be found in nearby garages. Expect an evening of top-tier performances in one of the world's most famous arenas.<br><br>VIP guests enjoy access to luxury suites, priority entry, and exclusive pre-show experiences.",
+    "requiresSizes": false
   },
   {
     "spot": "MA",
@@ -97,7 +106,8 @@
     "address": "100 Legends Way, Boston, MA 02114",
     "time": "8:00 PM",
     "lineup": ["Boston Bands"],
-    "blurb": "TD Garden in Boston hosts local talent on June 27, 2025, with Boston Bands performing at 8:00 PM. Located in the heart of the city, the venue is easily accessible via public transport, and parking garages are available nearby, though they can fill up quickly."
+    "blurb": "TD Garden in Boston hosts local talent on June 27, 2025, with Boston Bands performing at 8:00 PM. Located in the heart of the city, the venue is easily accessible via public transport, and parking garages are available nearby, though they can fill up quickly.<br><br>VIP guests receive private suite seating, access to exclusive bars, and priority parking passes.",
+    "requiresSizes": false
   },
   {
     "spot": "IL",
@@ -107,7 +117,8 @@
     "address": "200 E Cermak Rd, Chicago, IL 60616",
     "time": "7:00 PM",
     "lineup": ["The Midway", "Chicago Blues"],
-    "blurb": "Chicago's Wintrust Arena will feature The Midway and Chicago Blues on June 30, 2025. Doors open at 7:00 PM. The venue is in a bustling area with parking options nearby, but public transit can be a quicker alternative, especially during peak times."
+    "blurb": "Chicago's Wintrust Arena will feature The Midway and Chicago Blues on June 30, 2025. Doors open at 7:00 PM. The venue is in a bustling area with parking options nearby, but public transit can be a quicker alternative, especially during peak times.<br><br>VIP guests enjoy premium seating, access to exclusive lounges, and complimentary food and beverages.",
+    "requiresSizes": false
   },
   {
     "spot": "MN",
@@ -117,7 +128,8 @@
     "address": "525 N 5th St, Minneapolis, MN 55401",
     "time": "8:00 PM",
     "lineup": ["The Minne Legends"],
-    "blurb": "The Filmore in Minneapolis will host The Minne Legends on July 1, 2025, at 8:00 PM. The venue offers a great mix of modern amenities and historic charm. Street parking and nearby lots are available, though public transport is often a more convenient choice in this busy area."
+    "blurb": "The Filmore in Minneapolis will host The Minne Legends on July 1, 2025, at 8:00 PM. The venue offers a great mix of modern amenities and historic charm. Street parking and nearby lots are available, though public transport is often a more convenient choice in this busy area.<br><br>VIP guests receive access to private viewing sections, expedited entry, and complimentary drinks.",
+    "requiresSizes": false
   },
   {
     "spot": "CO",
@@ -127,6 +139,7 @@
     "address": "18300 W Alameda Pkwy, Morrison, CO 80465",
     "time": "7:30 PM",
     "lineup": ["Rocky Mountain Vibes"],
-    "blurb": "Red Rocks Amphitheatre is one of the most iconic venues in the world, and on July 3, 2025, you can catch Rocky Mountain Vibes perform at 7:30 PM. Plan ahead for parking as the venue fills up quickly, but the surrounding area offers great shuttle services to make getting to the show easy."
+    "blurb": "Red Rocks Amphitheatre is one of the most iconic venues in the world, and on July 3, 2025, you can catch Rocky Mountain Vibes perform at 7:30 PM. Plan ahead for parking as the venue fills up quickly, but the surrounding area offers great shuttle services to make getting to the show easy.<br><br>VIP guests enjoy access to exclusive viewing decks, pre-show tours, and gourmet dining options.",
+    "requiresSizes": false
   }
 ]

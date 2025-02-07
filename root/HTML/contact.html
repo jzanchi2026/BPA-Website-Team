@@ -5,12 +5,13 @@
 		<link rel="stylesheet" href="../CSS/contact.css">
 		<link rel="stylesheet" href="../CSS/products.css">
 		<script src="../JavaScript/stagefright.js"></script>
+		<script src="../JavaScript/contact.js"></script>
 		<title>Stage Fright - Contact Us</title>
 		<link rel="icon" type="image/x-icon" href="../Images/cursor.png">
 	</head>
 
 	
-	<body onload="dynamicTyping()">
+	<body>
 		<!-- START navigation section -->
 		<nav id="navbar">
 			<div class="spaceHolder"></div> 
@@ -106,14 +107,17 @@
 		</footer>
 		<!-- END navigation section -->
 		
-		<div id="pageTitle">
+		<div style="background-position: bottom; background-image: url('../Images/HEADINGS/cymbal.jpg')" id="pageTitle">
 			<h1>CONTACT US</h1>
 		</div>
 		
 		<div id="contactteam">
 			<div id="signups">
 				<img src="../Images/mail.png" alt="Mail icon decoration">
-				<h2>JOIN THE MAILING LIST</h2>
+				<div>
+					<h2>JOIN THE MAILING LIST</h2>
+					<p>Stay in the loop! Sign up to receive the latest updates, exclusive offers, and important announcements straight to your inbox.</p>
+				</div>
 				<form action="" method="POST">
 					
 					<label for="name">Full Name:</label>
@@ -125,113 +129,100 @@
 					<label for="pnumber">Phone Number:</label>
 					<input type="text" id="pnumber" name="pnumber" placeholder="e.g. (XXX) XXX-XXXX" maxlength="14" required>
 					
-					<div style="display: flex; align-items: center; gap: 0px;">
-						<input style="width: 100px; height: auto;" type="checkbox" id="sms_opt_in" name="sms_opt_in" value="yes">
-						<label style="width: 350%; margin: 20px;" for="sms_opt_in">
+					<div style="display: flex; align-items: center; gap: 15px; margin: 10px 0;">
+						<input type="checkbox" id="sms_opt_in" name="sms_opt_in" value="yes">
+						<label for="sms_opt_in">
 							I would like to receive text messages about updates, promotions, and reminders.
 						</label>
 					</div>
 					
-					<p style="font-size: 0.9em; color: gray;">
-						By opting in, you agree to receive SMS communications. Standard carrier messaging rates may apply. 
-						You can opt-out anytime by replying "STOP" to any text message.
-					</p>
+					<div style="display: flex; align-items: center; gap: 15px; margin: 10px 0;">
+						<input type="checkbox" id="terms_agreement" name="terms_agreement" value="yes" required>
+						<label for="agree_terms">
+							I confirm that the information provided is accurate, and I agree to receive communications as per the organization's policies.
+						</label>
+					</div>
 
 					<br>
 					<button type="submit">Sign Up</button>
 				</form>
 			</div>
 			
-			<div id="mainthing" style="display: flex; width: 100vw; margin: 0 auto; gap: 5px; justify-content: center;">
-				<div id="bgg3">	
-					<div id="booking" style="align-items: normal">
-						<form action="" method="POST">
-							<h2>Book Stage Fright</h2>
-
-							<label for="event-name">Event Name/Type:</label>
-							<input type="text" id="event-name" name="event-name" placeholder="e.g. Summer Music Festival" required>
-
-							<label for="event-date">Event Date:</label>
-							<input type="date" id="event-date" name="event-date" required>
-
-							<label for="event-time">Event Time:</label>
-							<input type="time" id="event-time" name="event-time" required>
-
-							<label for="venue-location">Venue Location:</label>
-							<input type="text" id="venue-location" name="venue-location" placeholder="e.g. Doe Arena 281 First St. 00040" required>
-
-							<label for="contact-name">Your Name:</label>
-							<input type="text" id="contact-name" name="contact-name" placeholder="e.g. John Doe" required>
-							
-							<label for="contact-name">Your Position:</label>
-							<input type="text" id="user-position" name="user-position" placeholder="e.g. Executive Supervisor" required>
-
-							<label for="contact-email">Email:</label>
-							<input type="email" id="contact-email" name="contact-email" placeholder="e.g. youremail@gmail.com" required>
-
-							<label for="additional-notes">Additional Notes:</label>
-							<textarea id="additional-notes" name="additional-notes" placeholder="e.g. Special conditions, Rain dates, Occasion, etc." rows="4"></textarea>
-							<br>
-							<button type="submit">Send Booking Request</button>
-						</form>
-					</div>
-					<div id="customers">
-						<form action="" method="POST">
-							<h2>Customer Service</h2>
-
-							<label for="name">Your Name:</label>
-							<input type="text" id="name" name="name" placeholder="e.g. John Doe" required>
-
-							<label for="email">Email:</label>
-							<input type="email" id="email" name="email" placeholder="e.g. youremail@gmail.com" required>
-
-							<label for="order-number">Order Number (if applicable):</label>
-							<input type="text" id="order-number" placeholder="e.g. Order 12345678" name="order-number">
-
-							<label for="issue-description">Description of Issue:</label>
-							<textarea id="issue-description" name="issue-description" placeholder="e.g. Issue with product, Issue at event, etc." rows="4" required></textarea>
-							<br>
-							<button type="submit">Submit</button>
-						</form>
-					</div>
-					<div id="emailgen">
-						<form action="" method="POST">
-							<h2>General Inquiries</h2>
-
-							<label for="name">Your Name:</label>
-							<input type="text" id="name" name="name" placeholder="e.g. John Doe" required>
-
-							<label for="email">Email:</label>
-							<input type="email" id="email" name="email" placeholder="e.g. youremail@gmail.com" required>
-
-							<label for="order-number">Subject:</label>
-							<input type="text" id="order-number" placeholder="e.g. Questions about touring, recording, merchandising, etc." name="order-number">
-
-							<label for="issue-description">Message:</label>
-							<textarea id="issue-description" name="issue-description" placeholder="e.g. What media is my company legally allowed to use for commercial use?" rows="4" required></textarea>
-							<br>
-							<button type="submit">Submit</button>
-						</form>
-					</div>
+			<div class="browser">
+				<div class="tab-bar">
+					<button class="tab-button active" onclick="showSection('booking')">Book</button>
+					<button class="tab-button" onclick="showSection('customers')">Customer Service</button>
+					<button class="tab-button" onclick="showSection('emailgen')">General Inquiries</button>
 				</div>
-				
-				<div id="bringya">
-					<div id="bringbook" class="bringyouto" onclick="bringUp('booking', this)">
-						<h3>Book</h3>
-					</div>
-					<div id="bringcust" class="bringyouto" onclick="bringUp('customers', this)">
-						<h3>Customer Service</h3>
-					</div>
-					<div id="bringemail" class="bringyouto" onclick="bringUp('emailgen', this)">
-						<h3>General Inquiries</h3>
-					</div>
+
+				<div id="booking" class="tab-section visible">
+					<form action="" method="POST">
+						<h2>Book Stage Fright</h2>
+						<label for="event-name">Event Name/Type:</label>
+						<input type="text" id="event-name" name="event-name" placeholder="e.g. Summer Music Festival" required>
+
+						<label for="event-date">Event Date:</label>
+						<input type="date" id="event-date" name="event-date" required>
+
+						<label for="event-time">Event Time:</label>
+						<input type="time" id="event-time" name="event-time" required>
+
+						<label for="venue-location">Venue Location:</label>
+						<input type="text" id="venue-location" name="venue-location" placeholder="e.g. Doe Arena 281 First St." required>
+
+						<label for="contact-name">Your Name:</label>
+						<input type="text" id="contact-name" name="contact-name" placeholder="e.g. John Doe" required>
+
+						<label for="user-position">Your Position:</label>
+						<input type="text" id="user-position" name="user-position" placeholder="e.g. Executive Supervisor" required>
+
+						<label for="contact-email">Email:</label>
+						<input type="email" id="contact-email" name="contact-email" placeholder="e.g. youremail@gmail.com" required>
+
+						<label for="additional-notes">Additional Notes:</label>
+						<textarea id="additional-notes" name="additional-notes" placeholder="e.g. Special conditions, Rain dates, etc." rows="4"></textarea>
+						<br>
+						<button type="submit">Send Booking Request</button>
+					</form>
 				</div>
-				<div>
-					<img style="transform: rotate(-10deg);" src="../Images/sologhost.png" height="180" alt="ghost design"><br>
-					<img style="transform: rotate(10deg);" src="../Images/sologhost.png" height="180" alt="ghost design"><br>
-					<img style="transform: rotate(-10deg);" src="../Images/sologhost.png" height="180" alt="ghost design"><br>
+
+				<div id="customers" class="tab-section">
+					<form action="" method="POST">
+						<h2>Customer Service</h2>
+						<label for="name">Your Name:</label>
+						<input type="text" id="name" name="name" placeholder="e.g. John Doe" required>
+
+						<label for="email">Email:</label>
+						<input type="email" id="email" name="email" placeholder="e.g. youremail@gmail.com" required>
+
+						<label for="order-number">Order Number (if applicable):</label>
+						<input type="text" id="order-number" name="order-number" placeholder="e.g. Order 12345678">
+
+						<label for="issue-description">Description of Issue:</label>
+						<textarea id="issue-description" name="issue-description" placeholder="e.g. Issue with product, Issue at event, etc." rows="4" required></textarea>
+						<br>
+						<button type="submit">Submit</button>
+					</form>
 				</div>
-				
+
+				<div id="emailgen" class="tab-section">
+					<form action="" method="POST">
+						<h2>General Inquiries</h2>
+						<label for="name">Your Name:</label>
+						<input type="text" id="name" name="name" placeholder="e.g. John Doe" required>
+
+						<label for="email">Email:</label>
+						<input type="email" id="email" name="email" placeholder="e.g. youremail@gmail.com" required>
+
+						<label for="subject">Subject:</label>
+						<input type="text" id="subject" name="subject" placeholder="e.g. Questions about touring, recording, etc.">
+
+						<label for="message">Message:</label>
+						<textarea id="message" name="message" placeholder="e.g. What media is my company legally allowed to use for commercial purposes?" rows="4" required></textarea>
+						<br>
+						<button type="submit">Submit</button>
+					</form>
+				</div>
 			</div>
 			
 		</div>	

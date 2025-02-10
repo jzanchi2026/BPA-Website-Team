@@ -1,0 +1,491 @@
+@import 'variables';
+
+#contentdates {
+	background-color: black;
+	text-align: center;
+	width: 100vw;
+	min-height: 100vh;
+}
+
+#contentdates > h3 {
+	line-height: 30px;
+	width: 96vw;
+	padding: 10px 2vw;
+}
+
+#bgg2 {
+	margin: 0 auto;
+	width: calc(100vw - 80px);
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+	position: relative;
+	justify-content: space-between;
+	align-items: center;
+	padding-bottom: 160px;
+}
+
+#bgg2 > div {
+	background-color: #111;
+	padding: 40px 0;
+	min-height: 300px;
+	width: 90%;
+}
+
+// TOUR HIGHLIGHT STYLING
+
+
+
+// MAIN SCHEDULE STYLING
+
+#mainText {
+	color: blue;
+}
+
+.tourdate {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 90%;
+	padding: 10px;
+	text-align: left;
+	border-radius: 10px;
+	border: 3px solid black;
+	background-color: rgba(0, 0, 0, 0.4);
+	transition: 0.25s ease-in-out;
+	margin: 15px auto;
+}
+
+.tourdate:hover {
+	transform: scale(1.02);
+	border: 3px solid #555;
+}
+
+.tourdate > h1 {
+	padding: 20px 10px;
+	border-radius: 10px;
+	background-color: black;
+	width: 10%;
+	text-align: center;
+}
+
+.location {
+	flex-grow: 2;
+	padding: 5px 30px;
+	width: 500px;
+	
+}
+
+.location > h2 {
+	color: #4286a8;
+	font-family: radlushmed;
+	margin-bottom: 2px;
+	text-transform: uppercase;
+}
+
+.location > h3:nth-of-type(even) {
+	color: #666;
+}
+
+.buttons {
+    text-align: center;
+    display: flex;
+    flex-grow: 6;
+    justify-content: flex-end;
+}
+
+.buttons > button {
+	text-decoration: none;
+	font-family: radlushmed;
+	font-size: 15pt;
+	width: auto;
+	height: 75px;
+	border: 3px solid black;
+	font-weight: bold;
+	background-color: #325e75;
+	padding: 5px 20px;
+	margin: 0 10px;
+	cursor: pointer;
+	border-radius: 10px;
+	transition: 0.3s ease-in-out;
+}
+
+.tourdate > div > button:hover {
+	transform: scale(1.03);
+	background-color: #27495c;
+}
+
+/* TICKET SELECTION STYLING */
+
+#closeout {
+	height: 6%;
+	background-color: black;
+	border-top: 5px solid black;
+	border-left: 5px solid black;
+	border-right: 5px solid black;
+	display: flex;
+	justify-content: right;
+	align-items: center;
+	padding-right: 15px;
+	
+}
+
+#closeout button {
+	font-family: salmapro;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 12pt;
+	background-color: #21485c;
+	border: none;
+	width: 4%;
+	height: 80%;
+	border-radius: 0;
+}
+
+#closeout button:hover {
+	background-color: #4286a8; 
+}
+
+#ticketingInfo {
+	position: fixed;
+    top: 2vh;
+    left: 15vw;
+    z-index: 205;
+    width: 70vw;
+    height: 94vh;
+	display: none;
+	box-shadow: 0 0 0 30vw rgba(53, 72, 87, 0.4);
+}
+
+#pickSeating {
+    position: relative;
+    display: flex;
+    border: 5px solid black;
+	height: 94%;
+}
+
+.sideSection {
+	height: 100%;
+	background-color: #111;
+	text-align: left;
+	width: 22.5%;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+#extraInfo h1, #checkOut h1 {
+	margin-bottom: 20px;
+	background-color: #444;
+	width: calc(100% - 20px);
+	color: white;
+	padding: 10px;
+	font-family: areakilo;
+	font-size: 24pt;
+	letter-spacing: 1.5px;
+	line-height: 1.3;
+	text-decoration: underline;
+	text-underline-offset: 5px;
+}
+
+#extraInfo h2 {
+	margin: 10px;
+	color: #4286a8;
+	font-family: radlushmed;
+	text-transform: uppercase;
+	
+}
+
+.extrainfotxt {
+	margin: 5px 10px;
+	font-family: radlushmed;
+	color: #3a5163;
+	font-size: 13pt;
+}
+
+.extrainfotxt strong {
+	color: inherit;
+}
+
+.tourblurbs {
+	color: white; 
+	font-size: 12pt;
+	height: 35%;
+	margin: 20px 10px 10px;
+	font-family: radlushmed;
+}
+
+.selectedSectiontxt {
+	font-family: radlushmed;
+	font-size: 14pt;
+	margin: 10px 10px 5px;
+}
+
+#sectionDisplay {
+	background-color: #333;
+	min-height: 30%;
+	width: 90%;
+	margin: 10px 10px 15px;
+	display: grid;
+	justify-content: center;
+	align-content: center;
+	grid-auto-rows: min-content;
+	grid-template-columns: repeat(auto-fit, 6px);
+	gap: 3px; 
+}
+
+.displaySeat {
+	height: 5px;
+	width: 5px;
+	border-radius: 50%;
+	margin: 1px;
+	display: inline-block;
+	background-color: white;
+}
+
+.takenSeat {
+	background-color: #787e87;
+}
+
+.availableSeat {
+	background-color: white;
+}
+
+.selectedSeat {
+	background-color: #2da5eb;
+}
+
+#seatPricing p {
+	font-family: areakilo;
+	font-size: 17pt;
+	margin: 10px 10px 0;
+	color: #4286a8;
+}
+
+.quantity-container {
+	width: calc(100% - 20px);
+	height: 40px;
+	margin: 0 10px;
+	padding: 10px 0;
+}
+
+.quantity-button-dates {
+	background-color: #333;
+	height: 100%;
+	width: 25%;
+	border-radius: 0;
+	font-weight: bold;
+}
+
+.quantity-button-dates:hover {
+	background-color: #555;
+}
+
+.quantity-display-dates {
+	width: 50%;
+	height: 100%;
+	background-color: #222;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: radlushmed;
+}
+
+.disclaimer {
+	font-family: 6pt;
+	color: #444;
+	font-family: radlushmed;
+	margin: 10px;
+}
+
+#addToCart {
+	font-family: areakilo;
+	background-color: white;
+	color: black;
+	width: calc(100% - 20px);
+	margin: 10px;
+}
+
+#addToCart:hover {
+	transform: scale(1.04);
+	color: #4286a8;
+}
+
+/* STADIUM BUILDING */
+
+#stadiumContainer {
+	display: flex;
+	flex-direction: column;
+	width: 55%;
+	height: 100%;
+	border-right: 4px solid black;
+	border-left: 4px solid black;
+}
+
+#stadium {
+	width: 100%;
+	height: 100%;
+	background-color: gray;
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+}
+
+.topPiece h1 {
+	background-color: #4286a8;
+	width: calc(100% - 20px);
+	color: white;
+	text-align: left;
+	padding: 10px;
+	font-family: areakilo;
+	font-size: 24pt;
+	letter-spacing: 1.5px;
+	line-height: 1.3;
+	text-decoration: underline;
+	text-underline-offset: 5px; 
+}
+
+.bottomFloor, .topFloor, .vipFloor {
+	width: 90%;
+	height: 40%;
+	padding: 20px;
+	display: flex; 
+	gap: 20px;
+	justify-content: center;
+	align-items: center;
+	background-color: #222;
+}
+
+.vipFloor {
+	height: 20%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: areakilo;
+}
+
+.stage {
+	width: 70%;
+	height: 40%;
+	color: #4286a8;
+	font-family: areakilo;
+	background-color: black;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+}
+
+.stageSides {
+	width: 15%;
+	height: calc(100% - 40px);
+	background-color: #222;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	padding: 20px 0;
+	flex-wrap: wrap;
+}
+
+.stageCenter {
+	background-color: #333;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	width: 70%;
+	height: calc(100% - 40px);
+	padding: 20px 10px;
+	gap: 10px;
+}
+
+.sectionseating {
+	width: 70%;
+	height: calc(100% / 5 - 20px);
+	background-color: #666;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: areakilo;
+}
+
+.longseating {
+	width: calc(100% / 3 - 20px);
+	height: 100%;
+	background-color: #444;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: areakilo;
+}
+
+.vipsection {
+	width: 100%;
+	height: 100%;
+	background-color: #888;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: areakilo;
+}
+
+.sectionseating:hover, .longseating:hover {
+	transform: scale(1.03);
+	cursor: pointer;
+}
+
+.vipsection:hover {
+	transform: scale(1.05);
+	cursor: pointer;
+}
+
+.selectedSection {
+	background-color: #3a5163;
+	color: #88c8fc;
+}
+
+
+// MEDIA QUERIES
+
+@media (max-width: 900px) {
+	#text > h2 {
+		font-size: 5rem;
+		padding: 0;
+	}
+	
+	#text {
+		margin: 0;
+		padding: 5.5vw;
+	}
+	
+	.tourdate > h1 {
+		display: none;
+	}
+	
+	.fixmedia {
+		display: block;
+	}
+	
+	.location {
+		font-size: 10pt;
+	}
+	
+	.tourdate > div > button {
+		padding: 5px 20px;
+	}
+	
+	
+}
+
+@media (max-width: 600px) {
+	#contentdates > h1 {
+		font-size: 50pt;
+	}
+	
+	#contentdates > h3 {
+		width: 94vw;
+	}
+	
+}

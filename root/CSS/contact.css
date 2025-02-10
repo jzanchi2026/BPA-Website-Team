@@ -1,223 +1,292 @@
+/* General Layout */
 #contactteam {
-    background-color: black;
-    text-align: center;
-    width: 100vw;
-    min-height: 100vh;
+  background-color: black;
+  text-align: center;
+  width: 100vw;
+  min-height: 100vh;
 }
 
 #contactteam > h1 {
-    width: 100vw;
-    padding: 160px 0 130px;
-    font-family: pasti;
-    font-size: 60pt;
-    letter-spacing: 10px;
-    background-image: url("../Images/crowdd.jpg");
-    filter: hue-rotate(180deg) saturate(60%);
-    background-size: cover;
-    background-position: center;
-    box-shadow: inset 0px 0px 70px 60px rgb(0, 0, 0);
-    text-shadow: 0px 0px 50px rgba(0, 0, 0, 1);
+  width: 100vw;
+  padding: 160px 0 130px;
+  font-family: "Pasti", sans-serif;
+  font-size: 60pt;
+  letter-spacing: 10px;
+  background-image: url("../Images/crowdd.jpg");
+  filter: hue-rotate(180deg) saturate(60%);
+  background-size: cover;
+  background-position: center;
+  box-shadow: inset 0px 0px 70px 60px rgb(0, 0, 0);
+  text-shadow: 0px 0px 50px rgb(0, 0, 0);
 }
 
+/* Sign-up Section */
 #signups {
-    display: flex;
-    min-height: 50vh;
-    width: 80vw;
-    padding: 30px 50px;
-    justify-content: center;
-    align-items: center;
-    background-color: #111;
-    font-size: 15pt;
-    margin: 50px auto 80px;
-    gap: 10px;
+  display: flex;
+  min-height: 50vh;
+  width: 90vw;
+  padding: 30px 50px;
+  justify-content: center;
+  align-items: center;
+  font-size: 15pt;
+  margin: 50px auto 80px;
+  gap: 10px;
 }
 
 #signups > div > h2 {
-    width: 30vw;
-    letter-spacing: 5px;
-    font-family: pasti;
-    padding: 0 60px 0 80px;
-    color: #4286a8;
-    font-size: 7rem;
-    text-align: left;
-	margin-bottom: 10px;
+  width: 30vw;
+  letter-spacing: 5px;
+  font-family: "Pasti", sans-serif;
+  padding: 0 60px 0 80px;
+  color: #4286a8;
+  font-size: 7rem;
+  text-align: left;
+  margin-bottom: 10px;
 }
 
 #signups > div > p {
-    width: 30vw;
-    font-family: radlushmed;
-    padding: 0 60px 0 80px;
-    color: white;
-    text-align: left;
+  width: 30vw;
+  font-family: "Radlushmed", sans-serif;
+  padding: 0 60px 0 80px;
+  color: white;
+  text-align: left;
 }
 
 #signups > img {
-    filter: invert(1);
-    margin: 0;
-    width: 200px;
-    height: 450px;
+  filter: invert(1);
+  margin: 0;
+  width: 200px;
+  height: 450px;
 }
 
 #signups form {
-	background-color: #222;
-	padding: 20px;
-	border-radius: 10px;
+  background-color: #222;
+  padding: 20px;
+  border-radius: 10px;
 }
 
-form {
-    width: 25vw;
-    text-align: left;
-    height: 420px;
-    padding: 10px;
-    font-family: Arial, sans-serif;
+#signups form > input {
+  margin-bottom: 10px;
 }
 
-form h2 {
-    font-family: pasti;
-    color: #4286a8;
-    letter-spacing: 1px;
+input[type=checkbox] + label {
+  color: white;
+  font-size: 13pt;
+  margin: 0;
 }
 
-
-/* Browser-like container with tab bar */
-.browser {
-    display: flex;
-    flex-direction: column;
-    justify-content: top;
-	min-height: 800px;
-    width: calc(80vw + 90px);
-    max-width: 100%;
-    margin: 40px auto 160px;
-    border: 5px solid #333;
-    background-color: #1e1e1e;
+/* See Forms Section */
+#seeForms {
+  width: calc(80% + 60px);
+  margin: 40px auto 160px;
 }
 
-/* Tab bar styles */
-.tab-bar {
-    display: flex;
-    background-color: #2c2c2c;
-    border-bottom: 2px solid #444;
+#seeForms > div {
+  display: flex;
+  gap: 30px;
+  justify-content: space-between;
+  padding: 30px;
+  margin-bottom: 40px;
+  background-color: #111;
+  border: 3px solid #333;
+  color: #e0e0e0;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+  position: relative;
+  border-radius: 10px;
 }
 
-.tab-button {
-    flex: 1;
-    padding: 12px 20px;
-    background-color: #2f2f2f;
-    color: #ccc;
-    text-align: center;
-    border: none;
-    border-radius: 0;
-    cursor: pointer;
-    font-family: "Arial", sans-serif;
-    font-size: 14px;
-    transition: background-color 0.3s, color 0.3s;
+#seeForms > div img {
+  width: 50%;
+  height: auto;
+  border-radius: 8px;
 }
 
-/* Unique colors for each tab */
-.tab-button:nth-child(1) {
-    background-color: #333;
+#seeForms > div div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.tab-button:nth-child(2) {
-    background-color: #3b3b3b;
+#seeForms > div div h2 {
+  font-family: "Areakilo", sans-serif;
+  color: white;
+  font-size: 60pt;
+  margin-bottom: 5px;
+  letter-spacing: 1px;
+  text-align: left;
 }
 
-.tab-button:nth-child(3) {
-    background-color: #444;
+#seeForms > div div p {
+  font-family: "Radlushmed", sans-serif;
+  font-size: 13pt;
+  color: #cfcfcf;
+  line-height: 1.6;
+  margin-bottom: 10px;
+  text-align: left;
 }
 
-.tab-button:hover {
-    background-color: #666;
-    color: white;
+#seeForms > div button {
+  background-color: #4286a8;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s, transform 0.2s;
+  width: 100%;
+  margin-top: 20px;
 }
 
-.tab-button.active {
-    background-color: #4286a8;
-    color: white;
-    font-weight: bold;
+#seeForms > div button:hover {
+  background-color: #285369;
+  transform: scale(1.02);
 }
 
-/* Main content sections */
-.tab-section {
-    display: none;
-    padding: 20px;
-    background-color: #1e1e1e;
-    color: white;
-    min-height: 500px; /* Ensures consistent length regardless of form size */
+/* Pop-up Form Styling */
+.form-popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
 
-.tab-section.visible {
-    display: block;
+.form-popup form {
+  background-color: #222;
+  padding: 30px;
+  width: calc(60vw - 60px);
+  max-height: calc(80vh - 60px);
+  position: fixed;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+  color: #e0e0e0;
+  border-radius: 10px;
 }
 
-.tab-section form {
-    padding: 15px 30px;
-    border-radius: 15px;
-    box-shadow: 0 0 5px 3px #444;
-    margin: 10px auto;
-    background-color: #292929;
-	height: auto;
+.form-section-container {
+  display: flex;
+  gap: 20px;
+}
+
+.form-section {
+  flex: 1 1 0%;
+}
+
+.form-popup form h2 {
+  font-family: "Areakilo", sans-serif;
+  color: #4286a8;
+  letter-spacing: 1px;
+  font-size: 24px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 0px;
+  right: 15px;
+  background-color: #4286a8;
+  border: none;
+  color: white;
+  font-size: 15px;
+  font-family: "Arial narrow", sans-serif;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.close-btn:hover {
+  background-color: #295369;
 }
 
 label {
-    display: block;
-    color: #4286a8;
-    margin-top: 10px;
-    font-family: radlushmed;
-    font-weight: bold;
-    font-size: 13pt;
+  display: block;
+  color: #4286a8;
+  margin-top: 10px;
+  font-family: "Radlushmed", sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  text-align: left;
 }
 
-input[type="checkbox"] + label {
-    color: white;
-    font-weight: normal;
-    font-size: 11pt;
-}
-
-input[type="text"], input[type="email"], input[type="date"], input[type="time"] {
-    padding: 8px;
-    font-family: radlushmed;
-    color: black;
-    width: calc(100% - 16px);
-    margin-top: 5px;
+input[type=text],
+input[type=email],
+input[type=date],
+input[type=time],
+input[type=tel] {
+  padding: 10px;
+  font-family: "Radlushmed", sans-serif;
+  color: black;
+  width: calc(100% - 20px);
+  margin-top: 5px;
+  font-size: 14px;
+  border-radius: 6px;
+  height: 20px;
 }
 
 textarea {
-    padding: 8px;
-    font-family: radlushmed;
-    color: black;
-    width: calc(100% - 16px);
-    margin-top: 5px;
+  padding: 10px;
+  font-family: "Radlushmed", sans-serif;
+  color: black;
+  width: calc(100% - 20px);
+  margin-top: 5px;
+  font-size: 14px;
+  border-radius: 6px;
 }
 
 button {
-    background-color: #4286a8;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: bold;
-    margin-top: 15px;
-    transition: background-color 0.3s;
+  background-color: #4286a8;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 15px;
+  transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: #285369;
+  background-color: #285369;
 }
 
-/* Responsive design */
+/* Responsive Design */
 @media (max-width: 768px) {
-    .browser {
-        max-width: 100%;
-    }
-
-    form {
-        max-width: 100%;
-    }
-
-    .tab-button {
-        font-size: 12px;
-    }
+  #seeForms > div {
+    flex-direction: column;
+    padding: 15px;
+  }
+  #seeForms > div img {
+    width: 100%;
+  }
+  form {
+    width: 90%;
+  }
+  .form-popup form {
+    width: 90%;
+  }
+  #signups {
+    flex-direction: column;
+  }
+  #signups > div > h2,
+  #signups > div > p {
+    width: 100%;
+  }
+  #contactteam > h1 {
+    font-size: 40pt;
+    padding: 120px 0 100px;
+  }
 }
+
+/*# sourceMappingURL=contact.css.map */

@@ -1,5 +1,10 @@
-// Builds product data for the featured shop section
+// Builds product data for the featured shop section and shows purchase message
 document.addEventListener("DOMContentLoaded", () => {
+    if (localStorage.getItem('purchaseConfirmed') === 'true') {
+        showThankYouMessage();
+        localStorage.removeItem('purchaseConfirmed');
+    }
+
     fetch('../JavaScript/productList.json')
         .then(response => {
             if (!response.ok) {
@@ -14,6 +19,22 @@ document.addEventListener("DOMContentLoaded", () => {
             console.error('Error loading the product data:', error);
         });
 });
+
+function showThankYouMessage() {
+    const messageContainer = document.createElement('div');
+    messageContainer.classList.add('thank-you-message');
+    
+    const messageText = document.createElement('p');
+    messageText.textContent = "Thank you for your purchase! Click anywhere to close.";
+    
+    messageContainer.addEventListener('click', () => {
+        messageContainer.remove();
+    });
+
+    messageContainer.appendChild(messageText);
+    
+    document.body.appendChild(messageContainer);
+}
 
 
 // Utility function to handle transformations and fade-out effects for load-in section

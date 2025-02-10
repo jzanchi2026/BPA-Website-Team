@@ -36,14 +36,24 @@ function fadeout(event) {
 }
 
 
-// Highlights the current page
+// Highlights the current page and adds blurring for heading image
 window.addEventListener("DOMContentLoaded", () => {
-	const navLinks = document.querySelectorAll("#navbar a");
-	navLinks.forEach(link => {
-		if (link.href === window.location.href) {
-		  link.style.textDecoration = "line-through";
-		}
-	});
+  const navLinks = document.querySelectorAll("#navbar a");
+  navLinks.forEach(link => {
+    if (link.href === window.location.href) {
+      link.style.textDecoration = "line-through";
+    }
+  });
+
+  const pageTitle = document.getElementById("pageTitle");
+
+  if (pageTitle) {
+    window.addEventListener("scroll", () => {
+      const scrollAmount = window.scrollY;
+      const blurValue = Math.min(scrollAmount / 50, 100);
+      pageTitle.style.filter = `blur(${blurValue}px)`;
+    });
+  }
 });
 
 
@@ -58,23 +68,6 @@ function toggleNavbar() {
         navbar.classList.remove('hidden');
     }
 }
-
-/*let boxHidden = true;
-function goSettings() {
-	let box = document.getElementById("settingpanel");
-	if (boxHidden) {
-        box.style.display = "flex";
-		setTimeout(() => {
-			box.style.transform = "translateX(0%)";
-		}, 100);
-    } else {
-		box.style.transform = "translateX(-110%)";
-        setTimeout(() => {
-			box.style.display = "none";
-		}, 500);
-    }
-	boxHidden = !boxHidden;
-}*/
 
 
 // Handles footer visibility logic
@@ -167,36 +160,102 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-
-
-// On form inputs that act as phone numbers, formats them automatically for the user
+// Automatically format some input areas
 function dynamicTyping() {
+    // Helper function for input capitalization
+    function capitalizeInput(input) {
+        input.addEventListener('input', function (e) {
+            e.target.value = e.target.value
+                .toLowerCase()
+                .replace(/\b\w/g, char => char.toUpperCase());
+        });
+    }
 
-	document.getElementById('pnumber').addEventListener('input', function (e) {
-		let input = e.target.value.replace(/\D/g, '');
-		let formatted = '';
+    // Phone number formatting
+    const phoneInput = document.getElementById('pnumber');
+    if (phoneInput) {
+        phoneInput.addEventListener('input', function (e) {
+            let input = e.target.value.replace(/\D/g, '');
+            let formatted = '';
 
-		if (input.length > 0) formatted = '(' + input.substring(0, 3);
-		if (input.length >= 4) formatted += ') ' + input.substring(3, 6);
-		if (input.length >= 7) formatted += '-' + input.substring(6, 10);
+            if (input.length > 0) formatted = '(' + input.substring(0, 3);
+            if (input.length >= 4) formatted += ') ' + input.substring(3, 6);
+            if (input.length >= 7) formatted += '-' + input.substring(6, 10);
 
-		e.target.value = formatted;
-	});
+            e.target.value = formatted;
+        });
+    }
 
+    // Credit card number formatting
+    const cardInput = document.getElementById('billingCardNumber');
+    if (cardInput) {
+        cardInput.addEventListener('input', function (e) {
+            let input = e.target.value.replace(/\D/g, '');
+            let formatted = '';
+
+            for (let i = 0; i < input.length; i += 4) {
+                if (formatted !== '') formatted += ' ';
+                formatted += input.substring(i, i + 4);
+            }
+
+            e.target.value = formatted.trim();
+        });
+    }
+
+    // Expiration date formatting MM/YY
+    const expInput = document.getElementById('billingExpiration');
+    if (expInput) {
+        expInput.addEventListener('input', function (e) {
+            let input = e.target.value.replace(/\D/g, '');
+            let formatted = '';
+
+            if (input.length > 2) {
+                formatted = input.substring(0, 2) + '/' + input.substring(2, 4);
+            } else {
+                formatted = input;
+            }
+
+            e.target.value = formatted;
+        });
+    }
+
+    // CVV formatting (3 or 4 digits)
+    const cvvInput = document.getElementById('billingCVV');
+    if (cvvInput) {
+        cvvInput.addEventListener('input', function (e) {
+            e.target.value = e.target.value.replace(/\D/g, '').substring(0, 4);
+        });
+    }
+
+    // Zip code formatting (US format - 5 or 9 digits with optional dash)
+    const zipInputs = document.querySelectorAll('#shippingZipCode, #billingZip');
+    zipInputs.forEach(zipInput => {
+        zipInput.addEventListener('input', function (e) {
+            let input = e.target.value.replace(/\D/g, '');
+            let formatted = '';
+
+            if (input.length > 5) {
+                formatted = input.substring(0, 5) + '-' + input.substring(5, 9);
+            } else {
+                formatted = input;
+            }
+
+            e.target.value = formatted.substring(0, 10);
+        });
+    });
+
+    // Capitalize first letter of names and addresses
+    const capitalizeInputs = document.querySelectorAll(
+        '#shippingFirstName, #shippingLastName, #shippingAddress1, #shippingAddress2, #shippingCountry, #shippingCity, #shippingState, #billingFullName, #billingAddress, #billingAddress2, #billingCountry, #billingCity, #billingState'
+    );
+    capitalizeInputs.forEach(input => capitalizeInput(input));
 }
 
-let shownDiv = null;
 
-document.addEventListener("DOMContentLoaded", () => {
-	dynamicTyping();
 
-    let booking = document.getElementById("booking");
-	if (booking) {
-		booking.style.display = "flex";
-		booking.style.opacity = "1"; // Fully opaque
-    }
-	shownDiv = document.getElementById("booking"); // Default to the booking div
-});
+
+document.addEventListener('DOMContentLoaded', dynamicTyping);
+
 
 function bringUp(divv, passed) {
     let selected = document.getElementById(divv);
@@ -281,11 +340,6 @@ function addTicketToCart(eventDetails, pricePerTicket, quantity, section) {
 
 
 function addToCart(item, size, quantity) {
-    if (item.requiresSizes && !size) {
-        alert("Please pick a size.");
-        return;
-    }
-
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
     const existingOrderIndex = cart.findIndex(order => 
@@ -399,7 +453,12 @@ function showCartPopup() {
         checkButton.href = "checkout.html";
         checkButton.className = 'cart-popup-check-btn';
         checkButton.setAttribute('data-href', 'checkout.html');
-        checkButton.addEventListener('click', fadeout);
+		checkButton.addEventListener('click', () => {
+			if (cart.length !== 0) {
+				localStorage.removeItem('buyNowItem');
+				fadeout(event);
+			}
+        });
         buttonArea.appendChild(checkButton);
 
         popup.appendChild(popupContent);
@@ -458,7 +517,11 @@ function showCartPopup() {
                 orderContainer.className = 'cart-popup-item-container';
 
                 const itemImage = document.createElement('img');
-                itemImage.src = order.image || "../Images/tourticketing.png";
+				if (Array.isArray(order.image) && order.image.length > 0) {
+					itemImage.src = order.image[0];
+				} else {
+					itemImage.src = order.image || "../Images/tourticketing.png";
+				}
                 itemImage.alt = order.name;
                 itemImage.className = 'cart-popup-item-image';
                 orderContainer.appendChild(itemImage);
@@ -471,7 +534,6 @@ function showCartPopup() {
                 itemName.className = 'cart-popup-item-name';
                 itemDetails.appendChild(itemName);
 				
-				// Add special handling for ticket items
                 if (order.section) {
                     const itemSection = document.createElement('p');
                     itemSection.textContent = `Section ${order.section}`;
@@ -486,7 +548,7 @@ function showCartPopup() {
                     itemDetails.appendChild(itemDate);
                 }
 
-                // Standard shop item properties (if available)
+                // Standard shop item properties
 				if (order.id) {
                     const idnum = document.createElement('p');
                     idnum.textContent = `ID: ${order.id}`;

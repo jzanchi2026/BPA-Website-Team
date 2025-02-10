@@ -1,11 +1,7 @@
-function showSection(id) {
-  document.querySelectorAll('.tab-section').forEach(section => {
-    section.style.display = section.id === id ? 'block' : 'none';
-  });
+function showForm(formId) {
+    document.getElementById(formId).style.display = 'flex';
+}
 
-  document.querySelectorAll('.tab-button').forEach(button => {
-    button.classList.remove('active');
-  });
-
-  document.querySelector(`.tab-button[onclick="showSection('${id}')"]`).classList.add('active');
+function closeForm(formId) {
+    document.getElementById(formId).style.display = 'none';
 }

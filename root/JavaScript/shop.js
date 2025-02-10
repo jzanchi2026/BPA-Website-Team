@@ -1,26 +1,24 @@
 // Global cart variable
 let cart = null;
 
-// Generates made-up products
-/*const departments = ["men", "women", "unisex", "youth"];
-const collections = ["accessories", "media", "apparel", "albums"];
 
+/*const departments = [
+  "men", 
+  "women", 
+  "unisex", 
+  "youth"
+];
 
-const localProducts = Array.from({ length: 32 }, (_, index) => ({
-    name: `Product ${index + 12}`,
-    id: index,
-    creator: "lol",
-    price: `$${(Math.random() * (200 - 10) + 10).toFixed(2)}`,
-    saleprice: Math.random() < 0.7 ? null : `$${(Math.random() * (50 - 10) + 10).toFixed(2)}`,
-    details: "Fabric & Materials:<br>- 100% Cotton<br>- Soft, breathable fabric<br>- Pre-shrunk to maintain shape and fit<br>- Screen printed design for a high-quality finish<br><br>Design Features:<br>- Classic black color<br>- Crew neck design<br>- Short sleeves for a relaxed fit<br>- High-quality band graphic print<br>- Reinforced stitching for durability<br><br>Wash Instructions:<br>- Machine wash cold<br>- Wash with like colors<br>- Do not tumble dry<br>- Inside out for best print care<br>- Do not bleach<br>- Do not dry clean<br>- Do not iron over the graphic<br><br>NOTE: Size charts are for general reference. The fit may vary depending on construction, materials, and manufacturer. Sizing may also vary between and within brands.",
-    sellingvalue: Math.floor(Math.random() * 100) + 1,
-    limited: Math.random() < 0.15,
-    image: "../Images/lightts.avif",
-    filters: {
-        departments: departments[Math.floor(Math.random() * departments.length)],
-        collections: collections[Math.floor(Math.random() * collections.length)],
-    },
-}));*/
+const collections = [
+  "accessories", 
+  "media", 
+  "apparel", 
+  "albums", 
+  "outerwear", 
+  "bottoms", 
+  "headwear", 
+];*/
+
 
 // Fetches product data from the JSON file and stores it
 let products = [];
@@ -34,7 +32,6 @@ fetch('../JavaScript/productList.json')
     })
     .then(jsonProducts => {
         products = jsonProducts;
-		//products = [...jsonProducts, ...localProducts]; // Merges the real and madeup products for testing
         loadShop();
     })
     .catch(error => {
@@ -117,45 +114,55 @@ function loadShop() {
     }
 
     function filterProducts() {
-        return products.filter(product => {
-            if (filters == null) return true;
+		return products.filter(product => {
+			if (filters == null) return true;
 
-            const { collections, department, priceRanges } = filters;
+			const { collections, department, priceRanges } = filters;
 
-            const isClearanceSelected = collections.includes("CLEARANCE");
+			const isClearanceSelected = collections.includes("CLEARANCE");
 
-            const matchesCollection = collections.length === 0 || collections.some(c => {
-                if (c.toLowerCase() === "clearance") {
-                    return product.saleprice !== null;
-                }
-                return product.filters.collections.toLowerCase().includes(c.toLowerCase());
-            });
+			const productCollections = Array.isArray(product.filters.collections)
+				? product.filters.collections
+				: [product.filters.collections];
 
-            const matchesDepartment = department.length === 0 || department.some(d => 
-                d.toLowerCase() === product.filters.departments.toLowerCase()
-            );
+			const matchesCollection = collections.length === 0 || collections.some(c => {
+				if (c.toLowerCase() === "clearance") {
+					return product.saleprice !== null;
+				}
+				return productCollections.some(pCollection => pCollection.toLowerCase().includes(c.toLowerCase()));
+			});
 
-            const matchesPrice = priceRanges.length === 0 || matchesPriceRange(product.saleprice || product.price, priceRanges);
+			const productDepartments = Array.isArray(product.filters.departments)
+				? product.filters.departments
+				: [product.filters.departments];
 
-            if (isClearanceSelected) {
-                if (collections.length > 1) {
-                    const matchesClearanceAndCollection = collections.some(c => 
-                        c.toLowerCase() !== "clearance" &&
-                        product.filters.collections.toLowerCase().includes(c.toLowerCase())
-                    );
+			const matchesDepartment = department.length === 0 || department.some(d =>
+				productDepartments.some(pDepartment => pDepartment.toLowerCase() === d.toLowerCase())
+			);
 
-                    const isValidClearanceProduct = product.saleprice !== null && matchesClearanceAndCollection;
+			const matchesPrice = priceRanges.length === 0 || matchesPriceRange(product.saleprice || product.price, priceRanges);
 
-                    return isValidClearanceProduct && matchesDepartment && matchesPrice;
-                }
+			if (isClearanceSelected) {
+				if (collections.length > 1) {
+					const matchesClearanceAndCollection = collections.some(c =>
+						c.toLowerCase() !== "clearance" &&
+						productCollections.some(pCollection => pCollection.toLowerCase().includes(c.toLowerCase()))
+					);
 
-                if (collections.length === 1) {
-                    return product.saleprice !== null && matchesDepartment && matchesPrice;
-                }
-            }
-            return matchesCollection && matchesDepartment && matchesPrice;
-        });
-    }
+					const isValidClearanceProduct = product.saleprice !== null && matchesClearanceAndCollection;
+
+					return isValidClearanceProduct && matchesDepartment && matchesPrice;
+				}
+
+				if (collections.length === 1) {
+					return product.saleprice !== null && matchesDepartment && matchesPrice;
+				}
+			}
+
+			return matchesCollection && matchesDepartment && matchesPrice;
+		});
+	}
+
 
     function renderPage(filteredProducts, page) {
         content.innerHTML = "";
@@ -169,10 +176,15 @@ function loadShop() {
 			productCard.addEventListener("click", () => {
 				popUp(product);
 			});
+			
             // Product Image
-            let productImage = document.createElement("img");
-            productImage.src = product.image;
-            productCard.appendChild(productImage);
+			let productImage = document.createElement("img");
+			if (Array.isArray(product.image) && product.image.length > 0) {
+				productImage.src = product.image[0];
+			} else {
+				productImage.src = product.image;
+			}
+			productCard.appendChild(productImage);
 
             // Product Name
             let productNameLink = document.createElement("a");
@@ -301,8 +313,12 @@ function renderSortedPage(sortedProducts, currentPage = 1) {
 
         // Product Image
         let productImage = document.createElement("img");
-        productImage.src = product.image;
-        productCard.appendChild(productImage);
+		if (Array.isArray(product.image) && product.image.length > 0) {
+			productImage.src = product.image[0];
+		} else {
+			productImage.src = product.image;
+		}
+		productCard.appendChild(productImage);
 
         // Product Name
         let productNameLink = document.createElement("a");
@@ -383,24 +399,29 @@ function popUp(item) {
 		const limited = createTag('LIMITED EDITION', sidetwo);
 		sidetwo.appendChild(limited);
 	}
-	
+
 	// Best seller 
 	if (item.sellingvalue >= 80) {
-		const limited = createTag('BEST SELLER', sidetwo);
-		sidetwo.appendChild(limited);
+		const bestSeller = createTag('BEST SELLER', sidetwo);
+		sidetwo.appendChild(bestSeller);
 	}
 
-	// Department
-	if (item.filters.departments != null) {
-		const depart = createTag(item.filters.departments, sidetwo);
-		sidetwo.appendChild(depart);
+	// Department (Handle multiple values)
+	if (item.filters.departments != null && Array.isArray(item.filters.departments)) {
+		item.filters.departments.forEach(department => {
+			const depart = createTag(department, sidetwo);
+			sidetwo.appendChild(depart);
+		});
 	}
 
-	// Collection
-	if (item.filters.collections != null) {
-		const collect = createTag(item.filters.collections, sidetwo);
-		sidetwo.appendChild(collect);
+	// Collection (Handle multiple values)
+	if (item.filters.collections != null && Array.isArray(item.filters.collections)) {
+		item.filters.collections.forEach(collection => {
+			const collect = createTag(collection, sidetwo);
+			sidetwo.appendChild(collect);
+		});
 	}
+
     
     // Title
 	const title = document.createElement('h2');
@@ -442,11 +463,17 @@ function popUp(item) {
 		price.classList.add('price');
 		sidetwo.appendChild(price);
 	}
-
+	
+	// Size alert container
+	const sizeAlert = document.createElement('div');
+	sizeAlert.style.fontFamily = "radlushmed";
+	sizeAlert.style.marginBottom = "20px";
+	sizeAlert.innerHTML = "";
+	
 	let selectedSize = "";
 	// Size selection
 	if (item.requiresSizes == true) {
-		
+	
 		const sizeContainer = document.createElement('div');
 		sizeContainer.classList.add('size-container');
 
@@ -460,13 +487,13 @@ function popUp(item) {
 			sizeButton.classList.add('size-button');
 
 			sizeButton.addEventListener('click', () => {
+				sizeAlert.innerHTML = "";
 				Array.from(sizeContainer.children).forEach(btn => {
 					btn.classList.remove('selected');
 				});
 
 				sizeButton.classList.add('selected');
 				selectedSize = sizeButton.textContent;
-				console.log(selectedSize);
 			});
 
 			sizeContainer.appendChild(sizeButton);
@@ -591,6 +618,8 @@ function popUp(item) {
 	sidetwo.appendChild(quantlbl);
 	sidetwo.appendChild(quantityContainer);
 	
+	sidetwo.appendChild(sizeAlert);
+	
 	// Create Purchase Options Container
 	const purchaseOptionsContainer = document.createElement('div');
 	purchaseOptionsContainer.classList.add('purchase-options-container');
@@ -600,6 +629,10 @@ function popUp(item) {
 	addToCartButton.textContent = 'ADD TO CART';
 	addToCartButton.classList.add('button', 'add-to-cart-button');
 	addToCartButton.addEventListener('click', () => {
+		if (item.requiresSizes && selectedSize == "") {
+			sizeAlert.innerHTML = "ALERT: Please pick a size to purchase this item!";
+			return;
+		}
 		addToCart(item, selectedSize, quantity);
 	});
 
@@ -608,6 +641,10 @@ function popUp(item) {
 	buyNowButton.textContent = 'BUY NOW';
 	buyNowButton.classList.add('button', 'buy-now-button');
 	buyNowButton.addEventListener('click', () => {
+		if (item.requiresSizes && selectedSize == "") {
+			sizeAlert.innerHTML = "Please pick a size!";
+			return;
+		}
 		buyNow(item, selectedSize, quantity);
 	});
 
@@ -626,7 +663,7 @@ function popUp(item) {
 	descpPreview.classList.add('description-preview');
 
 	const descpFull = document.createElement('p');
-	descpFull.textContent = item.details;
+	descpFull.innerHTML = item.details;
 	descpFull.classList.add('description-full');
 
 	descpPreview.addEventListener('click', () => {
@@ -640,11 +677,77 @@ function popUp(item) {
 	sidetwo.appendChild(descpContainer);
 
 	// Image Section
-	const image = document.createElement('img');
-	image.src = item.image;
-	image.alt = item.name;
-	image.classList.add('popup-image');
-	sideone.appendChild(image);
+	if (Array.isArray(item.image) && item.image.length > 0) {
+		let currentImageIndex = 0;
+
+		const imageContainer = document.createElement('div');
+		imageContainer.classList.add('image-container');
+
+		// Previous Button
+		const prevButton = document.createElement('button');
+		prevButton.textContent = '<';
+		prevButton.classList.add('nav-button');
+		prevButton.addEventListener('click', () => {
+			currentImageIndex = (currentImageIndex - 1 + item.image.length) % item.image.length;
+			updateMainImage();
+		});
+		imageContainer.appendChild(prevButton);
+
+		// Main Image
+		const image = document.createElement('img');
+		image.src = item.image[currentImageIndex];
+		image.alt = item.name;
+		image.classList.add('popup-image-multi');
+		imageContainer.appendChild(image);
+
+		// Next Button
+		const nextButton = document.createElement('button');
+		nextButton.textContent = '>';
+		nextButton.classList.add('nav-button');
+		nextButton.addEventListener('click', () => {
+			currentImageIndex = (currentImageIndex + 1) % item.image.length;
+			updateMainImage();
+		});
+		imageContainer.appendChild(nextButton);
+
+		
+
+		// Image Preview Container
+		const previewContainer = document.createElement('div');
+		previewContainer.classList.add('image-preview-container');
+
+		item.image.forEach((imgSrc, index) => {
+			const previewImage = document.createElement('img');
+			previewImage.src = imgSrc;
+			previewImage.alt = `${item.name} Preview ${index + 1}`;
+			previewImage.classList.add('preview-image');
+			if (index === currentImageIndex) previewImage.classList.add('selected-preview');
+
+			previewImage.addEventListener('click', () => {
+				currentImageIndex = index;
+				updateMainImage();
+			});
+
+			previewContainer.appendChild(previewImage);
+		});
+		imageContainer.appendChild(previewContainer);
+
+		function updateMainImage() {
+			image.src = item.image[currentImageIndex];
+			Array.from(previewContainer.children).forEach((preview, index) => {
+				preview.classList.toggle('selected-preview', index === currentImageIndex);
+			});
+		}
+		sideone.appendChild(imageContainer);
+		
+	} else {
+		const image = document.createElement('img');
+		image.src = item.image;
+		image.alt = item.name;
+		image.classList.add('popup-image-single');
+		sideone.appendChild(image);
+	}
+
 
 	// Close Button
 	const closeButton = document.createElement('button');
@@ -667,7 +770,16 @@ function popUp(item) {
 document.addEventListener("DOMContentLoaded", updateCartCount);
 
 function buyNow(item, size, quantity) {
-    
+	const productDetails = {
+        name: item.name,
+        id: item.id,
+        price: item.price,
+        size: size,
+        quantity: quantity,
+        image: Array.isArray(item.image) ? item.image[0] : item.image
+    };
+	localStorage.setItem('buyNowItem', JSON.stringify(productDetails));
+	window.location.href = 'checkout.html';
 }
 
 

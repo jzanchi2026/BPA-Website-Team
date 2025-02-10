@@ -31,7 +31,7 @@
   display: block;
   margin: 15px 0 5px;
   color: white;
-  font-family: "radlushmed", sans-serif;
+  font-family: radlushmed;
   text-decoration: none;
   font-weight: bold;
   font-size: 15pt;
@@ -42,7 +42,7 @@
 }
 
 .product-name.limited {
-  color: #0037de;
+  color: #0a6873;
 }
 
 .product-price {
@@ -56,7 +56,7 @@
 }
 
 .product-price span {
-  color: #7b82e8;
+  color: #65a0ba;
 }
 
 #pagination button {
@@ -66,16 +66,14 @@
   cursor: pointer;
   background-color: black;
   color: white;
-  font-size: 12pt;
+  font-size: 10pt;
   font-weight: bold;
   border-radius: 0;
   margin: 0 1px;
-  border: 2.5px solid black;
-  border-radius: 5px;
 }
 
 #pagination button.active {
-  background-color: #0037de;
+  background-color: #365953;
 }
 
 /* FEATURED HOME CONTENT */
@@ -126,14 +124,14 @@
   text-shadow: 0 0 10px black;
   color: white;
   opacity: 0.5;
-  font-family: "radlushmed", sans-serif;
+  font-family: radlushmed;
   text-decoration: none;
   font-weight: bold;
   font-size: 18pt;
 }
 
 .home-product-name.limited {
-  color: #aa5c7e;
+  color: #0a6873;
 }
 
 .home-product-price {
@@ -149,7 +147,7 @@
 }
 
 .home-product-price span {
-  color: #7b82e8;
+  color: #65a0ba;
 }
 
 .home-product-card .icon-bar {
@@ -218,12 +216,12 @@
   padding: 5px 10px;
   font-size: 14px;
   cursor: pointer;
-  font-family: "areakilo", sans-serif;
+  font-family: juliett;
   transition: background-color 0.2s ease;
 }
 
 .home-size-button:hover {
-  background-color: #071540;
+  background-color: #2f5566;
   transform: scale(1.02);
 }
 
@@ -267,12 +265,12 @@
 }
 
 .tag {
-  background-color: #333;
-  padding: 10px;
-  font-family: "areakilo", sans-serif;
+  background-color: #7a7a7a;
+  padding: 7px;
+  font-family: "salmapro";
   display: inline-block;
   border-radius: 3px;
-  font-size: 15px;
+  font-size: 13px;
   color: white;
   margin: 0 5px 25px 0;
 }
@@ -282,13 +280,13 @@
 }
 
 .title {
-  font-family: "areakilo", sans-serif;
+  font-family: "pasti";
   letter-spacing: 1.5px;
   font-size: 55pt;
 }
 
 .creator {
-  font-family: "salmapro", sans-serif;
+  font-family: "salmapro";
   font-size: 18px;
   opacity: 0.5;
   letter-spacing: 1px;
@@ -297,19 +295,19 @@
 
 .idnum {
   font-size: 11pt;
-  font-family: "salmapro", sans-serif;
+  font-family: "salmapro";
   margin-bottom: 20px;
   color: gray;
 }
 
 .price {
   font-size: 25px;
-  font-family: "salmapro", sans-serif;
+  font-family: "salmapro";
   margin-bottom: 20px;
 }
 
 .price span {
-  font-family: "salmapro", sans-serif;
+  font-family: "salmapro";
 }
 
 .price .original-price {
@@ -319,7 +317,7 @@
 
 .price .sale-price {
   font-weight: bold;
-  color: #0037de;
+  color: #4286a8;
   margin-left: 5px;
 }
 
@@ -330,7 +328,7 @@
 }
 
 .size-button {
-  font-family: "salmapro", sans-serif;
+  font-family: "salmapro";
   font-size: 16px;
   padding: 8px 12px;
   border: 1px solid #9e9e9e;
@@ -338,40 +336,38 @@
   background-color: white;
   color: #333;
   cursor: pointer;
-  flex: 1;
-  transition: 0.3s ease;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .size-button:hover {
-  background-color: #777;
+  background-color: #555;
   border: 1px solid black;
+  color: #b8ced9;
 }
 
 .size-button.selected {
   background-color: #333;
   border: 1px solid black;
-  color: white;
+  color: #b8ced9;
 }
 
 .size-chart-toggle {
-  font-family: "areakilo", sans-serif;
+  font-family: "pasti";
   font-size: 16px;
   padding: 8px 12px 6px;
   border-radius: 5px;
-  background-color: #0037de;
+  background-color: #4286a8;
   color: white;
   text-align: left;
   width: 20%;
   cursor: pointer;
-  margin-bottom: 8px;
-  border: none;
+  margin-bottom: 0px;
   transition: background-color 0.3s, color 0.3s;
 }
 
 .size-chart-wrapper {
   overflow: hidden;
   max-height: 0;
-  border-radius: 5px;
   transition: max-height 0.3s ease-in-out;
 }
 
@@ -382,15 +378,15 @@
 
 .size-chart th,
 .size-chart td {
-  border: 2.5px solid #2b2b2b;
+  border: 3.5px solid #2b2b2b;
   padding: 8px;
   text-align: center;
-  font-family: "salmapro", sans-serif;
+  font-family: "salmapro";
 }
 
 .size-chart th {
-  background-color: #7b82e8;
-  border-color: #0037de;
+  background-color: #7dbcdb;
+  border-color: #4286a8;
 }
 
 .size-chart td {
@@ -398,7 +394,7 @@
 }
 
 .quantity-label {
-  font-family: "salmapro", sans-serif;
+  font-family: "salmapro";
   font-size: 16px;
   margin-bottom: 10px;
   display: block;
@@ -411,24 +407,24 @@
 }
 
 .quantity-button {
-  font-family: "salmapro", sans-serif;
+  font-family: "salmapro";
   font-size: 16px;
   width: 5%;
   padding: 8px 12px;
   border-radius: 0px;
-  border: none;
-  background-color: #555;
-  color: white;
+  background-color: #c7c7c7;
+  color: #333;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
 }
 
 .quantity-button:hover {
   background-color: #9e9e9e;
+  color: white;
 }
 
 .quantity-display {
-  font-family: "salmapro", sans-serif;
+  font-family: "salmapro";
   font-size: 16px;
   padding: 8px 0px;
   background-color: #e0e0e0;
@@ -446,7 +442,7 @@
 }
 
 .button {
-  font-family: "salmapro", sans-serif;
+  font-family: "salmapro";
   font-size: 15px;
   font-weight: bold;
   padding: 10px 20px;
@@ -458,12 +454,12 @@
 }
 
 .add-to-cart-button {
-  background-color: #444;
-  color: white;
+  background-color: #b8ced9;
+  color: #333;
 }
 
 .add-to-cart-button:hover {
-  background-color: #222;
+  background-color: #879aa3;
 }
 
 .add-to-cart-button:active {
@@ -471,12 +467,12 @@
 }
 
 .buy-now-button {
-  background-color: #0037de;
+  background-color: #4286a8;
   color: white;
 }
 
 .buy-now-button:hover {
-  background-color: #071540;
+  background-color: #23536b;
 }
 
 .buy-now-button:active {
@@ -488,7 +484,7 @@
 }
 
 .description-preview {
-  font-family: "salmapro", sans-serif;
+  font-family: "salmapro";
   font-size: 18px;
   opacity: 0.8;
   letter-spacing: 1px;
@@ -498,7 +494,7 @@
 }
 
 .description-full {
-  font-family: "salmapro", sans-serif;
+  font-family: "salmapro";
   font-size: 15px;
   opacity: 0.5;
   letter-spacing: 1px;
@@ -507,83 +503,83 @@
 }
 
 .image-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  width: 100%;
-  height: calc(100vh - 120px);
-  border: 3px solid white;
-  border-radius: 8px;
-  overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	width: 100%;
+	height: calc(100vh - 120px);
+	border: 3px solid white;
+	border-radius: 8px;
+	overflow: hidden;
 }
 
 .popup-image-single {
-  width: auto;
-  height: calc(100vh - 120px);
-  object-fit: cover;
-  border: 3px solid white;
-  border-radius: 8px;
+    width: auto;
+    height: calc(100vh - 120px);
+    display: block;
+    object-fit: cover;
+    border: 3px solid white;
+    border-radius: 8px;
 }
 
 .popup-image-multi {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: cover;
+	max-width: 100%;
+	max-height: 100%;
+	object-fit: cover;
 }
 
 .image-preview-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 10px;
-  gap: 8px;
-  position: absolute;
-  bottom: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 10px;
+	gap: 8px;
+	position: absolute;
+	bottom: 10px;
 }
 
 .preview-image {
-  width: 70px;
-  height: 70px;
-  border: 2px solid transparent;
-  border-radius: 5px;
-  object-fit: cover;
-  cursor: pointer;
-  transition: border-color 0.3s ease;
-  border: 2.5px solid #071540;
+	width: 70px;
+	height: 70px;
+	border: 2px solid transparent;
+	border-radius: 5px;
+	object-fit: cover;
+	cursor: pointer;
+	transition: border-color 0.3s ease;
+	border: 2.5px solid #23536b;
 }
-
 .selected-preview {
-  border-color: #0037de;
+	border-color: #4286a8;
 }
 
 .nav-button {
-  background-color: rgba(0, 0, 0, 0.6);
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 2;
-  font-size: 18px;
-  font-family: "areakilo", sans-serif;
-  border-radius: 10px;
-  transition: background-color 0.3s ease;
+	background-color: rgba(0, 0, 0, 0.6);
+	color: white;
+	border: none;
+	padding: 10px 15px;
+	cursor: pointer;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: 2;
+	font-size: 18px;
+	font-family: areakilo;
+	border-radius: 10px;
+	transition: background-color 0.3s ease;
 }
 
 .nav-button:hover {
-  background-color: rgba(255, 255, 255, 0.6);
-  color: black;
+	background-color: rgba(255, 255, 255, 0.6);
+	color: black;
 }
 
 .nav-button:first-of-type {
-  left: 10px;
+	left: 10px;
 }
 
 .nav-button:last-of-type {
-  right: 10px;
+	right: 10px;
 }
 
 .close-button {
@@ -591,7 +587,7 @@
   margin-bottom: 40px;
   font-size: 16px;
   width: 50px;
-  background-color: #0037de;
+  background-color: #4286a8;
   color: white;
   font-weight: bold;
   border: none;
@@ -603,7 +599,7 @@
 }
 
 .close-button:hover {
-  background-color: #071540;
+  background-color: #23536b;
 }
 
 /* CART CONTENT */
@@ -636,7 +632,7 @@
 }
 
 .cart-popup h1 {
-  font-family: "areakilo", sans-serif;
+  font-family: pasti;
   text-align: left;
   letter-spacing: 1.5px;
   padding: 5% 0 0;
@@ -704,7 +700,7 @@
 .cart-popup-item-prices p {
   color: white;
   border-radius: 10px;
-  font-family: "radlushmed", sans-serif;
+  font-family: radlushmed;
   font-size: 15pt;
   background-color: black;
   padding: 10px;
@@ -722,7 +718,7 @@
   text-underline-offset: 2px;
   color: gray;
   padding: 0;
-  font-family: "radlushmed", sans-serif;
+  font-family: radlushmed;
   transition: 0.2s ease;
 }
 
@@ -738,7 +734,7 @@
 
 .cart-popup-item-name {
   color: white;
-  font-family: "radlushmed", sans-serif;
+  font-family: radlushmed;
   font-size: 14pt;
   margin-right: 15px;
   margin-bottom: 12px;
@@ -747,20 +743,22 @@
 .cart-popup-item-size,
 .cart-popup-item-price {
   color: gray;
-  font-family: "radlushmed", sans-serif;
+  font-family: radlushmed;
   font-size: 10pt;
 }
 
 .cart-popup-total, .cart-popup-counts {
-  margin: 10px 40px;
-  font-family: "radlushmed", sans-serif;
+  margin: 10px 30px;
+  font-style: italic;
+  font-family: radlushmed;
 }
 
 .cart-popup-total p {
   font-weight: bold;
   color: white;
   font-size: 25pt;
-  font-family: "radlushmed", sans-serif;
+  font-style: italic;
+  font-family: radlushmed;
 }
 
 .button-area {
@@ -779,7 +777,7 @@
   border: none;
   border-radius: 10px;
   border: 1px solid black;
-  font-family: "areakilo", sans-serif;
+  font-family: juliett;
   font-size: 15pt;
   width: 23%;
   height: 60%;

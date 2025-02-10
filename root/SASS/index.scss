@@ -1,3 +1,5 @@
+@import 'variables';
+
 #bgg {
     height: 100vh;
     background-color: black;
@@ -20,7 +22,7 @@
 	text-shadow: 0px 0px 10px black;
 	z-index: 4;
 	cursor: default;
-	font-family: areakilo;
+	font-family: $areakilo;
 	letter-spacing: 20px;
 	font-weight: bold;
 	opacity: 0.5;
@@ -56,9 +58,6 @@
 	height: auto;
 	opacity: 0.4;
 }
-
-
-@import 'variables';
 
 #scrollingText {
 	top: 150px;
@@ -102,7 +101,7 @@
 }
 
 #shopsnap h2 {
-    font-family: pasti;
+    font-family: $areakilo;
 	font-size: 35pt;
     letter-spacing: 2px;
     margin: 0 0 45px 15px;
@@ -158,7 +157,7 @@
 }
 
 .overlay > div * {
-	font-family: "radlushmed", sans-serif;
+	font-family: $radlushmed;
 }
 
 .image-wrapper:hover .overlay {
@@ -185,7 +184,7 @@
 }
 
 #contactsnap form > * {
-	font-family: radlushmed;
+	font-family: $radlushmed;
 	font-size: 12pt;
 }
 
@@ -208,7 +207,7 @@
 
 #contactsnap > div h2 {
 	font-size: 50pt;
-	font-family: pasti;
+	font-family: $areakilo;
 	letter-spacing: 2px;
 	text-align: center;
 }
@@ -220,15 +219,18 @@
 
 #signupbut {
 	width: 70%;
-	background-color: gray;
-	font-family: juliett;
+	background-color: $main;
+	font-family: $areakilo;
 	font-size: 14pt;
 	margin-bottom: 10px;
 	margin-top: 10px;
+	border: 3px solid $maindark;
+	border-radius: 5px;
 }
 
 #signupbut:hover {
-	background-color: #555;
+	background-color: $mainlight;
+	color: $maindark;
 	transform: scale(1.03);
 }
 

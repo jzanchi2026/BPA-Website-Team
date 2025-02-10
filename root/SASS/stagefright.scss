@@ -1,5 +1,7 @@
 @import 'variables';
 
+/* GENERAL STYLES */
+
 * {
 	margin: 0;
 	color: white;
@@ -135,11 +137,96 @@ input[type="checkbox"]:checked::before {
 	cursor: pointer;
 }
 
-nav > div a:hover, #displayedLinks a:hover {
-    color: #4286a8;
+#displayedLinks a:hover {
+    color: $main;
     text-shadow: 0px 0px 20px black;
     transform: scale(1.05) translateX(2%);
 }
+
+nav > div.inside a:hover:nth-child(1) {
+    color: $main;
+    text-shadow: 0px 0px 20px black;
+    transform: scale(1.05) translateX(2%);
+}
+
+nav > div.inside a:hover:nth-child(2) {
+    color: #4228c6;
+    text-shadow: 0px 0px 20px black;
+    transform: scale(1.05) translateX(2%);
+}
+
+nav > div.inside a:hover:nth-child(3) {
+    color: #7a2ed1;
+    text-shadow: 0px 0px 20px black;
+    transform: scale(1.05) translateX(2%);
+}
+
+nav > div.inside:nth-of-type(2) a:hover:nth-child(1) {
+    color: #7f4b96;
+    text-shadow: 0px 0px 20px black;
+    transform: scale(1.05) translateX(2%);
+}
+
+nav > div.inside:nth-of-type(2) a:hover:nth-child(2) {
+    color: #aa5c7e;
+    text-shadow: 0px 0px 20px black;
+    transform: scale(1.05) translateX(2%);
+}
+
+.inside a, .cart-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 20px;
+    height: 130px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 12pt;
+    text-align: center;
+    font-family: salmapro;
+    letter-spacing: 2px;
+}
+
+.cart-link {
+    width: 45px;
+    padding: 0;
+    position: relative;
+}
+
+.cart-link img {
+    max-height: 60%;
+    max-width: 60%;
+    object-fit: contain;
+    transition: opacity 0.3s ease;
+}
+
+.cart-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease;
+}
+
+.pink-cart {
+    opacity: 0;
+}
+
+.cart-link:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.cart-link:hover .pink-cart {
+    opacity: 1;
+}
+
+.cart-link:hover .white-cart {
+    opacity: 0;
+}
+
+
 
 .navlogo {
     height: 100px;
@@ -215,7 +302,7 @@ nav > div a:hover, #displayedLinks a:hover {
 	padding-left: 20px;
     font-family: salmapro;
     letter-spacing: 2px;
-	color: #70afcf;
+	color: $mainlight;
 }
 
 
@@ -305,10 +392,11 @@ footer {
 
 .footer-img {
 	width: 100vw;
-	height: 150px;
+	height: 300px;
 	margin-bottom: 0px;
 	background-size: cover;
-	filter: blur(20px);
+	filter: blur(7px);
+	box-shadow: inset 0px 40px 60px 50px black;
 }
 
 /* HEADING STYLING */

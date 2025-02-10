@@ -20,7 +20,7 @@
   text-shadow: 0px 0px 10px black;
   z-index: 4;
   cursor: default;
-  font-family: "areakilo", sans-serif;
+  font-family: areakilo;
   letter-spacing: 20px;
   font-weight: bold;
   opacity: 0.5;
@@ -99,7 +99,7 @@
 }
 
 #shopsnap h2 {
-  font-family: "areakilo", sans-serif;
+  font-family: pasti;
   font-size: 35pt;
   letter-spacing: 2px;
   margin: 0 0 45px 15px;
@@ -182,7 +182,7 @@
 }
 
 #contactsnap form > * {
-  font-family: "radlushmed", sans-serif;
+  font-family: radlushmed;
   font-size: 12pt;
 }
 
@@ -205,7 +205,7 @@
 
 #contactsnap > div h2 {
   font-size: 50pt;
-  font-family: "areakilo", sans-serif;
+  font-family: pasti;
   letter-spacing: 2px;
   text-align: center;
 }
@@ -217,18 +217,15 @@
 
 #signupbut {
   width: 70%;
-  background-color: #0037de;
-  font-family: "areakilo", sans-serif;
+  background-color: gray;
+  font-family: juliett;
   font-size: 14pt;
   margin-bottom: 10px;
   margin-top: 10px;
-  border: 3px solid #071540;
-  border-radius: 5px;
 }
 
 #signupbut:hover {
-  background-color: #7b82e8;
-  color: #071540;
+  background-color: #555;
   transform: scale(1.03);
 }
 

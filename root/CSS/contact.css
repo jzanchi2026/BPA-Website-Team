@@ -250,7 +250,7 @@ button:hover {
 /* Responsive Design */
 @media (max-width: 1008px) {
   #seeForms > div > div > h2 {
-    font-size: 70pt;
+    font-size: 65pt;
   }
   #seeForms > div > div > div > * {
     font-size: 25pt;
@@ -258,6 +258,8 @@ button:hover {
   #seeForms > div {
     flex-direction: column;
     padding: 15px;
+    width: calc(95% - 30px);
+    margin: 25px auto;
   }
   #seeForms > div img {
     width: 100%;

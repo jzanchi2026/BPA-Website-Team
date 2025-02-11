@@ -279,6 +279,7 @@ nav > div.inside:nth-of-type(2) a:hover:nth-child(2) {
 #mobile-header .cart-link {
 	width: 50px;
 	height: 50px;
+	margin-top: 20px;
 }
 
 
@@ -522,9 +523,14 @@ footer {
 	.inside { 
 		padding: 0;
 	}
-}
-
-@media (max-width: 700px) {
+	
+	#navbar {
+		display: none;
+	}
+	
+	#navbar-mobile {
+		display: block;
+	}
 	
 	.inside a, .inside div {
 		font-size: 2vw;
@@ -558,13 +564,6 @@ footer {
 		margin: 0;
 	}
 	
-	#navbar {
-		display: none;
-	}
-	
-	#navbar-mobile {
-		display: block;
-	}
 	
 	.hr-container > hr {
 		margin: 20px auto;
@@ -579,6 +578,11 @@ footer {
 		box-shadow: none;
 		bottom: -95px;
 	}
+	
+}
+
+@media (max-width: 700px) {
+	
 	
 	#pageTitle {
 		padding-top: 50px;

@@ -858,7 +858,6 @@
   background-color: #999999;
 }
 
-/* MEDIA QUERIES */
 
 /* MAIN SHOP CONTENT */
 .product-card {
@@ -940,145 +939,176 @@
   background-color: $main;
 }
 
-/* For Tablets and Small Laptops */
-@media (max-width: 768px) {
-    #contactteam > h1 {
-        font-size: 40pt;
-        padding: 120px 0 100px;
-    }
+/* Responsive Media Queries */
 
-    #signups {
-        flex-direction: column;
-        width: 90vw;
-        padding: 20px;
-    }
+@media (max-width: 1224px) {
+  
+  /* Main shop queries */
+  
+  .product-card {
+    width: calc(90% - 24px);
+    margin: 10px 40px 10px 0;
+    padding: 12px;
+  }
 
-    #signups > div > h2 {
-        font-size: 5rem;
-        padding: 0 30px;
-        width: 100%;
-        text-align: center;
-    }
+  .product-card img {
+    width: 100%;
+    height: auto;
+  }
 
-    #signups > div > p {
-        font-size: 20pt;
-        padding: 0 30px;
-        text-align: center;
-    }
+  .product-name {
+    font-size: 26pt;
+  }
 
-    #signups > img {
-        width: 150px;
-        height: 350px;
-    }
+  .product-price {
+    font-size: 18pt;
+  }
 
-    #seeForms {
-        width: 90vw;
-    }
+  #pagination button {
+    font-size: 16pt;
+  }
+  
+  #pagination {
+    gap: 10px;
+    margin-top: 20px;
+	padding-right: 50px;
+	margin-right: 50px;
+	width: 100%;
+	justify-content: left;
+  }
+  
+	/* Popup queries */
+	
+	.popup-content {
+	  padding: 20px;
+	  overflow-x: hidden;
+	}
+  
+	.flexed {
+		flex-direction: column;
+	}
+  
+	.flexed .side-one {
+		width: 100%;
+		padding: 0;
+	}
+	
+	.flexed .side-two {
+		width: 100%;
+		padding: 10px;
+	}
+	
+	.image-container {
+		margin-top: 60px;
+		position: relative;
+		width: 100%;
+		height: 100%;
+		left: 0;
+		transform: translateY(0%) translateX(0%);
+	}
+  
+	.popup-image-single {
+		position: relative;
+		width: 95%;
+		height: 95%;
+		margin: 60px auto 0;
+		left: 0;
+		transform: translateY(0%) translateX(0%);
+	}
+	
+	.tag {
+	  font-size: 25pt;
+	}
+	
+	.title {
+	  font-size: 65pt;
+	}
+	
+	.creator {
+	  font-size: 23pt;
+	}
 
-    #seeForms > div {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
+	.idnum {
+	  font-size: 17pt;
+	}
 
-    #seeForms > div img {
-        width: 90%;
-    }
+	.price {
+	  font-size: 30pt;
+	}
+	
+	.size-button {
+	  font-size: 23pt;
+	  padding: 12px;
+	}
+	
+	.size-chart-toggle {
+	  font-size: 23pt;
+	}
+	
+	.size-chart-wrapper {
+	  overflow-y: auto;
+	}
+	
+	.size-chart th,
+	.size-chart td {
+		font-size: 19pt;
+	}
+	
+	.quantity-label, .quantity-button, .quantity-display {
+		font-size: 23pt;
+	}
+	
+	.quantity-button {
+	  width: auto;
+	}
 
-    #seeForms > div button {
-        width: 90%;
-    }
-
-    #seeForms > div div h2 {
-        font-size: 35pt;
-    }
+	
+	.purchase-options-container {
+		margin: 10px 0 50px;
+	}
+	
+	.button {
+		font-size: 17pt;
+		height: 100px;
+		width: auto;
+	}
+	
+	.description-preview {
+		font-size: 22pt;
+	}
+	
+	.description-full {
+		font-size: 18pt;
+	}
+	
+	.close-button {
+	  z-index: 5;
+	  font-size: 30pt;
+	  padding: 10px 40px;
+	  display: flex;
+	  justify-content: center;
+	}
+  
 }
 
-/* For Phones */
-@media (max-width: 550px) {
-    #contactteam > h1 {
-        font-size: 25pt;
-        padding: 100px 0 80px;
-    }
+@media (max-width: 600px) {
+	  .product-name {
+		font-size: 44pt;
+	  }
 
-    #signups {
-        padding: 10px;
-        gap: 10px;
-    }
+	  .product-price {
+		font-size: 36pt;
+	  }
 
-    #signups > div > h2 {
-        font-size: 3.5rem;
-        padding: 0;
-        text-align: center;
-    }
-
-    #signups > div > p {
-        font-size: 18pt;
-        padding: 0;
-    }
-
-    #signups > img {
-        width: 100px;
-        height: 250px;
-    }
-
-    #seeForms {
-        width: 95vw;
-    }
-
-    #seeForms > div {
-        padding: 15px;
-        gap: 15px;
-        border-radius: 8px;
-    }
-
-    #seeForms > div div h2 {
-        font-size: 30pt;
-    }
-
-    #seeForms > div button {
-        width: 100%;
-    }
-
-    .form-popup form {
-        width: 90vw;
-        max-height: calc(90vh - 60px);
-    }
-
-    .form-section-container {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .form-section {
-        width: 100%;
-    }
-
-    .close-btn {
-        top: 10px;
-        right: 10px;
-    }
-
-    label {
-        font-size: 18pt;
-    }
-
-    input[type="text"],
-    input[type="email"],
-    input[type="date"],
-    input[type="time"],
-    input[type="tel"],
-    textarea {
-        width: calc(100% - 10px);
-        font-size: 18pt;
-    }
-
-    button {
-        font-size: 18pt;
-    }
-
-    #seeForms > div p {
-        font-size: 16pt;
-    }
+	  #pagination button {
+		font-size: 21pt;
+	  }
+	
+	.flexed .side-two, .flexed .side-one {
+		padding: 0px;
+		transform: scale(0.94)
+	}
+  
 }
+
 

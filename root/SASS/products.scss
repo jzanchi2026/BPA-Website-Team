@@ -858,7 +858,6 @@
   background-color: #999999;
 }
 
-/* MEDIA QUERIES */
 
 /* MAIN SHOP CONTENT */
 .product-card {
@@ -942,7 +941,9 @@
 
 /* Responsive Media Queries */
 
-@media (max-width: 1124px) {
+@media (max-width: 1224px) {
+  
+  /* Main shop queries */
   
   .product-card {
     width: calc(90% - 24px);
@@ -975,21 +976,138 @@
 	width: 100%;
 	justify-content: left;
   }
+  
+	/* Popup queries */
+	
+	.popup-content {
+	  padding: 20px;
+	  overflow-x: hidden;
+	}
+  
+	.flexed {
+		flex-direction: column;
+	}
+  
+	.flexed .side-one {
+		width: 100%;
+		padding: 0;
+	}
+	
+	.flexed .side-two {
+		width: 100%;
+		padding: 10px;
+	}
+	
+	.image-container {
+		margin-top: 60px;
+		position: relative;
+		width: 100%;
+		height: 100%;
+		left: 0;
+		transform: translateY(0%) translateX(0%);
+	}
+  
+	.popup-image-single {
+		position: relative;
+		width: 95%;
+		height: 95%;
+		margin: 60px auto 0;
+		left: 0;
+		transform: translateY(0%) translateX(0%);
+	}
+	
+	.tag {
+	  font-size: 25pt;
+	}
+	
+	.title {
+	  font-size: 65pt;
+	}
+	
+	.creator {
+	  font-size: 23pt;
+	}
+
+	.idnum {
+	  font-size: 17pt;
+	}
+
+	.price {
+	  font-size: 30pt;
+	}
+	
+	.size-button {
+	  font-size: 23pt;
+	  padding: 12px;
+	}
+	
+	.size-chart-toggle {
+	  font-size: 23pt;
+	}
+	
+	.size-chart-wrapper {
+	  overflow-y: auto;
+	}
+	
+	.size-chart th,
+	.size-chart td {
+		font-size: 19pt;
+	}
+	
+	.quantity-label, .quantity-button, .quantity-display {
+		font-size: 23pt;
+	}
+	
+	.quantity-button {
+	  width: auto;
+	}
+
+	
+	.purchase-options-container {
+		margin: 10px 0 50px;
+	}
+	
+	.button {
+		font-size: 17pt;
+		height: 100px;
+		width: auto;
+	}
+	
+	.description-preview {
+		font-size: 22pt;
+	}
+	
+	.description-full {
+		font-size: 18pt;
+	}
+	
+	.close-button {
+	  z-index: 5;
+	  font-size: 30pt;
+	  padding: 10px 40px;
+	  display: flex;
+	  justify-content: center;
+	}
+  
 }
 
 @media (max-width: 600px) {
-  .product-name {
-    font-size: 44pt;
-  }
+	  .product-name {
+		font-size: 44pt;
+	  }
 
-  .product-price {
-    font-size: 36pt;
-  }
+	  .product-price {
+		font-size: 36pt;
+	  }
 
-  #pagination button {
-    font-size: 21pt;
-  }
-
+	  #pagination button {
+		font-size: 21pt;
+	  }
+	
+	.flexed .side-two, .flexed .side-one {
+		padding: 0px;
+		transform: scale(0.95)
+	}
   
 }
 

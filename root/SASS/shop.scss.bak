@@ -120,6 +120,7 @@ body {
 	font-family: $areakilo;
 	border: 1px solid black;
 	display: none;
+	font-size: 20pt;
 	border-radius: 0;
 }
 

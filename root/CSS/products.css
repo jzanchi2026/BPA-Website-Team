@@ -970,13 +970,13 @@
 }
 @media (max-width: 600px) {
   .product-name {
-    font-size: 34pt;
+    font-size: 44pt;
   }
   .product-price {
-    font-size: 20pt;
+    font-size: 36pt;
   }
   #pagination button {
-    font-size: 11pt;
+    font-size: 21pt;
   }
 }
 

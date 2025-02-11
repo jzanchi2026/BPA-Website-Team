@@ -258,7 +258,7 @@
 			
 			<div id="signup" class="form-popup">			
 				<form action="" method="POST">
-					<button class="close-btn" onclick="closeForm('signup')">X</button>
+				<button class="close-btn" onclick="closeForm('signup')">X</button>
 					<h2>Join the Mailing List</h2>
 					<label for="name">Full Name:</label>
 					<input type="text" id="name" name="name" placeholder="e.g. John Doe" required>

@@ -316,18 +316,18 @@ input[type=checkbox]::before {
     opacity: 1;
   }
   #categories > h2 {
-    font-size: 33pt;
+    font-size: 43pt;
   }
   #categories > h4 {
-    font-size: 28pt;
+    font-size: 38pt;
   }
   .checkbox-item input {
-    height: 25pt;
-    width: 25pt;
+    height: 35pt;
+    width: 35pt;
     border: 4px solid #0037de;
   }
   .checkbox-item label {
-    font-size: 21pt;
+    font-size: 31pt;
   }
   #showFilters {
     display: block;

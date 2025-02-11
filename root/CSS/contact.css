@@ -6,20 +6,6 @@
   min-height: 100vh;
 }
 
-#contactteam > h1 {
-  width: 100vw;
-  padding: 160px 0 130px;
-  font-family: "Pasti", sans-serif;
-  font-size: 60pt;
-  letter-spacing: 10px;
-  background-image: url("../Images/crowdd.jpg");
-  filter: hue-rotate(180deg) saturate(60%);
-  background-size: cover;
-  background-position: center;
-  box-shadow: inset 0px 0px 70px 60px rgb(0, 0, 0);
-  text-shadow: 0px 0px 50px rgb(0, 0, 0);
-}
-
 /* Sign-up Section */
 #signups {
   display: flex;
@@ -36,9 +22,9 @@
 #signups > div > h2 {
   width: 30vw;
   letter-spacing: 5px;
-  font-family: "Pasti", sans-serif;
+  font-family: "areakilo", sans-serif;
   padding: 0 60px 0 80px;
-  color: #4286a8;
+  color: #0037de;
   font-size: 7rem;
   text-align: left;
   margin-bottom: 10px;
@@ -46,7 +32,7 @@
 
 #signups > div > p {
   width: 30vw;
-  font-family: "Radlushmed", sans-serif;
+  font-family: "radlushmed", sans-serif;
   padding: 0 60px 0 80px;
   color: white;
   text-align: left;
@@ -109,7 +95,7 @@ input[type=checkbox] + label {
 }
 
 #seeForms > div div h2 {
-  font-family: "Areakilo", sans-serif;
+  font-family: "areakilo", sans-serif;
   color: white;
   font-size: 60pt;
   margin-bottom: 5px;
@@ -118,7 +104,7 @@ input[type=checkbox] + label {
 }
 
 #seeForms > div div p {
-  font-family: "Radlushmed", sans-serif;
+  font-family: "radlushmed", sans-serif;
   font-size: 13pt;
   color: #cfcfcf;
   line-height: 1.6;
@@ -127,7 +113,7 @@ input[type=checkbox] + label {
 }
 
 #seeForms > div button {
-  background-color: #4286a8;
+  background-color: #0037de;
   color: white;
   padding: 12px 20px;
   border: none;
@@ -140,7 +126,7 @@ input[type=checkbox] + label {
 }
 
 #seeForms > div button:hover {
-  background-color: #285369;
+  background-color: #071540;
   transform: scale(1.02);
 }
 
@@ -180,8 +166,8 @@ input[type=checkbox] + label {
 }
 
 .form-popup form h2 {
-  font-family: "Areakilo", sans-serif;
-  color: #4286a8;
+  font-family: "areakilo", sans-serif;
+  color: #0037de;
   letter-spacing: 1px;
   font-size: 24px;
 }
@@ -190,11 +176,11 @@ input[type=checkbox] + label {
   position: absolute;
   top: 0px;
   right: 15px;
-  background-color: #4286a8;
+  background-color: #0037de;
   border: none;
   color: white;
   font-size: 15px;
-  font-family: "Arial narrow", sans-serif;
+  font-family: "salmapro", sans-serif;
   cursor: pointer;
   padding: 10px;
   border-radius: 5px;
@@ -206,14 +192,14 @@ input[type=checkbox] + label {
 }
 
 .close-btn:hover {
-  background-color: #295369;
+  background-color: #071540;
 }
 
 label {
   display: block;
-  color: #4286a8;
+  color: #0037de;
   margin-top: 10px;
-  font-family: "Radlushmed", sans-serif;
+  font-family: "radlushmed", sans-serif;
   font-weight: bold;
   font-size: 14px;
   text-align: left;
@@ -225,7 +211,7 @@ input[type=date],
 input[type=time],
 input[type=tel] {
   padding: 10px;
-  font-family: "Radlushmed", sans-serif;
+  font-family: "radlushmed", sans-serif;
   color: black;
   width: calc(100% - 20px);
   margin-top: 5px;
@@ -236,7 +222,7 @@ input[type=tel] {
 
 textarea {
   padding: 10px;
-  font-family: "Radlushmed", sans-serif;
+  font-family: "radlushmed", sans-serif;
   color: black;
   width: calc(100% - 20px);
   margin-top: 5px;
@@ -245,7 +231,7 @@ textarea {
 }
 
 button {
-  background-color: #4286a8;
+  background-color: #0037de;
   color: white;
   padding: 12px 20px;
   border: none;
@@ -262,7 +248,13 @@ button:hover {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 1008px) {
+  #seeForms > div > div > h2 {
+    font-size: 70pt;
+  }
+  #seeForms > div > div > div > * {
+    font-size: 25pt;
+  }
   #seeForms > div {
     flex-direction: column;
     padding: 15px;
@@ -270,12 +262,44 @@ button:hover {
   #seeForms > div img {
     width: 100%;
   }
-  form {
-    width: 90%;
-  }
   .form-popup form {
-    width: 90%;
+    width: 80vw;
+    overflow-y: auto;
   }
+  .form-section label, .form-section-long label, .form-popup form label {
+    font-size: 25pt;
+  }
+  .form-section input, .form-section-long textarea, .form-section textarea, .form-popup form input {
+    font-size: 21pt;
+    padding: 20px 5px;
+  }
+  .form-popup form input[type=checkbox] {
+    width: 34pt;
+    height: 34pt;
+    border: 4px solid white;
+  }
+  .form-popup form input[type=checkbox]::before {
+    content: "";
+    width: 0.95em;
+    height: 0.95em;
+    transform: scale(0);
+  }
+  .form-popup form input[type=checkbox]:checked::before {
+    transform: scale(1) translateY(-50%);
+  }
+  .close-btn {
+    font-size: 25pt;
+    padding: 25px;
+  }
+  .form-popup form button[type=submit] {
+    font-size: 25pt;
+    width: 100%;
+  }
+  .form-popup form h2 {
+    font-size: 40pt;
+  }
+}
+@media (max-width: 768px) {
   #signups {
     flex-direction: column;
   }

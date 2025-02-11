@@ -294,7 +294,7 @@ button:hover {
 		content: "";
 		width: 0.95em;
 		height: 0.95em;
-		transform: scale(0);
+		transform: scale(0) translate(-50%);
 	}
 
 	.form-popup form input[type="checkbox"]:checked::before {

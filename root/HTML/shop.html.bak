@@ -218,6 +218,8 @@
 			   
 				<div id="combined">  
 					<div id="sortby">
+							<img class="cart-trigger" onclick="showCartPopup()" id="cart" src="../Images/cart.png" alt="Shopping Cart">
+							<span id="cart-count">0</span>
 							<div id="counted"></div>  
 							<button id="showFilters" onclick="toggleFilters()">SHOW FILTERS</button>
 							

@@ -170,7 +170,7 @@
     "image": "../Images/SHOP/products/pick-fadetoblack.png",
     "filters": {
       "departments": ["unisex"],
-      "collections": ["albums", "media", "accessories"]
+      "collections": ["albums"]
     },
     "requiresSizes": false
   },

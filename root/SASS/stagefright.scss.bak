@@ -209,7 +209,7 @@ nav > div.inside:nth-of-type(2) a:hover:nth-child(2) {
     transition: opacity 0.3s ease;
 }
 
-.cart-count {
+#cart-count {
     position: absolute;
 	top: calc(50% - 20px);
 	right: 0px;

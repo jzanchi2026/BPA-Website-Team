@@ -48,7 +48,7 @@
 				<img class="navlogo" data-href="index.html" onclick="fadeout(event)" src="../Images/blueBlur.PNG" alt="Main Stage Fright Logo">
 				
 				<div style="justify-content: left;" class="inside">
-					<div class="cart-link">
+					<div onclick="showCartPopup()" class="cart-link">
 					    <img onclick="showCartPopup()" class="cart-img white-cart" src="../Images/cart.png" alt="cart">
 					    <img onclick="showCartPopup()" class="cart-img pink-cart" src="../Images/pinkcart.png" alt="cart">
 					    <span onclick="showCartPopup()" class="cart-count">0</span>

@@ -6,7 +6,7 @@ $accent: #470c0c;
 $accentdark: #541f36;
 $accentlight: #e68cb3;
 $mainrgba: rgba(0, 55, 222, 0.5);
-$maindarkrgba: rgba(7, 21, 64, 0.4);
+$maindarkrgba rgba(7, 21, 64, 0.4);
 
 // Fonts
 $salmapro: "salmapro", sans-serif;

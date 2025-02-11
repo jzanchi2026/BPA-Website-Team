@@ -202,6 +202,21 @@ nav > div.inside:nth-of-type(2) a:hover:nth-child(2) {
   transition: opacity 0.3s ease;
 }
 
+.cart-count {
+  position: absolute;
+  top: calc(50% - 20px);
+  right: 0px;
+  background-color: #541f36;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+  font-weight: bold;
+  pointer-events: none;
+  display: none;
+  transition: 0.3s ease-in-out;
+}
+
 .pink-cart {
   opacity: 0;
 }
@@ -378,10 +393,10 @@ footer {
 
 .footer-img {
   width: 100vw;
-  height: 300px;
+  height: 30vh;
   margin-bottom: 0px;
   background-size: cover;
-  filter: blur(7px);
+  filter: blur(5px);
   box-shadow: inset 0px 40px 60px 50px black;
 }
 
@@ -510,6 +525,14 @@ footer {
     background: rgba(0, 0, 0, 0.6);
     box-shadow: none;
     bottom: -95px;
+  }
+  #pageTitle {
+    padding-top: 50px;
+    background-size: cover;
+  }
+  #pageTitle h1 {
+    font-size: 25pt;
+    width: 100%;
   }
 }
 @media (max-width: 550px) {

@@ -36,7 +36,7 @@ function fadeout(event) {
 }
 
 
-// Highlights the current page and adds blurring for heading image
+// Highlights the current page
 window.addEventListener("DOMContentLoaded", () => {
   const navLinks = document.querySelectorAll("#navbar a");
   navLinks.forEach(link => {
@@ -45,15 +45,6 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  const pageTitle = document.getElementById("pageTitle");
-
-  if (pageTitle) {
-    window.addEventListener("scroll", () => {
-      const scrollAmount = window.scrollY;
-      const blurValue = Math.min(scrollAmount / 50, 100);
-      pageTitle.style.filter = `blur(${blurValue}px)`;
-    });
-  }
 });
 
 

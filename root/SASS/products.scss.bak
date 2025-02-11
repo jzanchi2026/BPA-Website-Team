@@ -3,7 +3,7 @@
 /* MAIN SHOP CONTENT */
 .product-card {
   text-align: left;
-  width: calc(30% - 30px);
+  width: 250px;
   padding: 15px;
   display: inline-block;
   cursor: pointer;
@@ -856,6 +856,141 @@
 
 .cart-popup-item-quantity button:hover {
   background-color: #999999;
+}
+
+/* MEDIA QUERIES */
+
+/* MAIN SHOP CONTENT */
+.product-card {
+  text-align: left;
+  width: 250px;
+  padding: 15px;
+  display: inline-block;
+  cursor: pointer;
+  border: 3px solid black;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  transition: transform 0.3s;
+  margin: 2px;
+}
+
+.product-card:hover {
+  transform: scale(1.02);
+  border: 3px solid rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+}
+
+.product-card img {
+  width: 250px;
+  height: 250px;
+  border: 2px solid black;
+  border-radius: 10px;
+  cursor: pointer;
+  display: block;
+}
+
+.product-name {
+  display: block;
+  margin: 15px 0 5px;
+  color: white;
+  font-family: $radlushmed;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 15pt;
+}
+
+.product-name:hover {
+  text-decoration: underline;
+}
+
+.product-name.limited {
+  color: $main;
+}
+
+.product-price {
+  color: white;
+  font-weight: bold;
+  margin: 0;
+}
+
+.product-price s {
+  color: gray;
+}
+
+.product-price span {
+  color: $mainlight;
+}
+
+#pagination button {
+  padding: 10px 20px;
+  height: 100%;
+  width: auto;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  font-size: 12pt;
+  font-weight: bold;
+  border-radius: 0;
+  margin: 0 1px;
+  border: 2.5px solid black;
+  border-radius: 5px;
+}
+
+#pagination button.active {
+  background-color: $main;
+}
+
+/* Responsive Media Queries */
+
+@media (max-width: 1124px) {
+  
+  .product-card {
+    width: calc(90% - 24px);
+    margin: 10px 40px 10px 0;
+    padding: 12px;
+  }
+
+  .product-card img {
+    width: 100%;
+    height: auto;
+  }
+
+  .product-name {
+    font-size: 18pt;
+  }
+
+  .product-price {
+    font-size: 16pt;
+  }
+
+  #pagination button {
+    font-size: 16pt;
+  }
+  
+  #pagination {
+    gap: 10px;
+    margin-top: 20px;
+	padding-right: 50px;
+	margin-right: 50px;
+	width: 100%;
+	justify-content: left;
+  }
+}
+
+@media (max-width: 600px) {
+  .product-name {
+    font-size: 24pt;
+  }
+
+  .product-price {
+    font-size: 20pt;
+  }
+
+  #pagination button {
+    font-size: 11pt;
+  }
+
+  
 }
 
 

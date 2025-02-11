@@ -299,15 +299,17 @@ function updateCartCount() {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
     totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
-    const cartCount = document.querySelector('.cart-count');
-	if (cartCount) {
-		if (totalItems > 0) {
-			cartCount.style.display = 'block';
-			cartCount.textContent = totalItems;
-		} else {
-			cartCount.style.display = 'none';
-		}
-	}
+    const cartCounts = document.querySelectorAll('.cart-count');
+    cartCounts.forEach(cartCount => {
+        if (cartCount) {
+            if (totalItems > 0) {
+                cartCount.style.display = 'block';
+                cartCount.textContent = totalItems;
+            } else {
+                cartCount.style.display = 'none';
+            }
+        }
+    });
 }
 
 function addTicketToCart(eventDetails, pricePerTicket, quantity, section) {

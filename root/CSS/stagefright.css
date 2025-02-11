@@ -534,6 +534,9 @@ footer {
     font-size: 25pt;
     width: 100%;
   }
+  #mainshop {
+    padding: 0;
+  }
 }
 @media (max-width: 550px) {
   .footer-info {

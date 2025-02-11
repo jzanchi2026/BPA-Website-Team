@@ -38,7 +38,7 @@ body {
   font-family: "radlushmed", sans-serif;
   letter-spacing: 2px;
   text-shadow: black 0 0 20px;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(7, 21, 64, 0.3);
   padding: 10px;
   text-transform: uppercase;
 }
@@ -117,6 +117,7 @@ body {
   font-family: "areakilo", sans-serif;
   border: 1px solid black;
   display: none;
+  font-size: 20pt;
   border-radius: 0;
 }
 
@@ -313,6 +314,20 @@ input[type=checkbox]::before {
   #categories.active {
     left: 5vw;
     opacity: 1;
+  }
+  #categories > h2 {
+    font-size: 33pt;
+  }
+  #categories > h4 {
+    font-size: 28pt;
+  }
+  .checkbox-item input {
+    height: 25pt;
+    width: 25pt;
+    border: 4px solid #0037de;
+  }
+  .checkbox-item label {
+    font-size: 21pt;
   }
   #showFilters {
     display: block;

@@ -4,7 +4,7 @@ function toggleFilters() {
 
 	if (categories.classList.contains("active")) {
 		categories.classList.remove("active");
-		document.querySelector('body').style.overflow = "auto";
+		document.querySelector('body').style.overflowY = "auto";
 		setTimeout(() => {
 			hideFilters.style.display = "none";
 		}, 300);

@@ -4,13 +4,14 @@ function toggleFilters() {
 
 	if (categories.classList.contains("active")) {
 		categories.classList.remove("active");
+		document.querySelector('body').style.overflow = "auto";
 		setTimeout(() => {
 			hideFilters.style.display = "none";
 		}, 300);
 	} else {
 		categories.classList.add("active");
 		hideFilters.style.display = "block";
-		document.querySelector('body');
+		document.querySelector('body').style.overflow = "hidden";
 	}
 }
 

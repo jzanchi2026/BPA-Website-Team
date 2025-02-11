@@ -443,7 +443,7 @@
 
 .selectedSection {
 	background-color: $mainlight;
-	color: white;
+	color: $mainlight;
 }
 
 

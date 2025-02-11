@@ -33,7 +33,7 @@
   display: block;
   margin: 15px 0 5px;
   color: white;
-  font-family: $radlushmed;
+  font-family: $areakilo;
   text-decoration: none;
   font-weight: bold;
   font-size: 15pt;
@@ -51,6 +51,7 @@
   color: white;
   font-weight: bold;
   margin: 0;
+  font-family: $radlushmed;
 }
 
 .product-price s {
@@ -606,6 +607,7 @@
   position: absolute;
   top: 20px;
   right: 40px;
+  font-family: $areakilo;
 }
 
 .close-button:hover {
@@ -862,87 +864,6 @@
   background-color: #999999;
 }
 
-
-/* MAIN SHOP CONTENT */
-.product-card {
-  text-align: left;
-  width: 250px;
-  padding: 15px;
-  display: inline-block;
-  cursor: pointer;
-  border: 3px solid black;
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 10px;
-  transition: transform 0.3s;
-  margin: 2px;
-}
-
-.product-card:hover {
-  transform: scale(1.02);
-  border: 3px solid rgba(255, 255, 255, 0.4);
-  border-radius: 10px;
-}
-
-.product-card img {
-  width: 250px;
-  height: 250px;
-  border: 2px solid black;
-  border-radius: 10px;
-  cursor: pointer;
-  display: block;
-}
-
-.product-name {
-  display: block;
-  margin: 15px 0 5px;
-  color: white;
-  font-family: $radlushmed;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 15pt;
-}
-
-.product-name:hover {
-  text-decoration: underline;
-}
-
-.product-name.limited {
-  color: $main;
-}
-
-.product-price {
-  color: white;
-  font-weight: bold;
-  margin: 0;
-}
-
-.product-price s {
-  color: gray;
-}
-
-.product-price span {
-  color: $mainlight;
-}
-
-#pagination button {
-  padding: 10px 20px;
-  height: 100%;
-  width: auto;
-  cursor: pointer;
-  background-color: black;
-  color: white;
-  font-size: 12pt;
-  font-weight: bold;
-  border-radius: 0;
-  margin: 0 1px;
-  border: 2.5px solid black;
-  border-radius: 5px;
-}
-
-#pagination button.active {
-  background-color: $main;
-}
-
 /* Responsive Media Queries */
 
 @media (max-width: 1224px) {
@@ -1018,6 +939,27 @@
 		margin: 70px auto 0;
 		left: 0;
 		transform: translateY(0%) translateX(0%);
+	}
+	
+	.nav-button {
+		transform: scale(2);
+	}
+	
+	.nav-button:first-of-type {
+		left: 25px;
+	}
+
+	.nav-button:last-of-type {
+		right: 25px;
+	}
+	
+	.image-preview-container {
+		gap: 50px;
+		bottom: 45px;
+	}
+	
+	.preview-image {
+		transform: scale(1.15);
 	}
 	
 	.tag {
@@ -1168,10 +1110,6 @@
 	.flexed .side-two, .flexed .side-one {
 		padding: 0px;
 		transform: scale(0.95)
-	}
-	
-	.cart-popup-item-container {
-	  font-size: 18pt;
 	}
 }
 

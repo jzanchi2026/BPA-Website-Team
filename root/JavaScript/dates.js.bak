@@ -186,7 +186,6 @@ function buildStadium() {
 function closeTicketing() {
 	document.getElementById("ticketingInfo").style.display = "none";
 	document.body.style.overflowY = "auto";
-	document.body.style.overflowX = "hidden";
 }
 
 function setPrice(sectionLetter, quantity) {

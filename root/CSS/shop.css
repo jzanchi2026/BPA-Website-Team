@@ -37,9 +37,10 @@ body {
   color: white;
   font-family: "radlushmed", sans-serif;
   letter-spacing: 2px;
-  text-shadow: #0037de 0 0 20px;
-  background: rgba(0, 0, 0, 0.3);
-  padding: 5px;
+  text-shadow: black 0 0 20px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 10px;
+  text-transform: uppercase;
 }
 
 .short {
@@ -195,7 +196,7 @@ input[type=checkbox]::before {
 }
 
 #selection {
-  background-color: #f0f0f0;
+  background-color: #222;
   padding: 0 15px;
   margin-left: 45%;
   position: relative;
@@ -211,7 +212,7 @@ input[type=checkbox]::before {
 }
 
 #selection option {
-  background-color: white;
+  background-color: #333;
   color: #7b82e8;
   font-family: "areakilo", sans-serif;
 }
@@ -272,6 +273,9 @@ input[type=checkbox]::before {
     margin: 0 auto;
     width: 100%;
   }
+  .boxes > div h2 {
+    font-size: 30pt;
+  }
   .boxes > div {
     margin: 15px auto;
     height: 150px;
@@ -304,7 +308,7 @@ input[type=checkbox]::before {
     left: -100%;
     overflow-y: auto;
     transition: 0.5s ease-in-out;
-    box-shadow: 0 0 60px 60px rgba(0, 0, 0, 0.5); /* Adjust box-shadow */
+    box-shadow: 0 0 60px 60px rgba(0, 0, 0, 0.5);
   }
   #categories.active {
     left: 5vw;
@@ -313,6 +317,12 @@ input[type=checkbox]::before {
   #showFilters {
     display: block;
     margin-top: 10px;
+    font-size: 30pt;
+  }
+  #selection {
+    font-size: 30pt;
+    padding: 20px 10px;
+    height: auto;
   }
   /* Handles main shop */
   #combined {

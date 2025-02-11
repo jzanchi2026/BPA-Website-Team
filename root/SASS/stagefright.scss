@@ -138,7 +138,7 @@ input[type="checkbox"]:checked::before {
 }
 
 #displayedLinks a:hover {
-    color: $main;
+    color: $mainlight;
     text-shadow: 0px 0px 20px black;
     transform: scale(1.05) translateX(2%);
 }
@@ -315,7 +315,7 @@ nav > div.inside:nth-of-type(2) a:hover:nth-child(2) {
 	padding-left: 20px;
     font-family: salmapro;
     letter-spacing: 2px;
-	color: $mainlight;
+	color: $main;
 }
 
 
@@ -595,6 +595,12 @@ footer {
 		width: 85vw;
 		margin: auto;
 		margin-bottom: 0;
+		
+	}
+	
+	#BPA-required-info > * > * {
+		font-size: 20pt;
+		color: red;
 	}
 	
 	#pullup {
@@ -605,5 +611,14 @@ footer {
 
 	.hr-container {
 		padding: 10px 10px 5px;
+	}
+	
+	#pageTitle h1 {
+		font-size: 45pt;
+		width: 100%;
+	}
+	
+	#pageTitle {
+		height: 70vh;
 	}
 }

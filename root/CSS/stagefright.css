@@ -131,7 +131,7 @@ input[type=checkbox]:checked::before {
 }
 
 #displayedLinks a:hover {
-  color: #0037de;
+  color: #7b82e8;
   text-shadow: 0px 0px 20px black;
   transform: scale(1.05) translateX(2%);
 }
@@ -305,7 +305,7 @@ nav > div.inside:nth-of-type(2) a:hover:nth-child(2) {
   padding-left: 20px;
   font-family: salmapro;
   letter-spacing: 2px;
-  color: #7b82e8;
+  color: #0037de;
 }
 
 /* FOOTER STYLING */
@@ -545,6 +545,10 @@ footer {
     margin: auto;
     margin-bottom: 0;
   }
+  #BPA-required-info > * > * {
+    font-size: 20pt;
+    color: red;
+  }
   #pullup {
     background: rgba(0, 0, 0, 0.6);
     box-shadow: none;
@@ -552,6 +556,13 @@ footer {
   }
   .hr-container {
     padding: 10px 10px 5px;
+  }
+  #pageTitle h1 {
+    font-size: 45pt;
+    width: 100%;
+  }
+  #pageTitle {
+    height: 70vh;
   }
 }
 

@@ -201,6 +201,7 @@
 
 .extrainfotxt strong {
 	color: inherit;
+	font-family: $radlushmed;
 }
 
 .tourblurbs {
@@ -271,6 +272,7 @@
 	width: 25%;
 	border-radius: 0;
 	font-weight: bold;
+	border: none;
 }
 
 .quantity-button-dates:hover {
@@ -288,7 +290,7 @@
 }
 
 .disclaimer {
-	font-family: 6pt;
+	font-size: 12pt;
 	color: #444;
 	font-family: $radlushmed;
 	margin: 10px;
@@ -445,7 +447,7 @@
 
 // MEDIA QUERIES
 
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
 	#text > h2 {
 		font-size: 5rem;
 		padding: 0;
@@ -473,6 +475,7 @@
 		gap: 15px;
 		padding: 15px;
 		position: relative;
+		width: calc(85% - 30px);
 	}
 	
 	.tourdate > div > button {
@@ -486,7 +489,7 @@
 	}
 	
 	.location > h2 {
-		font-size: 40pt;
+		font-size: 30pt;
 	}
 	
 	.location > h3 {
@@ -503,8 +506,61 @@
 		width: 100%;
 	}
 	
-	.mainText {
-		background-color: black;
+	#bgg2 > div {
+		width: 100%;
+	}
+	
+	#closeout button {
+		width: 20%;
+	}
+	
+	#pickSeating {
+		flex-direction: column;
+	}
+	
+	#pickSeating > * {
+		width: 100%;
+	}
+	
+	#ticketingInfo {
+		overflow-y: auto;
+		overflow-x: hidden;
+		width: 90vw;
+		left: 5vw;
+	}
+	
+	.sideSection {
+		overflow: visible;
+	}
+	
+	#extraInfo h1, #checkOut h1 {
+		font-size: 34pt;
+	}
+	
+	#extraInfo h2 {
+		font-family: 31pt;
+	}
+	
+	.extrainfotxt {
+		font-size: 16pt;
+	}
+	
+	.tourblurbs {
+		font-size: 14pt;
+		height: auto;
+	}
+	
+	.selectedSectiontxt {
+		font-size: 20pt;
+	}
+	
+	#sectionDisplay {
+		width: 95%;
+		box-sizing: border-box;
+	}
+	
+	.disclaimer {
+		font-size: 12pt;
 	}
 	
 }

@@ -61,14 +61,6 @@
 	border: 3px solid #555;
 }
 
-.tourdate > h1 {
-	padding: 20px 10px;
-	border-radius: 10px;
-	background-color: black;
-	width: 10%;
-	text-align: center;
-}
-
 .location {
 	flex-grow: 2;
 	padding: 5px 30px;
@@ -78,9 +70,13 @@
 
 .location > h2 {
 	color: $main;
-	font-family: radlushmed;
+	font-family: $areakilo;
 	margin-bottom: 2px;
 	text-transform: uppercase;
+}
+
+.location > h3 {
+	font-family: $radlushmed;
 }
 
 .location > h3:nth-of-type(even) {
@@ -96,7 +92,7 @@
 
 .buttons > button {
 	text-decoration: none;
-	font-family: radlushmed;
+	font-family: $radlushmed;
 	font-size: 15pt;
 	width: auto;
 	height: 75px;
@@ -131,7 +127,7 @@
 }
 
 #closeout button {
-	font-family: salmapro;
+	font-family: $salmapro;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -180,7 +176,7 @@
 	width: calc(100% - 20px);
 	color: white;
 	padding: 10px;
-	font-family: areakilo;
+	font-family: $areakilo;
 	font-size: 24pt;
 	letter-spacing: 1.5px;
 	line-height: 1.3;
@@ -449,7 +445,7 @@
 
 // MEDIA QUERIES
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
 	#text > h2 {
 		font-size: 5rem;
 		padding: 0;
@@ -472,10 +468,40 @@
 		font-size: 10pt;
 	}
 	
+	.tourdate {
+		flex-direction: column;
+		gap: 15px;
+		padding: 15px;
+		position: relative;
+	}
+	
 	.tourdate > div > button {
 		padding: 5px 20px;
 	}
 	
+	.location {
+		margin: 0;
+		width: 100%;
+		box-sizing: border-box;
+	}
+	
+	.location > h2 {
+		font-size: 40pt;
+	}
+	
+	.location > h3 {
+		font-size: 20pt;
+	}
+	
+	.buttons {
+		width: 100%;
+	}
+	
+	.buttons > button {
+		font-size: 20pt;
+		padding: 35px;
+		width: 100%;
+	}
 	
 }
 

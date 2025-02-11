@@ -393,17 +393,6 @@ function showCartPopup() {
         topArea.className = 'top-area';
         popupContent.appendChild(topArea);
 
-        const shopLogo = document.createElement('img');
-        shopLogo.src = "../Images/cart.png";
-        shopLogo.style.height = '40pt';
-        shopLogo.style.width = 'auto';
-        shopLogo.style.padding = '4.5% 35px 20px 20px';
-        shopLogo.style.transform = 'scaleX(-1)';
-        shopLogo.alt = "Shopping cart icon";
-        shopLogo.style.cursor = 'pointer';
-        shopLogo.addEventListener('click', () => closePopup(popup));
-        flexed.appendChild(shopLogo);
-
         const title = document.createElement('h1');
         title.textContent = 'Your Cart';
         flexed.appendChild(title);

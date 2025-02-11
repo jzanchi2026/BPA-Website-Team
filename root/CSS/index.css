@@ -71,16 +71,25 @@
 
 #second {
   box-shadow: 0px 0px 120px 150px rgba(0, 0, 0, 0.3);
-  height: 100vh;
+  min-height: 100vh;
   padding: 60px 0 80px;
-  background-color: black;
+  position: relative;
 }
 
+/*
+#second > *:nth-child(odd) {
+  transform: translateX(-10%);
+}
+
+#second > *:nth-child(even) {
+  transform: translateX(10%);
+}
+*/
 .snaps {
-  background-color: #101010;
-  min-width: 100px;
-  margin: 10px;
-  padding: 20px;
+  width: calc(100% - 80px);
+  margin: 30px auto;
+  box-sizing: border-box;
+  padding: 40px;
 }
 
 .snaps > h1 {
@@ -88,14 +97,8 @@
 }
 
 #shopsnap {
-  width: 50vw;
-  height: calc(100vh - 160px);
-  background-image: url("../Images/shoppingbg.png");
-  background-size: cover;
+  background-color: #000;
   text-align: center;
-  margin-left: 20px;
-  padding-top: 120px;
-  padding-left: 40px;
 }
 
 #shopsnap h2 {
@@ -105,17 +108,11 @@
   margin: 0 0 45px 15px;
 }
 
-#stylesnap, #contactsnap {
-  width: 50vw;
-  margin: 10px 20px 10px 0px;
-  margin-right: 20px;
-}
-
-#stylesnap {
+#albumsnap {
   display: flex;
-  height: calc((100vh - 110px) * 0.4);
   gap: 20px;
   align-items: center;
+  background-color: #111;
 }
 
 .image-wrapper {
@@ -162,48 +159,21 @@
   opacity: 1;
 }
 
-#contactsnap {
+#toursnap {
   height: calc((100vh - 110px) * 0.6);
   display: flex;
   justify-content: center;
   gap: 20px;
+  background-color: #111;
 }
 
-#contactsnap form {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 20px;
-  background-color: #222;
-  height: calc(100% - 40px);
-  width: 80%;
-  gap: 11px;
-  border-radius: 10px;
-}
-
-#contactsnap form > * {
-  font-family: "radlushmed", sans-serif;
-  font-size: 12pt;
-}
-
-#contactsnap > div {
-  padding: 0 50px;
-  background-color: #222;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-#contactsnap > div img {
+#toursnap > div img {
   filter: invert(100%);
   height: 50%;
   width: auto;
 }
 
-#contactsnap > div h2 {
+#toursnap > div h2 {
   font-size: 50pt;
   font-family: "areakilo", sans-serif;
   letter-spacing: 2px;
@@ -222,22 +192,19 @@
   font-size: 14pt;
   margin-bottom: 10px;
   margin-top: 10px;
-  border: 3px solid #071540;
+  border: 3px solid #0037de;
   border-radius: 5px;
 }
 
 #signupbut:hover {
   background-color: #7b82e8;
-  color: #071540;
+  color: #0037de;
   transform: scale(1.03);
 }
 
 @media (max-width: 768px) {
-  #bgg {
-    background-image: url("../Images/testNarrower.jpg");
-  }
   #bgg > h3 {
-    font-size: 12vw; /* Adjust font size for smaller screens */
+    font-size: 12vw;
     letter-spacing: 7px;
   }
   #scrollingText {
@@ -248,21 +215,22 @@
     transform: translateX(0%);
   }
   #second {
-    height: 50vh; /* Adjust height for smaller screens */
+    height: 50vh;
   }
   .snaps > h1 {
-    font-size: 36pt; /* Smaller heading on mobile */
+    font-size: 36pt;
   }
   #toursnap {
-    width: 90vw; /* Make it more responsive */
+    width: 90vw;
     height: 40vh;
     margin-left: 0;
   }
-  #stylesnap, #contactsnap {
-    width: 90vw; /* Make them more responsive */
+  #albumsnap, #toursnap {
+    width: 90vw;
     height: 40vh;
     margin-right: 0;
   }
 }
+
 
 /*# sourceMappingURL=index.css.map */

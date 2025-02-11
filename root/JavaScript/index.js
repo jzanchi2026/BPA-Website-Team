@@ -75,7 +75,8 @@ function buildFeatured(jsonProducts) {
         let cc = choices[index];
         let productCard = document.createElement("div");
         productCard.classList.add("home-product-card");
-        productCard.style.backgroundImage = `url(${product.image})`;
+        let imageUrl = Array.isArray(product.image) ? product.image[0] : product.image;
+		productCard.style.backgroundImage = `url(${imageUrl})`;
 
         // Product Name
         let productNameLink = document.createElement("a");
@@ -129,7 +130,6 @@ function buildFeatured(jsonProducts) {
 
         productCard.appendChild(sizeOptions);
 
-        // Flag to check hover state
         let isHoveringSizeOptions = false;
         
         // Handle hover on "Add to Cart" icon
@@ -152,18 +152,17 @@ function buildFeatured(jsonProducts) {
         [icon1, sizeOptions].forEach((element) => {
             element.addEventListener("mouseleave", () => {
                 if (!isHoveringSizeOptions) {
-                    sizeOptions.style.transform = "translateX(100%)"; // Slide back in
+                    sizeOptions.style.transform = "translateX(100%)";
                     sizeOptions.style.opacity = "0";
-                    icon1.style.transform = "scale(1)"; // Reset the icon size
+                    icon1.style.transform = "scale(1)";
                 }
             });
         });
 
-        // Handle mouse leave from size options
         sizeOptions.addEventListener("mouseleave", () => {
             isHoveringSizeOptions = false;
-            if (!icon1.matches(":hover")) { // Only slide back if neither is hovered
-                sizeOptions.style.transform = "translateX(100%)"; // Slide back in
+            if (!icon1.matches(":hover")) {
+                sizeOptions.style.transform = "translateX(100%)";
                 sizeOptions.style.opacity = "0";
             }
         });

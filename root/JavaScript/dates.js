@@ -64,7 +64,6 @@ let selectedEvent = null;
 
 function showInfo(spot) {
     const info = document.getElementById("extraInfo");
-
     const event = events.find(e => e.spot === spot);
     if (event) {
         selectedEvent = event;
@@ -110,7 +109,7 @@ function buildStadium() {
 	// Main stadium structure
 	const stadium = document.createElement('div');
 	stadium.id = 'stadium';
-	stadium.classList.add('stadium'); // Assuming this controls the flex layout
+	stadium.classList.add('stadium');
 	container.appendChild(stadium);
 
 	const stageLeft = document.createElement('div');
@@ -213,7 +212,7 @@ function setPrice(sectionLetter, quantity) {
 function sectionInfo(passed) {
 	
     const sectionDisplay = document.getElementById("sectionDisplay");
-    sectionDisplay.innerHTML = ''; // Clear previous seats
+    sectionDisplay.innerHTML = '';
 
     // Deselect any previously selected section and highlight the clicked one
     const selectedSections = document.querySelectorAll(".selectedSection");
@@ -331,18 +330,14 @@ function findContiguousSeats(seatList, quantity, seatsPerRow) {
 let quantity = 1;
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Automatically select Section A on page load
-    const sectionA = document.querySelector(".sectionseating"); // Assuming section A is the first .sectionseating
-    const sectionAElement = document.querySelector(".sectionseating");  // Or use a more specific class if needed
+    const sectionA = document.querySelector(".sectionseating");
+    const sectionAElement = document.querySelector(".sectionseating");
 
     if (sectionAElement) {
-        // Add the blue highlight class
         sectionAElement.classList.add("selectedSection");
-        // Call sectionInfo to display Section A's seating chart
         sectionInfo(sectionAElement);
     }
 
-    // Highlight seats functionality
     const decrementButton = document.getElementById('decrementButton');
     const incrementButton = document.getElementById('incrementButton');
     const quantityDisplay = document.getElementById('quantityDisplay');
@@ -351,9 +346,9 @@ document.addEventListener("DOMContentLoaded", () => {
         if (quantity > 1) {
             quantity -= 1;
             quantityDisplay.textContent = quantity;
-            // Update the highlighted seats based on new quantity
+			
             highlightSeats(quantity);
-            // Update the price as well
+
             const selectedSection = document.querySelector(".selectedSection");
             setPrice(selectedSection.innerHTML, quantity);
         }
@@ -363,15 +358,12 @@ document.addEventListener("DOMContentLoaded", () => {
         if (quantity < 8) {
             quantity += 1;
             quantityDisplay.textContent = quantity;
-            // Update the highlighted seats based on new quantity
             highlightSeats(quantity);
-            // Update the price as well
             const selectedSection = document.querySelector(".selectedSection");
             setPrice(selectedSection.innerHTML, quantity);
         }
     });
-
-    // Initial seat highlight when the first section is selected
+	
     if (document.querySelector(".sectionseating")) {
         highlightSeats(quantity);
     }
@@ -392,6 +384,20 @@ document.addEventListener("DOMContentLoaded", () => {
 			addTicketToCart(selectedEvent, selectedEvent.price, quantity, selectedSection.innerHTML);
 		}
 	});
+	
+	const storedEvent = localStorage.getItem("event");
+	console.log(storedEvent);
+    if (storedEvent) {
+		const event = JSON.parse(storedEvent);
+		const interval = setInterval(() => {
+			if (events.length > 0) {
+				showInfo(event.spot);
+				localStorage.removeItem("event");
+				clearInterval(interval);
+			}
+		}, 100);
+	}
+
 
 });
 

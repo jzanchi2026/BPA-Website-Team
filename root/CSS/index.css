@@ -353,8 +353,29 @@
 /* Responsive media queries */
 @media (max-width: 1208px) {
   #bgg {
-    background-size: contain;
+    background-size: 100%;
     background-position: center;
+  }
+  #bgg > h3 {
+    font-size: 70pt;
+  }
+  #seeDown {
+    bottom: 200px;
+    right: 50px;
+    display: none;
+  }
+  #decorb {
+    position: absolute;
+    transform: scaleY(2);
+    bottom: 0px;
+  }
+  #scrollingText {
+    top: 250px;
+    left: 3%;
+  }
+  #otherscrolling {
+    top: 370px;
+    left: 3%;
   }
 }
 @media (max-width: 770px) {

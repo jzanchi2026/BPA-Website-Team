@@ -131,47 +131,76 @@
 				<div id="flexedsnapscont">
 					<div class="snaps" id="albumsnap">
 						<h2>ALBUM SPOTLIGHT</h2>
-						<div style="display: flex; gap: 30px;">
-							<div class="image-wrapper">
-								<img src="../Images/ABOUTUS/silentovation.png" alt="Album 1">
-								<div data-href="about.html" onclick="fadeout(event)" class="overlay">
-									<div>
-										<h3 data-href="about.html" style="margin-bottom: 10px">SILENT OVATION</h3>
-										<p data-href="about.html">Breath That Lingers</p>
-										<p data-href="about.html">Tremors</p>
-										<p data-href="about.html">Spotlight Syndrome</p>
+						<div style="display: flex; gap: 15px;">
+							<div class="albumcontainer">
+								<div class="image-wrapper">
+									<img src="../Images/ABOUTUS/silentovation.png" alt="Album 1">
+									<div class="overlay">
+										<div>
+											<button class="albumsnapbutton" data-href="about.html" onclick="fadeout(event)">SEE MORE</button>
+											<div class="audio-player">
+												<button class="play-pause">▶</button>
+												<input type="range" class="progress" value="0" step="1" min="0" max="100">
+												<span class="timestamp">0:00</span>
+												<audio class="audio-file">
+													<source src="../Images/AUDIOS/silentcoversong.mp3" type="audio/mpeg">
+													Your browser does not support the audio element.
+												</audio>
+											</div>
+										</div>
 									</div>
 								</div>
+								<h3>SILENT OVATION</h3>
 							</div>
-							<div class="image-wrapper">
-								<img src="../Images/ABOUTUS/heartbreakb.png" alt="Album 2">
-								<div data-href="about.html" onclick="fadeout(event)" class="overlay">
-									<div>
-										<h3 data-href="about.html" style="margin-bottom: 10px">HEARTBREAK BOULEVARD</h3>
-										<p data-href="about.html">Splinters</p>
-										<p data-href="about.html">The Crossroads</p>
-										<p data-href="about.html">Sunset Strips</p>
+							<div class="albumcontainer">
+								<div class="image-wrapper">
+									<img src="../Images/ABOUTUS/heartbreakb.png" alt="Album 2">
+									<div class="overlay">
+										<div>
+											<button class="albumsnapbutton" data-href="about.html" onclick="fadeout(event)">SEE MORE</button>
+											<div class="audio-player">
+												<button class="play-pause">▶</button>
+												<input type="range" class="progress" value="0" step="1" min="0" max="100">
+												<span class="timestamp">0:00</span>
+												<audio class="audio-file">
+													<source src="../Images/AUDIOS/hbcoversong.mp3" type="audio/mpeg">
+													Your browser does not support the audio element.
+												</audio>
+											</div>
+										</div>
 									</div>
 								</div>
+								<h3>HEARTBREAK BOULEVARD</h3>
 							</div>
-							<div class="image-wrapper">
-								<img src="../Images/ABOUTUS/fadetoblack.png" alt="Album 3">
-								<div data-href="about.html" onclick="fadeout(event)" class="overlay">
-									<div>
-										<h3 data-href="about.html" style="margin-bottom: 10px">FADE TO BLACK</h3>
-										<p data-href="about.html">Midnight Echoes</p>
-										<p data-href="about.html">Black Horizon</p>
-										<p data-href="about.html">Blooming Shadows</p>
+							<div class="albumcontainer">
+								<div class="image-wrapper">
+									<img src="../Images/ABOUTUS/fadetoblack.png" alt="Album 3">
+									<div class="overlay">
+										<div>
+											<button class="albumsnapbutton" data-href="about.html" onclick="fadeout(event)">SEE MORE</button>
+											<div class="audio-player">
+												<button class="play-pause">▶</button>
+												<input type="range" class="progress" value="0" step="1" min="0" max="100">
+												<span class="timestamp">0:00</span>
+												<audio class="audio-file">
+													<source src="../Images/AUDIOS/fadecoversong.mp3" type="audio/mpeg">
+													Your browser does not support the audio element.
+												</audio>
+											</div>
+										</div>
 									</div>
 								</div>
+								<h3>FADE TO BLACK</h3>
 							</div>
 						</div>
 					</div>
 					<div class="snaps" id="toursnap">
-						<h2>UNMUTED</h2>
+						<h2>UNMUTED: TOURING SOON</h2>
 						<p>Catch all the latest tour dates and venues for the highly anticipated Unmuted tour! Stay tuned for exclusive updates and ticket information as we bring the stage to life near you. Don’t miss the chance to experience unforgettable performances and electrifying vibes. See you on the road!</p>
-						<div id="toursnaparea">
-						
+						<div class="toursnap-container">
+							<div id="toursnaparea">
+							
+							</div>
 						</div>
 					</div>
 				</div>
@@ -180,6 +209,5 @@
 			</div>
 			
 		</div>
-		<div class="footer-img" style="background-position: middle; background-image: url('../Images/HEADINGS/drums.jpeg')"></div>
 	</body>
 </html>

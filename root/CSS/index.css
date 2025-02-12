@@ -1,7 +1,7 @@
 #bgg {
   height: 100vh;
   background-color: black;
-  background-image: url("../Images/HEADINGS/drums.jpeg");
+  background-image: url("../Images/HEADINGS/strumming2.jpg");
   background-size: cover;
   background-position: top;
   background-attachment: fixed;
@@ -23,7 +23,6 @@
   font-family: "areakilo", sans-serif;
   letter-spacing: 20px;
   font-weight: bold;
-  opacity: 0.5;
   white-space: nowrap;
 }
 
@@ -32,7 +31,6 @@
   transition: transform 0.1s ease-out;
   bottom: 50px;
   right: 50px;
-  opacity: 0.3;
   height: 100px;
   width: 200px;
 }
@@ -50,21 +48,21 @@
 #decorb2 {
   position: absolute;
   transform: scaleY(-1.8) scaleX(-1);
-  top: -40px;
+  top: 0px;
   right: 0;
   width: 90vw;
   height: auto;
-  opacity: 0.4;
+  opacity: 0.7;
 }
 
 #scrollingText {
-  top: 150px;
+  top: 180px;
   left: 3%;
   transform: translateX(-60%);
 }
 
 #otherscrolling {
-  top: 270px;
+  top: 300px;
   left: 15%;
   transform: translateX(60%);
 }
@@ -87,7 +85,7 @@
 }
 
 .shopsnap {
-  background-color: #111;
+  background-color: rgba(7, 21, 64, 0.5);
   text-align: center;
   width: 100%;
   padding: 15px 40px;
@@ -99,7 +97,7 @@
   letter-spacing: 2px;
   margin-bottom: 45px;
   text-align: center;
-  background-color: #111;
+  background-color: #181818;
   padding: 10px;
 }
 
@@ -107,7 +105,37 @@
   align-items: center;
   flex: 1;
   background-size: contain;
-  background-color: #070707;
+  background-color: #111;
+}
+
+.albumsnapbutton {
+  font-family: "areakilo", sans-serif;
+  font-size: 15pt;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+  text-align: center;
+  background-color: #181818;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.albumsnapbutton:hover {
+  transform: scale(1.03);
+}
+
+.albumcontainer {
+  background-color: #181818;
+  padding: 10px;
+}
+
+.albumcontainer > h3 {
+  font-family: "salmapro", sans-serif;
+  color: #7b82e8;
+  text-align: center;
+  font-size: 18pt;
+  margin: 20px 0;
+  text-shadow: 0 0 20px black;
 }
 
 #flexedsnapscont {
@@ -122,7 +150,7 @@
 .image-wrapper {
   position: relative;
   height: auto;
-  width: calc((100% - 50px) / 3);
+  width: calc(100% - 10px);
   overflow: hidden;
   border-radius: 6px;
   border: 4px solid #333;
@@ -164,12 +192,42 @@
   opacity: 1;
 }
 
+.audio-player {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 0px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 6px 10px;
+  border-radius: 5px;
+}
+
+.play-pause {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 14pt;
+  cursor: pointer;
+}
+
+.progress {
+  flex: 1;
+  width: 100px;
+  accent-color: white;
+}
+
+.timestamp {
+  color: white;
+  font-size: 12px;
+}
+
 #toursnap {
-  justify-content: center;
   gap: 20px;
   flex: 1;
   text-align: center;
-  background-color: #070707;
+  background-color: #111;
+  position: relative;
+  width: 100%;
 }
 
 #toursnap h2 {
@@ -178,7 +236,7 @@
   letter-spacing: 2px;
   text-align: center;
   padding: 10px;
-  background-color: #111;
+  background-color: #181818;
 }
 
 #toursnap > p {
@@ -188,22 +246,71 @@
   margin: 15px auto;
 }
 
+.toursnap-container {
+  position: relative;
+  width: 95%;
+  background-color: red;
+  margin: 15px auto;
+}
+
 #toursnaparea {
-  display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  padding: 1rem;
+  display: flex;
+  gap: 10px;
+  width: calc(100% - 20px);
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  padding: 1rem 0 1rem 20px;
+  white-space: nowrap;
+  background-color: black;
+  position: relative;
+}
+
+#toursnaparea::-webkit-scrollbar-thumb {
+  background: #444;
+}
+
+#toursnaparea::-webkit-scrollbar-track {
+  background: #222;
+}
+
+#toursnaparea::-webkit-scrollbar {
+  height: 8px;
+}
+
+.scroll-arrow {
+  background-color: black;
+  padding: 0 10px;
+  font-family: "radlushmed", sans-serif;
+  font-size: 13pt;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 100%;
+  z-index: 10;
+}
+
+.left-arrow {
+  left: 0;
+}
+
+.right-arrow {
+  right: -10px;
+}
+
+.scroll-arrow:hover {
+  background-color: #444;
 }
 
 .event-card {
   background-color: #111;
-  background-image: url("../Images/blackpattern.jpg");
-  background-size: cover;
   border: 3px solid #333;
   border-radius: 5px;
   padding: 1rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
   min-height: 400px;
   text-align: left;
   display: flex;

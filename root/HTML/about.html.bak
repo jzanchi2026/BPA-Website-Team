@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../CSS/stagefright.css">
+		<link rel="stylesheet" href="../CSS/about.css">
+		<link rel="stylesheet" href="../CSS/products.css">
+		<script src="../JavaScript/stagefright.js"></script>
+		<script src="../JavaScript/about.js"></script>
+		<title>Stage Fright - About Us</title>
+		<link rel="icon" type="image/x-icon" href="../Images/cursor.png">
+		<meta charset="UTF-8">
+		<meta name="description" content="Stage Fright offers tickets for unique live performances that captivate audiences and support rising performers. Discover upcoming shows and secure your spot.">
+		<meta name="keywords" content="Stage Fright, live performances, tickets, theater shows, concerts, entertainment, rock, rock band, Stage Fright band, Stage Fright, official site">
+		<meta name="author" content="Jess Zanchi & Julissa Torres">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	
+	<body onload="loadDate()">
+		<!-- START navigation section -->
+		<nav id="navbar">
+			<div class="spaceHolder"></div> 
+			
+			<div style="justify-content: right" class="inside">
+				<a href="index.html" onclick="fadeout(event)">HOME</a>
+				<a href="about.html" onclick="fadeout(event)">ABOUT US</a>
+				<a href="dates.html" onclick="fadeout(event)">TOUR DATES</a>
+			</div>
+			
+			<img class="navlogo" data-href="index.html" onclick="fadeout(event)" src="../Images/blueBlur.PNG" alt="Main Stage Fright Logo">
+			
+			<div style="justify-content: left; " class="inside">
+				<a href="shop.html" onclick="fadeout(event)">SHOP</a>
+				<a href="contact.html" onclick="fadeout(event)">CONTACT US</a>
+				<div class="cart-link">
+					<img onclick="showCartPopup()" src="../Images/cart.png" alt="cart">
+				</div>
+			</div>
+			
+			<div class="spaceHolder"></div>
+		</nav>
+		
+		<nav id="navbar-mobile">
+			<div id="mobile-header">
+				
+				<div style="justify-content: right" class="inside">
+					<div class="cart-link">
+						<img onclick="toggleLinks()" src="../Images/menu.png" alt="see links menu">
+					</div>
+				</div>
+				
+				<img class="navlogo" data-href="index.html" onclick="fadeout(event)" src="../Images/blueBlur.PNG" alt="Main Stage Fright Logo">
+				
+				<div style="justify-content: left;" class="inside">
+					<div class="cart-link">
+						<img onclick="showCartPopup()" src="../Images/cart.png" alt="cart">
+					</div>
+				</div>
+			</div>
+			
+			<div id="displayedLinks">
+				<h2>NAVIGATE TO</h2>
+				<a href="index.html" onclick="fadeout(event)">HOME</a>
+				<a href="about.html" onclick="fadeout(event)">ABOUT US</a>
+				<a href="dates.html" onclick="fadeout(event)">TOUR DATES</a>
+				<a href="shop.html" onclick="fadeout(event)">SHOP</a>
+				<a href="contact.html" onclick="fadeout(event)">CONTACT US</a>
+			</div>
+		</nav>
+		
+		<footer id="pullup">
+			<div class="hr-container">
+				<hr>
+			</div>
+
+			<div class="footer-info" >
+				<a href="https://www.facebook.com" target="_blank" title="Follow on Facebook">
+					<img class="socialss" src="../Images/Socials/facebook.png" height="20" alt="Link to follow on facebook">
+				</a>
+				<a href="https://www.instagram.com/" target="_blank" title="Follow on Instagram">
+					<img class="socialss" src="../Images/Socials/instagram.png" height="20" alt="Link to follow on instagram">
+				</a>
+				<a href="https://music.apple.com/us/new" target="_blank" title="Follow on Apple Music">
+					<img class="socialss" src="../Images/Socials/music.png" height="20" alt="Link to follow on apple music">
+				</a>
+				<a href="https://www.pandora.com/" target="_blank" title="Follow on Pandora">
+					<img class="socialss" src="../Images/Socials/pandora.png" height="20" alt="Link to follow on pandora">
+				</a>
+				<a href="https://open.spotify.com/" target="_blank" title="Follow on Spotify">
+					<img class="socialss" src="../Images/Socials/spotify.png" height="20" alt="Link to follow on spotify">
+				</a>
+				<a href="https://x.com" target="_blank" title="Follow on X">
+					<img class="socialss" src="../Images/Socials/twitter.png" height="20" alt="Link to follow on X">
+				</a>
+				<a href="https://www.youtube.com/" target="_blank" title="Follow on Youtube">
+					<img class="socialss" src="../Images/Socials/youtube.png" height="20" alt="Link to follow on youtube">
+				</a>
+				<p>&copy Stage Fright 2025. All rights reserved.</p>
+			</div>
+			
+			<div class="footer-info" id="BPA-required-info">
+				<div>
+					<p>Jessica Zanchi & Julissa Torres</p>
+					<p>Chapter: Joseph P. Keefe Technical HS</p>
+				</div>
+				<div>
+					<p>BPA Website Design Team - Rock Band Site</p>
+					<p>Keefe Technical Regional School - Framingham, MA</p>
+				</div>
+			</div>
+			
+		</footer>
+		<!-- END navigation section -->
+		
+		<div style="background-position: center; background-image: url('../Images/HEADINGS/strumming.jpg')" id="pageTitle">
+			<h1>OUR STORY</h1>
+		</div>
+		<h2 class="linedtitle"><hr>WELCOME IN<hr></h2>
+		<div id="aboutuss">
+			<div id="welcome">
+				<img src="../Images/blueLights.png" alt="Stage Fright main logo">
+				<div>
+					<h2>STAGE FRIGHT: THE EXPERIENCE</h2>
+					<h3>Your gateway to electrifying performances</h3>
+					<p>Stage Fright is a dynamic and passionate band that has been rocking the stage since 2021.<br><br>Formed by a group of talented musicians—Raquel Vargas, Dylan Prescott, and Blaze Wilde—the band brings a unique blend of powerful sound and raw energy to every performance. From their humble beginnings to sold-out shows, they continue to push boundaries and create music that resonates with fans worldwide.<br><br>Whether you're seeing them live or listening to their tracks, Stage Fright never fails to deliver an electrifying performance that will leave you craving more. Join the movement and experience the intensity of Stage Fright!</p>
+				</div>
+
+			</div>
+			<div id="timeline">
+				<h2 class="linedtitle"><hr>FEATURED ALBUMS<hr></h2>
+				<div id="featuredmusic">
+					<div class="albumcontainer">
+						<div class="image-wrapper">
+							<img src="../Images/ABOUTUS/silentovation.png" alt="Album 1">
+							<div class="overlay">
+								<div>
+									<div>
+									</div>
+									<div class="audio-player">
+										<button class="play-pause">▶</button>
+										<input type="range" class="progress" value="0" step="1" min="0" max="100">
+										<span class="timestamp">0:00</span>
+										<audio class="audio-file">
+											<source src="../Images/AUDIOS/silentcoversong.mp3" type="audio/mpeg">
+											Your browser does not support the audio element.
+										</audio>
+									</div>
+								</div>
+							</div>
+						</div>
+						<h3>SILENT OVATION</h3>
+						<p>Spotlight Syndrome</p>
+						<p>The Last Spark</p>
+						<p>Velvet Reverie</p>
+						<p>Final Crescendo</p>
+						<p>Fingers on Glass</p>
+						<p>Breath That Lingers</p>
+						<p>Tremors</p>
+					</div>
+					<div class="albumcontainer">
+						<div class="image-wrapper">
+							<img src="../Images/ABOUTUS/heartbreakb.png" alt="Album 2">
+							<div class="overlay">
+								<div>
+									<div>
+									</div>
+									<div class="audio-player">
+										<button class="play-pause">▶</button>
+										<input type="range" class="progress" value="0" step="1" min="0" max="100">
+										<span class="timestamp">0:00</span>
+										<audio class="audio-file">
+											<source src="../Images/AUDIOS/hbcoversong.mp3" type="audio/mpeg">
+											Your browser does not support the audio element.
+										</audio>
+									</div>
+								</div>
+							</div>
+						</div>
+						<h3>HEARTBREAK BOULEVARD</h3>
+						<p>Lovers’ Lane</p>
+						<p>Sunset Strips</p>
+						<p>A Night Without You</p>
+						<p>Splinters</p>
+						<p>The Last Rock</p>
+						<p>The Crossroads</p>
+						<p>Dead End</p>
+					</div>
+					<div class="albumcontainer">
+						<div class="image-wrapper">
+							<img src="../Images/ABOUTUS/fadetoblack.png" alt="Album 3">
+							<div class="overlay">
+								<div>
+									<div>
+									</div>
+									<div class="audio-player">
+										<button class="play-pause">▶</button>
+										<input type="range" class="progress" value="0" step="1" min="0" max="100">
+										<span class="timestamp">0:00</span>
+										<audio class="audio-file">
+											<source src="../Images/AUDIOS/fadecoversong.mp3" type="audio/mpeg">
+											Your browser does not support the audio element.
+										</audio>
+									</div>
+								</div>
+							</div>
+						</div>
+						<h3>FADE TO BLACK</h3>
+						<p>Midnight Echoes</p>
+						<p>Black Horizon</p>
+						<p>Rebel Hearts</p>
+						<p>Quiet Nights</p>
+						<p>Blooming Shadows</p>
+						<p>Diamond Dreams</p>
+						<p>Thunder Road</p>
+					</div>
+				</div>
+			
+				<h2 class="linedtitle"><hr>READ THE TIMELINE<hr></h2>
+				<div style="margin-top: 10px" class="boxes">
+					<img class="time" src="../Images/ABOUTUS/timeline1.png" alt="Stage Fright's first ever setup">
+					<div>
+						<h2 class="timelinetitle">October 15, 2021 – Stage Fright is Born</h2>
+						<p class="timelinep">Stage Fright was formed by three friends who shared a love of classic rock and a mutual struggle with social anxiety. Fueled by a desire to break out of their shells, Blaze Wilde, Raquel Vargas, and Dylan Prescott came together to create music that was bold, vulnerable, and unforgettable. The name Stage Fright became both a nod to their fears and a declaration of their defiance.</p>
+					</div>
+				</div>	
+				<div class="boxes">
+					<div>
+						<h2 class="timelinetitle">January 8th, 2022 – Debut Album: "Silent Ovation"</h2>
+						<p class="timelinep">The band released their debut album, Silent Ovation, a raw and introspective exploration of fear and identity. Its lead single, “Breath that Lingers,” quickly became a fan favorite, thanks to its driving rhythm and haunting lyrics.</p>
+					</div>
+					<img class="time" src="../Images/ABOUTUS/timeline2.jpeg"  alt="Silent Ovation hit song cover">
+				</div>	
+				<div class="boxes">
+					<img class="time" src="../Images/ABOUTUS/timeline3.png" alt="Crowd at Zona Festival 2022">
+					<div>
+						<h2 class="timelinetitle">December 3rd, 2022 - Zona Music Festival</h2>
+						<p class="timelinep">In 2022, Stage Fright made their festival debut at the Zona Music Festival, marking a major milestone in their journey. The band captivated the audience, proving that their music transcends fear and inspires connection. The performance was a defining moment, solidifying their place in the indie rock scene.</p>
+					</div>
+				</div>	
+				<div class="boxes">
+					<div>
+						<h2 class="timelinetitle">February 6th, 2023 – Sophomore Album: "Heartbreak Boulevard"</h2>
+						<p class="timelinep">Inspired by their newly acquired fanbase, the members of Stage Fright quickly got to work on new music. Their second album, Heartbreak Boulevard, expanded their sound with more experimental instrumentation and layered storytelling. The lead single, “Splinters,” became a rock anthem, climbing the charts and solidifying the band’s place in modern rock.</p>
+					</div>
+					<img class="time" src="../Images/ABOUTUS/timeline4.jpeg"  alt="Heartbreak Boulevard hit song cover">
+				</div>	
+				<div class="boxes">
+					<img class="time" src="../Images/ABOUTUS/timeline5.jpg" alt="SXSW Festival stage">
+					<div>
+						<h2 class="timelinetitle">April 28, 2023 – Austin Psych Fest</h2>
+						<p class="timelinep">Stage Fright captivated audiences at Austin Psych Fest 2023 with a mesmerizing performance that perfectly embodied the festival's ethereal vibe. The band performed tracks from their latest album, Heartbreak Boulevard, weaving raw emotion and atmospheric soundscapes into every note. Their set left the crowd spellbound and solidified their reputation as one of the most compelling acts of the festival.</p>
+					</div>
+				</div>	
+				<div class="boxes">
+					<div>
+						<h2 class="timelinetitle">August 27th, 2023 – Breaking the Silence: The Tour</h2>
+						<p class="timelinep">Stage Fright embarked on their first major headlining tour, Breaking the Silence, spanning 20 cities across North America. Known for their high-energy performances and deeply personal fan interactions, the tour was a sell-out success.</p>
+					</div>
+					<img class="time" src="../Images/ABOUTUS/timeline6.jpg" alt="Breaking the Silence: The Tour tour, stage in New Orleans">
+				</div>	
+				<div class="boxes">
+					<img class="time" src="../Images/ABOUTUS/timeline7.jpeg"  alt="Fade to Black hit song cover">
+					<div>
+						<h2 class="timelinetitle">June 23rd, 2024 – Third Album: "Fade to Black"</h2>
+						<p class="timelinep">Their third album, Fade to Black, embraced themes of resilience and reinvention. Critics praised its lead track, “Midnight Echos,” as one of the band’s most powerful and anthemic songs to date.</p>
+					</div>
+				</div>	
+				<div class="boxes" style="margin-bottom: 80px">
+					<div>
+						<h2 class="timelinetitle" id="specialDate">??? – The Future is Bright</h2>
+						<p class="timelinep">As Stage Fright enters the next chapter of their journey, fans and critics alike are eager to see where they’ll go next. One thing is certain: their story is far from over.</p>
+					</div>
+					<img class="time" src="../Images/ABOUTUS/timeline8.jpg"  alt="Team walking off stage">
+				</div>
+				
+				
+				<h2 class="linedtitle"><hr>MEET THE TEAM<hr></h2>
+				<div id="bgg4">
+					<div id="member1">
+						<img src="../Images/ABOUTUS/member1.jpeg" alt="Picture of Blaze Wilde">
+						<h2>BLAZE WILDE</h2>
+						<h3>Main Guitarist<br>Social Media Coordinator</h3>
+						<div class="bginfo">
+							<p>BORN 08/06/1998</p>
+							<p>FROM SCOTTSDALE, AZ</p>
+							<p class="musichistory">Blaze began learning the guitar in middle school through a school program that allowed students to choose an instrument. His natural talent and passion for the guitar quickly grew, and he has been playing ever since. As the main guitarist and social media coordinator, Blaze is integral to both the band's musical direction and its online presence.</p>
+							
+						</div>
+					</div>
+					<div id="member2">
+						<img src="../Images/ABOUTUS/member2.png" alt="Picture of Raquel Vargas">
+						<h2>RAQUEL VARGAS</h2>
+						<h3>Lead Singer<br>Merchandise Supervisor</h3>
+						<div class="bginfo">
+							<p>BORN 12/22/2002</p>
+							<p>FROM FRESNO, CA</p>
+							<p class="musichistory">Raquel’s musical foundation was built during her childhood, singing regularly in her church choir. Growing up in a supportive environment, she developed her vocal skills and confidence. As the lead singer, Raquel's powerful voice and stage presence have captivated audiences across the world. She also manages the band’s merchandise, ensuring fans can take a piece of Stage Fright home with them.</p>
+							
+						</div>
+					</div>
+					<div id="member3">
+						<img src="../Images/ABOUTUS/member3.jpg" alt="Picture of Dylan Prescott">
+						<h2>DYLAN PRESCOTT</h2>
+						<h3>Secondary Instrumentalist<br>Creative Director</h3>
+						<div class="bginfo">
+							<p>BORN 04/13/2001</p>
+							<p>FROM BOISE, ID</p>
+							<p class="musichistory">Dylan was introduced to the drums by his grandfather, who inspired his love for music. After receiving his first drum set as a child, Dylan has continued to develop his skills and pursue his passion for percussion. As a secondary instrumentalist and creative director, Dylan brings innovative visual concepts and sound arrangements to the band's performances and music videos.</p>		
+						
+						</div>
+					</div>
+					<button class="arrow left-arrow">←</button>
+					<button class="arrow right-arrow">→</button>
+				</div>
+			</div>
+			
+			<div class="footer-img" style="background-position: top; background-image: url('../Images/HEADINGS/strumming.jpg')"></div>	
+		</div>
+				<!--<div class="musicpanel left">
+					<div class="album">
+						<img src="../Images/ABOUTUS/silentovation.png" alt="Cover for the album Silent Ovation" class="album-art">
+						<h3>SILENT OVATION</h3>
+						<p>Jan. 2022</p>
+					</div>
+					<div class="album">
+						<img src="../Images/ABOUTUS/heartbreakb.png" alt="Cover for the album Heartbreak Boulevard" class="album-art">
+						<h3>HEARTBREAK BOULEVARD</h3>
+						<p>Nov. 2022</p>
+					</div>
+					<div class="album">
+						<img src="../Images/ABOUTUS/fadetoblack.png" alt="Cover for the album Fade to Black" class="album-art">
+						<h3>FADE TO BLACK</h3>
+						<p>Jun. 2024</p>
+					</div>
+				</div>
+				<div class="musicpanel right">
+					<div class="song">
+						
+					</div>
+					<div class="song">
+						
+					</div>
+					<div class="song">
+						
+					</div>
+				</div>-->
+	</body>
+</html>

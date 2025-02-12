@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				console.error('Tour data is empty or invalid:', jsonDates);
 			}
 		})
+		
 });
 
 function showThankYouMessage() {
@@ -57,7 +58,7 @@ function showThankYouMessage() {
 function applyScrollEffects(element, translateX, scrollY) {
     if (element) {
         element.style.transform = `translateX(${translateX}px)`;
-        element.style.opacity = Math.max(1 - scrollY / (window.innerHeight * 0.5) - 0.5, 0);
+        element.style.opacity = Math.max(1 - scrollY / (window.innerHeight * 0.3), 0);
     }
 }
 
@@ -210,62 +211,135 @@ function buildFeatured(jsonProducts) {
 }
 
 function buildDates(events) {
-	const eventsContainer = document.getElementById('toursnaparea');
+    const eventsContainer = document.getElementById('toursnaparea');
 
-	const upcomingEvents = events
-		.map(event => ({
-			...event,
-			parsedDate: new Date(`${new Date().getFullYear()}/${event.date}`)
-		}))
-	.filter(event => event.parsedDate >= new Date())
-	.sort((a, b) => a.parsedDate - b.parsedDate);
+    const upcomingEvents = events
+        .map(event => ({
+            ...event,
+            parsedDate: new Date(`${new Date().getFullYear()}/${event.date}`)
+        }))
+        .filter(event => event.parsedDate >= new Date())
+        .sort((a, b) => a.parsedDate - b.parsedDate);
 
-	const eventsToDisplay = upcomingEvents.length > 0 
-		? upcomingEvents.slice(0, 4) 
-		: getRandomEvents(events, 4);
+    const eventsToDisplay = upcomingEvents.length > 0 
+        ? upcomingEvents.slice(0, 4) 
+        : getRandomEvents(events, 4);
 
-	eventsToDisplay.forEach(event => {
-		const eventCard = document.createElement('div');
-		eventCard.classList.add('event-card');
+    eventsToDisplay.forEach(event => {
+        const eventCard = document.createElement('div');
+        eventCard.classList.add('event-card');
 
-		const eventLocation = document.createElement('h3');
-		eventLocation.classList.add('event-location');
-		eventLocation.innerHTML = `${event.city}<br>${event.venue}`;
+        const eventLocation = document.createElement('h3');
+        eventLocation.classList.add('event-location');
+        eventLocation.innerHTML = `${event.city}<br>${event.venue}`;
 
-		const eventDateTime = document.createElement('p');
-		eventDateTime.classList.add('event-date-time');
-		eventDateTime.innerHTML = `Date: ${event.date}<br>Time: ${event.time}`;
+        const eventDateTime = document.createElement('p');
+        eventDateTime.classList.add('event-date-time');
+        eventDateTime.innerHTML = `Date: ${event.date}<br>Time: ${event.time}`;
 
-		const eventAddress = document.createElement('p');
-		eventAddress.classList.add('event-address');
-		eventAddress.textContent = `Address: ${event.address}`;
-		
-		const eventButton = document.createElement('button');
-		eventButton.classList.add('event-tour-button');
-		eventButton.textContent = `See Details`;
+        const eventAddress = document.createElement('p');
+        eventAddress.classList.add('event-address');
+        eventAddress.textContent = `Address: ${event.address}`;
+        
+        const eventButton = document.createElement('button');
+        eventButton.classList.add('event-tour-button');
+        eventButton.textContent = `See Details`;
 
-		eventCard.appendChild(eventLocation);
-		eventCard.appendChild(eventDateTime);
-		eventCard.appendChild(eventAddress);
-		eventCard.appendChild(eventButton);
-		eventCard.addEventListener("click", () => {
-			localStorage.setItem("event", JSON.stringify(event));
-			const body = document.querySelector('body');
-			body.style.transition = 'opacity 0.5s ease';
-			body.style.opacity = 0;
+        eventCard.appendChild(eventLocation);
+        eventCard.appendChild(eventDateTime);
+        eventCard.appendChild(eventAddress);
+        eventCard.appendChild(eventButton);
+        eventButton.addEventListener("click", () => {
+            localStorage.setItem("event", JSON.stringify(event));
+            const body = document.querySelector('body');
+            body.style.transition = 'opacity 0.5s ease';
+            body.style.opacity = 0;
 
-			setTimeout(() => {
-				window.location.href = "dates.html";
-			}, 500);
+            setTimeout(() => {
+                window.location.href = "dates.html";
+            }, 500);
+        });
+
+        eventsContainer.appendChild(eventCard);
+    });
+	
+	const leftArrow = document.createElement('button');
+		leftArrow.classList.add('scroll-arrow', 'left-arrow');
+		leftArrow.innerHTML = '<';
+		leftArrow.addEventListener('click', () => {
+			eventsContainer.scrollBy({ left: -300, behavior: 'smooth' });
 		});
 
-		eventsContainer.appendChild(eventCard);
-	});
+	eventsContainer.parentElement.appendChild(leftArrow);
+
+   
+    const rightArrow = document.createElement('button');
+    rightArrow.classList.add('scroll-arrow', 'right-arrow');
+    rightArrow.innerHTML = '>';
+    rightArrow.addEventListener('click', () => {
+        eventsContainer.scrollBy({ left: 300, behavior: 'smooth' });
+    });
+
+    eventsContainer.parentElement.appendChild(rightArrow);
 }
+
 
 function getRandomEvents(events, num) {
 	const shuffledEvents = events.sort(() => 0.5 - Math.random());
 	return shuffledEvents.slice(0, num);
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    const audioPlayers = document.querySelectorAll(".audio-player");
+    let currentlyPlaying = null;
+
+    audioPlayers.forEach(player => {
+        const audio = player.querySelector(".audio-file");
+        const playPauseBtn = player.querySelector(".play-pause");
+        const progressBar = player.querySelector(".progress");
+        const timestamp = player.querySelector(".timestamp");
+
+        playPauseBtn.addEventListener("click", function () {
+            if (audio.paused) {
+                if (currentlyPlaying && currentlyPlaying !== audio) {
+                    currentlyPlaying.pause();
+                    currentlyPlaying.currentTime = 0;
+                    currentlyPlaying.closest(".albumcontainer").querySelector(".play-pause").textContent = "▶";
+                }
+
+                audio.play();
+                playPauseBtn.textContent = "⏸";
+                currentlyPlaying = audio;
+            } else {
+                audio.pause();
+                playPauseBtn.textContent = "▶";
+                currentlyPlaying = null;
+            }
+        });
+
+        audio.addEventListener("timeupdate", function () {
+            const currentTime = audio.currentTime;
+            const duration = audio.duration || 1;
+            progressBar.value = (currentTime / duration) * 100;
+            timestamp.textContent = formatTime(currentTime);
+        });
+
+        progressBar.addEventListener("input", function () {
+            const duration = audio.duration || 1;
+            audio.currentTime = (progressBar.value / 100) * duration;
+        });
+
+        audio.addEventListener("ended", function () {
+            playPauseBtn.textContent = "▶";
+            currentlyPlaying = null;
+        });
+    });
+
+    function formatTime(seconds) {
+        const min = Math.floor(seconds / 60);
+        const sec = Math.floor(seconds % 60);
+        return `${min}:${sec < 10 ? "0" : ""}${sec}`;
+    }
+});
 
 

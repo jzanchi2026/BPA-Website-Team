@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="stylesheet" href="CSS/stagefright.css">
+		<link rel="stylesheet" href="CSS/shop.css">
+		<link rel="stylesheet" href="CSS/products.css">
+		<script src="JavaScript/stagefright.js"></script>
+		<script src="JavaScript/shop.js"></script>
+		<title>Stage Fright - Shop</title>
+		<link rel="icon" type="image/x-icon" href="Images/cursor.png">
+		<meta charset="UTF-8">
+		<meta name="description" content="Welcome to the official Stage Fright website, where you can discover and experience unique performances, music, and events. Explore our lineup, purchase tickets, and get a closer look at our latest shows.">
+		<meta name="keywords" content="Stage Fright, BPA, Business Professionals of America, BPA MA, Massachusetts, live performances, tickets, theater shows, concerts, entertainment, rock, rock band, band, official site">
+		<meta name="author" content="Jess Zanchi & Julissa Torres">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	
+	<body onload="loadShop()">
+		<!-- START navigation section -->
+		<nav id="navbar">
+			<div class="spaceHolder"></div> 
+			
+			<div style="justify-content: right" class="inside">
+				<a href="index.html" onclick="fadeout(event)">HOME</a>
+				<a href="about.html" onclick="fadeout(event)">ABOUT US</a>
+				<a href="dates.html" onclick="fadeout(event)">TOUR DATES</a>
+			</div>
+			
+			<img class="navlogo" data-href="index.html" onclick="fadeout(event)" src="Images/blueBlur.PNG" alt="Main Stage Fright Logo">
+			
+			<div style="justify-content: left; " class="inside">
+				<a href="shop.html" onclick="fadeout(event)">SHOP</a>
+				<a href="contact.html" onclick="fadeout(event)">CONTACT US</a>
+				<div class="cart-link">
+					<img onclick="showCartPopup()" class="cart-img white-cart" src="Images/cart.png" alt="cart">
+					<img onclick="showCartPopup()" class="cart-img pink-cart" src="Images/pinkcart.png" alt="cart">
+					<span onclick="showCartPopup()" class="cart-count">0</span>
+				</div>
+			</div>
+			
+			<div class="spaceHolder"></div>
+		</nav>
+		
+		<nav id="navbar-mobile">
+			<div id="mobile-header">
+				
+				<div style="justify-content: right" class="inside">
+					<div class="cart-link">
+						<img onclick="toggleLinks()" src="Images/menu.png" alt="see links menu">
+					</div>
+				</div>
+				
+				<img class="navlogo" data-href="index.html" onclick="fadeout(event)" src="Images/blueBlur.PNG" alt="Main Stage Fright Logo">
+				
+				<div style="justify-content: left;" class="inside">
+					<div class="cart-link">
+					    <img onclick="showCartPopup()" class="cart-img white-cart" src="Images/cart.png" alt="cart">
+					    <img onclick="showCartPopup()" class="cart-img pink-cart" src="Images/pinkcart.png" alt="cart">
+					    <span onclick="showCartPopup()" class="cart-count">0</span>
+					</div>
+				</div>
+			</div>
+			
+			<div id="displayedLinks">
+				<h2>NAVIGATE TO</h2>
+				<a href="index.html" onclick="fadeout(event)">HOME</a>
+				<a href="about.html" onclick="fadeout(event)">ABOUT US</a>
+				<a href="dates.html" onclick="fadeout(event)">TOUR DATES</a>
+				<a href="shop.html" onclick="fadeout(event)">SHOP</a>
+				<a href="contact.html" onclick="fadeout(event)">CONTACT US</a>
+			</div>
+		</nav>
+		
+		<footer id="pullup">
+			<div class="hr-container">
+				<hr>
+			</div>
+
+			<div class="footer-info" >
+				<a href="https://www.facebook.com/profile.php?id=61573395230576" target="_blank" title="Follow on Facebook">
+					<img class="socialss" src="Images/Socials/facebook.png" height="20" alt="Link to follow on facebook">
+				</a>
+				<a href="https://www.instagram.com/stagefrightinsta/#" target="_blank" title="Follow on Instagram">
+					<img class="socialss" src="Images/Socials/instagram.png" height="20" alt="Link to follow on instagram">
+				</a>
+				<a href="https://music.apple.com/us/new" target="_blank" title="Follow on Apple Music">
+					<img class="socialss" src="Images/Socials/music.png" height="20" alt="Link to follow on apple music">
+				</a>
+				<a href="https://www.pandora.com/" target="_blank" title="Follow on Pandora">
+					<img class="socialss" src="Images/Socials/pandora.png" height="20" alt="Link to follow on pandora">
+				</a>
+				<a href="https://open.spotify.com/" target="_blank" title="Follow on Spotify">
+					<img class="socialss" src="Images/Socials/spotify.png" height="20" alt="Link to follow on spotify">
+				</a>
+				<a href="https://x.com/stagefrightofc" target="_blank" title="Follow on X">
+					<img class="socialss" src="Images/Socials/twitter.png" height="20" alt="Link to follow on X">
+				</a>
+				<a href="https://www.youtube.com/@StageFrightKT" target="_blank" title="Follow on Youtube">
+					<img class="socialss" src="Images/Socials/youtube.png" height="20" alt="Link to follow on youtube">
+				</a>
+				<p>&copy; Stage Fright 2025. All rights reserved.</p>
+			</div>
+			
+			<div class="footer-info" id="BPA-required-info">
+				<div>
+					<p>Jessica Zanchi & Julissa Torres</p>
+					<p>Chapter: Joseph P. Keefe Technical HS</p>
+				</div>
+				<div>
+					<p>BPA Website Design Team</p>
+					<p>Keefe Technical Regional School - Framingham, MA</p>
+				</div>
+			</div>
+			
+		</footer>
+		<!-- END navigation section -->
+		
+		<div style="background-position: bottom; background-image: url('Images/HEADINGS/drumming.jpeg')" id="pageTitle">
+			<h1>OFFICIAL MERCHANDISE</h1>
+		</div>
+		
+		<div id="shopping">
+			<div id="highlights">
+				<div class="boxes">
+					<div onclick="passChoice('APPAREL')" class="short" style="background-image: url(Images/SHOP/apparelhighlight.png);">
+						<h2>Apparel</h2>
+					</div>
+					<div onclick="passChoice('MEDIA')" class="long" style="background-image: url(Images/SHOP/mediahighlight.png);">
+						<h2>Media</h2>
+					</div>
+				</div>
+				<div class="boxes">
+					<div onclick="passChoice('ALBUMS')" class="long" style="background-image: url(Images/SHOP/albumshighlight.png);">
+						<h2>Unmuted Merchandise</h2>
+					</div>
+					<div onclick="passChoice('CLEARANCE')" class="short" style="background-image: url(Images/SHOP/saleshighlight.png);">
+						<h2>Sales</h2>
+					</div>
+				</div>
+			</div>
+				  
+			<div id="shopcenter">  
+				<div id="categories">
+					<button id="hideFilters" onclick="toggleFilters()">HIDE FILTERS</button>
+					<h2>FILTERS</h2>
+
+					<h4>PRICE RANGES</h4>
+					<div class="filter-group">
+						<div class="checkbox-item">
+							<input type="checkbox" name="price_range[]" value="0-24.99"> 
+							<label>UNDER $24.99</label>
+						</div>
+						<div class="checkbox-item">
+							<input type="checkbox" name="price_range[]" value="25-49.99"> 
+							<label>FROM $25.00 - $49.99</label>
+						</div>
+						<div class="checkbox-item">
+							<input type="checkbox" name="price_range[]" value="50-99.99"> 
+							<label>FROM $50.00 - $99.99</label>
+						</div>
+						<div class="checkbox-item">
+							<input type="checkbox" name="price_range[]" value="100-10000000"> 
+							<label>ABOVE $100.00</label>
+						</div>
+					</div>
+
+					<hr>
+
+					<h4>COLLECTIONS</h4>
+					<div class="filter-group">
+						<div class="checkbox-item">
+							<input type="checkbox" name="collection[]" value="ACCESSORIES">
+							<label>ACCESSORIES</label>
+						</div>
+						<div class="checkbox-item">
+							<input type="checkbox" name="collection[]" value="MEDIA">
+							<label>MEDIA</label>
+						</div>
+						<div class="checkbox-item">
+							<input type="checkbox" name="collection[]" value="APPAREL">
+							<label>APPAREL</label>
+						</div>
+						<div class="checkbox-item">
+							<input type="checkbox" name="collection[]" value="ALBUMS">
+							<label>ALBUM MERCH</label>
+						</div>
+						<div class="checkbox-item">
+							<input type="checkbox" name="collection[]" value="OUTERWEAR">
+							<label>OUTERWEAR</label>
+						</div>
+						<div class="checkbox-item">
+							<input type="checkbox" name="collection[]" value="BOTTOMS">
+							<label>BOTTOMS</label>
+						</div>
+						<div class="checkbox-item">
+							<input type="checkbox" name="collection[]" value="HEADWEAR">
+							<label>HEADWEAR</label>
+						</div>
+						<div class="checkbox-item">
+							<input type="checkbox" name="collection[]" value="CLEARANCE">
+							<label>CLEARANCE</label>
+						</div>
+					</div>
+
+					<hr>
+
+					<h4>DEPARTMENT</h4>
+					<div class="filter-group">
+						<div class="checkbox-item">
+							<input type="checkbox" name="department[]" value="MEN" /> 
+							<label>MEN</label>
+						</div>
+						<div class="checkbox-item">
+							<input type="checkbox" name="department[]" value="WOMEN" /> 
+							<label>WOMEN</label>
+						</div>
+						<div class="checkbox-item">
+							<input type="checkbox" name="department[]" value="UNISEX" /> 
+							<label>UNISEX</label>
+						</div>
+						<div class="checkbox-item">
+							<input type="checkbox" name="department[]" value="YOUTH" /> 
+							<label>YOUTH</label>
+						</div>
+					</div>
+				</div>
+			   
+				<div id="combined">  
+					<div id="sortby">
+							<div id="counted"></div>  
+							<button id="showFilters" onclick="toggleFilters()">SHOW FILTERS</button>
+							
+							<select onchange="sortStuff()" name="sortit" id="selection">  
+								<option value="" disabled selected>Sort By</option>  
+								<option value="lowtohigh">Priced Low to High</option>  
+								<option value="hightolow">Priced High to Low</option>  
+								<option value="limited">Limited Edition</option>  
+								<option value="topsellers">Top Sellers</option>  
+							</select>  
+							
+					</div>  
+					<div id="mainshop">
+					</div>  
+					<div id="pagination">
+					</div>
+			    </div>  
+			</div>
+			<div class="footer-img" style="background-position: center; background-image: url('Images/HEADINGS/drumming.jpeg')"></div>
+		</div>
+	</body>
+</html>

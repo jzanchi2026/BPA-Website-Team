@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.removeItem('purchaseConfirmed');
     }
 
-    fetch('../JavaScript/productList.json')
+    fetch('JavaScript/productList.json')
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
             console.error('Error loading the product data:', error);
         });
 		
-	fetch('../JavaScript/tourInfo.json')
+	fetch('JavaScript/tourInfo.json')
 		.then(response => {
 			if (!response.ok) {
 				throw new Error(`HTTP error! status: ${response.status}`);
@@ -118,7 +118,7 @@ function buildFeatured(jsonProducts) {
 	
 		// Add to Cart Icon
 		let icon1 = document.createElement("img");
-		icon1.src = "../Images/cart.png";
+		icon1.src = "Images/cart.png";
 		icon1.alt = "Add to cart";
 		icon1.style.padding = "0 10px";
 
@@ -186,8 +186,8 @@ function buildFeatured(jsonProducts) {
 
     // More Info Icon
     let icon2 = document.createElement("img");
-    icon2.src = "../Images/info.png";
-    icon2.href = "../HTML/shop.html";
+    icon2.src = "Images/info.png";
+    icon2.href = "HTML/shop.html";
     icon2.style.height = "25px";
     icon2.alt = "See more info";
     icon2.addEventListener("click", (event) => {

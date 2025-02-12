@@ -71,7 +71,7 @@
 .location > h2 {
 	color: $main;
 	font-family: $areakilo;
-	font-size: 15pt;
+	font-size: 25pt;
 	margin-bottom: 2px;
 	text-transform: uppercase;
 }

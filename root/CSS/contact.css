@@ -32,7 +32,7 @@
 
 #signups > div > p {
   width: 30vw;
-  font-family: "radlushmed", sans-serif;
+  font-family: "swanbold", sans-serif;
   padding: 0 60px 0 80px;
   color: white;
   text-align: left;
@@ -104,7 +104,7 @@ input[type=checkbox] + label {
 }
 
 #seeForms > div div p {
-  font-family: "radlushmed", sans-serif;
+  font-family: "swanbold", sans-serif;
   font-size: 13pt;
   color: #cfcfcf;
   line-height: 1.6;
@@ -200,7 +200,7 @@ label {
   display: block;
   color: #0037de;
   margin-top: 10px;
-  font-family: "radlushmed", sans-serif;
+  font-family: "swanbold", sans-serif;
   font-weight: bold;
   font-size: 14px;
   text-align: left;
@@ -212,7 +212,7 @@ input[type=date],
 input[type=time],
 input[type=tel] {
   padding: 10px;
-  font-family: "radlushmed", sans-serif;
+  font-family: "swanbold", sans-serif;
   color: black;
   width: calc(100% - 20px);
   margin-top: 5px;
@@ -223,7 +223,7 @@ input[type=tel] {
 
 textarea {
   padding: 10px;
-  font-family: "radlushmed", sans-serif;
+  font-family: "swanbold", sans-serif;
   color: black;
   width: calc(100% - 20px);
   margin-top: 5px;

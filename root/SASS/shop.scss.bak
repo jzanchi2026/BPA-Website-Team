@@ -420,6 +420,18 @@ input[type="checkbox"]::before {
 		width: 100%;
 		gap: 15px;
 	}
+
+	.boxes > div:hover {
+		display: none !important;
+	}
+
+	.short, .long {
+		display: none !important;
+	}
+
+	.short:hover, .long:hover {
+		display: none !important;
+	}
 	
 	#categories.active {
 		left: 2.5vw;

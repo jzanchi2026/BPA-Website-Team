@@ -22,7 +22,7 @@ let cart = null;
 // Fetches product data from the JSON file and stores it
 let products = [];
 
-fetch('../JavaScript/productList.json')
+fetch('JavaScript/productList.json')
     .then(response => {
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -472,7 +472,7 @@ function popUp(item) {
 	
 	// Size alert container
 	const sizeAlert = document.createElement('div');
-	sizeAlert.style.fontFamily = "radlushmed";
+	sizeAlert.style.fontFamily = "swanbold";
 	sizeAlert.style.marginBottom = "20px";
 	sizeAlert.innerHTML = "";
 	
@@ -643,7 +643,7 @@ function popUp(item) {
 	buyNowButton.classList.add('button', 'buy-now-button');
 	buyNowButton.addEventListener('click', () => {
 		if (item.requiresSizes && selectedSize == "") {
-			sizeAlert.innerHTML = "Please pick a size!";
+			sizeAlert.innerHTML = "ALERT: Please pick a size to purchase this item!";
 			return;
 		}
 		buyNow(item, selectedSize, quantity);
@@ -688,7 +688,7 @@ function popUp(item) {
 
 
 	// Image Section
-	if (Array.isArray(item.image) && item.image.length > 0) {
+	if (Array.isArray(item.image) && item.image.length > 1) {
 		let currentImageIndex = 0;
 
 		const imageContainer = document.createElement('div');

@@ -77,7 +77,7 @@
 }
 
 .location > h3 {
-	font-family: $radlushmed;
+	font-family: $swanbold;
 }
 
 .location > h3:nth-of-type(even) {
@@ -93,7 +93,7 @@
 
 .buttons > button {
 	text-decoration: none;
-	font-family: $radlushmed;
+	font-family: $swanbold;
 	font-size: 15pt;
 	width: auto;
 	height: 75px;
@@ -186,21 +186,21 @@
 #extraInfo h2 {
 	margin: 10px;
 	color: $main;
-	font-family: $radlushmed;
+	font-family: $swanbold;
 	text-transform: uppercase;
 	
 }
 
 .extrainfotxt {
 	margin: 5px 10px;
-	font-family: $radlushmed;
+	font-family: $swanbold;
 	color: $mainlight;
 	font-size: 13pt;
 }
 
 .extrainfotxt strong {
 	color: inherit;
-	font-family: $radlushmed;
+	font-family: $swanbold;
 }
 
 .tourblurbs {
@@ -208,11 +208,11 @@
 	font-size: 12pt;
 	height: 35%;
 	margin: 20px 10px 10px;
-	font-family: $radlushmed;
+	font-family: $swanbold;
 }
 
 .selectedSectiontxt {
-	font-family: $radlushmed;
+	font-family: $swanbold;
 	font-size: 14pt;
 	margin: 10px 10px 5px;
 }
@@ -285,13 +285,13 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-family: $radlushmed;
+	font-family: $swanbold;
 }
 
 .disclaimer {
 	font-size: 12pt;
 	color: #444;
-	font-family: $radlushmed;
+	font-family: $swanbold;
 	margin: 10px;
 }
 

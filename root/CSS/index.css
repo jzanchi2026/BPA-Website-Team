@@ -140,7 +140,7 @@
 #flexedsnapscont {
   display: flex;
   flex-direction: column;
-  gap: 5;
+  gap: 5px;
   width: 80%;
   margin: 0 auto;
   position: relative;
@@ -184,7 +184,7 @@
 }
 
 .overlay > div * {
-  font-family: "radlushmed", sans-serif;
+  font-family: "swanbold", sans-serif;
 }
 
 .image-wrapper:hover .overlay {
@@ -239,7 +239,7 @@
 }
 
 #toursnap > p {
-  font-family: "radlushmed", sans-serif;
+  font-family: "swanbold", sans-serif;
   font-size: 13pt;
   width: 90%;
   margin: 15px auto;
@@ -279,7 +279,7 @@
 .scroll-arrow {
   background-color: black;
   padding: 0 10px;
-  font-family: "radlushmed", sans-serif;
+  font-family: "swanbold", sans-serif;
   font-size: 13pt;
   border: none;
   cursor: pointer;
@@ -329,7 +329,7 @@
 .event-date-time, .event-address, .event-lineup, .event-blurb {
   margin: 0.5rem 0;
   font-size: 14pt;
-  font-family: "radlushmed", sans-serif;
+  font-family: "swanbold", sans-serif;
 }
 
 .event-tour-button {

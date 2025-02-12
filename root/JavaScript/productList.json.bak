@@ -9,8 +9,8 @@
     "sellingvalue": 100,
     "limited": false,
     "image": [
-      "../Images/SHOP/products/og-shirt-front.png",
-      "../Images/SHOP/products/og-shirt-back.png"
+      "Images/SHOP/products/og-shirt-front.png",
+      "Images/SHOP/products/og-shirt-back.png"
 	],
     "filters": {
       "departments": ["unisex"],
@@ -28,8 +28,8 @@
     "sellingvalue": 70,
     "limited": false,
     "image": [
-      "../Images/SHOP/products/og-sweatpants-front.png",
-      "../Images/SHOP/products/og-sweatpants-back.png"
+      "Images/SHOP/products/og-sweatpants-front.png",
+      "Images/SHOP/products/og-sweatpants-back.png"
 	],
     "filters": {
       "departments": ["unisex"],
@@ -47,8 +47,8 @@
     "sellingvalue": 60,
     "limited": false,
 	"image": [
-      "../Images/SHOP/products/white-crewfullback-front.png",
-      "../Images/SHOP/products/white-crewfullback-back.png"
+      "Images/SHOP/products/white-crewfullback-front.png",
+      "Images/SHOP/products/white-crewfullback-back.png"
 	],
     "filters": {
       "departments": ["unisex"],
@@ -66,8 +66,8 @@
     "sellingvalue": 90,
     "limited": false,
 	"image": [
-      "../Images/SHOP/products/black-fullcrewneck-front.png",
-      "../Images/SHOP/products/black-fullcrewneck-back.png"
+      "Images/SHOP/products/black-fullcrewneck-front.png",
+      "Images/SHOP/products/black-fullcrewneck-back.png"
 	],
     "filters": {
       "departments": ["unisex"],
@@ -85,8 +85,8 @@
     "sellingvalue": 60,
     "limited": false,
 	"image": [
-      "../Images/SHOP/products/white-crewclassic-front.png",
-      "../Images/SHOP/products/white-crewclassic-back.png"
+      "Images/SHOP/products/white-crewclassic-front.png",
+      "Images/SHOP/products/white-crewclassic-back.png"
 	],
     "filters": {
       "departments": ["unisex"],
@@ -103,7 +103,7 @@
     "details": "Fabric & Materials:<br>- Premium blend of acrylic, wool, nylon, and spandex for a stretchy, comfortable fit<br>- Thick, cozy material to keep your head warm through the cold months<br><br>Design Features:<br>- Timeless black color that complements any winter outfit<br>- Soft texture for a plush feel<br><br>Wash Instructions:<br>- Hand wash cold<br>- Lay flat to dry<br>- Do not bleach<br>- Do not iron<br><br>NOTE: Size charts are for general reference. The fit may vary depending on construction, materials, and manufacturer.",
     "sellingvalue": 30,
     "limited": false,
-    "image": "../Images/SHOP/products/beanie-classic.png",
+    "image": ["Images/SHOP/products/beanie-classic.png"],
     "filters": {
       "departments": ["unisex"],
       "collections": ["apparel", "headwear", "accessories"]
@@ -119,7 +119,7 @@
     "details": "Fabric & Materials:<br>- Crafted from high-quality celluloid<br>- Thin, lightweight design for a comfortable strumming experience<br><br>Design Features:<br>- Sleek, polished finish for easy grip<br>- Durable enough for daily use and performance<br><br>Care Instructions:<br>- Wipe clean with a soft cloth after use<br>- Avoid exposure to excessive heat or direct sunlight<br><br>NOTE: Size charts are for general reference. The fit may vary depending on construction, materials, and manufacturer.",
     "sellingvalue": 20,
     "limited": false,
-    "image": "../Images/SHOP/products/pick-classic.png",
+    "image": ["Images/SHOP/products/pick-classic.png"],
     "filters": {
       "departments": ["unisex"],
       "collections": ["accessories"]
@@ -135,7 +135,7 @@
     "details": "Fabric & Materials:<br>- Crafted from high-quality celluloid<br>- Thin, lightweight design for a comfortable strumming experience<br><br>- Based off renowned album Silent Ovation<br><br>Design Features:<br>- Sleek, polished finish for easy grip<br>- Durable enough for daily use and performance<br><br>Care Instructions:<br>- Wipe clean with a soft cloth after use<br>- Avoid exposure to excessive heat or direct sunlight<br><br>NOTE: Size charts are for general reference. The fit may vary depending on construction, materials, and manufacturer.",
     "sellingvalue": 21,
     "limited": false,
-    "image": "../Images/SHOP/products/pick-silentovation.png",
+    "image": ["Images/SHOP/products/pick-silentovation.png"],
     "filters": {
       "departments": ["unisex"],
       "collections": ["albums", "media", "accessories"]
@@ -151,7 +151,7 @@
     "details": "Fabric & Materials:<br>- Crafted from high-quality celluloid<br>- Thin, lightweight design for a comfortable strumming experience<br><br>- Based off renowned album Heartbreak Boulevard<br><br>Design Features:<br>- Sleek, polished finish for easy grip<br>- Durable enough for daily use and performance<br><br>Care Instructions:<br>- Wipe clean with a soft cloth after use<br>- Avoid exposure to excessive heat or direct sunlight<br><br>NOTE: Size charts are for general reference. The fit may vary depending on construction, materials, and manufacturer.",
     "sellingvalue": 21,
     "limited": false,
-    "image": "../Images/SHOP/products/pick-hbblvd.png",
+    "image": ["Images/SHOP/products/pick-hbblvd.png"],
     "filters": {
       "departments": ["unisex"],
       "collections": ["albums", "media", "accessories"]
@@ -167,10 +167,10 @@
     "details": "Fabric & Materials:<br>- Crafted from high-quality celluloid<br>- Thin, lightweight design for a comfortable strumming experience<br><br>- Based off renowned album Fade to Black<br><br>Design Features:<br>- Sleek, polished finish for easy grip<br>- Durable enough for daily use and performance<br><br>Care Instructions:<br>- Wipe clean with a soft cloth after use<br>- Avoid exposure to excessive heat or direct sunlight<br><br>NOTE: Size charts are for general reference. The fit may vary depending on construction, materials, and manufacturer.",
     "sellingvalue": 21,
     "limited": false,
-    "image": "../Images/SHOP/products/pick-fadetoblack.png",
+    "image": ["Images/SHOP/products/pick-fadetoblack.png"],
     "filters": {
       "departments": ["unisex"],
-      "collections": ["albums"]
+      "collections": ["albums", "media", "accessories"]
     },
     "requiresSizes": false
   },
@@ -184,8 +184,8 @@
     "sellingvalue": 60,
     "limited": false,
 	"image": [
-      "../Images/SHOP/products/classic-crew-front.png",
-      "../Images/SHOP/products/classic-crew-back.png"
+      "Images/SHOP/products/classic-crew-front.png",
+      "Images/SHOP/products/classic-crew-back.png"
 	],
     "filters": {
       "departments": ["unisex"],
@@ -203,8 +203,8 @@
     "sellingvalue": 100,
     "limited": false,
 	"image": [
-      "../Images/SHOP/products/fullback-tshirt-front.png",
-      "../Images/SHOP/products/fullback-tshirt-back.png"
+      "Images/SHOP/products/fullback-tshirt-front.png",
+      "Images/SHOP/products/fullback-tshirt-back.png"
 	],
     "filters": {
       "departments": ["unisex"],
@@ -222,8 +222,8 @@
     "sellingvalue": 80,
     "limited": false,
 	"image": [
-      "../Images/SHOP/products/white-fullbacktee-front.png",
-      "../Images/SHOP/products/white-fullbacktee-back.png"
+      "Images/SHOP/products/white-fullbacktee-front.png",
+      "Images/SHOP/products/white-fullbacktee-back.png"
 	],
     "filters": {
       "departments": ["unisex"],
@@ -241,8 +241,8 @@
     "sellingvalue": 50,
     "limited": false,
 	"image": [
-      "../Images/SHOP/products/white-classictee-front.png",
-      "../Images/SHOP/products/white-classictee-back.png"
+      "Images/SHOP/products/white-classictee-front.png",
+      "Images/SHOP/products/white-classictee-back.png"
 	],
     "filters": {
       "departments": ["unisex"],
@@ -259,7 +259,7 @@
     "details": "Fabric & Materials:<br>- Premium cotton blend for a soft and breathable feel<br>- Durable stretch to maintain shape<br><br>Design Features:<br>- Sleek design inspired by the Silent Ovation album<br>- Ribbed cuffs for a secure and comfortable fit<br>- Perfect for everyday wear or music events<br><br>Wash Instructions:<br>- Machine wash cold<br>- Wash with like colors<br>- Tumble dry low or air dry<br>- Do not bleach<br>- Do not iron",
     "sellingvalue": 30,
     "limited": true,
-    "image": "../Images/SHOP/products/socks-silentalbum.png",
+    "image": "Images/SHOP/products/socks-silentalbum.png",
     "filters": {
       "departments": ["unisex"],
       "collections": ["albums", "accessories", "apparel"]
@@ -275,7 +275,7 @@
     "details": "Fabric & Materials:<br>- Soft cotton blend for lasting comfort<br>- Breathable and moisture-wicking fabric<br><br>Design Features:<br>- Vibrant Heartbreak Boulevard album-inspired design<br>- Ribbed cuffs for a comfortable, stay-put fit<br>- Ideal for casual wear or showcasing your love for music<br><br>Wash Instructions:<br>- Machine wash cold<br>- Wash with similar colors<br>- Tumble dry low or air dry<br>- Do not bleach<br>- Do not iron",
     "sellingvalue": 31,
     "limited": true,
-    "image": "../Images/SHOP/products/socks-hbalbum.png",
+    "image": "Images/SHOP/products/socks-hbalbum.png",
     "filters": {
       "departments": ["unisex"],
       "collections": ["albums", "accessories", "apparel"]
@@ -291,7 +291,7 @@
     "details": "Fabric & Materials:<br>- High-quality cotton blend for superior comfort<br>- Durable and stretchable fabric<br><br>Design Features:<br>- Bold design inspired by the Fade to Black album<br>- Ribbed cuffs for secure fit<br>- Great for daily wear or music enthusiasts<br><br>Wash Instructions:<br>- Machine wash cold<br>- Wash with like colors<br>- Tumble dry low or air dry<br>- Do not bleach<br>- Do not iron",
     "sellingvalue": 29,
     "limited": true,
-    "image": "../Images/SHOP/products/socks-fadealbum.png",
+    "image": "Images/SHOP/products/socks-fadealbum.png",
     "filters": {
       "departments": ["unisex"],
       "collections": ["albums", "accessories", "apparel"]
@@ -307,7 +307,7 @@
     "details": "Material & Sound Quality:<br>- Premium 180-gram vinyl for high-fidelity sound<br>- Superior craftsmanship for a smooth listening experience<br><br>Design Features:<br>- Beautifully printed album art<br>- Liner notes included<br>- Perfect for collectors and music lovers<br><br>Care Instructions:<br>- Handle by the edges<br>- Keep in a protective sleeve when not in use<br>- Clean gently with a microfiber cloth",
     "sellingvalue": 15,
     "limited": false,
-    "image": "../Images/SHOP/products/vinyl-silentalbum.png",
+    "image": "Images/SHOP/products/vinyl-silentalbum.png",
     "filters": {
       "departments": ["unisex"],
       "collections": ["media", "albums"]
@@ -323,7 +323,7 @@
     "details": "Material & Sound Quality:<br>- Premium 180-gram vinyl for excellent audio quality<br>- Expertly crafted for durability and superior sound<br><br>Design Features:<br>- Stunning album artwork printed on the sleeve<br>- Includes detailed liner notes<br>- Great addition to any vinyl collection<br><br>Care Instructions:<br>- Store upright in a cool, dry place<br>- Clean with a microfiber cloth<br>- Avoid touching the grooves directly",
     "sellingvalue": 15,
     "limited": false,
-    "image": "../Images/SHOP/products/vinyl-hbalbum.png",
+    "image": "Images/SHOP/products/vinyl-hbalbum.png",
     "filters": {
       "departments": ["unisex"],
       "collections": ["media", "albums"]
@@ -339,7 +339,7 @@
     "details": "Material & Sound Quality:<br>- High-quality 180-gram vinyl for a rich, warm sound<br>- Precision crafted for optimal playback<br><br>Design Features:<br>- Eye-catching album artwork<br>- Includes collectible liner notes<br>- Ideal for music enthusiasts and collectors<br><br>Care Instructions:<br>- Handle by the edges<br>- Clean with an anti-static brush<br>- Store in a protective sleeve",
     "sellingvalue": 15,
     "limited": false,
-    "image": "../Images/SHOP/products/vinyl-fadealbum.png",
+    "image": "Images/SHOP/products/vinyl-fadealbum.png",
     "filters": {
       "departments": ["unisex"],
       "collections": ["media", "albums"]
@@ -356,8 +356,8 @@
     "sellingvalue": 130,
     "limited": false,
 	"image": [
-      "../Images/SHOP/products/classic-tee-silentalbum-front.png",
-      "../Images/SHOP/products/classic-tee-silentalbum-back.png"
+      "Images/SHOP/products/classic-tee-silentalbum-front.png",
+      "Images/SHOP/products/classic-tee-silentalbum-back.png"
 	],
     "filters": {
       "departments": ["unisex"],
@@ -375,8 +375,8 @@
     "sellingvalue": 130,
     "limited": false,
 	"image": [
-      "../Images/SHOP/products/classic-tee-hbalbum-front.png",
-      "../Images/SHOP/products/classic-tee-hbalbum-back.png"
+      "Images/SHOP/products/classic-tee-hbalbum-front.png",
+      "Images/SHOP/products/classic-tee-hbalbum-back.png"
 	],
     "filters": {
       "departments": ["unisex"],
@@ -394,8 +394,8 @@
     "sellingvalue": 130,
     "limited": false,
 	"image": [
-      "../Images/SHOP/products/classic-tee-fadealbum-front.png",
-      "../Images/SHOP/products/classic-tee-fadealbum-back.png"
+      "Images/SHOP/products/classic-tee-fadealbum-front.png",
+      "Images/SHOP/products/classic-tee-fadealbum-back.png"
 	],
     "filters": {
       "departments": ["unisex"],

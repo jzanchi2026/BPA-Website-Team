@@ -128,7 +128,7 @@ function renderCartSummary() {
 			itemDetails.appendChild(itemPrice);
 			
 			if (order.section) {
-				itemImage.src = "../Images/tourticketing.png";
+				itemImage.src = "Images/tourticketing.png";
 			
                 const itemDate = document.createElement('p');
                 itemDate.classList.add('cart-item-size');
@@ -535,6 +535,6 @@ function showConfirmation(data) {
     body.style.opacity = 0;
 
     setTimeout(() => {
-        window.location.href = "../HTML/index.html";
+        window.location.href = "../index.html";
     }, 500);
 }

@@ -51,7 +51,7 @@
   color: white;
   font-weight: bold;
   margin: 0;
-  font-family: $radlushmed;
+  font-family: $swanbold;
 }
 
 .product-price s {
@@ -142,18 +142,18 @@
   text-shadow: 0 0 10px black;
   font-weight: bold;
   margin: 0;
-  font-family: $radlushmed;
+  font-family: $swanbold;
   font-size: 14pt;
 }
 
 .home-product-price s {
 	color: gray;
-	font-family: $radlushmed;	
+	font-family: $swanbold;	
 }	
 
 .home-product-price span {
 	color: $mainlight;
-	font-family: $radlushmed;
+	font-family: $swanbold;
 }
 
 .home-product-card .icon-bar {
@@ -716,7 +716,7 @@
 .cart-popup-item-prices p {
   color: white;
   border-radius: 10px;
-  font-family: $radlushmed;
+  font-family: $swanbold;
   font-size: 15pt;
   background-color: black;
   padding: 10px;
@@ -734,7 +734,7 @@
   text-underline-offset: 2px;
   color: gray;
   padding: 0;
-  font-family: $radlushmed;
+  font-family: $swanbold;
   transition: 0.2s ease;
 }
 
@@ -750,7 +750,7 @@
 
 .cart-popup-item-name {
   color: white;
-  font-family: $radlushmed;
+  font-family: $swanbold;
   font-size: 14pt;
   margin-right: 15px;
   margin-bottom: 12px;
@@ -759,20 +759,20 @@
 .cart-popup-item-size,
 .cart-popup-item-price {
   color: gray;
-  font-family: $radlushmed;
+  font-family: $swanbold;
   font-size: 10pt;
 }
 
 .cart-popup-total, .cart-popup-counts {
   margin: 10px 40px;
-  font-family: $radlushmed;
+  font-family: $swanbold;
 }
 
 .cart-popup-total p {
   font-weight: bold;
   color: white;
   font-size: 25pt;
-  font-family: $radlushmed;
+  font-family: $swanbold;
 }
 
 .button-area {

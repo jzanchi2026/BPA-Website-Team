@@ -147,32 +147,8 @@ input[type=checkbox]:checked::before {
   transform: scale(1.05) translateX(2%);
 }
 
-nav > div.inside a:hover:nth-child(1) {
+nav > div.inside a:hover {
   color: #0037de;
-  text-shadow: 0px 0px 20px black;
-  transform: scale(1.05) translateX(2%);
-}
-
-nav > div.inside a:hover:nth-child(2) {
-  color: #4228c6;
-  text-shadow: 0px 0px 20px black;
-  transform: scale(1.05) translateX(2%);
-}
-
-nav > div.inside a:hover:nth-child(3) {
-  color: #7a2ed1;
-  text-shadow: 0px 0px 20px black;
-  transform: scale(1.05) translateX(2%);
-}
-
-nav > div.inside:nth-of-type(2) a:hover:nth-child(1) {
-  color: #7f4b96;
-  text-shadow: 0px 0px 20px black;
-  transform: scale(1.05) translateX(2%);
-}
-
-nav > div.inside:nth-of-type(2) a:hover:nth-child(2) {
-  color: #aa5c7e;
   text-shadow: 0px 0px 20px black;
   transform: scale(1.05) translateX(2%);
 }
@@ -217,7 +193,7 @@ nav > div.inside:nth-of-type(2) a:hover:nth-child(2) {
   position: absolute;
   top: calc(50% - 20px);
   right: 0px;
-  background-color: #541f36;
+  background-color: #071540;
   color: white;
   border-radius: 50%;
   padding: 2px 6px;
@@ -226,7 +202,7 @@ nav > div.inside:nth-of-type(2) a:hover:nth-child(2) {
   pointer-events: none;
   display: none;
   transition: 0.3s ease-in-out;
-  font-family: "radlushmed", sans-serif;
+  font-family: "swanbold", sans-serif;
 }
 
 .pink-cart {
@@ -295,7 +271,6 @@ nav > div.inside:nth-of-type(2) a:hover:nth-child(2) {
   display: none;
   flex-direction: column;
   justify-content: left;
-  align-items: left;
   text-align: left;
   height: calc(85vh - 20px);
   width: 100vw;
@@ -457,20 +432,8 @@ footer {
   src: url("Fonts/Salma Pro - Alifinart/salmapro.otf");
 }
 @font-face {
-  font-family: juliett;
-  src: url("Fonts/Juliett - GGBotNet/juliettbold.ttf");
-}
-@font-face {
-  font-family: radlushmed;
-  src: url("Fonts/Radlush - Arterfak/radlushreg.otf");
-}
-@font-face {
-  font-family: pasti;
-  src: url("Fonts/Pasti - HolyJollie/pastireg.otf");
-}
-@font-face {
-  font-family: appletea;
-  src: url("Fonts/Apple Tea - wepfont/appletea.ttf");
+  font-family: swanbold;
+  src: url("Fonts/Swansea - Roger White/swanbold.ttf");
 }
 @font-face {
   font-family: areakilo;

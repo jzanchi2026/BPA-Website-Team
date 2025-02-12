@@ -17,6 +17,24 @@ window.addEventListener('pageshow', function (event) {
     }
 });
 
+function fadeout(event) {
+    event.preventDefault();
+
+    const href = event.target.href || event.target.getAttribute('data-href');
+
+    if (!href) {
+        return;
+    }
+
+    const body = document.querySelector('body');
+    body.style.transition = 'opacity 0.5s ease';
+    body.style.opacity = 0;
+
+    setTimeout(() => {
+        window.location.href = href;
+    }, 500);
+}
+
 document.addEventListener("DOMContentLoaded", function () {
     const reveals = document.querySelectorAll(".reveal");
 
@@ -40,33 +58,17 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-function fadeout(event) {
-    event.preventDefault();
-
-    const href = event.target.href || event.target.getAttribute('data-href');
-
-    if (!href) {
-        return;
-    }
-
-    const body = document.querySelector('body');
-    body.style.transition = 'opacity 0.5s ease';
-    body.style.opacity = 0;
-
-    setTimeout(() => {
-        window.location.href = href;
-    }, 500);
-}
-
 
 // Highlights the current page
 window.addEventListener("DOMContentLoaded", () => {
-  const navLinks = document.querySelectorAll("#navbar a");
-  navLinks.forEach(link => {
-    if (link.href === window.location.href) {
-      link.style.textDecoration = "line-through";
-    }
-  });
+	const navLinks = document.querySelectorAll("#navbar a");
+	navLinks.forEach(link => {
+		if (link.href === window.location.href) {
+			link.style.textDecoration = "underline";
+			link.style.textUnderlineOffset = "5px";
+			link.style.textDecorationThickness = "3px";
+		}
+	});
 
 });
 
@@ -528,7 +530,7 @@ function showCartPopup() {
 				if (Array.isArray(order.image) && order.image.length > 0) {
 					itemImage.src = order.image[0];
 				} else {
-					itemImage.src = order.image || "../Images/tourticketing.png";
+					itemImage.src = order.image ? "../" + order.image : "Images/tourticketing.png";
 				}
                 itemImage.alt = order.name;
                 itemImage.className = 'cart-popup-item-image';
@@ -639,7 +641,7 @@ function showCartPopup() {
                 priceRemove.appendChild(removeBtn);
 				
 				const trashIcon = document.createElement('img');
-                trashIcon.src = '../Images/trash.png';
+                trashIcon.src = 'Images/trash.png';
                 trashIcon.alt = 'Remove item';
                 trashIcon.style.height = '20px';
                 trashIcon.style.width = 'auto';

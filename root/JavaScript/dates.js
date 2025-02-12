@@ -2,7 +2,7 @@ let events = [];
 const sectionTakenSeatsMap = {};
 
 // Fetches tour date info from JSON file
-fetch('../JavaScript/tourInfo.json')
+fetch('JavaScript/tourInfo.json')
 	.then(response => {
 		if (!response.ok) {
 			throw new Error(`HTTP error! status: ${response.status}`);

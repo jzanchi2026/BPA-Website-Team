@@ -41,7 +41,7 @@
 }
 
 #welcome > div p {
-  font-family: "radlushmed", sans-serif;
+  font-family: "swanbold", sans-serif;
   font-size: 12pt;
   width: 80%;
   margin-top: 20px;
@@ -110,15 +110,18 @@
 }
 
 .linedtitle {
-  font-size: 23pt;
-  font-family: "salmapro", sans-serif;
-  letter-spacing: 2px;
-  text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 30px;
   margin: 50px 0;
+}
+
+.linedtitle h2 {
+  font-size: 23pt;
+  font-family: "salmapro", sans-serif;
+  letter-spacing: 2px;
+  text-align: center;
 }
 
 .linedtitle hr {
@@ -147,7 +150,7 @@
 }
 
 #bgg4 * {
-  font-family: "radlushmed", sans-serif;
+  font-family: "swanbold", sans-serif;
 }
 
 #member1, #member2, #member3 {
@@ -281,7 +284,7 @@
 }
 
 .albumcontainer > p {
-  font-family: "radlushmed", sans-serif;
+  font-family: "swanbold", sans-serif;
   color: white;
   text-align: left;
   font-size: 15pt;
@@ -326,7 +329,7 @@
 }
 
 .overlay > div * {
-  font-family: "radlushmed", sans-serif;
+  font-family: "swanbold", sans-serif;
 }
 
 .image-wrapper:hover .overlay {
@@ -479,7 +482,7 @@
   .timelinep {
     font-size: 14pt;
   }
-  .linedtitle {
+  .linedtitle h2 {
     font-size: 25pt;
     text-decoration: underline;
     text-underline-offset: 6px;

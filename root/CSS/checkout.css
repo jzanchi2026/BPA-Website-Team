@@ -41,7 +41,7 @@
 
 .cart-summary > div h2 {
   color: white;
-  font-family: radlushmed;
+  font-family: "swanbold", sans-serif;
   font-size: 24pt;
   background-color: black;
   width: 100%;
@@ -66,7 +66,7 @@
 
 .info-section h3 {
   color: white;
-  font-family: radlushmed;
+  font-family: "swanbold", sans-serif;
   font-size: 24pt;
   background-color: black;
   width: 100%;
@@ -124,7 +124,7 @@
 
 .cart-item-name {
   color: white;
-  font-family: radlushmed;
+  font-family: "swanbold", sans-serif;
   text-transform: uppercase;
   font-size: 17pt;
   font-weight: bold;
@@ -132,9 +132,9 @@
 }
 
 .cart-item-price {
-  color: #50a5b3;
+  color: #7b82e8;
   margin-top: 10px;
-  font-family: radlushmed;
+  font-family: "swanbold", sans-serif;
   font-size: 13pt;
   font-weight: bold;
 }
@@ -142,7 +142,7 @@
 .cart-item-quantity,
 .cart-item-size {
   color: gray;
-  font-family: radlushmed;
+  font-family: "swanbold", sans-serif;
   font-size: 12pt;
 }
 
@@ -177,14 +177,14 @@
 }
 
 .label {
-  font-family: radlushmed;
+  font-family: "swanbold", sans-serif;
   font-size: 15pt;
   font-weight: bold;
   text-align: left;
 }
 
 .value {
-  font-family: radlushmed;
+  font-family: "swanbold", sans-serif;
   font-size: 15pt;
   text-align: right;
   font-weight: normal;
@@ -192,7 +192,7 @@
 }
 
 .total-value {
-  color: #4286a8;
+  color: #0037de;
 }
 
 .checkbox-label-container {
@@ -209,13 +209,13 @@
 }
 
 .review-group h2 {
-  font-family: areakilo;
-  color: #4286a8;
+  font-family: "areakilo", sans-serif;
+  color: #0037de;
   margin-bottom: 3px;
 }
 
 .review-group p > * {
-  font-family: radlushmed;
+  font-family: "swanbold", sans-serif;
   margin: 3px 0;
 }
 
@@ -230,7 +230,7 @@ label {
   margin-bottom: 5px;
   color: white;
   font-weight: bold;
-  font-family: radlushmed;
+  font-family: "swanbold", sans-serif;
 }
 
 .address-input, select {
@@ -241,50 +241,46 @@ label {
   border-radius: 5px;
   color: #f8f9fa;
   font-size: 1rem;
-  font-family: radlushmed;
-}
-
-.address-input:focus, select:focus {
-  outline: none;
-  border-color: #ff5252;
-  box-shadow: 0 0 5px rgba(255, 82, 82, 0.6);
+  font-family: "swanbold", sans-serif;
 }
 
 #toggleToBilling, #toggleToShipping, #toggleToReview, #backToBilling, #checkout-btn {
   width: 200px;
-  font-family: areakilo;
+  height: 50px;
+  border: 3px solid black;
+  font-family: "areakilo", sans-serif;
   background-color: black;
   margin: 0 20px 20px;
 }
 
 #toggleToBilling:hover, #toggleToShipping:hover, #toggleToReview:hover, #backToBilling:hover {
   transform: scale(1.03);
-  color: #4286a8;
+  color: #0037de;
 }
 
 .error-message {
-  color: #95c4db;
-  font-family: radlushmed;
+  color: #7b82e8;
+  font-family: "swanbold", sans-serif;
   font-size: 14px;
   margin-top: 3px;
 }
 
 #error-message {
-  color: #4286a8;
-  font-family: radlushmed;
+  color: #0037de;
+  font-family: "swanbold", sans-serif;
   font-size: 17px;
   margin: 10px 20px;
 }
 
 #error-message2 {
-  color: #4286a8;
-  font-family: radlushmed;
+  color: #0037de;
+  font-family: "swanbold", sans-serif;
   font-size: 17px;
   margin: 10px 20px;
 }
 
 #checkout-btn:hover {
-  background-color: #4286a8;
+  background-color: #0037de;
   transform: scale(1.03);
 }
 

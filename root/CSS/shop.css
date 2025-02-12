@@ -35,7 +35,7 @@ body {
 .boxes > div > h2 {
   font-size: 20pt;
   color: white;
-  font-family: "radlushmed", sans-serif;
+  font-family: "swanbold", sans-serif;
   letter-spacing: 2px;
   text-shadow: black 0 0 20px;
   background: rgba(7, 21, 64, 0.3);
@@ -141,7 +141,7 @@ input[type=checkbox]::before {
 }
 
 .checkbox-item label {
-  font-family: "radlushmed", sans-serif;
+  font-family: "swanbold", sans-serif;
   font-size: 1.1em;
 }
 
@@ -165,7 +165,7 @@ input[type=checkbox]::before {
 }
 
 #categories > *, #categories > * > * {
-  font-family: "radlushmed", sans-serif;
+  font-family: "swanbold", sans-serif;
   margin: 15px;
 }
 
@@ -244,7 +244,7 @@ input[type=checkbox]::before {
 
 #counted {
   font-weight: bold;
-  font-family: "radlushmed", sans-serif;
+  font-family: "swanbold", sans-serif;
   font-size: 11pt;
 }
 

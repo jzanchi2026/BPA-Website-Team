@@ -1127,15 +1127,6 @@
 	  .home-product-card {
 		width: 80%;
 	}
-
-	  .product-price {
-		font-size: 36pt;
-	  }
-
-	  #pagination button {
-		font-size: 21pt;
-	  }
-	
 	.flexed .side-two, .flexed .side-one {
 		padding: 0px;
 		transform: scale(0.95)

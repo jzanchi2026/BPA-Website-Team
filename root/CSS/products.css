@@ -49,7 +49,7 @@
   color: white;
   font-weight: bold;
   margin: 0;
-  font-family: "radlushmed", sans-serif;
+  font-family: "swanbold", sans-serif;
 }
 
 .product-price s {
@@ -140,18 +140,18 @@
   text-shadow: 0 0 10px black;
   font-weight: bold;
   margin: 0;
-  font-family: "radlushmed", sans-serif;
+  font-family: "swanbold", sans-serif;
   font-size: 14pt;
 }
 
 .home-product-price s {
   color: gray;
-  font-family: "radlushmed", sans-serif;
+  font-family: "swanbold", sans-serif;
 }
 
 .home-product-price span {
   color: #7b82e8;
-  font-family: "radlushmed", sans-serif;
+  font-family: "swanbold", sans-serif;
 }
 
 .home-product-card .icon-bar {
@@ -216,8 +216,6 @@
 .home-size-button {
   background-color: black;
   border: 2px solid black;
-  border-radius-top-left: 5px;
-  border-radius-bottom-left: 5px;
   padding: 5px 10px;
   font-size: 14px;
   cursor: pointer;
@@ -716,7 +714,7 @@
 .cart-popup-item-prices p {
   color: white;
   border-radius: 10px;
-  font-family: "radlushmed", sans-serif;
+  font-family: "swanbold", sans-serif;
   font-size: 15pt;
   background-color: black;
   padding: 10px;
@@ -734,7 +732,7 @@
   text-underline-offset: 2px;
   color: gray;
   padding: 0;
-  font-family: "radlushmed", sans-serif;
+  font-family: "swanbold", sans-serif;
   transition: 0.2s ease;
 }
 
@@ -750,7 +748,7 @@
 
 .cart-popup-item-name {
   color: white;
-  font-family: "radlushmed", sans-serif;
+  font-family: "swanbold", sans-serif;
   font-size: 14pt;
   margin-right: 15px;
   margin-bottom: 12px;
@@ -759,20 +757,20 @@
 .cart-popup-item-size,
 .cart-popup-item-price {
   color: gray;
-  font-family: "radlushmed", sans-serif;
+  font-family: "swanbold", sans-serif;
   font-size: 10pt;
 }
 
 .cart-popup-total, .cart-popup-counts {
   margin: 10px 40px;
-  font-family: "radlushmed", sans-serif;
+  font-family: "swanbold", sans-serif;
 }
 
 .cart-popup-total p {
   font-weight: bold;
   color: white;
   font-size: 25pt;
-  font-family: "radlushmed", sans-serif;
+  font-family: "swanbold", sans-serif;
 }
 
 .button-area {

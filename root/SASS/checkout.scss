@@ -286,7 +286,29 @@ label {
     transform: scale(1.03);
 }
 
+.flexed {
+	display: flex;
+	gap: 20px;
+}
+
 /* Media Queries */
+@media (max-width: 1208px) {
+	#container {
+		width: 100%;
+		padding: 10px;
+		align-items: center;
+	}
+	
+	.cart-summary {
+		width: 100%;
+	}
+	
+	.info-section {
+		width: 90vw;
+	}
+	
+}
+
 @media (max-width: 768px) {
     .checkout-section {
         flex-direction: column;
@@ -296,4 +318,8 @@ label {
         flex: 1 1 100%;
         margin-bottom: 20px;
     }
+	
+	.flexed {
+		flex-direction: column;
+	}
 }

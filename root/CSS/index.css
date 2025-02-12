@@ -80,7 +80,9 @@
 }
 
 .shopsnap {
-  background-color: rgba(7, 21, 64, 0.5);
+  background-color: black;
+  border-top: 3px solid #666;
+  border-bottom: 3px solid #666;
   text-align: center;
   width: 100%;
   padding: 15px 40px;
@@ -131,7 +133,7 @@
 
 .albumcontainer > h3 {
   font-family: "salmapro", sans-serif;
-  color: #7b82e8;
+  color: #7b90db;
   text-align: center;
   font-size: 18pt;
   margin: 20px 0;
@@ -303,8 +305,8 @@
 }
 
 .event-card {
-  background-color: #111;
-  border: 3px solid #333;
+  background-color: rgba(29, 44, 99, 0.3);
+  border: 3px solid #1d2c63;
   border-radius: 5px;
   padding: 1rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -323,7 +325,7 @@
   font-family: "salmapro", sans-serif;
   margin-bottom: 20px;
   text-transform: uppercase;
-  color: #0037de;
+  color: #5066b6;
 }
 
 .event-date-time, .event-address, .event-lineup, .event-blurb {
@@ -333,7 +335,7 @@
 }
 
 .event-tour-button {
-  background-color: #071540;
+  background-color: #1d2c63;
   font-family: "areakilo", sans-serif;
   color: white;
   font-size: 16pt;
@@ -345,7 +347,7 @@
 
 .event-tour-button:hover {
   transform: scale(1.03);
-  background-color: #0037de;
+  background-color: #5066b6;
 }
 
 /* Responsive media queries */
@@ -432,8 +434,10 @@
     letter-spacing: 7px;
   }
   #otherscrolling {
-    top: 320px;
-    left: 3%;
+    display: none;
+  }
+  #scrollingText {
+    display: none;
   }
   #albumsnap, #toursnap {
     width: 100vw;
@@ -463,6 +467,9 @@
   }
   .event-tour-button {
     font-size: 20pt;
+  }
+  #toursnap > p {
+    font-size: 14pt;
   }
 }
 

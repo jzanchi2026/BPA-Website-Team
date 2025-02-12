@@ -46,17 +46,82 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             });
         },
-        { threshold: 0.1 }
+        { threshold: 0.5 }
     );
 
     reveals.forEach((el) => {
-        if (el.getBoundingClientRect().top < window.innerHeight) {
+        if (el.getBoundingClientRect().top < window.innerHeight * 0.5) {
             el.classList.add("show");
         } else {
             observer.observe(el);
         }
     });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const revealLefts = document.querySelectorAll(".revealleft");
+    const revealRights = document.querySelectorAll(".revealright");
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                }
+            });
+        },
+        { threshold: 0.8 }
+    );
+
+	revealLefts.forEach((el) => {
+        if (el.getBoundingClientRect().top < window.innerHeight * 0.5) {
+            el.classList.add("show");
+        } else {
+            observer.observe(el);
+        }
+    });
+	revealRights.forEach((el) => {
+        if (el.getBoundingClientRect().top < window.innerHeight * 0.5) {
+            el.classList.add("show");
+        } else {
+            observer.observe(el);
+        }
+    });
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const rows = document.querySelectorAll(".row");
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const elements = Array.from(entry.target.children);
+                    elements.forEach((el, index) => {
+                        setTimeout(() => {
+                            el.classList.add("show");
+                        }, index * 350);
+                    });
+                }
+            });
+        },
+        { threshold: 0.5 }
+    );
+
+    rows.forEach((row) => {
+        if (row.getBoundingClientRect().top < window.innerHeight) {
+            Array.from(row.children).forEach((el, index) => {
+                setTimeout(() => {
+                    el.classList.add("show");
+                }, index * 350);
+            });
+        } else {
+            observer.observe(row);
+        }
+    });
+});
+
 
 
 // Highlights the current page

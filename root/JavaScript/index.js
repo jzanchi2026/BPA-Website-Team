@@ -1,6 +1,6 @@
 // Builds product data for the featured shop section and shows purchase message
 document.addEventListener("DOMContentLoaded", () => {
-    if (localStorage.getItem('purchaseConfirmed') === 'true') {
+    if (localStorage.getItem('purchaseConfirmed') == 'true') {
         showThankYouMessage();
         localStorage.removeItem('purchaseConfirmed');
     }
@@ -86,7 +86,7 @@ function buildFeatured(jsonProducts) {
 	const contentContainers = document.querySelectorAll(".shopsnap");
 	const choices = ["APPAREL", "MEDIA", "ALBUMS", "CLEARANCE", "POSTERS", "COLLECTIBLES", "VINYLS", "LIMITED"];
 
-	const featuredProducts = [jsonProducts[0], jsonProducts[10], jsonProducts[2], jsonProducts[5], jsonProducts[1], jsonProducts[15], jsonProducts[6], jsonProducts[13]];
+	const featuredProducts = [jsonProducts[0], jsonProducts[10], jsonProducts[2], jsonProducts[20], jsonProducts[1], jsonProducts[22], jsonProducts[11], jsonProducts[13]];
 
 	featuredProducts.forEach((product, index) => {
 		let cc = choices[index];

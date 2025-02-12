@@ -132,7 +132,7 @@
 }
 
 .cart-item-price {
-  color: #7b82e8;
+  color: #7b90db;
   margin-top: 10px;
   font-family: "swanbold", sans-serif;
   font-size: 13pt;
@@ -192,7 +192,7 @@
 }
 
 .total-value {
-  color: #0037de;
+  color: #5066b6;
 }
 
 .checkbox-label-container {
@@ -210,7 +210,7 @@
 
 .review-group h2 {
   font-family: "areakilo", sans-serif;
-  color: #0037de;
+  color: #5066b6;
   margin-bottom: 3px;
 }
 
@@ -255,36 +255,54 @@ label {
 
 #toggleToBilling:hover, #toggleToShipping:hover, #toggleToReview:hover, #backToBilling:hover {
   transform: scale(1.03);
-  color: #0037de;
+  color: #5066b6;
 }
 
 .error-message {
-  color: #7b82e8;
+  color: #7b90db;
   font-family: "swanbold", sans-serif;
   font-size: 14px;
   margin-top: 3px;
 }
 
 #error-message {
-  color: #0037de;
+  color: #5066b6;
   font-family: "swanbold", sans-serif;
   font-size: 17px;
   margin: 10px 20px;
 }
 
 #error-message2 {
-  color: #0037de;
+  color: #5066b6;
   font-family: "swanbold", sans-serif;
   font-size: 17px;
   margin: 10px 20px;
 }
 
 #checkout-btn:hover {
-  background-color: #0037de;
+  background-color: #5066b6;
   transform: scale(1.03);
 }
 
+.flexed {
+  display: flex;
+  gap: 20px;
+}
+
 /* Media Queries */
+@media (max-width: 1208px) {
+  #container {
+    width: 100%;
+    padding: 10px;
+    align-items: center;
+  }
+  .cart-summary {
+    width: 100%;
+  }
+  .info-section {
+    width: 90vw;
+  }
+}
 @media (max-width: 768px) {
   .checkout-section {
     flex-direction: column;
@@ -292,6 +310,9 @@ label {
   .cart-summary, .info-section {
     flex: 1 1 100%;
     margin-bottom: 20px;
+  }
+  .flexed {
+    flex-direction: column;
   }
 }
 

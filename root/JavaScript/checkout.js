@@ -512,18 +512,55 @@ function sendPurchaseEmail(details) {
         totalPrice: getValue(details?.totalPrice, "0.00")
     };
 
-    // Uncomment and use emailjs when ready to send email
-    /*
     emailjs.send('service_7mcdie6', 'template_w4drjfj', emailData)
         .then(response => {
             showConfirmation(emailData);
+			console.log("Email sent");
         })
         .catch(error => {
             console.error("Failed to send purchase email:", error);
         });
-    */
+
+    // Submit to SheetDB after sending the email
+    submitToSheetDB(details);
 
     showConfirmation(emailData);
+}
+
+function submitToSheetDB(details) {
+    const sheetData = {
+        shipping_first_name: details?.shipping?.firstName,
+        shipping_last_name: details?.shipping?.lastName,
+        shipping_address: details?.shipping?.address,
+        shipping_address2: details?.shipping?.address2,
+        shipping_city: details?.shipping?.city,
+        shipping_state: details?.shipping?.state,
+        shipping_zip: details?.shipping?.zip,
+        shipping_email: details?.shipping?.email,
+        billing_full_name: details?.billing?.fullName,
+        billing_address: details?.billing?.address,
+        billing_address2: details?.billing?.address2,
+        billing_city: details?.billing?.city,
+        billing_state: details?.billing?.state,
+        billing_zip: details?.billing?.zip,
+        billing_phone: details?.billing?.phone,
+        totalPrice: details?.totalPrice
+    };
+
+    fetch('https://sheetdb.io/api/v1/03zwioeuzrygj', {
+        method: 'POST',
+        body: JSON.stringify(sheetData),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Data successfully submitted to SheetDB:', data);
+    })
+    .catch(error => {
+        console.error('Error submitting data to SheetDB:', error);
+    });
 }
 
 function showConfirmation(data) {
@@ -535,6 +572,6 @@ function showConfirmation(data) {
     body.style.opacity = 0;
 
     setTimeout(() => {
-        window.location.href = "../index.html";
+        window.location.href = "index.html";
     }, 500);
 }

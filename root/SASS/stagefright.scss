@@ -18,7 +18,7 @@ body {
 
 .reveal {
     opacity: 0 !important;
-    transform: translateY(40px) !important;
+    transform: translateY(80px) !important;
     transition: 0.4s ease-out !important;
 }
 
@@ -27,6 +27,42 @@ body {
     transform: translateY(0) !important;
 }
 
+.revealleft {
+    opacity: 0 !important;
+    transform: translateX(-70px) !important;
+    transition: 0.4 ease-out !important;
+}
+
+.revealleft.show {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+}
+
+.revealright {
+    opacity: 0 !important;
+    transform: translateX(70px) !important;
+    transition: 0.4 ease-out !important;
+}
+
+.revealright.show {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+}
+
+.reveal2 {
+    opacity: 0 !important;
+    transform: translateY(80px) !important;
+    transition: 0.4s ease-out !important;
+}
+
+.reveal2.show {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.disable-scroll-reveal .reveal2 {
+    transition: none !important;
+}
 
 ::-webkit-scrollbar {
     width: 13px;
@@ -282,7 +318,6 @@ nav > div.inside a:hover {
 	display: none;
 	flex-direction: column;
 	justify-content: left;
-	align-items: left;
 	text-align: left;
 	height: calc(85vh - 20px);
 	width: 100vw;
@@ -323,11 +358,11 @@ footer {
 
 #pullup {
     position: fixed;
-    bottom: -100px;
+    bottom: -120px;
     left: 0;
     width: 100%;
     text-align: center;
-	height: 175px;
+	height: 200px;
     transition: bottom 0.25s ease-in-out;
     background: linear-gradient(to top, black 10%, transparent 90%);
 }
@@ -344,14 +379,14 @@ footer {
 
 .footer-info > p {
     font-family: salmapro, sans-serif;
-    font-size: 12pt;
+    font-size: 16pt;
     padding-left: 20px;
 	text-align: right;
 }
 
 .footer-info > div > p {
 	font-family: salmapro, sans-serif;
-    font-size: 9pt;
+    font-size: 13pt;
 }
 
 .hr-container > hr {
@@ -401,11 +436,9 @@ footer {
 
 .footer-img {
 	width: 100vw;
-	height: 30vh;
+	height: 20vh;
 	margin-bottom: 0px;
 	background-size: cover;
-	filter: blur(5px);
-	box-shadow: inset 0px 40px 60px 50px black;
 }
 
 /* HEADING STYLING */
@@ -440,6 +473,29 @@ footer {
 	font-size: 18pt;
 	margin-bottom: 30px;
 	text-transform: uppercase;
+}
+
+.linedtitle {
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+	margin: 50px 0;
+}
+
+.linedtitle h2 {
+	font-size: 23pt;
+	font-family: $salmapro;
+	letter-spacing: 2px;
+	text-align: center;
+}
+
+.linedtitle hr {
+    flex: 1;
+    max-width: 20vw;
+    border: none;
+    border-top: 3px solid white;
+	border-radius: 10px;
 }
 
 
@@ -597,7 +653,7 @@ footer {
 	
 	
 	#BPA-required-info > * > * {
-		font-size: 12pt;
+		font-size: 9pt;
 		margin-bottom: 2px;
 	}
 	
@@ -615,5 +671,15 @@ footer {
 	#pageTitle {
 		height: 50vh;
 		
+	}
+	
+	.linedtitle h2 {
+		font-size: 25pt;
+		text-decoration: underline;
+		text-underline-offset: 6px;
+	}
+	
+	.linedtitle hr {
+		display: none;
 	}
 }

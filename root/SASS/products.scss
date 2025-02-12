@@ -127,7 +127,6 @@
 .home-product-name {
   display: block;
   margin: 15px 50px 20px 0;
-  text-shadow: 0 0 10px black;
   color: white;
   opacity: 1;
   font-family: $salmapro;
@@ -139,7 +138,6 @@
 .home-product-price {
   color: white;
   opacity: 1;
-  text-shadow: 0 0 10px black;
   font-weight: bold;
   margin: 0;
   font-family: $swanbold;
@@ -218,8 +216,6 @@
 .home-size-button {
   background-color: black;
   border: 2px solid black;
-  border-radius-top-left: 5px;
-  border-radius-bottom-left: 5px;
   padding: 5px 10px;
   font-size: 14px;
   cursor: pointer;

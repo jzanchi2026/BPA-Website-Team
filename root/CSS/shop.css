@@ -30,6 +30,7 @@ body {
   background-size: cover;
   background-position: center;
   filter: saturate(200%);
+  border: 3px solid #222;
 }
 
 .boxes > div > h2 {
@@ -38,7 +39,7 @@ body {
   font-family: "swanbold", sans-serif;
   letter-spacing: 2px;
   text-shadow: black 0 0 20px;
-  background: rgba(7, 21, 64, 0.3);
+  background: rgba(29, 44, 99, 0.3);
   padding: 10px;
   text-transform: uppercase;
 }
@@ -91,7 +92,7 @@ body {
 }
 
 #showFilters {
-  background-color: #071540;
+  background-color: #1d2c63;
   color: white;
   height: 100%;
   width: 500px;
@@ -103,12 +104,12 @@ body {
 }
 
 #showFilters:hover {
-  background-color: #0037de;
+  background-color: #5066b6;
   transform: scale(1.03);
 }
 
 #hideFilters {
-  background-color: #071540;
+  background-color: #1d2c63;
   color: white;
   height: auto;
   width: calc(100% - 30px);
@@ -122,16 +123,16 @@ body {
 }
 
 #hideFilters:hover {
-  background-color: #0037de;
+  background-color: #5066b6;
   transform: scale(1.03);
 }
 
 input[type=checkbox] {
-  border: 2.5px solid #0037de;
+  border: 2.5px solid #5066b6;
 }
 
 input[type=checkbox]::before {
-  background: rgba(0, 55, 222, 0.5);
+  background: rgba(80, 102, 255, 0.5);
 }
 
 .checkbox-item {
@@ -150,12 +151,9 @@ input[type=checkbox]::before {
   background: rgba(0, 0, 0, 0.2);
   text-align: left;
   padding: 20px 10px;
-  margin: 400px;
-  background-color: #0f0f0f;
-}
-
-#categories {
   margin: 0;
+  background-color: #0f0f0f;
+  border: 3px solid #333;
 }
 
 .filter-group {
@@ -175,7 +173,7 @@ input[type=checkbox]::before {
 }
 
 #categories > h4 {
-  color: #7b82e8;
+  color: #7b90db;
   font-size: 15pt;
   margin: 30px 15px 0;
   padding: 10px;
@@ -192,7 +190,7 @@ input[type=checkbox]::before {
   padding: 10px;
   border: 3px solid black;
   background: rgb(0, 0, 0);
-  color: #0037de;
+  color: #5066b6;
   font-family: "areakilo", sans-serif;
 }
 
@@ -201,7 +199,7 @@ input[type=checkbox]::before {
   padding: 0 15px;
   margin-left: 45%;
   position: relative;
-  color: #0037de;
+  color: #5066b6;
   border: 3px solid black;
   border-radius: 0;
   font-size: 12pt;
@@ -214,13 +212,14 @@ input[type=checkbox]::before {
 
 #selection option {
   background-color: #333;
-  color: #7b82e8;
+  color: #7b90db;
   font-family: "areakilo", sans-serif;
 }
 
 #combined {
   width: 85%;
   background-color: #0f0f0f;
+  border: 3px solid #333;
   padding: 20px;
 }
 
@@ -324,7 +323,7 @@ input[type=checkbox]::before {
   .checkbox-item input {
     height: 25pt;
     width: 25pt;
-    border: 4px solid #0037de;
+    border: 4px solid #5066b6;
   }
   .checkbox-item label {
     font-size: 19pt;

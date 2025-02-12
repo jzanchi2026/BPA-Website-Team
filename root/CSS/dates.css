@@ -20,7 +20,7 @@
   position: relative;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 160px;
+  padding-bottom: 60px;
 }
 
 #bgg2 > div {
@@ -28,10 +28,39 @@
   padding: 40px 0;
   min-height: 300px;
   width: 90%;
+  border: 3px solid #333;
+}
+
+.mapspace {
+  margin: 0 auto;
+  width: calc(90vw - 140px);
+  position: relative;
+  margin-bottom: 100px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #111;
+  border: 3px solid #333;
+}
+
+.mapspace p {
+  font-family: "swanbold", sans-serif;
+  font-size: 14pt;
+  color: #7b90db;
+  width: 60%;
+  margin-bottom: 60px;
+}
+
+.mapspace img {
+  width: 70%;
+  height: auto;
+  margin: 20px auto;
 }
 
 #mainText {
-  color: #0037de;
+  color: #5066b6;
 }
 
 .tourdate {
@@ -60,7 +89,7 @@
 }
 
 .location > h2 {
-  color: #0037de;
+  color: #5066b6;
   font-family: "areakilo", sans-serif;
   font-size: 25pt;
   margin-bottom: 2px;
@@ -90,7 +119,7 @@
   height: 75px;
   border: 3px solid black;
   font-weight: bold;
-  background-color: #071540;
+  background-color: #1d2c63;
   padding: 5px 20px;
   margin: 0 10px;
   cursor: pointer;
@@ -100,7 +129,7 @@
 
 .tourdate > div > button:hover {
   transform: scale(1.03);
-  background-color: #0037de;
+  background-color: #5066b6;
 }
 
 /* TICKET SELECTION STYLING */
@@ -122,7 +151,7 @@
   align-items: center;
   justify-content: center;
   font-size: 12pt;
-  background-color: #071540;
+  background-color: #1d2c63;
   border: none;
   width: 4%;
   height: 80%;
@@ -130,7 +159,7 @@
 }
 
 #closeout button:hover {
-  background-color: #0037de;
+  background-color: #5066b6;
 }
 
 #ticketingInfo {
@@ -174,7 +203,7 @@
 
 #extraInfo h2 {
   margin: 10px;
-  color: #0037de;
+  color: #5066b6;
   font-family: "swanbold", sans-serif;
   text-transform: uppercase;
 }
@@ -182,7 +211,7 @@
 .extrainfotxt {
   margin: 5px 10px;
   font-family: "swanbold", sans-serif;
-  color: #7b82e8;
+  color: #7b90db;
   font-size: 13pt;
 }
 
@@ -236,14 +265,14 @@
 }
 
 .selectedSeat {
-  background-color: #0037de;
+  background-color: #5066b6;
 }
 
 #seatPricing p {
   font-family: "areakilo", sans-serif;
   font-size: 17pt;
   margin: 10px 10px 0;
-  color: #0037de;
+  color: #5066b6;
 }
 
 .quantity-container {
@@ -294,7 +323,7 @@
 
 #addToCart:hover {
   transform: scale(1.04);
-  color: #0037de;
+  color: #5066b6;
 }
 
 /* STADIUM BUILDING */
@@ -318,7 +347,7 @@
 }
 
 .topPiece h1 {
-  background-color: #0037de;
+  background-color: #5066b6;
   width: calc(100% - 20px);
   color: white;
   text-align: left;
@@ -351,7 +380,7 @@
 .stage {
   width: 70%;
   height: 40%;
-  color: #0037de;
+  color: #5066b6;
   font-family: "areakilo", sans-serif;
   background-color: black;
   justify-content: center;
@@ -424,7 +453,7 @@
 }
 
 .selectedSection {
-  background-color: #7b82e8;
+  background-color: #7b90db;
   color: white;
 }
 
@@ -550,6 +579,9 @@
   #ticketingInfo * {
     height: auto;
   }
+  .mapspace img {
+    width: 95%;
+  }
 }
 @media (max-width: 600px) {
   #contentdates > h1 {
@@ -557,6 +589,9 @@
   }
   #contentdates > h3 {
     width: 94vw;
+  }
+  .hide {
+    display: none;
   }
 }
 

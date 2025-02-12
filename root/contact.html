@@ -121,9 +121,13 @@
 		</div>
 		
 		<div id="contactteam">
-			
+			<div class="linedtitle">
+				<hr>
+				<h2>FORMS AND DOCUMENTS</h2>
+				<hr>
+			</div>
 			<div id="seeForms">
-				<div>
+				<div class="reveal">
 					<img style="aspect-ratio: 2 / 1" src="Images/strobinglights.jpg" alt="Picture of strobing lights">
 					<div>
 						<h2>BOOK STAGE FRIGHT</h2>
@@ -133,7 +137,7 @@
 						</div>
 					</div>    
 				</div>
-				<div>
+				<div class="reveal">
 					<div>
 						<h2>CUSTOMER SERVICE</h2>
 						<div>
@@ -143,7 +147,7 @@
 					</div>
 					<img style="aspect-ratio: 2 / 1" src="Images/microphone.jpg" alt="Picture of microphone">
 				</div>
-				<div>
+				<div class="reveal">
 					<img style="aspect-ratio: 2 / 1; transform: scaleX(-1)" src="Images/strobinglights.jpg" alt="Picture of strobing lights">
 					<div>
 						<h2>GENERAL INQUIRIES</h2>
@@ -153,7 +157,7 @@
 						</div>
 					</div>
 				</div>
-				<div>
+				<div class="reveal">
 					<div>
 						<h2>JOIN THE MAILING LIST</h2>
 						<div>
@@ -166,42 +170,42 @@
 			</div>
 
 			<div id="booking" class="form-popup">
-				<form>
+				<form id="bookingform">
 					<button class="close-btn" onclick="closeForm('booking')">X</button>				
 					<h2>Book Stage Fright</h2>
 					<div class="form-section-container">
 						<div class="form-section">
 							<label for="event-name">Event Name/Type:</label>
-							<input type="text" id="event-name" name="event-name" placeholder="e.g. Summer Music Festival" required>
+							<input type="text" id="event-name" name="eventname" placeholder="e.g. Summer Music Festival" required>
 
 							<label for="event-date">Event Date:</label>
-							<input type="date" id="event-date" name="event-date" required>
+							<input type="date" id="event-date" name="eventdate" required>
 
 							<label for="event-time">Event Time:</label>
-							<input type="time" id="event-time" name="event-time" required>
+							<input type="time" id="event-time" name="eventtime" required>
 
 							<label for="venue-location">Venue Location:</label>
-							<input type="text" id="venue-location" name="venue-location" placeholder="e.g. Doe Arena 281 First St." required>
+							<input type="text" id="venue-location" name="venuelocation" placeholder="e.g. Doe Arena 281 First St." required>
 						</div>
 
 						<div class="form-section">
 							<label for="contact-name">Your Name:</label>
-							<input type="text" id="contact-name" name="contact-name" placeholder="e.g. John Doe" required>
+							<input type="text" id="contact-name" name="contactname" placeholder="e.g. John Doe" required>
 
 							<label for="user-position">Your Position:</label>
-							<input type="text" id="user-position" name="user-position" placeholder="e.g. Executive Supervisor" required>
+							<input type="text" id="user-position" name="userposition" placeholder="e.g. Executive Supervisor" required>
 
 							<label for="contact-email">Email:</label>
-							<input type="email" id="contact-email" name="contact-email" placeholder="e.g. youremail@gmail.com" required>
+							<input type="email" id="contact-email" name="contactemail" placeholder="e.g. youremail@gmail.com" required>
 
 							<label for="pnumber2">Phone Number:</label>
-							<input type="tel" id="pnumber2" name="contact-phone" placeholder="e.g. (123) 456-7890" required>
+							<input type="tel" id="pnumber2" name="contactphone" placeholder="e.g. (123) 456-7890" required>
 						</div>
 					</div>
 
 					<div class="form-section-long">
 						<label for="additional-notes">Additional Notes:</label>
-						<textarea id="additional-notes" name="additional-notes" placeholder="e.g. Special conditions, Rain dates, etc." rows="4"></textarea>
+						<textarea id="additional-notes" name="additionalnotes" placeholder="e.g. Special conditions, Rain dates, etc." rows="4"></textarea>
 					</div>
 
 					<button type="submit">Send Booking Request</button>
@@ -209,8 +213,8 @@
 			</div>
 
 			<div id="customers" class="form-popup">			
-				<form>
-				<button class="close-btn" onclick="closeForm('customers')">X</button>
+				<form id="customerform">
+					<button class="close-btn" onclick="closeForm('customers')">X</button>
 					<h2>Customer Service</h2>
 					<div class="form-section-container">
 						<div class="form-section">
@@ -266,7 +270,7 @@
 			</div>
 			
 			<div id="signup" class="form-popup">			
-				<form>
+				<form id="signupform">
 					<button class="close-btn" onclick="closeForm('signup')">X</button>
 					<h2>Join the Mailing List</h2>
 					<label for="name3">Full Name:</label>
@@ -295,7 +299,6 @@
 					<button type="submit">Sign Up</button>
 				</form>
 			</div>
-
 			<div class="footer-img" style="background-position: bottom; background-image: url('Images/HEADINGS/cymbal.jpg')"></div>
 		</div>	
 	</body>

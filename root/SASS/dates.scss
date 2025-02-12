@@ -22,7 +22,7 @@
 	position: relative;
 	justify-content: space-between;
 	align-items: center;
-	padding-bottom: 160px;
+	padding-bottom: 60px;
 }
 
 #bgg2 > div {
@@ -30,10 +30,40 @@
 	padding: 40px 0;
 	min-height: 300px;
 	width: 90%;
+	border: 3px solid #333;
 }
 
 // TOUR HIGHLIGHT STYLING
 
+.mapspace {
+	margin: 0 auto;
+	width: calc(90vw - 140px);
+	position: relative;
+	margin-bottom: 100px;
+	padding: 40px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: #111;
+	border: 3px solid #333;
+}
+
+
+.mapspace p {
+	font-family: $swanbold;
+	font-size: 14pt;
+	color: $mainlight;
+	width: 60%;
+	margin-bottom: 60px;
+	
+}
+
+.mapspace img {
+	width: 70%;
+	height: auto;
+	margin: 20px auto;
+}
 
 
 // MAIN SCHEDULE STYLING
@@ -536,7 +566,7 @@
 	}
 	
 	#extraInfo h2 {
-		font-family: 31pt;
+		font-size: 31pt;
 	}
 	
 	.extrainfotxt {
@@ -601,6 +631,10 @@
 		height: auto;
 	}
 	
+	.mapspace img {
+		width: 95%;
+	}
+	
 }
 
 @media (max-width: 600px) {
@@ -612,7 +646,9 @@
 		width: 94vw;
 	}
 	
-	
+	.hide {
+		display: none;
+	}
 	
 	
 }

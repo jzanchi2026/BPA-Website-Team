@@ -24,7 +24,7 @@
   letter-spacing: 5px;
   font-family: "areakilo", sans-serif;
   padding: 0 60px 0 80px;
-  color: #0037de;
+  color: #5066b6;
   font-size: 7rem;
   text-align: left;
   margin-bottom: 10px;
@@ -113,7 +113,7 @@ input[type=checkbox] + label {
 }
 
 #seeForms > div button {
-  background-color: #0037de;
+  background-color: #5066b6;
   color: white;
   padding: 12px 20px;
   border: none;
@@ -127,7 +127,7 @@ input[type=checkbox] + label {
 }
 
 #seeForms > div button:hover {
-  background-color: #071540;
+  background-color: #1d2c63;
   transform: scale(1.02);
 }
 
@@ -168,7 +168,7 @@ input[type=checkbox] + label {
 
 .form-popup form h2 {
   font-family: "areakilo", sans-serif;
-  color: #0037de;
+  color: #5066b6;
   letter-spacing: 1px;
   font-size: 24px;
 }
@@ -177,7 +177,7 @@ input[type=checkbox] + label {
   position: absolute;
   top: 0px;
   right: 15px;
-  background-color: #0037de;
+  background-color: #5066b6;
   border: none;
   color: white;
   font-size: 15px;
@@ -193,12 +193,12 @@ input[type=checkbox] + label {
 }
 
 .close-btn:hover {
-  background-color: #071540;
+  background-color: #1d2c63;
 }
 
 label {
   display: block;
-  color: #0037de;
+  color: #5066b6;
   margin-top: 10px;
   font-family: "swanbold", sans-serif;
   font-weight: bold;
@@ -232,7 +232,7 @@ textarea {
 }
 
 button {
-  background-color: #0037de;
+  background-color: #5066b6;
   color: white;
   padding: 12px 20px;
   border: none;

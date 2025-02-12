@@ -355,12 +355,7 @@
 
 
 /* Responsive media queries */
-@media (max-width: 1208px) {
-	#bgg {
-		background-size: 100%;
-		background-position: center;
-	}
-	
+@media (max-width: 1208px) {	
 	#bgg > h3 {
 		font-size: 70pt;
 	}

@@ -865,6 +865,11 @@
 }
 
 /* Responsive Media Queries */
+@media (max-width: 1484px) {
+  .home-product-card {
+    width: 40%;
+  }
+}
 @media (max-width: 1224px) {
   /* Main shop queries */
   .product-card {
@@ -1052,10 +1057,16 @@
     height: 100%;
     max-width: 100%;
   }
+  .home-product-card {
+    width: 60%;
+  }
 }
 @media (max-width: 700px) {
   .product-name {
     font-size: 44pt;
+  }
+  .home-product-card {
+    width: 80%;
   }
   .product-price {
     font-size: 36pt;

@@ -89,6 +89,11 @@
   padding: 15px 40px;
 }
 
+#flexedalbums {
+	display: flex; 
+	gap: 15px;
+}
+
 #albumsnap h2 {
   font-family: $areakilo;
   font-size: 35pt;
@@ -355,8 +360,7 @@
 
 
 /* Responsive media queries */
-@media (max-width: 1208px) {
-	
+@media (max-width: 1208px) {	
 	#bgg > h3 {
 		font-size: 70pt;
 	}
@@ -368,8 +372,7 @@
 	}
 
 	#decorb {
-		transform: scaleY(3);
-		bottom: 0px;
+		display: none;
 	}
 	
 	#decorb2 {
@@ -386,6 +389,75 @@
 		left: 3%;
 	}
 	
+	#albumsnap h2, #toursnap h2 {
+		font-size: 37pt;
+	}
+	
+	#flexedsnapscont {
+		width: 95%;
+		padding: 0;
+		margin: 0 auto;
+	}
+	
+	.albumsnapbutton {
+		font-size: 30pt;
+	}
+
+	.albumcontainer > h3 {
+		font-size: 28pt;
+	}
+	
+	#flexedalbums {
+		flex-direction: column;
+	}
+	
+	.play-pause {
+		font-size: 25pt;
+	}
+	
+	.timestamp {
+		font-size: 23pt;
+	}
+	
+	.progress {
+		height: 130px;
+	}
+	
+	#toursnap > p {
+		font-size: 22pt;
+		margin-bottom: 30px;
+	}
+	
+	.scroll-arrow {
+		font-size: 20pt;
+		width: 10%;
+	}
+	
+	.left-arrow {
+	  left: -3px;
+	}
+
+	.right-arrow {
+	  right: -13px;
+	}
+	
+	#toursnaparea {
+		padding: 1rem 60px 1rem 80px;
+		width: calc(100% - 140px);
+	}
+	
+	.event-location {
+		font-size: 35pt;
+	}
+	
+	.event-date-time, .event-address, .event-lineup, .event-blurb {
+		font-size: 21pt;
+	}
+	
+	.event-tour-button {
+		font-size: 24pt;
+	}
+	
 }
 
 @media (max-width: 770px) {
@@ -398,22 +470,43 @@
 		top: 320px;
 		left: 3%;
 	}
-  #second {
-    height: 50vh;
-  }
-  .snaps > h1 {
-    font-size: 36pt;
-  }
-  #toursnap {
-    width: 90vw;
-    height: 40vh;
-    margin-left: 0;
-  }
+
   #albumsnap, #toursnap {
     width: 90vw;
     height: 40vh;
-    margin-right: 0;
+	margin: 30px auto;
   }
+	#flexedsnapscont {
+		margin: 0;
+	}
+	
+	.play-pause {
+		font-size: 20pt;
+	}
+	
+	.timestamp {
+		font-size: 23pt;
+	}
+	
+	.progress {
+		height: auto;
+	}
+	
+	.albumsnapbutton {
+		font-size: 25pt;
+	}
+	
+	.event-location {
+		font-size: 29pt;
+	}
+	
+	.event-date-time, .event-address, .event-lineup, .event-blurb {
+		font-size: 18pt;
+	}
+	
+	.event-tour-button {
+		font-size: 20pt;
+	}
 }
 
 /*# sourceMappingURL=index.css.map */

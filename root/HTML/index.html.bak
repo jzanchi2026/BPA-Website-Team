@@ -131,13 +131,13 @@
 				<div id="flexedsnapscont">
 					<div class="snaps" id="albumsnap">
 						<h2>ALBUM SPOTLIGHT</h2>
-						<div style="display: flex; gap: 15px;">
+						<div id="flexedalbums" style="display: flex; gap: 15px;">
 							<div class="albumcontainer">
 								<div class="image-wrapper">
 									<img src="../Images/ABOUTUS/silentovation.png" alt="Album 1">
 									<div class="overlay">
 										<div>
-											<button class="albumsnapbutton" data-href="about.html">SEE MORE</button>
+											<button class="albumsnapbutton" data-href="about.html" onclick="fadeout(event)">SEE MORE</button>
 											<div class="audio-player">
 												<button class="play-pause">▶</button>
 												<input type="range" class="progress" value="0" step="1" min="0" max="100">
@@ -157,7 +157,7 @@
 									<img src="../Images/ABOUTUS/heartbreakb.png" alt="Album 2">
 									<div class="overlay">
 										<div>
-											<button class="albumsnapbutton" data-href="about.html">SEE MORE</button>
+											<button class="albumsnapbutton" data-href="about.html" onclick="fadeout(event)">SEE MORE</button>
 											<div class="audio-player">
 												<button class="play-pause">▶</button>
 												<input type="range" class="progress" value="0" step="1" min="0" max="100">
@@ -177,7 +177,7 @@
 									<img src="../Images/ABOUTUS/fadetoblack.png" alt="Album 3">
 									<div class="overlay">
 										<div>
-											<button class="albumsnapbutton" data-href="about.html">SEE MORE</button>
+											<button class="albumsnapbutton" data-href="about.html" onclick="fadeout(event)">SEE MORE</button>
 											<div class="audio-player">
 												<button class="play-pause">▶</button>
 												<input type="range" class="progress" value="0" step="1" min="0" max="100">

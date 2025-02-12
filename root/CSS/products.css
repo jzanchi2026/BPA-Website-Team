@@ -146,10 +146,12 @@
 
 .home-product-price s {
   color: gray;
+  font-family: "radlushmed", sans-serif;
 }
 
 .home-product-price span {
   color: #7b82e8;
+  font-family: "radlushmed", sans-serif;
 }
 
 .home-product-card .icon-bar {
@@ -947,10 +949,10 @@
     transform: scale(1.15);
   }
   .tag {
-    font-size: 25pt;
+    font-size: 19pt;
   }
   .title {
-    font-size: 65pt;
+    font-size: 50pt;
   }
   .creator {
     font-size: 23pt;
@@ -967,6 +969,7 @@
   }
   .size-chart-toggle {
     font-size: 23pt;
+    width: auto;
   }
   .size-chart-wrapper {
     overflow-y: auto;
@@ -1007,7 +1010,7 @@
     font-size: 50pt;
   }
   .cart-popup-item-prices p {
-    font-size: 25pt;
+    font-size: 19pt;
   }
   .cart-popup-item-prices button {
     transform: scale(1.4);
@@ -1017,7 +1020,7 @@
     transform: scale(1.45);
   }
   .cart-popup-item-name {
-    font-size: 23pt;
+    font-size: 18pt;
   }
   .cart-popup-item-size,
   .cart-popup-item-price {
@@ -1062,17 +1065,8 @@
   }
 }
 @media (max-width: 700px) {
-  .product-name {
-    font-size: 44pt;
-  }
   .home-product-card {
     width: 80%;
-  }
-  .product-price {
-    font-size: 36pt;
-  }
-  #pagination button {
-    font-size: 21pt;
   }
   .flexed .side-two, .flexed .side-one {
     padding: 0px;

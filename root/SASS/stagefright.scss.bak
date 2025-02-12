@@ -234,6 +234,7 @@ nav > div.inside:nth-of-type(2) a:hover:nth-child(2) {
     pointer-events: none;
 	display: none;
 	transition: 0.3s ease-in-out;
+	font-family: $radlushmed;
 }
 
 .pink-cart {
@@ -502,7 +503,7 @@ footer {
 
 /* MEDIA QUERIES FOR GENERAL STYLING */
 
-@media (max-width: 950px) {
+@media (max-width: 1100px) {
 	
 	.inside a {
 		font-size: 1.5vw;	
@@ -598,7 +599,7 @@ footer {
 	}
 	
 	#pageTitle h1 {
-		font-size: 65pt;
+		font-size: 40pt;
 	}
 	
 }

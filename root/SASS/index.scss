@@ -19,7 +19,6 @@
   position: absolute;
   transition: transform 0.1s ease-out;
   font-size: 6vw;
-  text-shadow: 0px 0px 10px black;
   z-index: 4;
   cursor: default;
   font-family: $areakilo;
@@ -138,7 +137,6 @@
 	text-align: center;
 	font-size: 18pt;
 	margin: 20px 0;
-	text-shadow: 0 0 20px black;
 }
 
 #flexedsnapscont {
@@ -254,7 +252,6 @@
 .toursnap-container {
   position: relative;
   width: 95%;
-  background-color: red;
   margin: 15px auto;
 }
 

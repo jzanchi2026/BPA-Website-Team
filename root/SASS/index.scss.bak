@@ -254,7 +254,6 @@
 .toursnap-container {
   position: relative;
   width: 95%;
-  background-color: red;
   margin: 15px auto;
 }
 
@@ -472,7 +471,7 @@
 	}
 
   #albumsnap, #toursnap {
-    width: 90vw;
+    width: 100vw;
     height: 40vh;
 	margin: 30px auto;
   }

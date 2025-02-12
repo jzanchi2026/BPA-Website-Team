@@ -276,7 +276,7 @@ input[type="checkbox"]::before {
 	.boxes {
 		display: flex;
 		flex-direction: column;
-		height: auto;
+		height: 600px;
 		margin: 0 auto;
 		width: 100%;
 	}
@@ -315,7 +315,7 @@ input[type="checkbox"]::before {
 	#categories {
 		opacity: 0;
 		padding: 10px;
-		width: 90vw;
+		width: 83vw;
 		height: 90vh; 
 		z-index: 300;
 		position: fixed;
@@ -332,21 +332,21 @@ input[type="checkbox"]::before {
 	}
 	
 	#categories > h2 {
-		font-size: 43pt;
+		font-size: 30pt;
 	}
 	
 	#categories > h4 {
-		font-size: 38pt;
+		font-size: 28pt;
 	}
 	
 	.checkbox-item input {
-		height: 35pt;
-		width: 35pt;
+		height: 25pt;
+		width: 25pt;
 		border: 4px solid $main;
 	}
 	
 	.checkbox-item label {
-		font-size: 31pt;
+		font-size: 19pt;
 	}
 
 	#showFilters {

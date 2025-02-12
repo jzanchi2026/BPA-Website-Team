@@ -147,11 +147,13 @@
 }
 
 .home-product-price s {
-  color: gray;
-}
+	color: gray;
+	font-family: $radlushmed;	
+}	
 
 .home-product-price span {
-  color: $mainlight;
+	color: $mainlight;
+	font-family: $radlushmed;
 }
 
 .home-product-card .icon-bar {
@@ -969,11 +971,11 @@
 	}
 	
 	.tag {
-	  font-size: 25pt;
+	  font-size: 19pt;
 	}
 	
 	.title {
-	  font-size: 65pt;
+	  font-size: 50pt;
 	}
 	
 	.creator {
@@ -995,6 +997,7 @@
 	
 	.size-chart-toggle {
 	  font-size: 23pt;
+	  width: auto;
 	}
 	
 	.size-chart-wrapper {
@@ -1048,7 +1051,7 @@
 	}
 	
 	.cart-popup-item-prices p {
-	  font-size: 25pt;
+	  font-size: 19pt;
 	}
 	
 	.cart-popup-item-prices button {
@@ -1061,7 +1064,7 @@
 	}
 
 	.cart-popup-item-name {
-	  font-size: 23pt;
+	  font-size: 18pt;
 	}
 	
 	.cart-popup-item-size,
@@ -1120,22 +1123,10 @@
 }
 
 @media (max-width: 700px) {
-	  .product-name {
-		font-size: 44pt;
-	  }
 	  
 	  .home-product-card {
 		width: 80%;
 	}
-
-	  .product-price {
-		font-size: 36pt;
-	  }
-
-	  #pagination button {
-		font-size: 21pt;
-	  }
-	
 	.flexed .side-two, .flexed .side-one {
 		padding: 0px;
 		transform: scale(0.95)

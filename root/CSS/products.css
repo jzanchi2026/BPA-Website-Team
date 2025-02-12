@@ -1033,6 +1033,18 @@
   .cart-popup-item-quantity button, .cart-popup-item-quantity {
     font-size: 19pt;
   }
+  .home-product-card {
+    width: 40%;
+  }
+  .home-product-name {
+    font-size: 30pt;
+  }
+  .home-product-price {
+    font-size: 20pt;
+  }
+  .home-size-button {
+    font-size: 18pt;
+  }
 }
 @media (max-width: 800px) {
   .cart-popup-content {
@@ -1041,7 +1053,7 @@
     max-width: 100%;
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   .product-name {
     font-size: 44pt;
   }

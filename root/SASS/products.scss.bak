@@ -84,16 +84,17 @@
 /* FEATURED HOME CONTENT */
 .home-product-card {
   text-align: left;
-  width: calc((75% - 92px) / 2);
-  height: 32.5%;
+  width: calc((90% - 120px) / 4);
+  height: 100%;
+  aspect-ratio: 1 / 1;
   padding: 15px;
   display: inline-block;
   cursor: pointer;
-  border: 3px solid black;
+  border: 3px solid #333;
   background-size: cover;
   background-position: center;
   border-radius: 10px;
-  margin: 5px;
+  margin: 5px 15px;
   position: relative;
   overflow: hidden;
 }
@@ -105,7 +106,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(36, 45, 48, 0.6);
+  background: $maindarkrgba;
   opacity: 0;
   transition: opacity 0.3s;
   z-index: 1;
@@ -128,23 +129,21 @@
   margin: 15px 50px 20px 0;
   text-shadow: 0 0 10px black;
   color: white;
-  opacity: 0.5;
-  font-family: $radlushmed;
+  opacity: 1;
+  font-family: $salmapro;
   text-decoration: none;
   font-weight: bold;
-  font-size: 18pt;
-}
-
-.home-product-name.limited {
-  color: $accent;
+  font-size: 23pt;
 }
 
 .home-product-price {
   color: white;
-  opacity: 0.5;
+  opacity: 1;
   text-shadow: 0 0 10px black;
   font-weight: bold;
   margin: 0;
+  font-family: $radlushmed;
+  font-size: 14pt;
 }
 
 .home-product-price s {
@@ -160,15 +159,15 @@
   top: 0;
   right: 0;
   width: 50px;
-  height: calc(100% - 40px);
-  background-color: black;
+  height: 100%;
+  background-color: $maindark;
   display: flex;
   flex-direction: column;
   padding: 20px 5px 20px 0;
   align-items: center;
   gap: 10px;
   opacity: 0;
-  border-left: 3px solid black;
+  border-left: 3px solid $maindark;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
   transition: background-color 0.3s, border-color 0.3s;
@@ -211,6 +210,7 @@
   gap: 7px;
   transition: transform 0.3s ease, opacity 0.3s ease;
   z-index: 3;
+  height: 100%;
 }
 
 .home-size-button {
@@ -954,7 +954,7 @@
 	}
 	
 	.image-preview-container {
-		gap: 50px;
+		gap: 30px;
 		bottom: 45px;
 	}
 	
@@ -1079,9 +1079,28 @@
 	  width: 100%;
 	}
 	
-	
 	.cart-popup-item-quantity button, .cart-popup-item-quantity {
 	  font-size: 19pt;
+	}
+	
+	.home-product-card {
+		width: 40%;
+	}
+	
+	.home-product-name {
+		font-size: 30pt;
+	}
+	
+	.home-product-price {
+		font-size: 20pt;
+	}
+	
+	.home-product-card .icon-bar img {
+		height: 40px;
+	}
+	
+	.home-size-button {
+		font-size: 18pt;
 	}
   
 }
@@ -1094,7 +1113,7 @@
 	}
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
 	  .product-name {
 		font-size: 44pt;
 	  }

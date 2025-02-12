@@ -80,10 +80,6 @@
   padding: 40px;
 }
 
-.snaps > h1 {
-  font-size: 60pt;
-}
-
 .shopsnap {
   background-color: rgba(7, 21, 64, 0.5);
   text-align: center;
@@ -365,9 +361,11 @@
     display: none;
   }
   #decorb {
-    position: absolute;
-    transform: scaleY(2);
+    transform: scaleY(3);
     bottom: 0px;
+  }
+  #decorb2 {
+    display: none;
   }
   #scrollingText {
     top: 250px;
@@ -383,12 +381,9 @@
     font-size: 12vw;
     letter-spacing: 7px;
   }
-  #scrollingText {
-    transform: translateX(0%);
-  }
   #otherscrolling {
-    top: 230px;
-    transform: translateX(0%);
+    top: 320px;
+    left: 3%;
   }
   #second {
     height: 50vh;
